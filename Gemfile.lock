@@ -90,6 +90,7 @@ GEM
     yell (2.2.2)
 
 PLATFORMS
+  arm64-darwin-20
   arm64-darwin-21
 
 DEPENDENCIES
@@ -101,7 +102,7 @@ DEPENDENCIES
   kramdown-parser-gfm
 
 RUBY VERSION
-   ruby 3.1.0p0
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.3.5
