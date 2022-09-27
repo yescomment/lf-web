@@ -23,6 +23,7 @@ twitter_username:
 github_username:
 seo_image_path: #'/images/media/filename.jpg'
 
+permalink: pretty
 # Build settings
 markdown: kramdown
 plugins:
@@ -40,3 +41,9 @@ timezone: America/New_York
 # Folder Structure
 source: ./source
 # sass_dir: source/css
+
+collections:
+  components:
+    output: false
+  colors:
+    output: false

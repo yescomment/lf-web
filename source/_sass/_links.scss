@@ -1,0 +1,31 @@
+.link {
+  
+  color: $black;
+  transition-duration: 0.4s;
+  text-underline-offset: 2px;
+  &:hover, &:focus {
+    color: rgba($black, 0.5);
+  }
+}
+
+.link--arrow {
+  @include all-caps-text;
+  font-family: $sans-serif;
+  text-decoration: none;
+  font-size: $h6;
+  font-weight: 700;
+  &:after {
+    transition-duration: 0.4s;
+    @extend .u-material-icons;
+    // content: url('../images/icons/east_black_24dp.svg');
+    content: url('../images/icons/arrow_forward_black_24dp.svg');
+    vertical-align: bottom;
+    margin-left: .25rem; 
+  }
+  &:hover {
+    &:after {
+      filter: opacity(50%)
+    }
+  }
+}
+

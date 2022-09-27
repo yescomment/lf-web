@@ -1,0 +1,18 @@
+.tag-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tag {
+    font-size: $h6;
+    font-family: $sans-serif;
+    font-weight: 700;
+    color: $white;
+    border-radius: 4rem;
+    padding: 4px 16px;
+    display: inline-block;
+}
+
+.tag--orange, .tag--patent { background-color: $orange-100;}
+.tag--blue, .tag--something, .tag--fashion { background-color: $blue-100;}
+.tag--green, .tag--open-source-hardware, .tag--technology { background-color: $green-100;}

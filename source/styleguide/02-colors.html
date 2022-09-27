@@ -1,0 +1,21 @@
+---
+title: Styleguide - Colors
+layout: styleguide
+colors: [$white, $black, $black-50, $purple-100, $blue-100, $green-100, $orange-100, $yellow-100, $pink-100, $sky-blue-100]
+---
+
+
+<div class="styleguide-header">
+  <h1>Colors</h1>
+</div>
+<section id="styleguide">
+  <div class="row expanded">
+    {% for color in page.colors %}
+    <div class="column">
+      <div class="color__tile color__tile--{{ color | replace: '$','' }}">
+        <code class="color__name">{{color}}</code>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

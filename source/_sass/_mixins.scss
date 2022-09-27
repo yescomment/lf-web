@@ -1,0 +1,73 @@
+/* Layout mixins */
+
+@mixin page-section-padding {
+  padding: 0 6rem;
+  @include breakpoint($medium-only) {
+    padding: 0 2rem;
+  }
+  @include breakpoint($small-only) {
+    padding: 0 2rem;
+  }
+}
+
+@mixin column-padding {
+  padding: 0 1rem;
+}
+
+@mixin no-column-padding {
+  padding: 0;
+}
+
+@mixin inverted-section {
+  color: $white;
+  background-color: $black;
+    h1, h2, h3, h4, h5, h6, p, span {
+      color: $white;
+      background-color: $black;
+    }
+}
+
+@mixin uninverted-section {
+  color: $black;
+  background-color: $white;
+  h1, h2, h3, h4, h5, h6, p, span {
+    color: $black;
+    background-color: $white;
+  }
+}
+
+
+/* Typography Mixins*/
+
+@mixin all-caps-text {
+  font-size: $h6;
+  text-transform: uppercase !important;
+  font-weight: 700;
+} 
+
+@mixin inverted-text {
+  color: $white;
+}
+
+.u-material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}

@@ -7,18 +7,33 @@ $small-only: screen and (max-width: 39.9375em);
 $touch: screen and (max-width: 64em);
 $medium: screen and (min-width: 40em);
 $medium-only: screen and (min-width: 40em) and (max-width: 63.9375em);
+$between-large: screen and (min- width: 1024px) and (max-width: 1260px);
 $large: screen and (min-width: 64em);
 
+@import 'mixins';
+@import 'colors';
+@import 'typography';
 @import 'breakpoint';
 @import 'base';
+@import 'styleguide';
+@import 'links';
+@import 'button';
+@import 'tags';
+@import 'layout';
+@import 'cards';
 
-$white: #FFFFFF;
-$black: #000000;
-$gray-300: #24292C;
-$gray-200: #696C6D;
-$gray-100: #F8F8F8;
-$yellow: #EEC357;
-$purple: #5A43ED;
-$blue-200: #252346;
-$blue-100: #30AAB3;
-$red: #E64448;
+div, .row, .column {
+  @include breakpoint($large) {
+    outline: red solid 1px;
+  }
+  @include breakpoint($between-large) {
+    outline: pink solid 1px;
+  }
+  @include breakpoint($medium-only) {
+    outline: blue solid 1px;
+  }
+  @include breakpoint($small-only) {
+    outline: green solid 1px;
+  }
+  outline: yellow solid 1px;
+}
