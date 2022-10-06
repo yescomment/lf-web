@@ -34,3 +34,19 @@
     }
   }
 }
+
+.button--menu {
+  background-color: $purple-100;
+  &:after {
+    content: "more_vert";
+    @extend .u-material-icons;
+    font-size: 3.5rem;
+    margin-left: -.8rem;
+  }
+  &:hover, &:visited {
+    border-color: rgba($purple-100, 0.8);
+    background-color: rgba($purple-100, 0.8);
+  }
+  border-radius: 0;
+  width: 2.4rem;
+}
