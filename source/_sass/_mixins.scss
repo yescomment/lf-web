@@ -1,7 +1,7 @@
 /* Layout mixins */
 
 @mixin page-section-padding {
-  padding: 0 6rem;
+  padding: 4rem 6rem;
   @include breakpoint($medium-only) {
     padding: 0 2rem;
   }
@@ -74,4 +74,17 @@
 
 .transition {
   transition-duration: 0.4s;
+}
+
+// accessibility helpers
+// https://www.w3.org/WAI/tutorials/forms/labels/
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

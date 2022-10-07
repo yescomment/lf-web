@@ -29,3 +29,13 @@
   }
 }
 
+.link--arrow.inverted {
+  color: $white;
+  &:after {
+    content: url('../images/icons/arrow_forward_white_24dp.svg');
+  }
+  &:hover {
+    filter: opacity(50%);
+  }
+}
+

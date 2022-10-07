@@ -4,6 +4,169 @@ title: Objectively Boilerplate V2
 subtitle: Jekyll, Gulp 4
 description:
 seo_image_path: #'/images/media/filename.jpg'
+event_cards:
+  - title: Rude Citizenship
+    type: book talk
+    date: April, 04, 2022
+  - title: 2022 Tri-State Region IP Workshop
+    type: workshop
+    date: April, 04, 2022
+  - title: The Normalizing Gaze
+    type: speaker series
+    date: April, 04, 2022
+  - title: Could the Internet Break Democracy?
+    type: webinar
+    date: April, 04, 2022
+featured_project_card:
+  - title: GLAM 3D
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime iste dignissimos explicabo quasi minima quod fuga soluta amet, impedit sit.
+    authors:
+      - Thomas Flynn
+      - Neal Stimler
+      - Michael Weinberg
+    tags:
+      - Open Source Hardware
+podcast:
+  title: Engleberg Center Live!
+  description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, error fuga! Natus mollitia ut sunt placeat, laudantium tenetur eaque. At!
+  episode_title: This Podcast Episode
+  episode: S1 EP 4
+twitter_feed:
+  - twitter_name: Twitter Name 1
+    twitter_handle: twitter_handle_1
+    twitter_content: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, molestias!
+  - twitter_name: Twitter Name 2
+    twitter_handle: twitter_handle_2
+    twitter_content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam rerum cum ea adipisci molestiae similique unde? Nesciunt necessitatibus hic voluptates.
+  - twitter_name: Twitter Name 3
+    twitter_handle: twitter_handle_3
+    twitter_content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, blanditiis sapiente quia quae minima hic.
+news_feed:
+  - title: High Court's Tricky Task in Warhol Case Carries Big Implications
+    author: Expert Name
+    publication: Publication Name
+    date: April 3, 2022
+    content: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error at praesentium sed quo ab, temporibus dolorem enim placeat porro perspiciatis.
+  - title: High Court's Tricky Task in Warhol Case Carries Big Implications
+    author: Expert Name
+    publication: Publication Name
+    date: April 3, 2022
+    content: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum reiciendis nisi officiis impedit aut est nobis delectus deserunt dolores quibusdam ipsam dolore eum dolor molestiae, aliquam nihil, autem non eveniet.
+  - title: High Court's Tricky Task in Warhol Case Carries Big Implications
+    author: Expert Name
+    publication: Publication Name
+    date: April 3, 2022
+    content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint, aliquam suscipit consectetur facere distinctio dolor repellendus magni temporibus non ipsam nesciunt reprehenderit blanditiis vel?
 ---
 
-<main role="main" id="index"><!-- main content starts here --></main>
+<main role="main" id="index">
+  <!-- main content starts here -->
+  <!-- FEATURED PROJECT CARD  -->
+  <div class="row expanded section--gray top-section">
+    <div class="column large-5 medium-12 small-12">
+      <h1 class="visually-hidden">Engelberg Center on Innovation Law & Policy: NYU School of Law</h1>
+      <div class="main-header" aria-hidden="true">
+        <div class="logo-container"></div>
+        <span class="main-header-one">Engelberg</span>
+        <span class="main-header-one">Center</span>
+        <span class="main-header-two">on Innovation Law & Policy</span>
+        <span class="main-header-three">NYU School of Law</span>
+      </div>
+      <div class="button-container">
+        <a class="button button--arrow" href="#">About the Engelberg Center</a>
+      </div>
+    </div>
+    <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
+      <h3 class="heading-c">Featured Research</h3>
+
+      {% include components/card-featured.html 
+        project=page.featured_project_card
+      %}
+
+      <div class="button-container button-container--right">
+        <a class="button button--arrow" href="#">All Engelberg Center Research</a>
+      </div>
+    </div>
+  </div>
+  <!-- END FEATURED PROJECT CARD  -->
+
+  <!-- PODCAST CARD with header, title, episode image, episode description, player -->
+  <!-- Layout 2 -->
+  <div class="row expanded inverted-section">
+    <div class="column large-4 medium-12 small-12">
+      {% include components/card-podcast.html
+        podcast=page.podcast
+      %}
+    </div>
+    <div class="column large-7 large-offset-1 medium-12 small-12">
+      <h3 class="heading-b">Engelberg Center Students</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid
+        accusantium, dolorem odit reiciendis quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum
+        debitis possimus. Libero, minus quia dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo
+        architecto exercitationem provident? Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non
+        beatae sit animi quae amet, aliquam, reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo,
+        obcaecati officiis qui impedit officia accusamus labore architecto velit repellat eius atque quasi! Assumenda
+        aliquam quaerat eveniet tempora sequi! Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore
+        accusamus laboriosam, ab in suscipit consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae
+        nisi. Doloribus, eos. Omnis quis tenetur dolor laborum voluptatem optio alias fugit consequatur? Dignissimos
+        repellat, iste distinctio aperiam amet dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed
+        libero tempora praesentium earum minima similique facilis eum sint porro! Dolores rem eos praesentium mollitia
+        facere suscipit vel iste sunt maxime. Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt
+        blanditiis officiis provident eum dolores consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta
+        culpa. Culpa expedita, atque quaerat, doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo
+        iure! Ut, laudantium quisquam!
+      </p>
+      <a class="link link--arrow inverted" href="#">Learn More</a>
+    </div>
+  </div>
+
+  <!-- END PODCAST CARD  -->
+
+  <!-- Layout 2 -->
+  <div class="row expanded">
+    <div class="column large-4 medium-12 small-12">
+      <h3 class="heading-b">Twitter</h3>
+      <div class="twitter-feed__container">
+        {% for tweet in page.twitter_feed %} 
+          {% include components/twitter-item.html
+            avatar_src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs"
+            twitter_name=tweet.twitter_name 
+            twitter_handle=tweet.twitter_handle 
+            twitter_content=tweet.twitter_content 
+          %} 
+        {%
+        endfor %}
+      </div>
+    </div>
+    <div class="column large-7 large-offset-1 medium-12 small-12">
+      <h3 class="heading-b">In the News</h3>
+      <div class="news-feed__container">b
+        {% for item in page.news_feed %} {% include components/news-item.html title=item.title
+        publication=item.publication date=item.date author=item.author content=item.content %} {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- END LAYOUT 2 -->
+  <!-- EVENT CARD with date, title, type  -->
+  <div class="row expanded row--flex">
+    <div class="column large-12 small-12 no-padding">
+      <h3 class="heading-b">Upcoming Events</h3>
+    </div>
+
+    {% for card in page.event_cards %}
+    <div class="card card--event">
+      <div
+        class="card__image"
+        style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
+      ></div>
+      <div class="card__detail">
+        <span class="card__date">{{ card.date }}</span>
+        <span class="card__title">{{ card.title }}</span>
+        <span class="card__type">{{ card.type }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- END EVENT CARD  -->
+</main>

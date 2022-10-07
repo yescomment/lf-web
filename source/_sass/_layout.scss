@@ -37,11 +37,15 @@
   background-repeat: no-repeat;
 }
 
+.column--heading h3{
+  margin: 0;
+}
 
 .row--flex {
   display: flex;
   justify-content: space-between;
 }
+
 #general-page {
   h1 {
     font-size: $h2;

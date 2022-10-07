@@ -1,5 +1,7 @@
 /* GLOBAL Card Styles */
 .card {
+  background-color: transparentize($gray-200, 0.1);
+  // background-color: $gray-100;
   font-family: $sans-serif;
   box-shadow: 10px 10px 30px #00000033;
   border-radius: 16px;
@@ -102,7 +104,7 @@
 .card--event {
   height: 22rem; // event and resource cards have different heights
   .card__image {
-    border-radius: 20px 20px 0 0;
+    border-radius: 16px 16px 0 0;
     height: 10rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -243,7 +245,7 @@
   }
 
   .card__title {
-    outline: red solid 1px;
+
     width: 70%;
     font-size: $h3;
     letter-spacing: 0px;

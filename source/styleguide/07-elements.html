@@ -1,0 +1,60 @@
+---
+title: Styleguide - Elements
+layout: styleguide
+twitter_feed:
+  - twitter_name: Twitter Name 1
+    twitter_handle: twitter_handle_1
+    twitter_content: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, molestias!
+  - twitter_name: Twitter Name 2
+    twitter_handle: twitter_handle_2
+    twitter_content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam rerum cum ea adipisci molestiae similique unde? Nesciunt necessitatibus hic voluptates.
+  - twitter_name: Twitter Name 3
+    twitter_handle: twitter_handle_3
+    twitter_content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, blanditiis sapiente quia quae minima hic.
+news_feed:
+  - title: High Court's Tricky Task in Warhol Case Carries Big Implications
+    author: Expert Name
+    publication: Publication Name
+    date: April 3, 2022
+    content: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error at praesentium sed quo ab, temporibus dolorem enim placeat porro perspiciatis.
+  - title: High Court's Tricky Task in Warhol Case Carries Big Implications
+    author: Expert Name
+    publication: Publication Name
+    date: April 3, 2022
+    content: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum reiciendis nisi officiis impedit aut est nobis delectus deserunt dolores quibusdam ipsam dolore eum dolor molestiae, aliquam nihil, autem non eveniet.
+  - title: High Court's Tricky Task in Warhol Case Carries Big Implications
+    author: Expert Name
+    publication: Publication Name
+    date: April 3, 2022
+    content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint, aliquam suscipit consectetur facere distinctio dolor repellendus magni temporibus non ipsam nesciunt reprehenderit blanditiis vel?
+---
+
+<!-- Layout 2 -->
+<div class="row expanded">
+  <div class="column large-4 medium-12 small-12">
+    <h3 class="heading-b">Twitter</h3>
+    <div class="twitter-feed__container">
+      {% for tweet in page.twitter_feed %} 
+        {% include components/twitter-item.html
+          avatar_src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs"
+          twitter_name=tweet.twitter_name twitter_handle=tweet.twitter_handle twitter_content=tweet.twitter_content 
+        %} 
+      {% endfor %}
+    </div>
+  </div>
+  <div class="column large-7 large-offset-1 medium-12 small-12">
+    <h3 class="heading-b">In the News</h3>
+    <div class="news-feed__container">
+      {% for item in page.news_feed %}
+        {% include components/news-item.html 
+          title=item.title 
+          publication=item.publication 
+          date=item.date 
+          author=item.author 
+          content=item.content
+        %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- END LAYOUT 2 -->
