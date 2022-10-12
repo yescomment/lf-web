@@ -129,7 +129,10 @@ podcast:
 <div class="row expanded">
   <h3>People Card Section Heading</h3>
  </div>
-    <div class="row expanded row--flex">
+    <div class="row expanded">
+      <div class="cards-wrapper">
+
+
       {% for card in page.people %} 
       <div class="card card--people">
         <div class="card__avatar-wrapper">
@@ -144,6 +147,7 @@ podcast:
         </div>
       </div>
       {% endfor %}
+      </div>
     </div>
 </div>
 <!-- END PEOPLE CARDS  -->
@@ -153,7 +157,8 @@ podcast:
 <div class="row expanded">
   <h3>Project Card Section Heading</h3>
  </div>
-    <div class="row expanded row--flex">
+    <div class="row expanded">
+      <div class="cards-wrapper">
       {% for card in page.project_cards %} 
       <div class="card card--project">
         <div class="card__image" style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')">
@@ -164,6 +169,7 @@ podcast:
         </div>
       </div>
       {% endfor %}
+    </div>
     </div>
 </div>
 <!-- END PROJECT CARDS  -->
@@ -176,7 +182,10 @@ podcast:
 <div class="row expanded">
   <h3>Resource Card Section Heading</h3>
  </div>
-    <div class="row expanded row--flex">
+<div class="cards-wrapper">
+
+
+    <div class="row expanded">
       {% for card in page.resource_cards %} 
       <div class="card card--resource">
         <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})">
@@ -188,6 +197,7 @@ podcast:
         </div>
       </div>
       {% endfor %}
+      </div>
     </div>
 </div>
 <!-- END RESOURCE CARD -->
@@ -197,6 +207,7 @@ podcast:
   <h3>Event Card Section Heading</h3>
  </div>
     <div class="row expanded row--flex">
+      <div class="cards-wrapper">
       {% for card in page.event_cards %} 
       <div class="card card--event">
         <div class="card__image" style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')">
@@ -211,6 +222,7 @@ podcast:
         </div>
       </div>
       {% endfor %}
+      </div>
     </div>
 </div>
 <!-- END EVENT CARD  -->
