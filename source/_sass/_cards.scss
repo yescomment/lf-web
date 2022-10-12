@@ -1,17 +1,28 @@
+.cards-wrapper {
+  margin-left: -8px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
 /* GLOBAL Card Styles */
 .card {
   background-color: transparentize($gray-200, 0.1);
-  // background-color: $gray-100;
   font-family: $sans-serif;
   box-shadow: 10px 10px 30px #00000033;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   min-height: 14rem;
   transition-duration: 0.4s;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  @include breakpoint($large) {
+    margin: 2rem 8px;
+  }
   overflow: hidden;
 }
 
@@ -23,17 +34,18 @@
   width: 100%;  
   @include breakpoint($large) {
     max-width: calc(25% - 16px);
+
   }
   @include breakpoint($between-large) {
-    max-width: calc(33.67% - 16px);
+    max-width: calc(33% - 16px);
   }
   @include breakpoint($medium-only) {
     max-width: calc(50% - 16px);
+    margin: 8px;
   }
   @include breakpoint($small-only) {
-    // margin: auto;
     max-width: 100%;
-
+    margin: 8px;
   }
 }
 /* SHARED CARD STATES */
