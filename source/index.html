@@ -138,7 +138,7 @@ news_feed:
     <div class="column large-7 large-offset-1 medium-12 small-12">
       <h3 class="heading-b">In the News</h3>
       <div class="news-feed__container">
-        b {% for item in page.news_feed %} {% include components/news-item.html title=item.title
+        {% for item in page.news_feed %} {% include components/news-item.html title=item.title
         publication=item.publication date=item.date author=item.author content=item.content %} {% endfor %}
       </div>
     </div>
@@ -150,8 +150,6 @@ news_feed:
       <h3 class="heading-b">Upcoming Events</h3>
     </div>
     <div class="cards-wrapper">
-  
-  
     {% for card in page.event_cards %}
     <div class="card card--event">
       <div

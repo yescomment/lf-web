@@ -4,6 +4,7 @@ $sans-serif: 'Roboto Condensed', sans-serif;
 h1, h2, h3, h4, h5, h6 {
   font-family: $sans-serif;
   font-weight: 700;
+  margin: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -54,7 +55,7 @@ p.helper.inactive {
 .heading-b {
   font-family: $sans-serif;
   font-weight: $light;
-  font-size: $h5;
+  font-size: $h4;
 }
 
 .heading-c {

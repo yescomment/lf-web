@@ -8,6 +8,12 @@
   @include column-padding;
 }
 
+.row--thin {
+  @include page-section-padding;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .no-padding {
   @include no-column-padding;
 }
