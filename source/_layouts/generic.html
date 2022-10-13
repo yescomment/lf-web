@@ -5,9 +5,9 @@ subtitle: Jekyll, Gulp 4
 description:
 seo_image_path: #'/images/media/filename.jpg'
 ---
-
-<!-- Layout 5 -->
-<div class="row expanded top-section--generic page-section--generic">
+<main class="generic-layout">
+  <!-- Layout 5 -->
+  <div class="row expanded top-section--generic">
     <div class="column large-4 medium-12 small-12">
       <div class="background-image-container"></div>
       
@@ -18,12 +18,14 @@ seo_image_path: #'/images/media/filename.jpg'
     </div>
   </div>
 
-{% for section in page.page_sections %}
-  {% if section.type == 'text' %}
-    {% include components/generic-text-layout.html heading=section.heading content=section.content %}
-  {% else %}
-    {% include components/generic-card-layout.html 
-      cards=section
-    %}
-  {% endif %}
-{% endfor %}
+  {% for section in page.page_sections %}
+    {% if section.type == 'text' %}
+      {% include components/generic-text-layout.html heading=section.heading content=section.content %}
+    {% else %}
+      {% include components/generic-card-layout.html 
+        cards=section
+      %}
+    {% endif %}
+  {% endfor %}
+
+</main>
