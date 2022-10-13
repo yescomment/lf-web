@@ -64,12 +64,13 @@ p.helper.inactive {
   font-weight: $bold;
   text-transform: uppercase;
   font-size: $h5;
-  margin: 0;
+  margin: .5rem;
 }
 
 .page-section--topic {
   h1 {
     font-size: $h2;
+    margin: 0;
   }
 }
 

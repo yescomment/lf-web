@@ -284,6 +284,9 @@
 .card-section-heading {
   display: flex;
   justify-content: space-between;
+  @include breakpoint($small-only) {
+    display: block;
+  }
   a {
     margin-top: 1.5rem;
   }
