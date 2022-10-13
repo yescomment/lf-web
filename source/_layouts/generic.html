@@ -21,7 +21,9 @@ seo_image_path: #'/images/media/filename.jpg'
 {% for section in page.page_sections %}
   {% if section.type == 'text' %}
     {% include components/generic-text-layout.html heading=section.heading content=section.content %}
-  {% else if section.type == 'resource_cards' %}
-    {% include components/generic-card-layout.html heading=section.heading card_type=section.type cards=section.cards %}
+  {% else %}
+    {% include components/generic-card-layout.html 
+      cards=section
+    %}
   {% endif %}
 {% endfor %}

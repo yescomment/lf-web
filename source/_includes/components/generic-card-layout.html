@@ -1,12 +1,13 @@
-{% assign card_type = include.card_type %} {% assign heading = include.heading %} {% assign cards = include.cards %} {%
-if card_type == 'resource_cards' %}}
+{% assign card_data = include.cards %}
+
+{% if card_data.type == 'resource_cards' %}}
 <!-- RESOURCE CARD with icon, title, subtitle, author -->
 
-<div class="row expanded page-section--generic">
+<div class="row expanded page-section--generic row--thin">
   <div class="column large-12 small-12">
-    <h2>{{heading}}</h2>
+    <h2>{{ card_data.heading }}</h2>
   </div>
-  {% for card in cards %}
+  {% for card in card_data.cards %}
   <div class="card card--resource">
     <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})"></div>
     <div class="card__detail">
@@ -18,4 +19,30 @@ if card_type == 'resource_cards' %}}
   {% endfor %}
 </div>
 <!-- END RESOURCE CARD -->
+
+{% elsif card_data.type == "people_cards" %}
+
+<div class="row expanded row--thin">
+      <h3>{{ card_data.heading }}</h3>
+      <div class="cards-wrapper">
+      {% for card in card_data.cards %} 
+      <div class="card card--people">
+        <div class="card__avatar-wrapper">
+          <div class="card__avatar">
+            <img src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs">
+          </div>
+          <div class="card__decorator"></div>
+        </div>
+        <div class="card__detail">
+          <span class="card__name">{{ card.name }}</span>
+          <span class="card__title">{{ card.title }}</span>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% elsif section.type == 'event_cards'%}
+
 {% endif %}

@@ -1,6 +1,7 @@
 .cards-wrapper {
   margin-left: -8px;
-  width: 100%;
+  margin-right: -8px;
+  // width: 100%;
   display: flex;
   flex-wrap: wrap;
 
@@ -21,7 +22,7 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   @include breakpoint($large) {
-    margin: 2rem 8px;
+    margin: 0 8px 2rem;
   }
   overflow: hidden;
 }

@@ -1,7 +1,9 @@
 .top-section--generic {
   padding-top: 8.5rem;
-  background-image: url('../images/circle-logo.svg');
+  background-image: url(../images/circle-logo.svg);
   background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-x: calc(-15%);
 }
 
 .page-section--generic {
