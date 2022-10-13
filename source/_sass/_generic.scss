@@ -1,3 +1,12 @@
+.generic-layout {
+  h1 {
+    font-size: $h2;
+  }
+  h2 {
+    font-size: $h3;
+  }
+}
+
 .top-section--generic {
   padding-top: 8.5rem;
   background-image: url(../images/circle-logo.svg);
@@ -6,11 +15,3 @@
   background-position-x: calc(-15%);
 }
 
-.page-section--generic {
-  h1 {
-    font-size: $h2;
-  }
-  h2 {
-    font-size: $h3;
-  }
-}

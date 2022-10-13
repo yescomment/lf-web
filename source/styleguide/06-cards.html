@@ -10,7 +10,7 @@ project_cards:
     description: One sentence about this project
   - title: Project Title
     description: One sentence about this project
-resource_cards: 
+research_cards: 
   - title: Distributed Manufacturing of Open Hardware
     subtitle: A Report of the Open Hardware Distribution & Documentation Working Group
     author: author
@@ -174,39 +174,37 @@ podcast:
 </div>
 <!-- END PROJECT CARDS  -->
 
-<!-- RESOURCE CARD with icon, title, subtitle, author -->
+<!-- RESEARCH CARD with icon, title, subtitle, author -->
 <div class="styleguide-header">
-  <h3>Resource Cards</h3>
+  <h3>Research Cards</h3>
 </div>
 
 <div class="row expanded">
-  <h3>Resource Card Section Heading</h3>
+  <h3>Research Card Section Heading</h3>
  </div>
 <div class="cards-wrapper">
-
-
-    <div class="row expanded">
-      {% for card in page.resource_cards %} 
-      <div class="card card--resource">
-        <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})">
-        </div>
-        <div class="card__detail">
-          <span class="card__title">{{ card.title }}</span>
-          <span class="card__subtitle">{{ card.subtitle }}</span>
-          <span class="card__author">{{ card.author }}</span>
-        </div>
+  <div class="row expanded">
+    {% for card in page.research_cards %} 
+    <div class="card card--research">
+      <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})">
       </div>
-      {% endfor %}
+      <div class="card__detail">
+        <span class="card__title">{{ card.title }}</span>
+        <span class="card__subtitle">{{ card.subtitle }}</span>
+        <span class="card__author">{{ card.author }}</span>
       </div>
     </div>
+    {% endfor %}
+    </div>
+  </div>
 </div>
-<!-- END RESOURCE CARD -->
+<!-- END RESEARCH CARD -->
 
 <!-- EVENT CARD with date, title, type  -->
 <div class="row expanded">
   <h3>Event Card Section Heading</h3>
  </div>
-    <div class="row expanded row--flex">
+    <div class="row expanded ">
       <div class="cards-wrapper">
       {% for card in page.event_cards %} 
       <div class="card card--event">
@@ -233,7 +231,7 @@ podcast:
 </div>
 
 
-<!-- FEATURED RESOURCE CARD  -->
+<!-- FEATURED RESEARCH CARD  -->
 <div class="row expanded">
   <div class="column large-5 medium-12 small-12">
     <h1>Layout One: Heading One</h1>
@@ -261,7 +259,7 @@ podcast:
     </div> 
   </div>
 </div>
-<!-- END FEATURED RESOURCE CARD  -->
+<!-- END FEATURED RESEARCH CARD  -->
 
 <!-- FEATURED PROJECT CARD  -->
 <div class="row expanded">
