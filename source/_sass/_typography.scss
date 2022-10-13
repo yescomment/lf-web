@@ -67,3 +67,16 @@ p.helper.inactive {
   margin: 0;
 }
 
+.page-section--topic {
+  h1 {
+    font-size: $h2;
+  }
+}
+
+.topics-dropdown-container {
+  #line-one {
+    font-family: $sans-serif;
+    font-size: $h1;
+    font-weight: $bold;
+  }
+}
