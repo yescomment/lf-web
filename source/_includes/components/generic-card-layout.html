@@ -1,14 +1,15 @@
-{% assign card_data = include.cards %}
-
-{% if card_data.type == 'resource_cards' %}}
-<!-- RESOURCE CARD with icon, title, subtitle, author -->
+{% assign card_data = include.cards %} {% if card_data.type == 'research_cards' %}
+<!-- RESEARCH CARD with icon, title, subtitle, author -->
 
 <div class="row expanded page-section--generic row--thin">
-  <div class="column large-12 small-12">
+  <div class="column large-12 small-12 card-section-heading">
     <h2>{{ card_data.heading }}</h2>
+    {% if card_data.link %}
+      <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% endif %}
   </div>
   {% for card in card_data.cards %}
-  <div class="card card--resource">
+  <div class="card card--research">
     <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})"></div>
     <div class="card__detail">
       <span class="card__title">{{ card.title }}</span>
@@ -18,31 +19,83 @@
   </div>
   {% endfor %}
 </div>
-<!-- END RESOURCE CARD -->
+<!-- END RESEARCH CARD -->
 
 {% elsif card_data.type == "people_cards" %}
 
 <div class="row expanded row--thin">
-      <h3>{{ card_data.heading }}</h3>
-      <div class="cards-wrapper">
-      {% for card in card_data.cards %} 
-      <div class="card card--people">
-        <div class="card__avatar-wrapper">
-          <div class="card__avatar">
-            <img src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs">
-          </div>
-          <div class="card__decorator"></div>
+  <div class="column large-12 small-12 card-section-heading">
+    <h2>{{ card_data.heading }}</h2>
+    {% if card_data.link %}
+      <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% endif %}
+  </div>
+  <div class="cards-wrapper">
+    {% for card in card_data.cards %}
+    <div class="card card--people">
+      <div class="card__avatar-wrapper">
+        <div class="card__avatar">
+          <img src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs" />
         </div>
-        <div class="card__detail">
-          <span class="card__name">{{ card.name }}</span>
-          <span class="card__title">{{ card.title }}</span>
-        </div>
+        <div class="card__decorator"></div>
       </div>
-      {% endfor %}
+      <div class="card__detail">
+        <span class="card__name">{{ card.name }}</span>
+        <span class="card__title">{{ card.title }}</span>
       </div>
     </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% elsif section.type == 'event_cards'%}
+
+<div class="row expanded ">
+  <div class="column large-12 small-12 card-section-heading">
+    <h2>{{ card_data.heading }}</h2>
+    {% if card_data.link %}
+      <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% endif %}
+  </div>
+  <div class="cards-wrapper">
+    {% for card in card_data.cards %}
+    <div class="card card--event">
+      <div
+        class="card__image"
+        style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
+      ></div>
+      <div class="card__detail">
+        <span class="card__date">{{ card.date }}</span>
+        <span class="card__title">{{ card.title }}</span>
+        <span class="card__type">{{ card.type }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% elsif section.type == 'project_cards'%}
+<div class="row expanded">
+  <div class="column large-12 small-12 card-section-heading">
+    <h2>{{ card_data.heading }}</h2>
+    {% if card_data.link %}
+      <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% endif %}
+  </div>
+  <div class="cards-wrapper">
+    {% for card in card_data.cards %}
+    <div class="card card--project">
+      <div
+        class="card__image"
+        style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
+      ></div>
+      <div class="card__detail">
+        <span class="card__title">{{ card.title }}</span>
+        <span class="card__description">{{ card.description }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 {% endif %}
