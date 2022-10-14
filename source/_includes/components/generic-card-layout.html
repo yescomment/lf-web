@@ -8,16 +8,18 @@
       <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
     {% endif %}
   </div>
-  {% for card in card_data.cards %}
-  <div class="card card--research">
-    <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})"></div>
-    <div class="card__detail">
-      <span class="card__title">{{ card.title }}</span>
-      <span class="card__subtitle">{{ card.subtitle }}</span>
-      <span class="card__author">{{ card.author }}</span>
+  <div class="cards-wrapper">
+    {% for card in card_data.cards %}
+    <div class="card card--research">
+      <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})"></div>
+      <div class="card__detail">
+        <span class="card__title">{{ card.title }}</span>
+        <span class="card__subtitle">{{ card.subtitle }}</span>
+        <span class="card__author">{{ card.author }}</span>
+      </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
 <!-- END RESEARCH CARD -->
 
