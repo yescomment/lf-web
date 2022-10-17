@@ -1,0 +1,76 @@
+---
+layout: default
+title: Projects
+subtitle:
+description:
+seo_image_path: #'/images/media/filename.jpg'
+card_sections:
+  - type: project_cards
+    heading: Projects
+    link:
+    link_text:
+    cards:
+      - title: Project Title
+        description: One sentence about this project
+      - title: PROJECT TITLE
+        description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae aliquam omnis velit voluptatem nemo sunt pariatur? Vel obcaecati provident excepturi?
+      - title: Project With A Longer Title Title
+        description: One sentence about this project
+      - title: Project Title
+        description: One sentence about this project
+      - title: Project Title
+        description: One sentence about this project
+      - title: PROJECT TITLE
+        description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae aliquam omnis velit voluptatem nemo sunt pariatur? Vel obcaecati provident excepturi?
+      - title: Project With A Longer Title Title
+        description: One sentence about this project
+      - title: Project Title
+        description: One sentence about this project
+      - title: PROJECT TITLE
+        description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae aliquam omnis velit voluptatem nemo sunt pariatur? Vel obcaecati provident excepturi?
+      - title: Project With A Longer Title Title
+        description: One sentence about this project
+      - title: Project Title
+        description: One sentence about this project
+---
+
+<main class="projects-page">
+  <div class="row expanded">
+    <div class="column large-5 medium-12 small-12">
+      <h1>Layout One: Heading One</h1>
+      <p>
+        This layout is used for: 1a, 6a, Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum perspiciatis culpa
+        optio consectetur, temporibus reiciendis fugit nisi excepturi magni tenetur nam sed, omnis officia perferendis
+        minus hic aut vero repellat quam? Possimus consequuntur recusandae animi, eum placeat vel aliquid illo alias
+        ducimus sint, inventore repellendus iure itaque. Asperiores totam aut aliquam, illo cupiditate magnam nesciunt
+        architecto eum dolor modi nemo sint quam excepturi officiis possimus quod libero laborum consequuntur numquam
+        eveniet at facere voluptatem laboriosam corporis. Perferendis delectus nihil voluptate voluptatem quasi esse
+        excepturi impedit sapiente soluta minima voluptates modi, corrupti cumque repellat accusamus quae, doloribus
+        vero et tenetur dicta?
+      </p>
+    </div>
+    <div class="column large-6 large-offset-1 medium-12 small-12">
+      <h2>Heading Two</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
+        quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
+        dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
+        Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
+        reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
+        accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
+        Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
+        consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
+        dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
+        dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
+        similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
+        Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
+        consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
+        doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!
+      </p>
+    </div>
+  </div>
+    <!-- card sections  -->
+  {% for section in page.card_sections %} 
+    {% include components/generic-card-layout.html cards=section %} 
+  {% endfor %}
+</main>
