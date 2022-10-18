@@ -22,7 +22,9 @@
     background-color: $black;
   }
 }
-
+.button--full {
+  width: 100%;
+}
 .button--arrow {
 
   &:after {
