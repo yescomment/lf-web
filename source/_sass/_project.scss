@@ -1,8 +1,9 @@
-.project-page {
+.project-page , .announcement-page {
   h1 {
     font-size: $h2;
     margin-top: 0;
   }
+
   .project__type, .project__authors {
     font-family: $sans-serif;
     font-size: $h6;
