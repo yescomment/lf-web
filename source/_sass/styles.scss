@@ -28,6 +28,7 @@ $large: screen and (min-width: 64em);
 @import 'topic';
 @import 'project';
 @import 'news';
+@import 'profile';
 
 div, .row, .column {
   @include breakpoint($large) {
