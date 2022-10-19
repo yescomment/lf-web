@@ -1,0 +1,37 @@
+.profile-page {
+  h1 {
+    font-size: $h2;
+    margin: 0;
+  }
+  
+  .profile-card {
+    text-align: center;
+    padding: 0 3rem;
+    margin-bottom: 3rem;
+    .card__avatar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card__avatar {
+      margin: 2rem 0 1rem;
+
+      img {
+        width: 18rem;
+        height: 18rem;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: auto;
+      }
+    }
+    .profile__position {
+      font-family: $sans-serif;
+      font-size: $h5;
+      font-weight: $light;
+    }
+  }
+  .decorator {
+    margin: 0;
+    @include column-padding;
+  }
+}
