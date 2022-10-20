@@ -29,7 +29,7 @@ $large: screen and (min-width: 64em);
 @import 'project';
 @import 'news';
 @import 'profile';
-
+@import 'events';
 div, .row, .column {
   @include breakpoint($large) {
     outline: red solid 1px;

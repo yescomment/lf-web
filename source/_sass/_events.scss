@@ -1,0 +1,10 @@
+.events-page {
+  h1 {
+    font-size: $h2;
+  }
+    .top-section {
+    background-image: url('../images/circle-logo.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% + 13rem) -6rem;
+  }
+}

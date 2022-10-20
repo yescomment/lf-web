@@ -112,6 +112,9 @@
 /* EVENT CARDS with image, date, title, and event type */
 .card--event {
   height: 22rem; // event and research cards have different heights
+  &.card--event-long {
+    height: inherit;
+  }
   .card__image {
     border-radius: 16px 16px 0 0;
     height: 10rem;
@@ -252,7 +255,11 @@
   .card__meta {
     display: flex;
     justify-content: space-between;
-    .card__tags-container {
+    .card__date-container {
+      font-size: $h6;
+      font-weight: $bold;
+    }
+    .card__tags-container, .card__date-container {
       width: 70%;
       .tag {
         margin-right: 1rem;
@@ -286,6 +293,7 @@
     font-size: $p;
   }
   .card__action {
+    margin-top: 4rem;
   }
 }
 // END FEATURED CARDS
@@ -299,4 +307,11 @@
   a {
     margin-top: 0.5rem;
   }
+}
+
+
+
+// card layouts 
+.card-section-heading--thick {
+  margin: 4.5rem 0 2rem;
 }
