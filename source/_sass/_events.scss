@@ -2,9 +2,37 @@
   h1 {
     font-size: $h2;
   }
-    .top-section {
+  .top-section {
     background-image: url('../images/circle-logo.svg');
     background-repeat: no-repeat;
     background-position: calc(100% + 13rem) -6rem;
+  }
+}
+
+.event-page {
+  .top-section {
+    padding-bottom: 0;
+  }
+  .event__date {
+    font-weight: $bold;
+    font-family: $sans-serif;
+    font-size: $h5;
+  }
+  h1 {
+    font-size: $h2;
+    margin-top: 0;
+  }
+  .button-container {
+    margin: 1rem 0 5rem;
+    // padding: 1rem 0;
+  }
+  .decorator {
+    margin: 3rem 0;
+  }
+
+  .event__sidebar-body {
+    img {
+      margin: 1rem 0;
+    }
   }
 }
