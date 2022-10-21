@@ -23,7 +23,7 @@ event_cards:
   - title: Could the Internet Break Democracy?
     type: webinar
     date: April, 04, 2022
-featured_project_card:
+featured_card:
   - title: GLAM 3D
     description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime iste dignissimos explicabo quasi minima quod fuga soluta amet, impedit sit.
     authors:
@@ -32,6 +32,7 @@ featured_project_card:
       - Michael Weinberg
     tags:
       - Open Source Hardware
+    button_text: Read More
 podcast:
   title: Engleberg Center Live!
   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, error fuga! Natus mollitia ut sunt placeat, laudantium tenetur eaque. At!
@@ -85,7 +86,7 @@ news_feed:
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
       <h3 class="heading-c">Featured Research</h3>
 
-      {% include components/card-featured.html project=page.featured_project_card %}
+      {% include components/card-featured.html card=page.featured_card %}
 
       <div class="button-container button-container--right">
         <a class="button button--arrow" href="#">All Engelberg Center Research</a>
@@ -159,6 +160,7 @@ news_feed:
       <div class="card__detail">
         <span class="card__date">{{ card.date }}</span>
         <span class="card__title">{{ card.title }}</span>
+        <span class="card__description ">{{ card.description }}</span>
         <span class="card__type">{{ card.type }}</span>
       </div>
     </div>
