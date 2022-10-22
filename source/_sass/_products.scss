@@ -1,0 +1,16 @@
+.product-page {
+  h1 {
+    font-size: $h2;
+  }
+  .product__subtitle, .product__authors {
+    margin: 2rem 0;
+  }
+  .product__subtitle {
+    font-family: $sans-serif;
+    font-size: $h4;
+  }
+  .product__authors {
+    @include all_caps_text;
+    font-size: $helper;
+  }
+}
