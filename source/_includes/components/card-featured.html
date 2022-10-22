@@ -9,7 +9,7 @@
     </div>
     {% endif %}
     {% if card.tags %}
-    <div class="card__tags-container">
+    <div class="card__tags-container tags-container">
       {% for tag in card.tags %}
       <div class="tag tag--{{tag | slugify}}">{{ tag | capitalize }}</div>
       {% endfor %}
