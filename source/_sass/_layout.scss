@@ -19,7 +19,9 @@
 }
 
 .no-padding {
-  @include no-column-padding;
+  @include breakpoint($large) {
+    @include no-column-padding;
+  }
 }
 .inverted-section {
   @include inverted-section;
@@ -58,3 +60,4 @@
   flex-flow: row wrap;
   justify-content: space-between;
 }
+

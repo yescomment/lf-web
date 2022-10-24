@@ -8,7 +8,7 @@
   font-family: $sans-serif;
   border: solid 1px $black;
   border-radius: 27px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   width: fit-content;
   display: block;
   text-align: center;
@@ -16,7 +16,8 @@
   text-decoration: none;
   background-color: transparent;
   @include all-caps-text;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $white;
     border-color: $white;
     background-color: $black;
@@ -26,14 +27,12 @@
   width: 100%;
 }
 .button--arrow {
-
   &:after {
     transition-duration: 0.4s;
     @extend .u-material-icons;
-    // content: url('../images/icons/east_black_24dp.svg');
     content: url('../images/icons/arrow_forward_black_24dp.svg');
     vertical-align: bottom;
-    margin-left: .5rem; 
+    margin-left: 0.5rem;
   }
   &:hover {
     &:after {
@@ -45,12 +44,13 @@
 .button--menu {
   background-color: $purple-100;
   &:after {
-    content: "more_vert";
+    content: 'more_vert';
     @extend .u-material-icons;
     font-size: 3.5rem;
     margin-left: -1.6rem;
   }
-  &:hover, &:visited {
+  &:hover,
+  &:visited {
     border-color: rgba($purple-100, 0.8);
     background-color: rgba($purple-100, 0.8);
   }

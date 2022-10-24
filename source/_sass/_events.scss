@@ -10,6 +10,7 @@
 }
 
 .event-page {
+  background-color: $gray-200;
   .top-section {
     padding-bottom: 0;
   }
@@ -25,9 +26,6 @@
   .button-container {
     margin: 1rem 0 5rem;
     // padding: 1rem 0;
-  }
-  .decorator {
-    margin: 3rem 0;
   }
 
   .event__sidebar-body {

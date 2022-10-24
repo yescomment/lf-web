@@ -3,7 +3,7 @@ $black: #000000;
 $black-50: rgba(0,0,0,0.5);
 
 $gray-100: #1F1F1F1A;
-$gray-200: #F0F0F0;
+$gray-200: #FAFAFA;
 $gray-300: #00000033;
 
 $purple-100: #572C86;
@@ -15,5 +15,8 @@ $pink-100: #ED76AD;
 $sky-blue-100: #20B6EA;
 
 .section--gray {
+    background-color: $gray-100;
+}
+.section--light-gray {
     background-color: $gray-200;
 }
