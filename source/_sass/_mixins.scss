@@ -6,7 +6,7 @@
     padding: 0 2rem;
   }
   @include breakpoint($small-only) {
-    padding: 0 2rem;
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -41,7 +41,7 @@
 /* Typography Mixins*/
 
 @mixin all-caps-text {
-  font-size: $h6;
+  font-size: $helper;
   text-transform: uppercase !important;
   font-weight: 700;
 } 

@@ -7,14 +7,21 @@ seo_image_path: #'/images/media/filename.jpg'
 ---
 <main class="generic-layout">
   <!-- Layout 5 -->
-  <div class="row expanded top-section--generic">
+  <div class="row expanded top-section--generic section--gray">
     <div class="column large-4 medium-12 small-12">
       <div class="background-image-container"></div>
       
     </div>
-    <div class="column  large-7 large-offset-1 medium-12 small-12">
+    <div class="column large-6 large-offset-1 medium-12 small-12">
       <h1>{{ page.title }}</h1>
+      <div class="decorator"></div>
       {{ page.introduction | markdownify }}
+
+      {% if page.button %}
+      <div class="button-container">
+        <a class="button button--full" href="{{ page.button.button_url }}">{{ page.button.button_text }}</a>
+      </div>
+      {% endif %}
     </div>
   </div>
 

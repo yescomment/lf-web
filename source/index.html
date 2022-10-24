@@ -7,21 +7,23 @@ seo_image_path: #'/images/media/filename.jpg'
 event_cards:
   - title: Rude Citizenship
     type: book talk
+    description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex deserunt error hic amet temporibus eligendi aliquam fugit modi ipsum qui.
     date: April, 04, 2022
   - title: 2022 Tri-State Region IP Workshop
     type: workshop
+    description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore veritatis, itaque, corrupti dolorum ipsum amet dicta recusandae eos velit sunt consectetur neque. Facere repudiandae, inventore impedit aliquid aliquam nihil minima?
     date: April, 04, 2022
   - title: The Normalizing Gaze
     type: speaker series
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, debitis.
     date: April, 04, 2022
   - title: Could the Internet Break Democracy?
     type: webinar
+    description:
     date: April, 04, 2022
   - title: Could the Internet Break Democracy?
     type: webinar
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
+    description:
     date: April, 04, 2022
 featured_card:
   - title: GLAM 3D
@@ -66,7 +68,7 @@ news_feed:
     content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint, aliquam suscipit consectetur facere distinctio dolor repellendus magni temporibus non ipsam nesciunt reprehenderit blanditiis vel?
 ---
 
-<main role="main" id="index">
+<main role="main" id="main" class="index">
   <!-- main content starts here -->
   <!-- FEATURED PROJECT CARD  -->
   <div class="row expanded section--gray top-section">
@@ -151,22 +153,23 @@ news_feed:
       <h3 class="heading-b">Upcoming Events</h3>
     </div>
     <div class="cards-wrapper">
-    {% for card in page.event_cards %}
-    <div class="card card--event">
-      <div
-        class="card__image"
-        style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
-      ></div>
-      <div class="card__detail">
-        <span class="card__date">{{ card.date }}</span>
-        <span class="card__title">{{ card.title }}</span>
-        <span class="card__description ">{{ card.description }}</span>
-        <span class="card__type">{{ card.type }}</span>
+      {% for card in page.event_cards %}
+      <div class="card card--event">
+        <div
+          class="card__image"
+          style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
+        ></div>
+        <div class="card__detail">
+          <span class="card__date">{{ card.date }}</span>
+          <span class="card__title">{{ card.title }}</span>
+          <span class="card__description ">{{ card.description }}</span>
+          <span class="card__type">{{ card.type }}</span>
+        </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-  </div>
-  
+
   <!-- END EVENT CARD  -->
+
 </main>

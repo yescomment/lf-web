@@ -30,8 +30,9 @@ $large: screen and (min-width: 64em);
 @import 'news';
 @import 'profile';
 @import 'events';
-
+@import 'projects';
 @import 'products';
+@import 'decorator';
 
 div, .row, .column {
   @include breakpoint($large) {

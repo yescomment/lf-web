@@ -110,8 +110,15 @@
 // END PEOPLE CARD
 
 /* EVENT CARDS with image, date, title, and event type */
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 .card--event {
-  height: 22rem; // event and research cards have different heights
+  display: flex;
+  // height: 22rem; // event and research cards have different heights
+  height: inherit;
   &.card--event-long {
     height: inherit;
   }
@@ -122,6 +129,7 @@
     background-size: cover;
   }
   .card__detail {
+    flex: 1 0 auto;
     span {
       font-family: $sans-serif;
       font-weight: 700;
@@ -139,6 +147,10 @@
     }
     .card__title {
       font-size: $h5;
+    }
+    .card__description {
+      flex: 1 0 auto;
+      font-weight: $light;
     }
   }
 }
@@ -209,7 +221,7 @@
 
 // PODCAST CARDS
 .card--podcast {
-  padding: 2rem 2.5rem;
+  padding: 0 2.5rem;
   display: block;
   height: 31.5rem;
   @include uninverted-section;
@@ -255,12 +267,19 @@
   .card__meta {
     display: flex;
     justify-content: space-between;
+    @include breakpoint($small-only) {
+      flex-direction: column;
+    }
     .card__date-container {
       font-size: $h6;
       font-weight: $bold;
     }
-    .card__tags-container, .card__date-container {
+    .card__tags-container,
+    .card__date-container {
       width: 70%;
+      @include breakpoint($small-only) {
+        width: 100%;
+      }
       .tag {
         margin-right: 1rem;
         margin-bottom: 1rem;
@@ -288,6 +307,9 @@
   .card__description {
     margin-top: 0;
     width: 70%;
+    @include breakpoint($small-only) {
+      width: 100%;
+    }
     font-family: $serif;
     font-weight: 300;
     font-size: $p;
@@ -298,9 +320,13 @@
 }
 // END FEATURED CARDS
 
+
+// CARD SECTION LAYOUTS 
+
 .card-section-heading {
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
   @include breakpoint($small-only) {
     display: block;
   }
@@ -309,9 +335,7 @@
   }
 }
 
-
-
-// card layouts 
+// card layouts
 .card-section-heading--thick {
   margin: 4.5rem 0 2rem;
 }

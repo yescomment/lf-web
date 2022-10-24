@@ -6,13 +6,13 @@ description:
 seo_image_path: #'/images/media/filename.jpg'
 ---
 
-<main class="topic-page">
-  <div class="row expanded page-section--topic top-section">
+<main id="main" class="topic-page">
+  <div class="row expanded page-section--topic top-sectio section--gray">
     <div class="column large-5 medium-12 small-12">
       <span class="heading-start">Engleberg Center on:</span>
       <h1>{{ page.title }}</h1>
       <div class="heading-decorator">
-        <span class="decorator"></span>
+        <div class="decorator"></div>
       </div>
       <p>
         This layout is used for: 1a, 6a, Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum perspiciatis culpa
@@ -28,12 +28,10 @@ seo_image_path: #'/images/media/filename.jpg'
     <div class="column large-6 large-offset-1 medium-12 small-12 no-padding">
       {% if page.featured_project_card%}
       <h3 class="heading-c">Featured Research</h3>
-      {% include components/card-featured.html project=page.featured_project_card %} {% endif %}
+      {% include components/card-featured.html card=page.featured_project_card %} {% endif %}
     </div>
   </div>
 
   <!-- card sections  -->
-  {% for section in page.card_sections %} 
-    {% include components/generic-card-layout.html cards=section %} 
-  {% endfor %}
+  {% for section in page.card_sections %} {% include components/generic-card-layout.html cards=section %} {% endfor %}
 </main>

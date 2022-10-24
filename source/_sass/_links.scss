@@ -1,5 +1,4 @@
 .link {
-  
   color: $black;
   transition-duration: 0.4s;
   text-underline-offset: 2px;
@@ -12,7 +11,7 @@
   @include all-caps-text;
   font-family: $sans-serif;
   text-decoration: none;
-  font-size: $h6;
+  font-size: $helper;
   font-weight: 700;
   &:after {
     transition-duration: 0.4s;
