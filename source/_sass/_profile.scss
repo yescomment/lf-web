@@ -1,4 +1,5 @@
 .profile-page {
+  background-color: $gray-200;
   h1 {
     font-size: $h2;
     margin: 0;
@@ -6,9 +7,9 @@
 
   .profile-card {
     text-align: center;
-    padding: 0 3rem;
+    // padding: 0 3rem;
+    padding: 0;
     @include breakpoint($small-only) {
-      padding: 0;
     }
     margin-bottom: 3rem;
     .card__avatar-wrapper {
@@ -17,9 +18,9 @@
       align-items: center;
     }
     .card__avatar {
-      margin: 2rem 0 1rem;
+      // margin: 2rem 0 1rem;
+      margin: 0;
       @include breakpoint($small-only) {
-        margin: 0;
       }
       img {
         width: 18rem;

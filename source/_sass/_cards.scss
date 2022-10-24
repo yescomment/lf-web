@@ -1,3 +1,4 @@
+
 .cards-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -338,4 +339,21 @@
 // card layouts
 .card-section-heading--thick {
   margin: 4.5rem 0 2rem;
+}
+
+// PAGE SPECIFIC CARD LAYOUTS 
+.generic-layout {
+  .card {
+    background-color: $white;
+      &:hover {
+    background-color: $purple-100;
+    color: $white;
+    .card__icon {
+      visibility: hidden;
+    }
+    .card__image {
+      filter: grayscale(70%);
+    }
+  }
+  }
 }
