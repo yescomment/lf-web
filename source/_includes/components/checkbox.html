@@ -1,0 +1,8 @@
+{% assign class_name = include.class_name %}
+{% assign content = include.content %}
+{% assign label = content | camelcase %}
+
+<div class="checkbox-component">
+  <input class="checkbox {{ class_name }}" id="{{ content | slugify }}" type="checkbox" value="{{ content | slugify }}">
+  <label class="checkbox__label" for="{{ content | slugify }}">{{ content }}</label>
+</div>

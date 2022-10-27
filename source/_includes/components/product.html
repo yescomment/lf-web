@@ -1,0 +1,15 @@
+{% assign product = include.product %}
+
+<div class="product">
+  <span class="product__title">{{ product.product_title }}</span>
+  <span class="product__authors">{{ product.product_authors }}</span>
+  <span class="product__date">{{ product.product_publication_date }}</span>
+  <p class="product__description">{{ product.product_description }}</p>
+  <div class="tags-container">
+    {% for tag in product.product_tags %}
+      <div class="tag tag--{{tag | slugify}}">{{ tag | capitalize }}</div>
+    {% endfor %}
+  </div>
+  
+
+</div>
