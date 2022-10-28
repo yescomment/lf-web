@@ -2,8 +2,13 @@
 <html lang="en">
   {% include head.html %}
   <body>
-
-    {% include header.html %} 
+    {% if page.layout == "generic" %}
+      {% include header.html  top_bar="white" %} 
+    {% elsif page.layout == "topic" %}
+      {% include header.html  top_bar="white" %} 
+    {% else %}
+      {% include header.html %} 
+    {% endif %}
       {{content}} 
     {% include footer.html %}
 
