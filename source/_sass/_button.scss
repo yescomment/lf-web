@@ -41,19 +41,25 @@
   }
 }
 
-.button--menu {
-  background-color: $purple-100;
-  &:after {
-    content: 'more_vert';
-    @extend .u-material-icons;
-    font-size: 3.5rem;
-    margin-left: -1.6rem;
-  }
-  &:hover,
-  &:visited {
-    border-color: rgba($purple-100, 0.8);
-    background-color: rgba($purple-100, 0.8);
-  }
-  border-radius: 0;
-  width: 2.4rem;
-}
+// .button--menu {
+//   background-color: $purple-100;
+
+//   height: 3.5rem;
+//   &:before {
+
+//   }
+//   &:after {
+//     // content: 'more_vert';
+//     // @extend .u-material-icons;
+//     // font-size: 3.5rem;
+//     // outline: yellow 1px solid;
+
+//   }
+//   &:hover,
+//   &:visited {
+//     border-color: rgba($purple-100, 0.8);
+//     background-color: rgba($purple-100, 0.8);
+//   }
+//   border-radius: 0;
+//   // width: 2.4rem;
+// }
