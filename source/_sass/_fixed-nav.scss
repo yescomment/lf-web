@@ -1,0 +1,56 @@
+.fixed-nav {
+  font-family: $sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  @include page-section-padding;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: $white;
+
+  &__dropdown {
+    color: $black;
+    display: block;
+    padding: 0 1rem;
+  }
+}
+
+.fixed {
+  position: fixed;
+  top: 56px;
+  width: 100%;
+  z-index: 3;
+
+  @include breakpoint($small-only) {
+    top: 50px;
+  }
+}
+
+.section-link-column {
+  padding: 8px 96px;
+
+  @include breakpoint($between-large) {
+    padding: 8px 72px;
+  }
+
+  @include breakpoint($medium) {
+    padding: 8px 40px;
+  }
+
+  @include breakpoint($small-only) {
+    padding: 8px 16px;
+  }
+}
+
+.sections-panel--from-top .sections-panel__container {
+  top: 44px;
+  transform: translate3d(0, -100%, 0);
+}
+
+.sections-panel--is-visible .sections-panel__container {
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
+}
+
+.noscroll {
+  overflow: hidden;
+}

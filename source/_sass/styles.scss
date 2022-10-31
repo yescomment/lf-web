@@ -39,6 +39,7 @@ $large: screen and (min-width: 64em);
 @import 'checkbox';
 @import 'about';
 @import 'slide-panel';
+@import 'fixed-nav';
 
 // div, .row, .column {
 //   @include breakpoint($large) {
