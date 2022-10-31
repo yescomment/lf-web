@@ -25,6 +25,10 @@ product:
     - Patent
     - Something
     - Open Source Hardware
+areas:
+  - Area One 
+  - Area Two
+  - Area Three
 ---
 
 <!-- LAYOUT 9: Lists  -->
@@ -71,10 +75,18 @@ product:
 
           <div class="checkbox-container">
             <!-- checkbox  -->
+            <span class="checkbox-heading">Area of Law</span>
+
+            {% for area in page.areas %} 
+              {% include components/checkbox.html 
+                class_name="area-checkbox" 
+              content=area 
+              %} 
+            {% endfor %}
           </div>
         </div>
       </aside>
-      <div class="column no-padding large-offset-1">
+      <div class="column large-offset-1 large-7 no-padding">
         <h2>Results</h2>
         {% include components/list-results.html %}
         <div class="date-toggle-container">

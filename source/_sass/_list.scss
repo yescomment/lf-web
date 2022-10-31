@@ -7,8 +7,6 @@
     font-size: $h3;
     margin: 3.3rem 0 0 0;
   }
-  .list-container {
-  }
 
   .filter-container {
     z-index: 1;
@@ -41,8 +39,7 @@
     }
   }
 
-  .dropdown-container,
-  .checkbox-container {
+  .dropdown-container {
     margin: 1rem 0;
   }
 
@@ -68,8 +65,6 @@
   }
 
   .list-row {
-    display: flex;
-    justify-content: space-between;
     padding-top: 3rem;
     aside {
       background-color: $gray-100;
