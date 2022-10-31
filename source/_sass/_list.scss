@@ -67,19 +67,40 @@
     margin-top: 2rem;
   }
 
-  .filter-panel {
-    height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 5rem;
-    width: 28%;
-    background-color: $gray-100;
-
-    @include breakpoint($between-large) {
-      width: 30%;
+  .list-row {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 3rem;
+    aside {
+      background-color: $gray-100;
+      @include breakpoint($large) {
+        width: 25rem;
+        padding-right: 1rem;
+      }
+      width: 100vw;
+      padding: 0;
     }
-    @include breakpoint($medium-only) {
-      display: none;
+  }
+
+  .product {
+    padding: 2.5rem 0;
+    font-family: $sans-serif;
+    border-bottom: 3px solid $black;
+    span {
+      display: block;
+    }
+    &__title {
+      font-size: $h5;
+    }
+    &__authors {
+      font-weight: $bold;
+      font-size: $h5;
+    }
+    &__date {
+      @include all_caps_text;
+    }
+    &__description {
+      font-family: $serif;
     }
   }
 }

@@ -47,3 +47,15 @@
    Headings
    ========================================================================== */
 
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  aside {
+    background-color: red;
+    @include breakpoint($large) {
+      width: 25rem;
+    }
+    width: 100vw;;
+  }
+  
+}

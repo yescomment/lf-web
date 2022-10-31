@@ -1,9 +1,10 @@
 ---
 layout: default
+top_bar: white
 title: Our Work
 description:
 seo_image_path: #'/images/media/filename.jpg'
-all_authors: 
+all_authors:
   - Author One
   - Author Two
   - Author Three
@@ -16,7 +17,7 @@ all_areas:
   - Area Two
   - Area Three
 product:
-  product_title: My Product Title 
+  product_title: My Product Title
   product_authors: Author Name, Author Name, Author Name
   product_publication_date: October 15, 2022
   product_description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit itaque hic praesentium non impedit ab alias aliquam ratione dicta vero?
@@ -26,62 +27,54 @@ product:
     - Open Source Hardware
 ---
 
+<!-- LAYOUT 9: Lists  -->
 <main class="product-list-page">
-  <section id="product-list" class="page-section top-section">
-    <div class="filter-panel"></div>
-    <div class="row expanded">
-      <div class="column large-3 medium-12 small-12 filter-container">
-        <h1>{{ page.title }}</h1>
-        <div class="heading-decorator">
-          <div class="decorator"></div>
-        </div>
-        <span class="search-title">Search and filters</span>
-        <button class="clear-filters">Clear all</button>
-        <div id="search-container">
-          <div class="search-component">
-            <label class="visually-hidden" for="searchfield">Search</label>
-            <input
-              class="search-field"
-              type="text"
-              id="searchfield"
-              name=""
-              aria-label="Search for a product"
-              placeholder="Search"
-            />
-            <button type="button" class="search-submit" aria-label="Search submit button"></button>
+  <section id="product-list">
+    <div class="row expanded no-padding list-row">
+      <aside class="list-aside filter-container">
+        <div class="column large-offset-2">
+          <h1>{{ page.title }}</h1>
+          <div class="heading-decorator">
+            <div class="decorator"></div>
+          </div>
+          <span class="search-title">Search and filters</span>
+          <button class="clear-filters">Clear all</button>
+          <div id="search-container">
+            <div class="search-component">
+              <label class="visually-hidden" for="searchfield">Search</label>
+              <input
+                class="search-field"
+                type="text"
+                id="searchfield"
+                name=""
+                aria-label="Search for a product"
+                placeholder="Search"
+              />
+              <button type="button" class="search-submit" aria-label="Search submit button"></button>
+            </div>
+          </div>
+
+          <div class="dropdown-container">
+            <div class="dropdown-component">
+              {% include components/dropdown.html content=page.all_authors component_id="product_authors"
+              component_name="product_authors" component_default="All Center Authors"
+              component_label_class="visually-hidden" %}
+            </div>
+          </div>
+
+          <div class="dropdown-container">
+            <div class="dropdown-component">
+              {% include components/dropdown.html content=page.all_types component_id="product_types"
+              component_name="product_types" component_default="Type" component_label_class="visually-hidden" %}
+            </div>
+          </div>
+
+          <div class="checkbox-container">
+            <!-- checkbox  -->
           </div>
         </div>
-
-        <div class="dropdown-container">
-          <div class="dropdown-component">
-            {% include components/dropdown.html 
-              content=page.all_authors 
-              component_id="product_authors"
-              component_name="product_authors" 
-              component_default="All Center Authors" 
-              component_label_class="visually-hidden" 
-            %}
-          </div>
-        </div>
-
-        <div class="dropdown-container">
-          <div class="dropdown-component">
-            {% include components/dropdown.html 
-              content=page.all_types 
-              component_id="product_types"
-              component_name="product_types" 
-              component_default="Type" 
-              component_label_class="visually-hidden" 
-            %}
-          </div>
-        </div>
-
-        <div class="checkbox-container">
-          <!-- checkbox  -->
-        </div>
-      </div>
-
-      <div class="column large-8 large-offset-1  medium-12 small-12 list-container">
+      </aside>
+      <div class="column no-padding large-offset-1">
         <h2>Results</h2>
         {% include components/list-results.html %}
         <div class="date-toggle-container">
@@ -94,11 +87,8 @@ product:
           </button>
         </div>
 
-
         <div class="list">
-          {% for num in (0..10) %} 
-            {% include components/product.html product=page.product %} 
-          {% endfor %}
+          {% for num in (0..10) %} {% include components/product.html product=page.product %} {% endfor %}
         </div>
       </div>
     </div>
