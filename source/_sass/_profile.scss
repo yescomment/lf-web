@@ -4,8 +4,14 @@
     font-size: $h2;
     margin: 0;
   }
+  .decorator {
+    margin: 0;
+    @include column-padding;
+  }
+}
 
-  .profile-card {
+.about-page, .profile-page {
+    .profile-card {
     text-align: center;
     // padding: 0 3rem;
     padding: 0;
@@ -35,9 +41,5 @@
       font-size: $h5;
       font-weight: $light;
     }
-  }
-  .decorator {
-    margin: 0;
-    @include column-padding;
   }
 }
