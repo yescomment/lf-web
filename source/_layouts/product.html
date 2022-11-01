@@ -8,7 +8,7 @@ seo_image_path: #'/images/media/filename.jpg'
 
 <main class="product-page">
   <!-- Layout 4 -->
-  <div class="row expanded top-section">
+  <div class="row expanded top-section section--light-gray">
     <div class="column large-7 medium-12 small-12">
       
       {% if page.product.tags %}
@@ -33,23 +33,95 @@ seo_image_path: #'/images/media/filename.jpg'
       </p>
     </div>
     <div class="column large-offset-1 large-4 medium-12 small-12">
-      <h2>Heading Two</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-        quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-        dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-        Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-        reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-        accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-        Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-        consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-        dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-        dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-        similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-        Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-        consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-        doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!
-      </p>
+      <img src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs" /> 
     </div>
   </div>
+
+  {% if page.product.fixed-nav %}
+    {% include components/fixed-nav.html %}
+  {% endif %}
+
+  <section class="page-section section--light-gray no-padding">
+    <div class="row expanded">
+      <div class="column large-9 medium-12 small-12 product__left-column">
+        <h2>Body Sections Start with Heading Two</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
+          quaerat pariatur inventore<sup tabindex="1" class="footnote" id="1">1</sup> laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
+          dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
+          Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
+          reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
+          accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
+          Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
+          consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
+          dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
+          dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
+          similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
+          Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
+          consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
+          doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!<sup tabindex="1" class="footnote" id="2">2</sup></p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
+            quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
+            dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
+            Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
+            reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
+            accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
+            Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
+            consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
+            dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
+            dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
+            similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
+            Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
+            consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
+            doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
+              quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
+              dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
+              Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
+              reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
+              accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
+              Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
+              consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
+              dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
+              dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
+              similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
+              Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
+              consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
+              doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus, error eaque vero aperiam numquam, tenetur, soluta quibusdam odio eius aut. Distinctio placeat repellendus, repellat neque itaque in esse nobis!</p>
+      </div>
+      <div class="column product__slide-panel">
+        <a href="" class="button">Button title</a>
+        <h3>Engelberg Center Authors</h3>
+        <a href="" class="author">Author 1</a>
+        <a href="" class="author">Author 2</a>
+
+        <div id="1" class="slide-panel slide-panel--from-right row">
+          <div tabindex="0" class="slide-panel__container slide-panel__container--footnote column">
+            <div class="close-button-container">
+              <button type="button" class="close-panel"><i class="material-icons">close</i></button>
+            </div>
+            <div class="slide-panel__content">
+              <div class="footnote-container" data-location="1">
+                <div class="row"><div class="column large-1 small-1 medium-1">
+                  <p class="footnote-numbers">1</p>
+                </div>
+                <div class="column large-10 small-10 medium-10">
+                  <p>Under Group 4b the Seattle Surveillance Ordinance process describes these tools as “Computer, cellphone and mobile device extraction tools.” We use the terminology “mobile device forensic tools” as we believe it is most technically accurate — regardless, this is the same technology that the Seattle Police Department uses.</p>
+                </div>
+              </div>
+              <div class="footnote-container" data-location="2">
+                <div class="row"><div class="column large-1 small-1 medium-1">
+                  <p class="footnote-numbers">2</p>
+                </div>
+                <div class="column large-10 small-10 medium-10">
+                  <p>Second footnote!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
 </main>
