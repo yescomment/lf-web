@@ -7,11 +7,14 @@ import SlidePanel from './slide-panel';
 import Search from './search';
 import Utils from './utils';
 
-FixedNav.init();
 Modal.init();
 Nav.init();
 Overlay.init();
 Scroll.init();
-SlidePanel.init();
 Search.init();
 Utils.markdownLinksNewPage();
+
+if (window.location.pathname === '/product/' || window.location.pathname === '/') {
+  FixedNav.init();
+  SlidePanel.init();
+}
