@@ -67,6 +67,7 @@
 }
 
 .top-bar__menu-button {
+  background-color: transparent;
   position: absolute;
   left: 0;
   border-radius: 0;
@@ -85,6 +86,7 @@
     }
   }
   .menu-button__text {
+    background-color: transparent;
     display: inline-block;
     color: $purple-100;
     text-transform: uppercase;
