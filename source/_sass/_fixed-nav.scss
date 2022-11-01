@@ -2,15 +2,28 @@
   font-family: $sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  @include page-section-padding;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   background-color: $white;
+  padding: 1rem 2rem;
+
+  @include breakpoint($large) {
+    padding: 1rem 6rem;
+  }
 
   &__dropdown {
     color: $black;
     display: block;
-    padding: 0 1rem;
+
+    span {
+      &::before {
+        @extend .u-material-icons;
+        content: 'expand_circle_down';
+        color: $black;
+        font-size: 20px;
+        position: absolute;
+        line-height: inherit;
+        padding-left: 10px;
+      }
+    }
   }
 }
 

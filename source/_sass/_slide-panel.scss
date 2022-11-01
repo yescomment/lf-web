@@ -9,8 +9,8 @@
   }
 
   &__container {
-    background-color: hotpink;
-    color: white;
+    background-color: #fafafa;
+    color: $black;
     overflow-y: scroll;
     padding: 0;
     scroll-behavior: smooth;
@@ -49,13 +49,10 @@
     margin-bottom: 5000rem;
 
     p {
-      color: white;
       margin: 0;
-      font-size: 0.95rem;
-      font-weight: bold;
 
       a {
-        color: white;
+        color: $black;
       }
     }
 
@@ -110,7 +107,7 @@
 }
 
 button.close-panel {
-  color: white;
+  color: $black;
   background-color: transparent;
   position: sticky;
   position: -webkit-sticky;
@@ -139,8 +136,8 @@ button.close-panel {
 
   p,
   a {
-    font-size: 0.95rem !important;
-    color: transparentize($color: $white, $amount: 0.5) !important;
+    font-size: 1rem !important;
+    color: transparentize($color: $black, $amount: 0.5) !important;
   }
 
   a {
@@ -149,7 +146,7 @@ button.close-panel {
     border-bottom: transparentize(red, 0.5) 2px solid;
 
     &:hover {
-      color: white !important;
+      color: $black !important;
       // box-shadow: inset 0 -1.15em 0 transparentize(red, 0.5);
     }
   }
@@ -158,7 +155,7 @@ button.close-panel {
 
     p,
     a {
-      color: $white !important;
+      color: $black !important;
       padding-top: 2rem;
     }
 

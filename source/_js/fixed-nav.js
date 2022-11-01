@@ -103,35 +103,27 @@ const FixedNav = {
     });
   },
   scrollToSection() {
+    function getLocationAndScroll(item) {
+      const clickedSectionId = item.getAttribute('data-section');
+      const topOfSection = document.getElementById(clickedSectionId).getBoundingClientRect().top + window.pageYOffset;
+
+      window.scroll({
+        top: topOfSection - 140,
+        behavior: 'smooth'
+      });
+    }
+
     document.querySelectorAll('.content-link').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const clickedSectionId = link.getAttribute('data-section');
-        const topOfSection = document
-          .getElementById(clickedSectionId)
-          .getBoundingClientRect().top + window.pageYOffset;
-
         document.querySelector('.sections-panel').classList.remove('sections-panel--is-visible');
-
-        window.scroll({
-          top: topOfSection - 140,
-          behavior: 'smooth'
-        });
+        getLocationAndScroll(link);
       });
 
       link.addEventListener('keydown', e => {
         if (e.key === 'Enter') {
-          const clickedSectionId = link.getAttribute('data-section');
-          const topOfSection = document
-            .getElementById(clickedSectionId)
-            .getBoundingClientRect().top + window.pageYOffset;
-
           document.querySelector('.sections-panel').classList.toggle('sections-panel--is-visible');
-
-          window.scroll({
-            top: topOfSection - 145,
-            behavior: 'smooth'
-          });
+          getLocationAndScroll(link);
         }
       });
     });
