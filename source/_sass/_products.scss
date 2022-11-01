@@ -1,16 +1,73 @@
 .product-page {
   h1 {
     font-size: $h2;
+    line-height: 1.2;
   }
-  .product__subtitle, .product__authors {
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .product__subtitle,
+  .product__authors {
     margin: 2rem 0;
   }
-  .product__subtitle {
+
+  .product__subtitle,
+  h3 {
     font-family: $sans-serif;
     font-size: $h4;
+    font-weight: 200;
+    line-height: 1.2;
   }
+
   .product__authors {
     @include all_caps_text;
     font-size: $helper;
+  }
+
+  .product {
+    &__left-column {
+      @include page-section-padding;
+      padding-right: 15rem;
+    }
+
+    &__slide-panel {
+      padding-top: 6rem;
+      padding-right: 6rem;
+
+      .button {
+        display: block;
+        width: 100%;
+      }
+
+      .product__authors {
+        display: block;
+      }
+
+      .author {
+        display: block;
+        color: $black;
+        @include all_caps_text;
+        margin-bottom: 0.5rem;
+        font-size: $helper;
+      }
+    }
+  }
+}
+
+.footnote-container {
+  .row {
+    padding: 0 !important;
+  }
+}
+
+.no-padding {
+  .row {
+    padding: 0;
   }
 }
