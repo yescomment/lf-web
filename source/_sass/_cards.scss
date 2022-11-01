@@ -294,9 +294,11 @@
   }
 
   .card__title {
+    font-family: $sans-serif;
     width: 70%;
     font-size: $h3;
     letter-spacing: 0px;
+    font-weight: $bold;
   }
   .card__subtitle {
     margin-top: -1rem;
