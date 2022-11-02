@@ -10,7 +10,6 @@
   }
 }
 
-
 @mixin column-padding {
   padding: 0 1rem;
 }
@@ -22,21 +21,34 @@
 @mixin inverted-section {
   color: $white;
   background-color: $black;
-    h1, h2, h3, h4, h5, h6, p, span {
-      color: $white;
-      background-color: $black;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    color: $white;
+    background-color: $black;
+  }
 }
 
 @mixin uninverted-section {
   color: $black;
   background-color: $white;
-  h1, h2, h3, h4, h5, h6, p, span {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
     color: $black;
     background-color: $white;
   }
 }
-
 
 /* Typography Mixins*/
 
@@ -44,7 +56,7 @@
   font-size: $helper;
   text-transform: uppercase !important;
   font-weight: 700;
-} 
+}
 
 @mixin inverted-text {
   color: $white;
@@ -88,4 +100,22 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.skip-to-main-content-link {
+  z-index: 6;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: $orange-100;
+  color: $white;
+  height: 3.5rem;
+  left: 6rem;
+  padding: 1rem 2rem;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.skip-to-main-content-link:focus {
+  transform: translateY(0%);
 }

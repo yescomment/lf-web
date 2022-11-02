@@ -45,13 +45,16 @@
   }
 }
 /* SHARED CARD STATES */
-.card--event,
+.card--event, 
 .card--research,
 .card--project,
 .card--people {
   &:hover {
     background-color: $purple-100;
     color: $white;
+    a {
+      color: $white;
+    }
     .card__icon {
       visibility: hidden;
     }
@@ -60,6 +63,8 @@
     }
   }
 }
+
+
 /* END SHARED CARD STATES */
 
 // PEOPLE CARD with image, name, affiliation

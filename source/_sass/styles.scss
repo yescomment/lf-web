@@ -10,8 +10,8 @@ $medium-only: screen and (min-width: 40em) and (max-width: 63.9375em);
 $between-large: screen and (min- width: 1024px) and (max-width: 1260px);
 $large: screen and (min-width: 64em);
 
-@import 'mixins';
 @import 'colors';
+@import 'mixins';
 @import 'typography';
 @import 'breakpoint';
 @import 'base';
