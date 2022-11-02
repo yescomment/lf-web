@@ -10,7 +10,7 @@ import Utils from './utils';
 Modal.init();
 Nav.init();
 Overlay.init();
-Scroll.init();
+// Scroll.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
