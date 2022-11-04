@@ -6,6 +6,7 @@ import Scroll from './scroll';
 import SlidePanel from './slide-panel';
 import Search from './search';
 import Utils from './utils';
+import CustomDropdown from './custom-select';
 
 Modal.init();
 Nav.init();
@@ -17,4 +18,8 @@ Utils.markdownLinksNewPage();
 if (window.location.pathname === '/product/' || window.location.pathname === '/') {
   FixedNav.init();
   SlidePanel.init();
+}
+
+if (window.location.pathname === '/what-we-do/') {
+  CustomDropdown.init();
 }
