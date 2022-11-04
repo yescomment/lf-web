@@ -15,7 +15,7 @@ Overlay.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
-if (window.location.pathname === '/product/' || window.location.pathname === '/') {
+if (window.location.pathname === '/product/') {
   FixedNav.init();
   SlidePanel.init();
 }
