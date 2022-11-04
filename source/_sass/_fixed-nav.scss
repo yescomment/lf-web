@@ -4,6 +4,7 @@
   font-weight: bold;
   background-color: $white;
   padding: 1rem 2rem;
+  cursor: pointer;
 
   @include breakpoint($large) {
     padding: 1rem 6rem;
@@ -90,7 +91,6 @@
       font-size: 1.1rem;
       margin-bottom: 1rem;
       margin-bottom: 0.6rem;
-      cursor: pointer;
 
       &--h4 {
         padding-left: 2rem;

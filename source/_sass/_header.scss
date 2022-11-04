@@ -3,6 +3,7 @@
     color: $gray-100;
   }
 }
+
 .top-bar {
   background-color: $gray-200;
   height: 3.5rem;
@@ -10,7 +11,8 @@
   position: fixed;
   width: 100vw;
   top: 0;
-  z-index: 3;
+  z-index: 4;
+
   &--mobile-list {
     @include breakpoint($small-only) {
       width: 100%;
@@ -27,6 +29,7 @@
 
   .js-trigger-menu {
     color: gray;
+
     &--right {
       background-color: orange;
       font-size: 2rem;
@@ -36,6 +39,7 @@
       bottom: 0;
       top: 0;
       z-index: -1;
+
       &:hover {
         background-color: green;
       }
@@ -46,20 +50,24 @@
 .top-bar.top-bar--white {
   background-color: white;
 }
+
 .top-bar--no-logo {
   background-color: transparent;
 }
-.top-bar--no-logo  >  .top-bar__logo-container {
+
+.top-bar--no-logo>.top-bar__logo-container {
   display: none;
 }
 
-.top-bar--white > .top-bar__logo-container {
+.top-bar--white>.top-bar__logo-container {
   display: flex;
 }
+
 .top-bar__logo-container {
   display: flex;
   justify-content: center;
   height: 3.5rem;
+
   img {
     height: 3.5rem;
     width: auto;
@@ -71,6 +79,7 @@
   position: absolute;
   left: 0;
   border-radius: 0;
+
   .menu-button__decorator {
     background-color: $purple-100;
     display: inline-block;
@@ -78,6 +87,7 @@
     width: 2rem;
     color: $white;
     border: $purple-100 solid 1px;
+
     &:before {
       font-size: 3.2rem;
       content: 'more_vert';
@@ -85,6 +95,7 @@
       margin-left: -0.6rem;
     }
   }
+
   .menu-button__text {
     background-color: transparent;
     display: inline-block;
@@ -102,10 +113,12 @@
 
 .below-topbar {
   color: transparent;
+
   .material-icons {
     background-color: transparent;
     font-size: 0.1rem;
   }
+
   .menu-text {
     color: transparent;
   }
@@ -125,12 +138,15 @@
   position: absolute;
   right: 0;
   top: 0;
+
   @include breakpoint(screen and (min-width: 1024px) and (max-width: 1200px)) {
     padding-bottom: 10rem;
   }
+
   @include breakpoint($medium-only) {
     padding-bottom: 10rem;
   }
+
   @include breakpoint($small-only) {
     height: 100vh;
     overflow-y: scroll;
@@ -145,9 +161,11 @@
     text-align: left;
     text-decoration: none;
     color: $white;
+
     &:hover {
       background-color: transparentize(white, 0.9);
     }
+
     @extend .transition;
   }
 
@@ -161,10 +179,13 @@
     padding: 0.3rem 0.2rem;
     text-align: left;
     text-decoration: none;
+
     &:hover {
       background-color: transparentize(white, 0.9);
     }
+
     @extend .transition;
+
     &--no-hover {
       &:hover {
         background-color: transparent;
@@ -174,9 +195,11 @@
 
   .link-column {
     margin-bottom: 5rem;
+
     @include breakpoint($medium-only) {
       margin-bottom: 2rem;
     }
+
     @include breakpoint($small-only) {
       margin-bottom: 1rem;
     }
@@ -187,10 +210,12 @@
     left: 0;
     position: absolute;
     top: 56px;
+
     @include breakpoint($small-only) {
       left: 60px;
       top: 0;
     }
+
     i {
       font-size: 30px;
       padding: 8px 7px;
@@ -202,11 +227,13 @@
     left: 0;
     position: absolute;
     top: 0;
+
     @include breakpoint($small-only) {
       left: 60px;
       top: 0;
       left: 0;
     }
+
     i {
       font-size: 30px;
       padding: 8px 7px;
@@ -216,18 +243,21 @@
 
 .nav-logo {
   margin-top: 4rem;
+
   @include breakpoint($medium-only) {
     width: 11rem;
     position: absolute;
     right: 4rem;
     bottom: 2rem;
   }
+
   @include breakpoint(screen and (min-width: 1024px) and (max-width: 1200px)) {
     width: 10rem;
     position: absolute;
     right: 3rem;
     bottom: 4rem;
   }
+
   @include breakpoint($medium-only) {
     right: 3rem;
     bottom: 3rem;
