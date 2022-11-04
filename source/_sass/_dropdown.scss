@@ -2,18 +2,26 @@
   position: relative;
   font-family: $sans-serif;
   font-weight: bold;
-  margin-right: 3rem;
-  font-size: 2.5rem;
   line-height: 1.4;
+
+  @include breakpoint($large) {
+    margin-right: 5rem !important;
+  }
+
+  @include breakpoint($between-large) {
+    margin-right: 0rem !important;
+  }
 
   @include breakpoint($medium) {
     font-size: 2rem;
     margin-top: 1rem;
+    margin-right: 0;
   }
 
   @include breakpoint($small-only) {
     font-size: 1.7rem;
-    margin-right: 0.5rem;
+    margin-right: 0;
+    margin-top: 0.5rem;
   }
 }
 
@@ -22,41 +30,47 @@
 }
 
 .select-selected {
-  background-color: purple;
+  border-bottom: 4px solid $black !important;
+  padding-left: 0 !important;
 }
 
 .select-selected:after {
   position: absolute;
-  content: "";
-  top: 2rem;
-  right: 10px;
+  @extend .u-material-icons;
+  color: $black;
+  content: 'expand_circle_down';
+  font-size: 2.4rem;
+  right: 2.5rem;
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-color: green transparent transparent transparent;
-}
 
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent green transparent;
-  top: 2rem;
+  @include breakpoint($between-large) {
+    font-size: 2.2rem;
+    right: 2rem;
+  }
 }
 
 .select-items div,
 .select-selected {
-  color: green;
-  padding: 10px 16px 6px 16px;
+  color: $black;
+  padding: 10px 16px 10px 16px;
   border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.15) transparent;
   cursor: pointer;
 }
 
 .select-items {
   position: absolute;
-  background-color: green;
+  background-color: $white;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 99;
+  font-size: 1.4rem;
+  // Set max height to dropdown
+  max-height: 25rem;
+  overflow: hidden;
+  overflow-y: scroll;
 
   @include breakpoint($small-only) {
     font-size: 1.3rem;
@@ -89,10 +103,13 @@
 // default select
 .dropdown-component {
   padding-top: 1rem;
+
   @include breakpoint($small-only) {
     padding-bottom: 16px;
   }
+
   position: relative;
+
   &:before {
     @extend .u-material-icons;
     color: $black;
@@ -102,8 +119,8 @@
     position: absolute;
     right: 0;
     line-height: inherit;
-
   }
+
   select {
     color: $black;
     background-color: transparent;
@@ -125,6 +142,7 @@
     &::-ms-expand {
       display: none;
     }
+
     font-family: $sans-serif;
     font-size: $h5;
     font-weight: $bold;
