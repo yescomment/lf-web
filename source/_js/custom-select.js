@@ -37,7 +37,6 @@ const CustomDropdown = {
       // For each element, create a new div that will act as the selected item
       a = document.createElement('div');
       a.setAttribute('class', 'select-selected');
-      // a.setAttribute('tabindex', '0');
       a.innerHTML = setEl.options[setEl.selectedIndex].innerHTML;
       x[i].appendChild(a);
       // For each element, create a new div that will contain the option list

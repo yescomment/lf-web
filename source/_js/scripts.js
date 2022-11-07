@@ -20,6 +20,6 @@ if (window.location.pathname === '/product/') {
   SlidePanel.init();
 }
 
-if (window.location.pathname === '/what-we-do/') {
+if (window.location.pathname === '/what-we-do/' || window.location.pathname === '/for-students/') {
   CustomDropdown.init();
 }
