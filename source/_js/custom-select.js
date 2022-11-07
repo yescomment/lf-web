@@ -3,12 +3,41 @@ const CustomDropdown = {
     let i, j, ll, setEl, a, b, c;
     const x = document.getElementsByClassName('custom-select');
     const l = x.length;
+
+    function createOption(e) {
+      let y, i, k, s, h, sl, yl;
+      s = e.target.parentNode.parentNode.getElementsByTagName('select')[0];
+      sl = s.length;
+      h = e.target.parentNode.previousSibling;
+
+      for (i = 0; i < sl; i++) {
+        if (s.options[i].innerHTML === e.target.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = e.target.innerHTML;
+          y = e.target.parentNode.getElementsByClassName('same-as-selected');
+          yl = y.length;
+          for (k = 0; k < yl; k++) {
+            y[k].removeAttribute('class');
+          }
+          break;
+        }
+      }
+      h.click();
+
+      if (window.location.host.match(/objectively.github.io\/?$/gm)) {
+        window.location.href = `/engelberg${e.target.getAttribute('url-value')}`;
+      } else {
+        window.location.href = `${e.target.getAttribute('url-value')}`;
+      }
+    }
+
     for (i = 0; i < l; i++) {
       setEl = x[i].getElementsByTagName('select')[0];
       ll = setEl.length;
       // For each element, create a new div that will act as the selected item
       a = document.createElement('div');
       a.setAttribute('class', 'select-selected');
+      // a.setAttribute('tabindex', '0');
       a.innerHTML = setEl.options[setEl.selectedIndex].innerHTML;
       x[i].appendChild(a);
       // For each element, create a new div that will contain the option list
@@ -21,32 +50,15 @@ const CustomDropdown = {
         c.innerHTML = setEl.options[j].innerHTML;
         c.setAttribute('url-value', setEl.options[j].value);
         c.setAttribute('class', 'dropdown-item');
+        c.setAttribute('tabindex', '0');
 
         c.addEventListener('click', e => {
-          let y, i, k, s, h, sl, yl;
-          s = e.target.parentNode.parentNode.getElementsByTagName('select')[0];
-          sl = s.length;
-          h = e.target.parentNode.previousSibling;
+          createOption(e);
+        });
 
-          for (i = 0; i < sl; i++) {
-            if (s.options[i].innerHTML === e.target.innerHTML) {
-              s.selectedIndex = i;
-              h.innerHTML = e.target.innerHTML;
-              y = e.target.parentNode.getElementsByClassName('same-as-selected');
-              yl = y.length;
-              for (k = 0; k < yl; k++) {
-                y[k].removeAttribute('class');
-              }
-              break;
-            }
-          }
-          h.click();
-          sessionStorage.setItem('dropdownItem', h.innerHTML);
-
-          if (window.location.host.match(/objectively.github.io\/?$/gm)) {
-            window.location.href = `/engelberg${e.target.getAttribute('url-value')}`;
-          } else {
-            window.location.href = `${e.target.getAttribute('url-value')}`;
+        c.addEventListener('keydown', e => {
+          if (e.key === 'Enter') {
+            createOption(e);
           }
         });
 
@@ -58,7 +70,19 @@ const CustomDropdown = {
         e.stopPropagation();
         CustomDropdown.closeAllSelect(e.target);
         e.target.nextSibling.classList.toggle('select-hide');
-        e.target.classList.toggle('select-arrow-active');
+      });
+
+      a.parentElement.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const selectItemsContainer = document.querySelector('.select-items').classList.contains('select-hide');
+          e.stopPropagation();
+          CustomDropdown.closeAllSelect(e.target);
+          if (selectItemsContainer) {
+            document.querySelector('.select-items').classList.remove('select-hide');
+          } else {
+            document.querySelector('.select-items').classList.add('select-hide');
+          }
+        }
       });
     }
   },
@@ -71,8 +95,6 @@ const CustomDropdown = {
     for (i = 0; i < yl; i++) {
       if (el === y[i]) {
         arrNo.push(i);
-      } else {
-        y[i].classList.remove('select-arrow-active');
       }
     }
     for (i = 0; i < xl; i++) {
