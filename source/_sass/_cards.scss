@@ -1,8 +1,21 @@
-
 .cards-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 8px;
+  grid-auto-rows: 1fr;
+	display: grid;
+	grid-gap: 1rem;
+  width: 100%;
+    
+  @include breakpoint($large) {
+      grid-template-columns: repeat(4,1fr);
+  }
+  @include breakpoint($between-large) {
+    grid-template-columns: repeat(3,1fr);
+  }
+  @include breakpoint($medium-only) {
+    grid-template-columns: repeat(2,1fr);
+  }
+  @include breakpoint($small-only) {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* GLOBAL Card Styles */
@@ -16,10 +29,6 @@
   justify-content: space-between;
   min-height: 14rem;
   transition-duration: 0.4s;
-  @include breakpoint($large) {
-    margin: 0 8px 2rem;
-  }
-  overflow: hidden;
 }
 
 /* END GLOBAL Card Styles */
@@ -28,20 +37,21 @@
 .card--research,
 .card--project,
 .card--people {
-  width: 100%;
+  // width: 100%;
+  
   @include breakpoint($large) {
-    max-width: calc(25% - 16px);
+    // max-width: calc(25% - 16px);
   }
   @include breakpoint($between-large) {
-    max-width: calc(33% - 16px);
+    // max-width: calc(33% - 16px);
   }
   @include breakpoint($medium-only) {
-    max-width: calc(50% - 16px);
-    margin: 8px;
+    // max-width: calc(50% - 16px);
+    // margin: 8px;
   }
   @include breakpoint($small-only) {
-    max-width: 100%;
-    margin: 8px;
+    // max-width: 100%;
+    // margin: 8px;
   }
 }
 /* SHARED CARD STATES */
@@ -71,7 +81,7 @@
 .card--people {
   padding: 0 1rem;
   display: block;
-  height: 26.5rem;
+  // height: 26.5rem;
   .card__avatar-wrapper {
     display: flex;
     flex-direction: column;
@@ -117,14 +127,11 @@
 
 /* EVENT CARDS with image, date, title, and event type */
 
-.cards-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 .card--event {
   display: flex;
-  // height: 22rem; // event and research cards have different heights
-  height: inherit;
+  min-height: 22rem; // event and research cards have different heights
+  // height: inherit;
   &.card--event-long {
     height: inherit;
   }
@@ -164,7 +171,7 @@
 
 /* RESEARCH CARD with icon, title, subtitle, author */
 .card--research {
-  height: 25rem;
+  min-height: 25rem;
   padding: 2rem;
   .card__icon {
     height: 4rem;
@@ -198,7 +205,7 @@
 
 /* PROJECT CARDS with image, title, description */
 .card--project {
-  height: 25rem;
+//   // height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -227,7 +234,7 @@
 
 // PODCAST CARDS
 .card--podcast {
-  padding: 0 2.5rem;
+  padding: 1rem 2.5rem;
   display: block;
   height: 31.5rem;
   @include uninverted-section;
