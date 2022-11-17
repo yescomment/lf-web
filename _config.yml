@@ -47,3 +47,61 @@ collections:
     output: false
   colors:
     output: false
+
+contentful:
+  spaces:
+    - index:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: index
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
+    - product:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: product
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
+    - project:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: project
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
+    - genericPage:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: genericPage
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
+    - portalPage:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: portalPage
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
