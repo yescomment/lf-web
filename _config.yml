@@ -105,3 +105,10 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
+
+
+page_gen:
+  - data: 'data.contentful.project.project'
+    template: 'project'
+    name: 'pretty_url'
+    dir: 'project'
