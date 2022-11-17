@@ -7,3 +7,4 @@ node_modules
 .byebug_history
 source/assets
 .vscode/
+source/_data/contentful
