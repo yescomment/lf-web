@@ -10,6 +10,8 @@ project_cards:
     description: One sentence about this project
   - title: Project Title
     description: One sentence about this project
+  - title: Project Title
+    description: One sentence about this project
 research_cards: 
   - title: Distributed Manufacturing of Open Hardware
     subtitle: A Report of the Open Hardware Distribution & Documentation Working Group
@@ -18,6 +20,9 @@ research_cards:
     subtitle: Lessons from the Data Sharing Practitioners Workshop
     author: author
   - title: Recommendations for Statutory Reform of the Patent Term Extension System to Increase Public Accountability and Fight Soaring Drug Prices
+    subtitle:
+    author: author
+  - title: The State of Open Source Hardware 2021
     subtitle:
     author: author
   - title: The State of Open Source Hardware 2021
@@ -32,6 +37,9 @@ event_cards:
     date: April, 04, 2022
   - title: The Normalizing Gaze
     type: speaker series
+    date: April, 04, 2022
+  - title: Could the Internet Break Democracy?
+    type: webinar
     date: April, 04, 2022
   - title: Could the Internet Break Democracy?
     type: webinar
@@ -72,6 +80,10 @@ people:
     title: Professor of Law
   - name: Mala Chatterjee
     title: Fellow
+  - name: Mala Chatterjee
+    title: Fellow
+  - name: Barton Beebe
+    title: John M. Desmarais Professor of Intellectual Property Law
 podcast:
   title: Engleberg Center Live!
   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, error fuga! Natus mollitia ut sunt placeat, laudantium tenetur eaque. At!
@@ -182,9 +194,9 @@ podcast:
 
 <div class="row expanded">
   <h3>Research Card Section Heading</h3>
- </div>
-<div class="cards-wrapper">
-  <div class="row expanded">
+
+    <div class="cards-wrapper">
+
     {% for card in page.research_cards %} 
     <div class="card card--research">
       <div class="card__icon" style="background-image: url({{ '/images/circle-logo.svg' | relative_url }})">
@@ -196,6 +208,7 @@ podcast:
       </div>
     </div>
     {% endfor %}
+
     </div>
   </div>
 </div>
