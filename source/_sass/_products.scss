@@ -26,8 +26,18 @@
   }
 
   .product__authors {
-    @include all_caps_text;
-    font-size: $helper;
+
+    p {
+      font-family: $sans-serif;
+      @include all_caps_text;
+      font-size: $helper;
+
+      a {
+        @include all_caps_text;
+        font-size: $helper;
+        color: $black;
+      }
+    }
   }
 
   .product {

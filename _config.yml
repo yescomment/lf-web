@@ -112,3 +112,7 @@ page_gen:
     template: 'project'
     name: 'pretty_url'
     dir: 'project'
+  - data: 'data.contentful.product.product'
+    template: 'product'
+    name: 'pretty_url'
+    dir: 'product'
