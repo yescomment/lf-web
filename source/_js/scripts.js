@@ -7,6 +7,7 @@ import SlidePanel from './slide-panel';
 import Search from './search';
 import Utils from './utils';
 import CustomDropdown from './custom-select';
+import Footnotes from './footnotes';
 
 Modal.init();
 Nav.init();
@@ -15,7 +16,8 @@ Overlay.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
-if (window.location.pathname === '/product/') {
+if (window.location.pathname.includes('/product/')) {
+  Footnotes.init();
   FixedNav.init();
   SlidePanel.init();
 }

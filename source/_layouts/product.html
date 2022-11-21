@@ -11,132 +11,42 @@ seo_image_path: #'/images/media/filename.jpg'
   <div class="row expanded top-section section--light-gray product-header">
     <div class="column large-7 medium-12 small-12">
       
-      {% if page.product.tags %}
+      {% if page.tags %}
       <div class="product__tags-container tags-container">
-        {% for tag in page.product.tags %}
+        {% for tag in page.tags %}
         <div class="tag tag--{{tag | slugify}}">{{ tag | capitalize }}</div>
         {% endfor %}
       </div>
       {% endif %}
-      <h1>{{ page.product.title}}</h1>
-      <div class="product__subtitle">{{ page.product.subtitle }}</div>
-      <div class="product__authors">{{ page.product.authors }}</div>
-      <p>
-        This layout is used in 4a, 4b, 4c, 9, Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum perspiciatis
-        culpa optio consectetur, temporibus reiciendis fugit nisi excepturi magni tenetur nam sed, omnis officia
-        perferendis minus hic aut vero repellat quam? Possimus consequuntur recusandae animi, eum placeat vel aliquid
-        illo alias ducimus sint, inventore repellendus iure itaque. Asperiores totam aut aliquam, illo cupiditate magnam
-        nesciunt architecto eum dolor modi nemo sint quam excepturi officiis possimus quod libero laborum consequuntur
-        numquam eveniet at facere voluptatem laboriosam corporis. Perferendis delectus nihil voluptate voluptatem quasi
-        esse excepturi impedit sapiente soluta minima voluptates modi, corrupti cumque repellat accusamus quae,
-        doloribus vero et tenetur dicta?
-      </p>
+      <h1>{{ page.title}}</h1>
+      <div class="product__subtitle">{{ page.subtitle }}</div>
+      <div class="product__authors">{{ page.full_author | markdownify }}</div>
+      {{ page.short_description | markdownify }}
     </div>
     <div class="column large-offset-1 large-4 medium-12 small-12">
-      <img src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs" /> 
+      <img src="{{ page.header_image.url }}" /> 
     </div>
   </div>
 
-  {% if page.product.fixed-nav %}
+  {% if page.fixed_nav %}
     {% include components/fixed-nav.html %}
   {% endif %}
 
   <section class="page-section section--light-gray no-padding">
     <div class="row expanded">
       <div class="column large-9 medium-12 small-12 product__left-column">
-        <h2 class="heading" id="{{ 'Body Sections Start with Heading Two' | slugify }}">Body Sections Start with Heading Two</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-          quaerat pariatur inventore<sup tabindex="1" class="footnote" id="1">1</sup> laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-          dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-          Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-          reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-          accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-          Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-          consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-          dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-          dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-          similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-          Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-          consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-          doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!<sup tabindex="1" class="footnote" id="2">2</sup></p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-          quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-          dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-          Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-          reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-          accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-          Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-          consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-          dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-          dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-          similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-          Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-          consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat, doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!</p>
-        <h3 class="heading" id="{{ 'H3 Heading' | slugify }}">H3 Heading</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-          quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-          dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-          Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-          reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-          accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-          Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-          consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-          dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-          dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-          similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-          Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-          consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-          doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus, error eaque vero aperiam numquam, tenetur, soluta quibusdam odio eius aut. Distinctio placeat repellendus, repellat neque itaque in esse nobis!</p>
-        <h2 class="heading" id="{{ 'Another H2' | slugify }}">Another H2</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-          quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-          dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-          Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-          reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-          accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-          Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-          consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-          dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-          dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-          similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-          Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-          consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-          doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-            quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-            dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-            Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-            reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-            accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-            Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-            consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-            dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-            dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-            similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-            Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-            consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-            doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-              quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-              dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-              Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-              reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-              accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-              Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-              consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-              dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-              dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-              similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-              Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-              consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-              doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!<sup tabindex="1" class="footnote" id="3">3</sup><sup tabindex="1" class="footnote" id="4">4</sup></p></p>
+        {% if page.body %}
+          {{ page.body | rich_text_to_html }}
+        {% endif %}
       </div>
       <div class="column product__slide-panel">
-        <a href="" class="button">Button title</a>
-        <h3>Engelberg Center Authors</h3>
-        <a href="" class="author">Author 1</a>
-        <a href="" class="author">Author 2</a>
+        <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
+        {% if page.engelberg_author %}
+          <h3>Engelberg Center Authors</h3>
+          {% for item in page.engelberg_author %}
+            <a href="" class="author">{{ item.display_name }}</a>
+          {% endfor %}
+        {% endif %}
 
         <div id="1" class="slide-panel slide-panel--from-right row">
           <div tabindex="0" class="slide-panel__container slide-panel__container--footnote column">
@@ -144,63 +54,12 @@ seo_image_path: #'/images/media/filename.jpg'
               <button type="button" class="close-panel"><i class="material-icons">close</i></button>
             </div>
             <div class="slide-panel__content">
-
-              <div class="footnote-container" data-location="1">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">1</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-                      quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-                      dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-                      Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-                      reiciendis doloribus impedit voluptas iure cumque!</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="footnote-container" data-location="2">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">2</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Second footnote</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="footnote-container" data-location="3">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">3</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Third footnote</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="footnote-container" data-location="4">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">4</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-                      quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-                      dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-                      Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-                      reiciendis doloribus impedit voluptas iure cumque!</p>
-                  </div>
-                </div>
-              </div>
-
+              {% if page.body %}
+                {{ page.body | extract_footnotes_from_rich_text }}
+              {% endif %}
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </section>
