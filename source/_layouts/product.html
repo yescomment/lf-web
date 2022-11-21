@@ -35,7 +35,9 @@ seo_image_path: #'/images/media/filename.jpg'
   <section class="page-section section--light-gray no-padding">
     <div class="row expanded">
       <div class="column large-9 medium-12 small-12 product__left-column">
-
+        {% if page.body %}
+          {{ page.body | rich_text_to_html }}
+        {% endif %}
       </div>
       <div class="column product__slide-panel">
         <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
@@ -46,52 +48,18 @@ seo_image_path: #'/images/media/filename.jpg'
           {% endfor %}
         {% endif %}
 
-        <!-- <div id="1" class="slide-panel slide-panel--from-right row">
+        <div id="1" class="slide-panel slide-panel--from-right row">
           <div tabindex="0" class="slide-panel__container slide-panel__container--footnote column">
             <div class="close-button-container">
               <button type="button" class="close-panel"><i class="material-icons">close</i></button>
             </div>
             <div class="slide-panel__content">
-
-              <div class="footnote-container" data-location="1">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">1</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-                      quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-                      dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-                      Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-                      reiciendis doloribus impedit voluptas iure cumque!</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="footnote-container" data-location="2">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">2</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Second footnote</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="footnote-container" data-location="3">
-                <div class="row">
-                  <div class="column large-1 small-1 medium-1">
-                    <p class="footnote-numbers">3</p>
-                  </div>
-                  <div class="column large-10 small-10 medium-10">
-                    <p>Third footnote</p>
-                  </div>
-                </div>
-              </div>
+              {% if page.body %}
+                {{ page.body | extract_footnotes_from_rich_text }}
+              {% endif %}
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
