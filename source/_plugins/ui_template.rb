@@ -1,4 +1,8 @@
+require_relative './markdownify_yaml.rb'
+
 module UITemplate
+  include MarkdownifyYAML
+  
   def create_footnote_html(footnote_id)
     "<sup tabindex=3 class=\"footnote\" id=#{footnote_id}></sup>"
   end
