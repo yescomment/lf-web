@@ -1,7 +1,6 @@
 const Footnotes = {
   iterateFootnotes() {
     document.querySelectorAll('sup').forEach((footnote, idx) => {
-      console.log(footnote)
       footnote.innerText = idx + 1;
     });
 

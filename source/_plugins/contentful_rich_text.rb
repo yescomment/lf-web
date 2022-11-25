@@ -55,13 +55,32 @@ class SilentNullRenderer < RichTextRenderer::BaseNodeRenderer
   end
 end
 
+class HeadingRenderer < RichTextRenderer::BaseNodeRenderer
+  include Jekyll::Filters
+  
+  def render(node)
+    map_header_tag = {
+      'heading-2' => 'h2', 
+      'heading-3' => 'h3', 
+      'heading-4' => 'h4', 
+    }
+    heading_type = node['nodeType']
+    header_tag = map_header_tag[heading_type]
+    heading_value = node['content'][0]['value']
+    "<#{header_tag} class=\"heading\" id=#{slugify(heading_value)}>#{heading_value}</#{header_tag}>"
+  end
+end
+
 module Jekyll
   module DataFormatter
     def rich_text_to_html(content)
       renderer = RichTextRenderer::Renderer.new(
         nil => SilentNullRenderer, 
         'embedded-entry-inline' => EmbeddedInlineEntryRenderer, 
-        'embedded-entry-block' => EmbeddedEntryRenderer
+        'embedded-entry-block' => EmbeddedEntryRenderer,
+        'heading-2' => HeadingRenderer,
+        'heading-3' => HeadingRenderer,
+        'heading-4' => HeadingRenderer,
         )
       renderer.render(content)
     end

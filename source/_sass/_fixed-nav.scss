@@ -40,19 +40,7 @@
 }
 
 .section-link-column {
-  padding: 8px 96px;
-
-  @include breakpoint($between-large) {
-    padding: 8px 72px;
-  }
-
-  @include breakpoint($medium) {
-    padding: 8px 40px;
-  }
-
-  @include breakpoint($small-only) {
-    padding: 8px 16px;
-  }
+  padding: 0rem 1rem;
 }
 
 .sections-panel {
@@ -88,12 +76,17 @@
     .content-link {
       color: white;
       display: block;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       margin-bottom: 1rem;
       margin-bottom: 0.6rem;
 
-      &--h4 {
+      &--h3 {
         padding-left: 2rem;
+        font-size: 1.2rem;
+      }
+
+      &--h4 {
+        padding-left: 4rem;
         font-size: 1rem;
       }
 
