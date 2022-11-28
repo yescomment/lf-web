@@ -10,14 +10,23 @@ seo_image_path: #'/images/media/filename.jpg'
   <!-- Layout 4 -->
   <div class="row expanded top-section section--light-gray product-header">
     <div class="column large-7 medium-12 small-12">
-      
-      {% if page.tags %}
       <div class="product__tags-container tags-container">
-        {% for tag in page.tags %}
-        <div class="tag tag--{{tag | slugify}}">{{ tag | capitalize }}</div>
-        {% endfor %}
+        {% if page.law_area %}
+          {% for tag in page.law_area %}
+            <div class="tag tag--{{tag | slugify}} tag--orange">{{ tag | capitalize }}</div>
+          {% endfor %}
+        {% endif %}
+        {% if page.topic %}
+          {% for tag in page.topic %}
+            <div class="tag tag--{{tag | slugify}} tag--green">{{ tag | capitalize }}</div>
+          {% endfor %}
+        {% endif %}
+        {% if page.tag %}
+          {% for tag in page.tag %}
+            <div class="tag tag--{{tag | slugify}} tag--blue">{{ tag | capitalize }}</div>
+          {% endfor %}
+        {% endif %}
       </div>
-      {% endif %}
       <h1>{{ page.title}}</h1>
       <div class="product__subtitle">{{ page.subtitle }}</div>
       <div class="product__authors">{{ page.full_author | markdownify }}</div>

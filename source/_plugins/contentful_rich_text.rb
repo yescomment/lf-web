@@ -34,15 +34,22 @@ class CreateFootnotesPanel < RichTextRenderer::BaseNodeRenderer
 end
 
 class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
+  include UITemplate
+
   def render(node)
     entry = node['data']['target']
     case entry['sys']['content_type_id']
-      when 'pullQuote'
-        "pullQuote"
       when 'figure'
-        "figure"
+        title = entry['title'] || ''
+        caption = entry['caption'] || ''
+        image_url = entry['image']['url'] || 'No image available'
+        image_description = entry["caption"] || 'No caption available'
+        figure_id = entry['sys']['id']
+        create_figure_html(figure_id, title, image_url, image_description, caption)
       when 'table'
-        "table"
+        title = entry['title']
+        body = entry['body']
+        create_table(title, body)
       else
         puts "Can't render embedded entry"
     end
