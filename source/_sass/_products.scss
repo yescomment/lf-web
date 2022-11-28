@@ -48,6 +48,11 @@
     &__left-column {
       @include page-section-padding;
       padding-right: 15rem;
+
+      a {
+        color: $black;
+        @include underlined-link;
+      }
     }
 
     &__slide-panel {

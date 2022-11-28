@@ -2,7 +2,9 @@
   color: $black;
   transition-duration: 0.4s;
   text-underline-offset: 2px;
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     color: rgba($black, 0.5);
   }
 }
@@ -13,14 +15,16 @@
   text-decoration: none;
   font-size: $helper;
   font-weight: 700;
+
   &:after {
     transition-duration: 0.4s;
     @extend .u-material-icons;
     // content: url('../images/icons/east_black_24dp.svg');
     content: url('../images/icons/arrow_forward_black_24dp.svg');
     vertical-align: bottom;
-    margin-left: .25rem; 
+    margin-left: .25rem;
   }
+
   &:hover {
     &:after {
       filter: opacity(50%)
@@ -30,11 +34,21 @@
 
 .link--arrow.inverted {
   color: $white;
+
   &:after {
     content: url('../images/icons/arrow_forward_white_24dp.svg');
   }
+
   &:hover {
     filter: opacity(50%);
   }
 }
 
+@mixin underlined-link {
+  transition: box-shadow .25s cubic-bezier(.32, .75, .25, 1);
+  border-bottom: 1px solid $yellow-100;
+
+  &:hover {
+    box-shadow: inset 0 -1.15em 0 $yellow-100;
+  }
+}
