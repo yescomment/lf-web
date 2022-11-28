@@ -38,7 +38,7 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
     entry = node['data']['target']
     case entry['sys']['content_type_id']
       when 'pullQuote'
-        "pullQuote"
+        "pull_quote"
       when 'figure'
         "figure"
       when 'table'
