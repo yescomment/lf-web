@@ -345,7 +345,7 @@ const ProductFilters = {
       count === 1
         ? 'result'
         : 'results'
-    document.querySelector('#results-total').innerHTML = `Displaying ${count} ${label} for: `;
+    document.querySelector('#results-total').innerHTML = `Displaying ${count} ${label}`;
   },
   displayResultQueries() {
     this.resultsItems = [];
@@ -370,9 +370,9 @@ const ProductFilters = {
       const resultsMessage = document.querySelector('#results-filter-detail');
       resultsMessage.classList.add('js-show');
       if (updateItems.length === 0) {
-        resultsMessage.innerHTML = `${this.resultsItems.join('; ')}`;
+        resultsMessage.innerHTML = ` for: ${this.resultsItems.join('; ')}`;
       } else {
-        resultsMessage.innerHTML = `${this.resultsItems.join('; ')}`;
+        resultsMessage.innerHTML = ` for: ${this.resultsItems.join('; ')}`;
       }
     } else {
       document.querySelector('#results-filter-detail').classList.remove('js-show');
@@ -399,9 +399,9 @@ const ProductFilters = {
     console.log(this.searchQueries);
     // this.filterBySessionStorage();
     this.handleSearchParams();
-    // this.handleClearAllFilters();
+    this.handleClearAllFilters();
     // this.handleDateSortClick();
-    // this.handleDropdownParams();
+    this.handleDropdownParams();
     // this.handleCheckboxClick();
     // this.handleSearchBehavior();
   }
