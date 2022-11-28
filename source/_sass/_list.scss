@@ -46,6 +46,17 @@
   .results-container {
     font-style: italic;
   }
+  #results-total, #results-filter-detail {
+    display: inline-block;
+  }
+  #results-filter-detail {
+    display: none;
+    &.js-show {
+      display: inline-block;
+    }
+  }
+
+
   .date-toggle-container {
     text-align: right;
     .button__date-sort {

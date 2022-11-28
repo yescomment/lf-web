@@ -57,6 +57,8 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "list.js": "^2.3.1",
+    "lodash.camelcase": "^4.3.0"
   }
 }
