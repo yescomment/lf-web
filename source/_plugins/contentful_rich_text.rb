@@ -65,6 +65,11 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
           alt_text = 'No alt text available'
         end
         create_box_html(title, image_url, alt_text, content)
+      when 'iframeContent'
+        title = entry['title']
+        body = entry['embed_code'] || ''
+        caption = entry['caption'] || ''
+        create_iframe_html(body, caption)
       else
         puts "Can't render embedded entry"
     end
