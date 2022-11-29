@@ -37,4 +37,19 @@ module UITemplate
       <div class=\"attribution\">#{markdownify_yaml(attribution)}</div>
     </blockquote>"
   end
+
+  def create_box_html(title, image_url, alt_text, content)
+    if image_url != 'No image available'
+      "<div class=\"box\">
+        <p class=\"box__title\">#{title}</p>
+        <img class=\"box__image\" src=#{image_url} alt=\"#{alt_text}\" />
+        <div class=\"box__content\">#{markdownify_yaml(content)}</div>
+      </div>"
+    else
+      "<div class=\"box\">
+        <p class=\"box__title\">#{title}</p>
+        <div class=\"box__content\">#{markdownify_yaml(content)}</div>
+      </div>"
+    end
+  end
 end

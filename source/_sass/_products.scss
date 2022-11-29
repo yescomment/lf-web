@@ -24,6 +24,12 @@
     text-decoration: none;
   }
 
+  ul,
+  li {
+    font-family: $serif;
+    font-size: 1.2rem;
+  }
+
   .product__subtitle,
   .product__authors {
     margin: 2rem 0;
@@ -46,8 +52,41 @@
 
   .product {
     &__left-column {
-      @include page-section-padding;
-      padding-right: 15rem;
+      padding: 0;
+      padding-top: 2.5rem;
+      padding-bottom: 4rem;
+
+      h2,
+      h3,
+      h4,
+      blockquote,
+      ul,
+      ol,
+      .table__body,
+      img,
+      p {
+
+        @include breakpoint($large) {
+          padding-left: 6rem;
+          padding-right: 7rem;
+        }
+
+        @include breakpoint($medium-only) {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+
+      ul,
+      ol {
+        margin-left: 1rem;
+
+        li {
+          p {
+            padding-left: 1rem;
+          }
+        }
+      }
 
       a {
         color: $black;
@@ -55,8 +94,17 @@
       }
 
       .figure {
+        padding: 2rem 0;
+
         &__image {
           width: 100%;
+        }
+
+        &__title {
+          font-size: $h4;
+          font-weight: bold;
+          line-height: 1.2;
+          font-family: $sans-serif;
         }
 
         &__caption {
@@ -140,14 +188,40 @@
       background-color: #bce9f8;
       border-radius: 10px;
       position: absolute;
-      left: 0;
+      // left: 0;
       top: 1.5rem;
       bottom: 1.5rem;
     }
 
     p {
       display: inline-block;
+      padding-left: 0;
       margin-left: 2rem;
+      padding-right: 0;
+    }
+  }
+
+  .box {
+    background-color: $gray-100;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    margin-top: 4rem;
+
+    &__title {
+      font-size: $h3;
+      font-weight: 200;
+      line-height: 1.2;
+      font-family: $sans-serif;
+    }
+
+    &__content {
+      li {
+        padding-left: 1rem;
+      }
+    }
+
+    &__image {
+      width: 100%;
     }
   }
 
@@ -162,6 +236,7 @@
         font-family: $sans-serif;
         font-weight: bold;
         line-height: 1.2;
+        padding: 0;
 
         &:before {
           content: '“';
@@ -176,7 +251,8 @@
     .attribution {
       p {
         margin: 0;
-
+        padding-left: 0;
+        padding-top: 1rem;
       }
     }
   }
