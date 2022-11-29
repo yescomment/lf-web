@@ -1,18 +1,19 @@
-<header class="top-bar 
+<header
+  class="top-bar 
   {% if page.top_bar == 'no-logo' %}top-bar--no-logo{% endif %} 
   {% if page.top_bar == 'no-logo' %}top-bar--no-logo{% endif %} 
   {% if page.top_bar == 'white' %}top-bar--white{% endif %}  
   {% if include.top_bar == 'white' %}top-bar--white{% endif %}
-  {% if page.mobile_list %}top-bar--mobile-list{% endif %}" 
+  {% if page.mobile_list %}top-bar--mobile-list{% endif %}"
 >
-
-
   <button class="top-bar__menu-button js-trigger-menu js-trigger-menu--left">
     <span class="menu-button__decorator"></span>
     <span class="menu-button__text">menu</span>
   </button>
 
-  <div class="top-bar__logo-container"><img class="logo" alt="logo" src="{{'/images/circle-logo.svg' | relative_url}}" /></div>
+  <div class="top-bar__logo-container">
+    <img class="logo" alt="logo" src="{{'/images/circle-logo.svg' | relative_url}}" />
+  </div>
   <nav class="main-nav">
     <a href="#" class="close-button"><i class="material-icons">close</i></a>
     <a class="home-button" href="{{ '/' | relative_url }}"><i class="material-icons">home</i></a>
@@ -20,15 +21,20 @@
       <div class="column large-3 small-12 medium-6 link-column">
         <span class="header-link header-link--no-hover">Individual Pages</span>
         <a href="{{ '/' | relative_url }}">Index</a>
+{% comment %}
         <a href="{{ '/about' | relative_url }}">About</a>
         <a href="{{ '/what-we-do' | relative_url }}">What We Do</a>
-        <a href="{{ '/our-mission' | relative_url }}">Our Mission</a>
         <a href="{{ '/for-students' | relative_url }}">For Students</a>
+{% endcomment %}
       </div>
       <div class="column large-4 small-12 medium-6 link-column">
-        <span class="header-link header-link--no-hover">Template Generated Pages</span>
+        <span class="header-link header-link--no-hover">Generic Pages</span>
         <div class="row expanded no-padding">
           <div class="column large-12">
+            <a href="{{ '/our-people' | relative_url }}">Our People</a>
+            <a href="{{ '/our-mission' | relative_url }}">Our Mission</a>
+            <a href="{{ '/getting-involved' | relative_url }}">Getting Involved</a>
+    {%comment%}
             <a href="{{ '/announcement' | relative_url }}">Announcement (announcement layout)</a>
             <a href="{{ '/event' | relative_url }}">Event Layout</a>
             <a href="{{ '/open-hardware' | relative_url }}">Topic Layout</a>
@@ -37,13 +43,16 @@
             <a href="{{ '/team' | relative_url }}">Generic Layout (Team)</a>
             <a href="{{ '/generic' | relative_url }}">Generic Layout (Generic))</a>
             <a href="{{ '/product' | relative_url }}">Product Layout</a>
+    {% endcomment %}
           </div>
         </div>
       </div>
       <div class="column large-3 small-12 medium-6 link-column">
         <span class="header-link header-link--no-hover">Landing Pages</span>
+  {%comment%}
         <a href="{{ '/events' | relative_url }}">Events</a>
         <a href="{{ '/projects' | relative_url }}">Projects</a>
+  {% endcomment %}
       </div>
       <div class="column large-2 small-12 medium-6 link-column link-column--logo">
         <span class="header-link header-link--no-hover">List Pages</span>
@@ -51,5 +60,4 @@
       </div>
     </div>
   </nav>
-
 </header>

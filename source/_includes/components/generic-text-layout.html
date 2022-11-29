@@ -1,13 +1,9 @@
 {% assign heading = include.heading %} 
 {% assign content = include.content %}
-
+{% assign cards = include.cards %}
 
 <div class="row expanded page-section--generic section--light-gray">
-  <div class="column large-4 medium-12 small-12">
-    <h2>{{ heading }}</h2>
-  </div>
-  <div class="column large-7 no-padding">
-    {{ content | markdownify }}
+  <div class="column generic-body-2-col">
+    {{content | markdownify }}
   </div>
 </div>
-

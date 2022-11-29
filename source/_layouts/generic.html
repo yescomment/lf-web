@@ -26,22 +26,21 @@ top_bar: white
     </div>
   </div>
 
-  {% comment %}
-  {% for section in page.page_sections %}
-    {% if section.type == 'text' %}
-      {% include components/generic-text-layout.html heading=section.heading content=section.content %}
-    {% else %}
-      {% include components/generic-card-layout.html 
-        cards=section
-      %}
-    {% endif %}
-  {% endfor %}
-  {% endcomment %}
 
   {% if page.pretty_url == 'our-people' %}
-  {% include sections/people.html people=site.data.contentful.people.people %}
-  
+    {% include sections/people.html people=site.data.contentful.people.people %}
+  {% else %}
+   
+    {% include components/generic-text-layout.html heading=section.heading 
+        content=page.body 
+    %}
+    {% include components/generic-card-layout.html 
+        cards=page.pinned_research 
+        cards_heading=page.pinned_title
+        cards_type="research_cards"
+    %}
   {% endif %}
+
 
 </main>
 

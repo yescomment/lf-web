@@ -30,3 +30,12 @@
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
+.generic-body-2-col {
+  p {
+    margin-left: calc(100%/3);
+    @include breakpoint($medium-only) {
+      margin-left: 0;
+    }
+  }
+}
