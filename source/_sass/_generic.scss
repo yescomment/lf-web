@@ -11,10 +11,22 @@
 }
 
 .top-section--generic {
-  padding-top: 8.5rem;
-  background-image: url(../images/circle-logo.svg);
   background-repeat: no-repeat;
-  background-size: 50%;
-  background-position-x: calc(-15%);
+  background-size: 100%;
+  background-position-x: calc(-25%);
+  background-position-y: calc(25%);
 }
 
+.bar {
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-size: 18%;
+}
+
+.card .bar {
+  margin-top: 1.5rem;
+  height: 2rem;
+  width: 5.5rem;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

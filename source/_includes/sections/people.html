@@ -1,0 +1,82 @@
+{% assign people = include.people %}
+
+{% assign faculty_cards = people | where: 'type', 'Faculty Co-Directors' %}
+
+{% if faculty_cards and faculty_cards.size != 0%}
+  {% include components/generic-card-layout.html 
+    cards=faculty_cards
+    cards_heading="Faculty Co-Directors"
+    cards_type="people_cards"
+  %}
+{% endif %}
+
+{% assign staff_cards = people | where: 'type', 'Staff' %}
+
+{% if staff_cards and staff_cards.size != 0 %}
+  {% include components/generic-card-layout.html 
+    cards=staff_cards
+    cards_heading="Staff"
+    cards_type="people_cards"
+  %}
+{% endif %}
+
+
+{% assign fellows_cards = people | where: 'type', 'Fellows' %}
+
+{% if fellows_cards and fellows_cards.size != 0 %}
+    {% include components/generic-card-layout.html 
+    cards=fellows_cards
+    cards_heading="Fellows"
+    cards_type="people_cards"
+    %}
+{% endif %}
+
+{% assign program_fellows_cards = people | where: 'type', 'Program Fellows' %}
+
+{% if program_fellows_cards and program_fellows_cards.size != 0 %}
+    {% include components/generic-card-layout.html 
+    cards=program_fellows_cards
+    cards_heading="Program Fellows"
+    cards_type="people_cards"
+    %}
+{% endif %}
+
+{% assign student_fellows_cards = people | where: 'type', 'Student Fellows' %}
+
+{% if student_fellows_cards and student_fellows_cards.size != 0 %}
+    {% include components/generic-card-layout.html 
+    cards=student_fellows_cards
+    cards_heading="Student Fellows"
+    cards_type="people_cards"
+    %}
+{% endif %}
+
+{% assign visiting_scholar_cards = people | where: 'type', 'Visiting Scholar' %}
+
+{% if visiting_scholar_cards and visiting_scholar_cards.size != 0 %}
+    {% include components/generic-card-layout.html 
+    cards=visiting_scholar_cards
+    cards_heading="Visiting Scholars"
+    cards_type="people_cards"
+    %}
+{% endif %}
+
+{% assign alumni_cards = people | where: 'type', 'Engelberg Center Community Alumni' %}
+
+{% if alumni_cards and alumni_cards.size != 0 %}
+    {% include components/generic-card-layout.html 
+    cards=alumni_cards
+    cards_heading="Engelberg Center Community Alumni"
+    cards_type="people_cards"
+    %}
+{% endif %}
+
+{% assign advisory_board_cards = people | where: 'type', 'Advisory Board' %}
+
+{% if advisory_board_cards and advisory_board_cards.size != 0 %}
+    {% include components/generic-card-layout.html 
+    cards=advisory_board_cards
+    cards_heading="Advisory Board"
+    cards_type="people_cards"
+    %}
+{% endif %}

@@ -116,7 +116,17 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
-
+    - genericPage:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: genericPage
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
 page_gen:
   - data: 'data.contentful.project.project'
     template: 'project'
@@ -126,3 +136,12 @@ page_gen:
     template: 'product'
     name: 'pretty_url'
     dir: 'product'
+  - data: 'data.contentful.people.people'
+    template: 'profile'
+    name: 'pretty_url'
+    dir: 'team'
+  - data: 'data.contentful.genericPage.genericPage'
+    template: 'generic'
+    name: 'pretty_url'
+    dir: ''
+    
