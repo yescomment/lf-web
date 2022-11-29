@@ -68,6 +68,7 @@ news_feed:
     date: April 3, 2022
     content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint, aliquam suscipit consectetur facere distinctio dolor repellendus magni temporibus non ipsam nesciunt reprehenderit blanditiis vel?
 ---
+{% assign data = site.data.contentful.index.index | first %}
 
 <main role="main" id="main" class="index">
   <!-- main content starts here -->
@@ -83,16 +84,16 @@ news_feed:
         <span class="main-header-three">NYU School of Law</span>
       </div>
       <div class="button-container">
-        <a class="button button--arrow" href="#">About the Engelberg Center</a>
+        <a class="button button--arrow" href="{{ '/about' | relative_url }}">About the Engelberg Center</a>
       </div>
     </div>
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
       <h2 class="heading-c">Featured Research</h2>
 
-      {% include components/card-featured.html card=page.featured_card %}
+      {% include components/card-featured.html card=data.featured_research %}
 
       <div class="button-container button-container--right">
-        <a class="button button--arrow" href="#">All Engelberg Center Research</a>
+        <a class="button button--arrow" href="{{ '/products' | relative_url  }}">All Engelberg Center Research</a>
       </div>
     </div>
   </div>
@@ -102,27 +103,12 @@ news_feed:
   <!-- Layout 2 -->
   <div class="row expanded inverted-section">
     <div class="column large-4 medium-12 small-12 no-padding">
-      {% include components/card-podcast.html podcast=page.podcast %}
+      {% include components/card-podcast.html podcast=data.featured_podcast %}
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12">
-      <h3 class="heading-b">Engelberg Center Students</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid accusantium, dolorem odit reiciendis
-        quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum debitis possimus. Libero, minus quia
-        dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo architecto exercitationem provident?
-        Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non beatae sit animi quae amet, aliquam,
-        reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo, obcaecati officiis qui impedit officia
-        accusamus labore architecto velit repellat eius atque quasi! Assumenda aliquam quaerat eveniet tempora sequi!
-        Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore accusamus laboriosam, ab in suscipit
-        consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae nisi. Doloribus, eos. Omnis quis tenetur
-        dolor laborum voluptatem optio alias fugit consequatur? Dignissimos repellat, iste distinctio aperiam amet
-        dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed libero tempora praesentium earum minima
-        similique facilis eum sint porro! Dolores rem eos praesentium mollitia facere suscipit vel iste sunt maxime.
-        Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt blanditiis officiis provident eum dolores
-        consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta culpa. Culpa expedita, atque quaerat,
-        doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo iure! Ut, laudantium quisquam!
-      </p>
-      <a class="link link--arrow inverted" href="#">Learn More</a>
+      <h3 class="heading-b">{{data.short_description_title}}</h3>
+      {{ data.short_description | markdownify }}
+      <a class="link link--arrow inverted" href="{{ data.learn_more_url }}">Learn More</a>
     </div>
   </div>
 
@@ -142,8 +128,11 @@ news_feed:
     <div class="column large-7 large-offset-1 medium-12 small-12">
       <h3 class="heading-b">In the News</h3>
       <div class="news-feed__container">
-        {% for item in page.news_feed %} {% include components/news-item.html title=item.title
-        publication=item.publication date=item.date author=item.author content=item.content %} {% endfor %}
+        {% for item in data.featured_news %} 
+          {% include components/news-item.html 
+            item=item
+          %}
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -154,19 +143,23 @@ news_feed:
       <h3 class="heading-b">Upcoming Events</h3>
     </div>
     <div class="cards-wrapper">
-      {% for card in page.event_cards %}
+      {% for card in data.upcoming_events %}
       <div class="card card--event">
         <div
           class="card__image"
-          style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
+          style="background-image: url({{card.event_image.url}})"
         ></div>
         <div class="card__detail">
-          <span class="card__date">{{ card.date }}</span>
-          <a href="#">
+          <span class="card__date">{{ card.event_start | date: "%B %d, %Y" }}</span>
+          {% if card.external_url %}
+            <a href="{{ card.external_url }}">
+          {% else %}
+            <a href="{{ card.pretty_url | prepend: '/events/' | relative_url }}">
+          {% endif %}
             <span class="card__title">{{ card.title }}</span>
           </a>
-          <span class="card__description ">{{ card.description }}</span>
-          <span class="card__type">{{ card.type }}</span>
+          <span class="card__description ">{{ card.short_description }}</span>
+          <span class="card__type">{{ card.event_type }}</span>
         </div>
       </div>
       {% endfor %}
