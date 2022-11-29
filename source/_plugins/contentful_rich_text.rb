@@ -50,6 +50,10 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
         title = entry['title']
         body = entry['body']
         create_table(title, body)
+      when 'pullQuote'
+        content = entry['pull_quote'] || ''
+        attribution = entry['attribution'] || ''
+        create_quote_html(content, attribution)
       else
         puts "Can't render embedded entry"
     end
