@@ -13,12 +13,12 @@ seo_image_path: #'/images/media/filename.jpg'
       <div class="profile-card">
         <div class="card__avatar-wrapper">
           <div class="card__avatar">
-            <img src="https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs" alt="An Image Description"/>
+            <img src="{{ page.photo.url }}" alt="{{page.photo.description}}}}"/>
           </div>
         </div>
 
-        <h1>{{ page.title }}</h1>
-        <div class="profile__position">{{ page.profile_position }}</div>
+        <h1>{{ page.display_name }}</h1>
+        <div class="profile__position">{{ page.title }}</div>
       </div>
       <div class="button-container">
         <a href="{{ page.profile_website }}" class="button button--full">NYU Law Profile</a>
@@ -26,30 +26,23 @@ seo_image_path: #'/images/media/filename.jpg'
 
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12 no-padding">
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, vitae aliquid
-        accusantium, dolorem odit reiciendis quaerat pariatur inventore laboriosam ipsa consectetur ratione, earum
-        debitis possimus. Libero, minus quia dignissimos fugit voluptas consequuntur aliquid reiciendis recusandae quo
-        architecto exercitationem provident? Provident ex rerum dolor ullam, placeat eos corrupti obcaecati ab aut non
-        beatae sit animi quae amet, aliquam, reiciendis doloribus impedit voluptas iure cumque! Id soluta nemo,
-        obcaecati officiis qui impedit officia accusamus labore architecto velit repellat eius atque quasi! Assumenda
-        aliquam quaerat eveniet tempora sequi! Inventore, dicta? Quos neque ipsa ex eos dolorum. Nam, dolor dolore
-        accusamus laboriosam, ab in suscipit consequuntur modi quos voluptate, obcaecati nulla amet vitae recusandae
-        nisi. Doloribus, eos. Omnis quis tenetur dolor laborum voluptatem optio alias fugit consequatur? Dignissimos
-        repellat, iste distinctio aperiam amet dolore dicta laudantium quaerat eius ratione veniam suscipit odit sed
-        libero tempora praesentium earum minima similique facilis eum sint porro! Dolores rem eos praesentium mollitia
-        facere suscipit vel iste sunt maxime. Porro voluptatem reprehenderit, quam adipisci illo tenetur nesciunt
-        blanditiis officiis provident eum dolores consequatur sunt atque qui autem aperiam, perspiciatis tempora, soluta
-        culpa. Culpa expedita, atque quaerat, doloribus perspiciatis quidem dolorum sint, nobis harum repellat illo
-        iure! Ut, laudantium quisquam!
-      </p>
+      {{page.long_description | markdownify }}
+    </div>
+    
+  </div>
+  <div class="row expanded row--thin ">
+    <div class="bar" style="background-image: url({{ page.bar_color.url }})">
     </div>
   </div>
-  <div class="row expanded">
-    <div class="column">
-      <div class="decorator"></div>
-    </div>
-  </div>
+
   <!-- card sections  -->
-  {% for section in page.card_sections %} {% include components/generic-card-layout.html cards=section %} {% endfor %}
+  {% if page.featured_research and page.featured_research.size != 0 %}
+    {% include components/generic-card-layout.html 
+      cards=page.featured_research
+      cards_heading="Featured Research"
+      cards_type="research_cards"
+      cards_link_text="All Research"
+      cards_link_to="products"
+    %}
+  {% endif %}
 </main>

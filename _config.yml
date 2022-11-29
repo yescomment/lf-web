@@ -139,7 +139,7 @@ page_gen:
   - data: 'data.contentful.people.people'
     template: 'profile'
     name: 'pretty_url'
-    dir: 'team'
+    dir: 'our-people'
   - data: 'data.contentful.genericPage.genericPage'
     template: 'generic'
     name: 'pretty_url'

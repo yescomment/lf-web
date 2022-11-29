@@ -1,8 +1,8 @@
 {% assign cards = include.cards %}
 {% assign cards_heading = include.cards_heading %}
 {% assign cards_type = include.cards_type %}
-{% assign cards_link = include.cards_link %}
-
+{% assign cards_link_to = include.cards_link_to %}
+{% assign cards_link_text = include.cards_link_text %}
 
 {% if cards_type == 'research_cards' %}
 <!-- RESEARCH CARD with icon, title, subtitle, author -->
@@ -10,8 +10,8 @@
 <div class="row expanded page-section--generic row--thin section--light-gray">
   <div class="column large-12 small-12 card-section-heading">
     <h2>{{ cards_heading }}</h2>
-    {% if card_data.link %}
-    <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% if cards_link_to and cards.link_to.size != 0 %}
+    <a class="link link--arrow" href="{{ cards_link_to | relative_url }}">{{cards_link_text}}</a>
     {% endif %}
   </div>
   <div class="cards-wrapper">
@@ -36,7 +36,7 @@
 <div class="row expanded row--thin">
   <div class="column large-12 small-12 card-section-heading">
     <h2>{{ cards_heading }}</h2>
-    {% if cards_link %}
+    {% if cards_link_to and cards.link_to.size != 0 %}
     <a class="link link--arrow" href="{{ cards_link_to | relative_url }}">{{cards_link_text}}</a>
     {% endif %}
   </div>
@@ -68,8 +68,8 @@
 <div class="row expanded ">
   <div class="column large-12 small-12 card-section-heading">
     <h2>{{ card_data.heading }}</h2>
-    {% if card_data.link %}
-    <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% if cards_link_to and cards.link_to.size != 0 %}
+    <a class="link link--arrow" href="{{ cards_link_to | relative_url }}">{{cards_link_text}}</a>
     {% endif %}
   </div>
   <div class="cards-wrapper">
@@ -96,8 +96,8 @@
 <div class="row expanded">
   <div class="column large-12 small-12 card-section-heading">
     <h2>{{ card_data.heading }}</h2>
-    {% if card_data.link %}
-    <a class="link link--arrow" href="{{ card_data.link_to | relative_url }}">{{card_data.link_text}}</a>
+    {% if cards_link_to and cards.link_to.size != 0 %}
+    <a class="link link--arrow" href="{{ cards_link_to | relative_url }}">{{cards_link_text}}</a>
     {% endif %}
   </div>
   <div class="cards-wrapper">
