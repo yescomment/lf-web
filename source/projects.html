@@ -5,64 +5,32 @@ subtitle:
 description:
 seo_image_path: #'/images/media/filename.jpg'
 top_bar: white
-introduction: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam tempore tempora modi, ab officiis repellendus esse corporis molestiae omnis adipisci dolor accusantium, quod similique ducimus ut a obcaecati possimus culpa cumque reprehenderit sapiente mollitia saepe quasi? Maiores quae blanditiis ea eum dolore debitis odit nostrum atque enim doloribus illo libero id ad repellat, facilis accusamus, minus ex veniam excepturi beatae! Accusantium ipsam aliquam doloremque. Numquam tempora iure et, doloribus aperiam consectetur amet repellat accusamus architecto itaque sit eos? Praesentium veniam tempore similique cumque voluptatem adipisci, doloribus eaque earum dignissimos veritatis unde quasi? Consequuntur quo blanditiis porro laborum sint amet vero.
-featured_project_card:
-  - title: GLAM 3D
-    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime iste dignissimos explicabo quasi minima quod fuga soluta amet, impedit sit.
-    authors:
-      - Thomas Flynn
-      - Neal Stimler
-      - Michael Weinberg
-    tags:
-      - Open Source Hardware
-    button_text: Read More
-card_sections:
-  - type: project_cards
-    heading: Projects
-    link:
-    link_text:
-    cards:
-      - title: Project Title
-        description: One sentence about this project
-      - title: PROJECT TITLE
-        description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae aliquam omnis velit voluptatem nemo sunt pariatur? Vel obcaecati provident excepturi?
-      - title: Project With A Longer Title Title
-        description: One sentence about this project
-      - title: Project Title
-        description: One sentence about this project
-      - title: Project Title
-        description: One sentence about this project
-      - title: PROJECT TITLE
-        description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae aliquam omnis velit voluptatem nemo sunt pariatur? Vel obcaecati provident excepturi?
-      - title: Project With A Longer Title Title
-        description: One sentence about this project
-      - title: Project Title
-        description: One sentence about this project
-      - title: PROJECT TITLE
-        description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae aliquam omnis velit voluptatem nemo sunt pariatur? Vel obcaecati provident excepturi?
-      - title: Project With A Longer Title Title
-        description: One sentence about this project
-      - title: Project Title
-        description: One sentence about this project
 ---
-
+{% assign data = site.data.contentful.projectsPage.projectsPage |first  %}
 <main id="main" class="projects-page">
+  
   <!-- Layout 1 -->
-
   <div class="row expanded top-section section--gray">
     <div class="column large-5 medium-12 small-12">
-      <h1>{{ page.title }}</h1>
-      <div class="heading-decorator">
-        <div class="decorator"></div>
-      </div>
-      <p>{{ page.introduction }}</p>
+
+      <h1>{{ data.title }}</h1>
+      <div class="bar" style="background-image: url({{data.bar_color.url}})"></div>
+
+      <p>{{ data.introduction }}</p>
     </div>
     <div class="column large-6 large-offset-1 medium-12 small-12">
-      {% if page.featured_project_card%} {% include components/card-featured.html card=page.featured_project_card %} {%
+
+      {% if data.featured_project %} 
+      {% include components/card-featured.html card=data.featured_project %} {%
       endif %}
     </div>
   </div>
 
   <!-- card sections  -->
-  {% for section in page.card_sections %} {% include components/generic-card-layout.html cards=section %} {% endfor %}
+    {% include components/generic-card-layout.html 
+        cards=data.projects_list
+        cards_heading=page.pinned_title
+        cards_type="project_cards"
+        cards_heading="Projects"
+    %}
 </main>

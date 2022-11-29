@@ -24,15 +24,17 @@
     </div>
  
     <div class="card__authors">
-
+     
       {% for sys in card.engelberg_author %}
 
       {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
       <span class="card__author">{{ author.display_name  }}</span>
       {% endfor %}
+   
+<!-- use named people,center authors, or full_authors? -->
     </div>
   </div>
-  <a href="#">
+  <a href="{{ card.pretty_url | prepend: '/projects/' | relative_url }}">
     <span class="card__title">{{card.title}}</span>
   </a>
   <span class="card__subtitle">{{card.subtitle}}</span>
