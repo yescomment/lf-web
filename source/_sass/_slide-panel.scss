@@ -48,6 +48,10 @@
     // Add margin-bottom for last footnote to scroll to top
     margin-bottom: 5000rem;
 
+    blockquote {
+      display: none !important;
+    }
+
     p {
       margin: 0;
 
@@ -143,12 +147,7 @@ button.close-panel {
   a {
     word-wrap: break-word;
     -ms-word-wrap: break-word;
-    border-bottom: transparentize(red, 0.5) 2px solid;
-
-    &:hover {
-      color: $black !important;
-      // box-shadow: inset 0 -1.15em 0 transparentize(red, 0.5);
-    }
+    @include underlined-link;
   }
 
   &.active-footnote {
@@ -160,12 +159,7 @@ button.close-panel {
     }
 
     a {
-      transition: box-shadow .25s cubic-bezier(.32, .75, .25, 1);
-      border-bottom: 2px solid red;
-
-      &:hover {
-        box-shadow: inset 0 -1.15em 0 transparentize(red, 0.5);
-      }
+      @include underlined-link;
     }
   }
 }
