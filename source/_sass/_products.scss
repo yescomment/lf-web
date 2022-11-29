@@ -130,22 +130,53 @@
     }
   }
 
-  blockquote {
+  blockquote:not(.pull-quote) {
     margin: 0;
+    display: block;
+    position: relative;
+
+    div {
+      width: 10px;
+      background-color: #bce9f8;
+      border-radius: 10px;
+      position: absolute;
+      left: 0;
+      top: 1.5rem;
+      bottom: 1.5rem;
+    }
 
     p {
-      font-size: 2.5rem;
-      color: $purple-100;
-      font-family: $sans-serif;
-      font-weight: bold;
-      line-height: 1.2;
+      display: inline-block;
+      margin-left: 2rem;
+    }
+  }
 
-      &:before {
-        content: '“';
+  .pull-quote {
+    margin: 4rem 0;
+
+    .quote {
+      p {
+        margin: 1rem 0;
+        font-size: 2.5rem;
+        color: $purple-100;
+        font-family: $sans-serif;
+        font-weight: bold;
+        line-height: 1.2;
+
+        &:before {
+          content: '“';
+        }
+
+        &:after {
+          content: '”';
+        }
       }
+    }
 
-      &:after {
-        content: '”';
+    .attribution {
+      p {
+        margin: 0;
+
       }
     }
   }

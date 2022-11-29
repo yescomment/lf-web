@@ -30,4 +30,11 @@ module UITemplate
       <div class=\"table__body\">#{markdownify_yaml(body)}</div>
     </div>"
   end
+
+  def create_quote_html(content, attribution)
+    "<blockquote class=\"pull-quote\">
+      <div class=\"quote\">#{markdownify_yaml(content)}</div>
+      <div class=\"attribution\">#{markdownify_yaml(attribution)}</div>
+    </blockquote>"
+  end
 end
