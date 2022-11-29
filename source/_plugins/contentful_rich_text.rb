@@ -54,6 +54,17 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
         content = entry['pull_quote'] || ''
         attribution = entry['attribution'] || ''
         create_quote_html(content, attribution)
+      when 'boxContent'
+        title = entry['title'] || 'No title available'
+        content = entry['body'] || 'No content available'
+        if entry['image']
+          image_url = entry['image']['url']
+          alt_text = entry['image']['description']
+        else
+          image_url = 'No image available'
+          alt_text = 'No alt text available'
+        end
+        create_box_html(title, image_url, alt_text, content)
       else
         puts "Can't render embedded entry"
     end
