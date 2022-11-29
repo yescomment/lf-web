@@ -138,7 +138,28 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
-
+    - eventsPage:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: eventsPage
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
+    - event:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: event
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
 page_gen:
   - data: 'data.contentful.project.project'
     template: 'project'
@@ -156,4 +177,7 @@ page_gen:
     template: 'generic'
     name: 'pretty_url'
     dir: ''
-    
+  - data: 'data.contentful.event.event'
+    template: 'event'
+    name: 'pretty_url'
+    dir: 'events'
