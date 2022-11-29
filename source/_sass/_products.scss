@@ -63,6 +63,7 @@
       ul,
       ol,
       .table__body,
+      .product-code,
       img,
       p {
 
@@ -152,6 +153,10 @@
             }
           }
         }
+      }
+
+      .product-code {
+        margin-top: 3rem;
       }
     }
 

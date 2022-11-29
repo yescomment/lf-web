@@ -52,4 +52,8 @@ module UITemplate
       </div>"
     end
   end
+
+  def create_iframe_html(body, caption)
+    "<div class=\"product-code iframe\">#{body}</div>"
+  end
 end
