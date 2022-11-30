@@ -182,6 +182,17 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
+    - news:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: news
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
 
 page_gen:
   - data: 'data.contentful.project.project'
@@ -216,3 +227,8 @@ page_gen:
     template: 'course'
     name: 'title'
     dir: 'courses'
+    dir: 'topic'
+  - data: 'data.contentful.news.news'
+    template: 'announcement'
+    name: 'title'
+    dir: 'news'
