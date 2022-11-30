@@ -1,31 +1,45 @@
-{% assign card = include.card[0] %} 
-
+{% assign card = include.card %} 
 
 <div class="card card--featured">
+
+  {% if card.publication_date %}
+  <div class="card__date-container">
+    {{ card.publication_date | date: "%B %d, %Y" }}
+  </div>
+  {% endif %}
   <div class="card__meta">
-    {% if card.date %}
-    <div class="card__date-container">
-      {{ card.date }}
-    </div>
-    {% endif %}
-    {% if card.tags %}
+
     <div class="card__tags-container tags-container">
-      {% for tag in card.tags %}
-      <div class="tag tag--{{tag | slugify}}">{{ tag | capitalize }}</div>
+
+      {% for area in card.law_area %}
+        <div class="tag tag--law-area">{{ area }}</div>
       {% endfor %}
+
+      {% for topic in card.topic %}
+        <div class="tag tag--topic">{{ topic }}</div>
+      {% endfor  %}
+      {% for tag in card.tag %}
+        <div class="tag tag--tag">{{ tag }}</div>
+      {% endfor  %}
     </div>
-    {% endif %}
+ 
     <div class="card__authors">
-      {% for name in card.authors %}
-      <span class="card__author">{{ name }}</span>
+     
+      {% for sys in card.engelberg_author %}
+
+      {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
+      <span class="card__author">{{ author.display_name  }}</span>
       {% endfor %}
+   
+<!-- use named people,center authors, or full_authors? -->
     </div>
   </div>
-  <a href="#">
+  <a href="{{ card.pretty_url | prepend: '/projects/' | relative_url }}">
     <span class="card__title">{{card.title}}</span>
   </a>
-  <p class="card__description">{{ card.description }}</p>
+  <span class="card__subtitle">{{card.subtitle}}</span>
+  <p class="card__description">{{ card.short_description }}</p>
   <div class="card__action">
-    <a href="#" class="link link--arrow">{{ card.button_text }}</a>
+    <a href="{{ card.pretty_url | prepend: '/projects/' | relative_url }}" class="link link--arrow">{{ 'Read More' }}</a>
   </div>
 </div>

@@ -1,12 +1,16 @@
-{% assign title = include.title %} {% assign publication = include.publication %} {% assign date = include.date %} {%
-assign author = include.author %} {% assign content = include.content %}
+{% assign item = include.item %}
 
 <div class="news-item">
-  <a href="#">
-    <span class="news-item__title">{{ title }}</span>
+  {% if item.publication_type == 'In the News'%}
+    <a href="{{ item.external_url }}">
+  {% else %}
+    <a href="{{ item.title | slugify | prepend: '/news/' | relative_url }}">
+  {% endif %}
+    <span class="news-item__title">{{ item.title }}</span>
   </a>
-  {% assign metadata = "" | split: "" %} {% assign metadata = metadata | push: publication | push: date | push:
-  item.author %}
+  {% assign pub_date = item.publication_date | date: "%B %d, %Y" %}
+  {% assign metadata = "" | split: "" %} {% assign metadata = metadata | push: item.publication_type | push: pub_date  | push:
+  item.named_author | compact%}
   <span class="news-item__meta">{{ metadata | join: " | "}}</span>
-  <p class="news-item__content">{{ content }}</p>
+  <p class="news-item__content">{{ item.short_description }}</p>
 </div>

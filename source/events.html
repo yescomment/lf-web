@@ -5,87 +5,19 @@ subtitle: Jekyll, Gulp 4
 description:
 seo_image_path: #'/images/media/filename.jpg'
 top_bar: white
-featured_card:
-  - title: Book Talk&#58; Rude Citizenship
-    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime iste dignissimos explicabo quasi minima quod fuga soluta amet, impedit sit.
-    authors:
-      - Larissa Kingston
-      - Mann (DJ Ripley)
-    date: August 29, 2022
-    button_text: Event Details
-upcoming_events:
-  - title: Rude Citizenship
-    type: book talk
-    description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex deserunt error hic amet temporibus eligendi aliquam fugit modi ipsum qui.
-    date: April, 04, 2022
-  - title: 2022 Tri-State Region IP Workshop
-    type: workshop
-    description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore veritatis, itaque, corrupti dolorum ipsum amet dicta recusandae eos velit sunt consectetur neque. Facere repudiandae, inventore impedit aliquid aliquam nihil minima?
-    date: April, 04, 2022
-  - title: The Normalizing Gaze
-    type: speaker series
-    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, debitis.
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
-    description:
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
-    description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, excepturi inventore reprehenderit hic debitis nobis id consectetur deserunt quaerat maxime sint atque impedit alias quod eos adipisci repellendus placeat unde, voluptatibus quis accusamus. Aperiam numquam omnis recusandae esse voluptatem dicta quaerat molestiae optio perferendis hic.
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
-    description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus non nam earum ea? Assumenda quae quis repellat consequatur sed voluptas totam exercitationem deleniti harum saepe nam esse, quas fugiat in facere? Perspiciatis fugiat, nostrum molestiae ipsam optio alias nisi omnis minus vitae, labore nam fugit. Laborum vero cumque eius doloribus.
-    date: April, 04, 2022
-past_events:
-  - title: Rude Citizenship
-    type: book talk
-    description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex deserunt error hic amet temporibus eligendi aliquam fugit modi ipsum qui.
-    date: April, 04, 2022
-  - title: 2022 Tri-State Region IP Workshop
-    type: workshop
-    description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore veritatis, itaque, corrupti dolorum ipsum amet dicta recusandae eos velit sunt consectetur neque. Facere repudiandae, inventore impedit aliquid aliquam nihil minima?
-    date: April, 04, 2022
-  - title: The Normalizing Gaze
-    type: speaker series
-    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, debitis.
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
-    description:
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
-    description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, excepturi inventore reprehenderit hic debitis nobis id consectetur deserunt quaerat maxime sint atque impedit alias quod eos adipisci repellendus placeat unde, voluptatibus quis accusamus. Aperiam numquam omnis recusandae esse voluptatem dicta quaerat molestiae optio perferendis hic.
-    date: April, 04, 2022
-  - title: Could the Internet Break Democracy?
-    type: webinar
-    description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus non nam earum ea? Assumenda quae quis repellat consequatur sed voluptas totam exercitationem deleniti harum saepe nam esse, quas fugiat in facere? Perspiciatis fugiat, nostrum molestiae ipsam optio alias nisi omnis minus vitae, labore nam fugit. Laborum vero cumque eius doloribus.
-    date: April, 04, 2022
 ---
-
+{% assign data = site.data.contentful.eventsPage.eventsPage | first %}
 <main class="events-page" id="main">
-  <div class="row expanded section--gray top-section">
+  <div class="row expanded section--gray top-section" style="background-image: url({{data.header_beam.url}})">
     <div class="column large-5 medium-12 small-12">
-      <h1>{{ page.title }}</h1>
-      <div class="heading-decorator">
-        <div class="decorator decorator--left-align"></div>
-      </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus ullam fuga delectus. Ullam laudantium
-        tempora ad quisquam in nesciunt nostrum nisi atque doloremque eveniet corporis eius rerum, perferendis natus.
-        Beatae nesciunt incidunt id, ipsum cupiditate ad dicta rerum laudantium, dolorum quis, itaque maiores rem quia
-        maxime! Est, doloribus necessitatibus soluta enim dignissimos dolorum vero ipsam quia voluptate officia libero,
-        error reiciendis? Ipsa, doloremque! Maiores ab eaque consectetur sed deserunt, esse fugit quae eos quisquam
-        delectus beatae qui placeat animi sapiente! Nesciunt a dignissimos quod necessitatibus illum corporis facere,
-        iste neque asperiores, amet, maxime nisi eligendi corrupti laudantium voluptas optio illo?
-      </p>
+      <h1>{{ data.title }}</h1>
+      <div class="bar" style="background-image: url({{data.bar_color.url}})"></div>
+      {{ data.introduction | markdownify }}
     </div>
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
       <h3 class="heading-c">Featured Event</h3>
 
-      {% include components/card-featured.html card=page.featured_card %}
+      {% include components/card-featured.html card=data.featured_event %}
     </div>
   </div>
   <!-- card sections  -->
@@ -95,19 +27,19 @@ past_events:
       <h2>Upcoming Events</h2>
     </div>
     <div class="cards-wrapper">
-      {% for card in page.upcoming_events %}
+      {% for card in site.data.contentful.event.event %}
       <div class="card card--event card--event-long">
         <div
           class="card__image"
-          style="background-image: url('https://i.picsum.photos/id/1019/5472/3648.jpg?hmac=2mFzeV1mPbDvR0WmuOWSiW61mf9DDEVPDL0RVvg1HPs')"
+          style="background-image: url({{ card.event_image.url}})"
         ></div>
         <div class="card__detail">
-          <span class="card__date">{{ card.date }}</span>
+          <span class="card__date">{{ card.event_start  | date: "%B %d, %Y" }}</span>
           <a href="">
             <span class="card__title">{{ card.title }}</span>
           </a>
-          <span class="card__description ">{{ card.description }}</span>
-          <span class="card__type">{{ card.type }}</span>
+          <span class="card__description ">{{ card.short_description }}</span>
+          <span class="card__type">{{ card.event_type }}</span>
         </div>
       </div>
       {% endfor %}
