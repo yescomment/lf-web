@@ -3,7 +3,6 @@
     font-size: $h2;
   }
   .top-section {
-
     background-repeat: no-repeat;
     background-position: calc(100% + 13rem) -6rem;
   }
@@ -27,7 +26,13 @@
     margin: 1rem 0 5rem;
     // padding: 1rem 0;
   }
-
+  .event__featured-image-wrapper {
+    img {
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
   .event__sidebar-body {
     img {
       margin: 1rem 0;
