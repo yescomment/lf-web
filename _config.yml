@@ -187,7 +187,7 @@ page_gen:
   - data: 'data.contentful.project.project'
     template: 'project'
     name: 'pretty_url'
-    dir: 'project'
+    dir: 'projects'
   - data: 'data.contentful.product.product'
     template: 'product'
     name: 'pretty_url'
