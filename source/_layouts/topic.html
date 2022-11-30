@@ -1,37 +1,50 @@
 ---
 layout: default
-title: Objectively Boilerplate V2
-subtitle: Jekyll, Gulp 4
+title: 
+subtitle: 
 description:
 seo_image_path: #'/images/media/filename.jpg'
 top_bar: white
 ---
+
 <main id="main" class="topic-page">
-  <div class="row expanded page-section--topic top-sectio section--gray">
+  <div class="row expanded page-section--topic top-section section--gray" style="background-image: url({{ page.header_beam.url }})">
     <div class="column large-5 medium-12 small-12">
       <span class="heading-start">Engleberg Center on:</span>
       <h1>{{ page.title }}</h1>
       <div class="heading-decorator">
-        <div class="decorator"></div>
+        <img class="decorator" src="{{ page.bar_color.url }}" alt="Colored bar image">
       </div>
-      <p>
-        This layout is used for: 1a, 6a, Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum perspiciatis culpa
-        optio consectetur, temporibus reiciendis fugit nisi excepturi magni tenetur nam sed, omnis officia perferendis
-        minus hic aut vero repellat quam? Possimus consequuntur recusandae animi, eum placeat vel aliquid illo alias
-        ducimus sint, inventore repellendus iure itaque. Asperiores totam aut aliquam, illo cupiditate magnam nesciunt
-        architecto eum dolor modi nemo sint quam excepturi officiis possimus quod libero laborum consequuntur numquam
-        eveniet at facere voluptatem laboriosam corporis. Perferendis delectus nihil voluptate voluptatem quasi esse
-        excepturi impedit sapiente soluta minima voluptates modi, corrupti cumque repellat accusamus quae, doloribus
-        vero et tenetur dicta?
-      </p>
+      {{ page.introduction | markdownify }}
     </div>
     <div class="column large-6 large-offset-1 medium-12 small-12 no-padding">
-      {% if page.featured_project_card%}
+      {% if page.featured_research %}
       <h3 class="heading-c">Featured Research</h3>
-      {% include components/card-featured.html card=page.featured_project_card %} {% endif %}
+      {% include components/card-featured.html card=page.featured_research %} {% endif %}
     </div>
   </div>
 
-  <!-- card sections  -->
-  {% for section in page.card_sections %} {% include components/generic-card-layout.html cards=section %} {% endfor %}
+  {% include components/generic-card-layout.html 
+    cards=page.latest_research
+    cards_heading="Our Latest Research on Open Hardware"
+    cards_type="research_cards"
+    cards_link_text="Our Latest Research on Open Hardware"
+    cards_link_to="products"
+  %}
+
+  {% include components/generic-card-layout.html 
+    cards=page.related_projects
+    cards_heading="Engelberg Center Projects Related to Open Hardware"
+    cards_type="project_cards"
+    cards_link_text="Engelberg Center Projects Related to Open Hardware"
+    cards_link_to="projects"
+  %}
+
+  {% include components/generic-card-layout.html 
+    cards=page.experts
+    cards_heading="Our Open Hardware Experts"
+    cards_type="people_cards"
+    cards_link_text="Our Open Hardware Experts"
+    cards_link_to="our-team"
+  %}
 </main>

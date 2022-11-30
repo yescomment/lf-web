@@ -23,7 +23,7 @@ top_bar: white
             <select tabindex="0" class="select-test"> 
               <option value="" class="current-page-selection" tabindex="0">Select a topic</option>
               {% for item in course %}
-                <option value="{{ item.title | slugify | prepend: '/' | relative_url }}" tabindex="0">{{ item.title }}</option>
+                <option value="{{ item.title | slugify | prepend: '/course/' | relative_url }}" tabindex="0">{{ item.title }}</option>
               {% endfor %}
         {% else %}
           {% assign topic = site.data.contentful.onTopic.onTopic %}
@@ -32,7 +32,7 @@ top_bar: white
             <select tabindex="0" class="select-test"> 
               <option value="" class="current-page-selection" tabindex="0">Select a topic</option>
               {% for item in topic %}
-                <option value="{{ item.title | slugify | prepend: '/' | relative_url }}" tabindex="0">{{ item.title }}</option>
+                <option value="{{ item.title | slugify | prepend: '/topic/' | relative_url }}" tabindex="0">{{ item.title }}</option>
               {% endfor %}
           {% endif %}
           </select>

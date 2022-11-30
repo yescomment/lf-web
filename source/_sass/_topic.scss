@@ -15,7 +15,7 @@
     margin: 2rem 0;
     height: 0.8rem;
     width: 4.5rem;
-    background-color: $sky-blue-100;
+    // background-color: $sky-blue-100;
     border-radius: 10px;
   }
 }
@@ -25,6 +25,7 @@
   background-image: url('../images/circle-logo.svg');
   background-repeat: no-repeat;
   background-position: calc(100% + 5rem) -4rem;
+  background-size: cover;
 }
 
 .topics-dropdown-container {

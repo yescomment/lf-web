@@ -208,3 +208,7 @@ page_gen:
     template: 'portal-page'
     name: 'pretty_url'
     dir: '/'
+  - data: 'data.contentful.onTopic.onTopic'
+    template: 'topic'
+    name: 'title'
+    dir: 'topic'
