@@ -1,7 +1,9 @@
 {% assign product = include.product %}
 
 <div class="product">
-  <span class="product__title">{{ product.title }}</span>
+  <a href="{{product.pretty_url | prepend: '/products/' | relative_url }}">
+    <span class="product__title">{{ product.title }}</span>
+  </a>
   <span class="product__subtitle">{{ product.subtitle }}</span>
   <span class="product__authors">{{ product.full_author | markdownify }}</span>
   <span class="product__date">{{ product.publication_date | date: "%B %d, %Y"  }}</span>
