@@ -1,0 +1,43 @@
+---
+layout: default
+description:
+seo_image_path: #'/images/media/filename.jpg'
+top_bar: white
+---
+
+<main id="main" class="student-page">
+  <div class="row expanded page-section--topic top-section section--gray" style="background-image: url({{ page.header_beam.url }})">
+    <div class="column large-5 medium-12 small-12">
+      <h1>{{ page.title }}</h1>
+      <div class="heading-decorator">
+        <img class="decorator" src="{{ page.bar_color.url }}" alt="Colored bar image">
+      </div>
+      {{ page.long_description | markdownify }}
+    </div>
+    <div class="column large-6 large-offset-1 medium-12 small-12">
+      <div class="topics-dropdown-container">
+        {% if page.title == 'For Students' %}
+          {% assign course = site.data.contentful.course.course %}
+          <div id="line-one">I'm interested in</div>
+          <div class="custom-select" tabindex="0">
+            <select tabindex="0" class="select-test"> 
+              <option value="" class="current-page-selection" tabindex="0">Select a topic</option>
+              {% for item in course %}
+                <option value="{{ item.title | slugify | prepend: '/' | relative_url }}" tabindex="0">{{ item.title }}</option>
+              {% endfor %}
+        {% else %}
+          {% assign topic = site.data.contentful.onTopic.onTopic %}
+          <div id="line-one">Engelberg Center on</div>
+          <div class="custom-select" tabindex="0">
+            <select tabindex="0" class="select-test"> 
+              <option value="" class="current-page-selection" tabindex="0">Select a topic</option>
+              {% for item in topic %}
+                <option value="{{ item.title | slugify | prepend: '/' | relative_url }}" tabindex="0">{{ item.title }}</option>
+              {% endfor %}
+          {% endif %}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
