@@ -10,7 +10,7 @@ seo_image_path: #'/images/media/filename.jpg'
   <!-- Layout 4 -->
   <div class="row expanded top-section">
     <div class="column large-7 medium-12 small-12">
-      <div class="event__date">{{ page.event.date | "%B %d, %Y" }}</div>
+      <div class="event__date">{{ page.event_start | date: "%B %d, %Y" }}</div>
       <h1>{{ page.title }}</h1>
       <p>
         {{ page.long_description | strip_html }}
