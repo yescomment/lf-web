@@ -10,7 +10,7 @@
   <div class="card__meta">
 
     <div class="card__tags-container tags-container">
-
+      <div class="tag tag--law-area">{{ "Needs tag" }}</div>
       {% for area in card.law_area %}
         <div class="tag tag--law-area">{{ area }}</div>
       {% endfor %}
@@ -25,11 +25,7 @@
  
     <div class="card__authors">
      
-      {% for sys in card.engelberg_author %}
-
-      {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
-      <span class="card__author">{{ author.display_name  }}</span>
-      {% endfor %}
+      <span class="card__author">{{ card.named_people }}</span>
    
 <!-- use named people,center authors, or full_authors? -->
     </div>

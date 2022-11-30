@@ -13,7 +13,7 @@
     @include breakpoint($large) {
       background-color: transparent;
     }
-    background-color: $gray-100;
+    background-color: $gray-50;
     padding-right: 3rem;
     .search-title {
       font-weight: $bold;
@@ -78,7 +78,7 @@
   .list-row {
     padding-top: 3rem;
     aside {
-      background-color: $gray-100;
+      background-color: $gray-50;
       @include breakpoint($large) {
         width: 25rem;
         padding-right: 1rem;

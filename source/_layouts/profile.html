@@ -20,10 +20,21 @@ seo_image_path: #'/images/media/filename.jpg'
         <h1>{{ page.display_name }}</h1>
         <div class="profile__position">{{ page.title }}</div>
       </div>
+      {% if page.button_url and page.button_url.size != 0 %}
       <div class="button-container">
-        <a href="{{ page.profile_website }}" class="button button--full">NYU Law Profile</a>
+        <a href="{{ page.button_url }}" class="button button--full">Needs Button Text</a>
       </div>
-
+      {% endif %}
+      {% if page.email and page.email.size != 0 or page.twitter and page.twitter.size != 0 %}
+      <div class="social-buttons-container">
+        {% if page.email and page.email.size != 0 %}
+        <a class="social-buttons__email" href="mailto:{{page.email}}">{{page.email}}</a>
+        {% endif %}
+        {% if page.twitter and page.twitter.size != 0 %}
+        <a class="social-buttons__twitter" href="{{page.twitter}}">{{ page.twitter | split: "/" | last | prepend: '@'}}</a>
+        {% endif %}
+      </div>
+      {% endif %}
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12 no-padding">
       {{page.long_description | markdownify }}

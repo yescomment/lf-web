@@ -1,7 +1,7 @@
 $white: #FFFFFF;
 $black: #000000;
 $black-50: rgba(0,0,0,0.5);
-
+$gray-50: #f0f0f0;
 $gray-100: #1F1F1F1A;
 $gray-200: #FAFAFA;
 $gray-300: #00000033;
@@ -16,7 +16,7 @@ $sky-blue-100: #20B6EA;
 
 .section--gray {
     // background-color: $gray-100;
-    background-color: #f0f0f0;
+    background-color: $gray-50;
 }
 .section--light-gray {
     background-color: $gray-200;
