@@ -4,32 +4,11 @@ top_bar: white
 title: Our Work
 description:
 seo_image_path: #'/images/media/filename.jpg'
-all_authors:
-  - Author One
-  - Author Two
-  - Author Three
-all_types:
-  - Type One
-  - Type Two
-  - Type Three
-all_areas:
-  - Area One
-  - Area Two
-  - Area Three
-product:
-  product_title: My Product Title
-  product_authors: Author Name, Author Name, Author Name
-  product_publication_date: October 15, 2022
-  product_description: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit itaque hic praesentium non impedit ab alias aliquam ratione dicta vero?
-  product_tags:
-    - Patent
-    - Something
-    - Open Source Hardware
-areas:
-  - Area One 
-  - Area Two
-  - Area Three
 ---
+
+{% assign products = site.data.contentful.product.product %}
+
+
 
 <!-- LAYOUT 9: Lists  -->
 <main id="main" class="product-list-page">
@@ -100,7 +79,9 @@ areas:
         </div>
 
         <div class="list">
-          {% for num in (0..10) %} {% include components/product.html product=page.product %} {% endfor %}
+          {% for product in products  %} 
+            {% include components/product.html product=product %} 
+          {% endfor %}
         </div>
       </div>
     </div>
