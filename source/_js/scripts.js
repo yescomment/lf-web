@@ -8,6 +8,7 @@ import Search from './search';
 import Utils from './utils';
 import CustomDropdown from './custom-select';
 import Footnotes from './footnotes';
+import ProductFilters from './product-list';
 
 Modal.init();
 Nav.init();
@@ -32,3 +33,7 @@ if (window.location.pathname.includes('/product/')) {
 if (window.location.pathname === '/what-we-do/' || window.location.pathname === '/for-students/') {
   CustomDropdown.init();
 }
+
+if (window.location.pathname.match(/products\/?$/gm)) {
+  ProductFilters.init();
+};

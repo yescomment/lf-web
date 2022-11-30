@@ -46,6 +46,17 @@
   .results-container {
     font-style: italic;
   }
+  #results-total, #results-filter-detail {
+    display: inline-block;
+  }
+  #results-filter-detail {
+    display: none;
+    &.js-show {
+      display: inline-block;
+    }
+  }
+
+
   .date-toggle-container {
     text-align: right;
     .button__date-sort {
@@ -85,11 +96,17 @@
       display: block;
     }
     &__title {
-      font-size: $h5;
+      font-size: $h4;
     }
-    &__authors {
+    &__subtitle {
+      font-size: $h5;;
+    }
+    &__authors p {
+      padding: 0;
+      margin: 0;
       font-weight: $bold;
       font-size: $h5;
+      font-family: $sans-serif;
     }
     &__date {
       @include all_caps_text;
