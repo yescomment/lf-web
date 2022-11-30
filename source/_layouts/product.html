@@ -53,7 +53,7 @@ seo_image_path: #'/images/media/filename.jpg'
         {% if page.engelberg_author %}
           <h3>Engelberg Center Authors</h3>
           {% for item in page.engelberg_author %}
-            <a href="" class="author">{{ item.display_name }}</a>
+            <a href="{{ item.display_name | slugify | prepend: '/our-people/' | relative_url }}" class="author">{{ item.display_name }}</a>
           {% endfor %}
         {% endif %}
 
