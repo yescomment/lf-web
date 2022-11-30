@@ -3,6 +3,7 @@
   display: grid;
   grid-gap: 1rem;
   width: 100%;
+  padding: 0 1rem;
 
   @include breakpoint($large) {
     grid-template-columns: repeat(4, 1fr);
@@ -448,9 +449,45 @@
   }
 }
 
-.card__detail {
-  a {
-    color: $black;
-    text-decoration: none;
+
+
+.card--minimal {
+  text-align: center;
+  // used for advisory board section 
+  span {
+    display: block;
   }
+  img {
+    width: 5.7rem;
+height: auto;
+
+display: inline-block;
+vertical-align: middle;
+margin: 0 auto;
+  }
+  .card__detail {
+    span {
+      font-family: $sans-serif;
+      font-weight: 700;
+      display: block;
+    }
+
+    text-align: center;
+    padding: 1rem;
+
+    .card__name {
+      font-size: $h5;
+    }
+
+    .card__title {
+      font-weight: 300;
+      font-size: $p;
+      font-style: italic;
+    }
+    .card__affiliation {
+      font-weight: $light;
+      font-size: $p;
+    }
+  }
+
 }

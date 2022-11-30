@@ -1,11 +1,12 @@
 .projects-page {
+  // missing in contentful 
   .top-section {
     h1 {
       font-size: $h2;
     }
-    background-image: url('../images/circle-logo.svg');
-    background-repeat: no-repeat;
-    background-position: calc(100% + 4rem);
+    background-image: url('//images.ctfassets.net/7yhm3nqs96oa/25v7BSW4raBTcauZbmkAIL/8f82b02a072c2327b70b8b679de95953/header-beam-right-c.png');
+    background-position-x: 5rem;
+    background-size: 95%;
   }
   .decorator {
     margin: 0;

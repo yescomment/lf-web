@@ -1,0 +1,26 @@
+{% assign cards = include.cards %}
+{% assign cards_heading = include.cards_heading %}
+{% assign cards_type = include.cards_type %}
+{% assign cards_link_to = include.cards_link_to %}
+{% assign cards_link_text = include.cards_link_text %}
+
+<div class="row expanded row--thin">
+  <div class="column large-12 small-12 card-section-heading">
+    <h2>{{ cards_heading }}</h2>
+  </div>
+  <div class="cards-wrapper">
+    {% for card in cards %}
+    <div class="card--minimal">
+        <!-- <div class="bar" style="background-image: url({{ card.bar_color.url }})"></div> -->
+        <img src="{{card.bar_color.url}}">
+      <div class="card__detail">
+        <!-- <a href="{{ card.pretty_url | prepend: '/our-people/' | relative_url }}"> -->
+          <span class="card__name">{{ card.display_name }}</span>
+        <!-- </a> -->
+        <span class="card__title">{{ card.title }}</span>
+        <span class="card__affiliation">Affiliation</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

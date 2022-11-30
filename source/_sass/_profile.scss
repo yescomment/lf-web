@@ -8,6 +8,34 @@
     margin: 0;
     @include column-padding;
   }
+
+  .social-buttons-container {
+    margin-top: 2rem;
+    font-family: $sans-serif;
+    font-weight: $bold;
+    a {
+      display: block;
+      font-size: $h6;
+      margin: .5rem 0;
+    }
+    .social-buttons__email {
+      &:before {
+        content: "mail";
+        @extend .u-material-icons;
+       margin-right: .5rem;
+        vertical-align: bottom;
+      }
+    }
+    .social-buttons__twitter {
+      &:before {
+        content: "info";
+        @extend .u-material-icons;
+        margin-right: .5rem;
+        vertical-align: bottom;
+
+      }
+    }
+  }
 }
 
 .about-page, .profile-page {
@@ -38,7 +66,7 @@
     }
     .profile__position {
       font-family: $sans-serif;
-      font-size: $h5;
+      font-size: $h4;
       font-weight: $light;
     }
   }
