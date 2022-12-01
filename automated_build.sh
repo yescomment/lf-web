@@ -3,13 +3,13 @@ CWD=`pwd`
 
 # Clone Pages repository
 cd /tmp
-git clone https://github.com/objectively/objectively-jekyll-boilerplate.git build
+git clone https://github.com/objectively/engelberg.git build
 cd build && git checkout -b gh-pages origin/gh-pages
 # cd build && git checkout -b YOUR_BRANCH origin/YOUR_BRANCH # If not using master
 
 # Trigger Jekyll rebuild
 cd $CWD
-# bundle exec jekyll contentful
+bundle exec jekyll contentful
 bundle exec jekyll build
 
 # Push newly built repository
