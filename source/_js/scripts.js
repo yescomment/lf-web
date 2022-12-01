@@ -18,16 +18,18 @@ Search.init();
 Utils.markdownLinksNewPage();
 
 if (window.location.pathname.includes('/products/')) {
-  Footnotes.init();
-  FixedNav.init();
-  SlidePanel.init();
+  if (document.querySelector('.product-page')) {
+    Footnotes.init();
+    FixedNav.init();
+    SlidePanel.init();
 
-  // Insert div inside blockquote to create left border
-  document.querySelectorAll('blockquote').forEach(item => {
-    if (!item.classList.contains('pull-quote')) {
-      item.insertAdjacentHTML('afterbegin', '<div class="border">');
-    }
-  });
+    // Insert div inside blockquote to create left border
+    document.querySelectorAll('blockquote').forEach(item => {
+      if (!item.classList.contains('pull-quote')) {
+        item.insertAdjacentHTML('afterbegin', '<div class="border">');
+      }
+    });
+  }
 }
 
 if (window.location.pathname === '/what-we-do/' || window.location.pathname === '/for-students/') {
