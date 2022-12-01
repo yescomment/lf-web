@@ -17,7 +17,7 @@ Overlay.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
-if (window.location.pathname.includes('/product/')) {
+if (window.location.pathname.includes('/products/')) {
   Footnotes.init();
   FixedNav.init();
   SlidePanel.init();
