@@ -2,7 +2,7 @@
 
 <div class="news-item">
   {% if item.publication_type == 'In the News'%}
-    <a href="{{ item.external_url }}">
+    <a class="external-link" href="{{ item.external_url }}">
   {% else %}
     <a href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
   {% endif %}

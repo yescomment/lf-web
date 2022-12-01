@@ -36,7 +36,7 @@ top_bar: white
         <div class="card__detail">
           <span class="card__date">{{ card.event_start  | date: "%B %d, %Y" }}</span>
           {% if card.external_url and card.external_url.size != 0%}
-          <a href="{{card.external_url}}">
+          <a class="external-link" href="{{card.external_url}}">
           {% else %}
           <a href="{{card.pretty_url | prepend: '/events/' | relative_url }}">
           {% endif %}
