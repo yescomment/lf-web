@@ -36,6 +36,10 @@ if (window.location.pathname === '/what-we-do/' || window.location.pathname === 
   CustomDropdown.init();
 }
 
+if (window.location.pathname === '/engelberg/what-we-do/' || window.location.pathname === '/engelberg/for-students/') {
+  CustomDropdown.init();
+}
+
 if (window.location.pathname.match(/products\/?$/gm)) {
   ProductFilters.init();
 };
