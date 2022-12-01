@@ -1,0 +1,30 @@
+{% assign item = include.item %}
+
+<div class="news-list-item">
+  {% if item.publication_type == 'In the News'%}
+    <a href="{{ item.external_url }}">
+  {% else %}
+    <a href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
+  {% endif %}
+    <span class="news-list-item__title">{{ item.title }}</span>
+  </a>
+  <span class="news-list-item__subtitle">{{ item.subtitle }}</span>
+  <span class="news-list-item__publication">{{ item.publication }}</span>
+  <span class="news-list-item__authors">{{ item.named_author | markdownify }}</span>
+  <span class="news-list-item__date">{{ item.publication_date | date: "%B %d, %Y"  }}</span>
+  <p class="news-list-item__description">{{ item.short_description }}</p>
+  <div class="tags-container">
+
+    {% for tag in item.law_area %}
+      <div class="tag tag--law-area">{{ tag | capitalize }}</div>
+    {% endfor %}
+    {% for tag in item.topic %}
+      <div class="tag tag--topic">{{ tag | capitalize }}</div>
+    {% endfor %}
+    {% for tag in item.tag %}
+      <div class="tag tag--tag">{{ tag | capitalize }}</div>
+    {% endfor %}
+  </div>
+  
+
+</div>

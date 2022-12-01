@@ -41,6 +41,7 @@ $large: screen and (min-width: 64em);
 @import 'slide-panel';
 @import 'fixed-nav';
 @import 'courses';
+@import 'markdown';
 
 // div, .row, .column {
 //   @include breakpoint($large) {
