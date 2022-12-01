@@ -227,7 +227,6 @@ page_gen:
     template: 'course'
     name: 'title'
     dir: 'courses'
-    dir: 'topic'
   - data: 'data.contentful.news.news'
     template: 'announcement'
     name: 'pretty_url'
