@@ -10,19 +10,10 @@
   h2 {
     font-size: $h3;
   }
-
-  .decorator {
-    margin: 2rem 0;
-    height: 0.8rem;
-    width: 4.5rem;
-    // background-color: $sky-blue-100;
-    border-radius: 10px;
-  }
 }
 
 .page-section--topic.top-section {
   padding-top: 8.5rem;
-  background-image: url('../images/circle-logo.svg');
   background-repeat: no-repeat;
   background-position: calc(100% + 5rem) -4rem;
   background-size: cover;
@@ -30,16 +21,4 @@
 
 .topics-dropdown-container {
   padding-top: 7rem;
-}
-
-.heading-decorator {
-  margin: 1rem 0 1.5rem;
-}
-
-.decorator {
-  margin: 2rem auto 1rem auto;
-  height: 0.8rem;
-  width: 4.5rem;
-  // background-color: $sky-blue-100;
-  border-radius: 10px;
 }

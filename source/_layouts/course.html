@@ -13,9 +13,7 @@ top_bar: white
       <span class="course-type">Courses</span>
       <h1>{{ page.title }}</h1>
       <span class="course-leaders">{{ page.named_faculty }}</span>
-      <div class="heading-decorator">
-        <img class="decorator" src="{{ page.bar_color.url }}" alt="Colored bar image">
-      </div>
+      <div class="bar" style="background-image: url({{ page.bar_color.url }})"></div>
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12 courses-container">
       {{ page.body | markdownify }}
