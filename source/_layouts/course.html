@@ -1,0 +1,34 @@
+---
+layout: default
+title: 
+description:
+seo_image_path: #'/images/media/filename.jpg'
+top_bar: white
+---
+
+<main class="courses-layout" id="main" role="main">
+  <!-- Layout 2 -->
+  <div class="row expanded">
+    <div class="column large-4 medium-12 small-12 course-header">
+      <span class="course-type">Courses</span>
+      <h1>{{ page.title }}</h1>
+      <span class="course-leaders">{{ page.named_faculty }}</span>
+      <div class="heading-decorator">
+        <img class="decorator" src="{{ page.bar_color.url }}" alt="Colored bar image">
+      </div>
+    </div>
+    <div class="column large-7 large-offset-1 medium-12 small-12 courses-container">
+      {{ page.body | markdownify }}
+
+      {% comment %}
+        <div class="course">
+          <span class="course__date">{{ course.date }}</span>
+          <span class="course__instructor">{{ course.instructor }}</span>
+          <span class="course__affiliation">{{ course.affiliation }}</span>
+          <p class="course__description">{{ course.description }}</p>
+          <p class="course__abstract">{{ course.abstract }}</p>
+        </div>
+      {% endcomment %}
+    </div>
+  </div>
+</main>
