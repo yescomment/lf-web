@@ -4,7 +4,7 @@
   {% if item.publication_type == 'In the News'%}
     <a href="{{ item.external_url }}">
   {% else %}
-    <a href="{{ item.title | slugify | prepend: '/news/' | relative_url }}">
+    <a href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
   {% endif %}
     <span class="news-item__title">{{ item.title }}</span>
   </a>
