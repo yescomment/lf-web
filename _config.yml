@@ -230,5 +230,5 @@ page_gen:
     dir: 'topic'
   - data: 'data.contentful.news.news'
     template: 'announcement'
-    name: 'title'
+    name: 'pretty_url'
     dir: 'news'

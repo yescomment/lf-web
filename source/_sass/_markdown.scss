@@ -1,0 +1,6 @@
+.markdown-content {
+  a {
+    @extend underlined-link;
+    outline: black solid 10px;
+  }
+}
