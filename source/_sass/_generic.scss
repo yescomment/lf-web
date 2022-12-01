@@ -2,12 +2,10 @@
   h1 {
     font-size: $h2;
   }
+
   h2 {
     font-size: $h3;
   }
-  // .decorator {
-  //     margin: 1rem 0 2.5rem;
-  // }
 }
 
 .top-section--generic {
@@ -23,6 +21,22 @@
   background-size: 18%;
 }
 
+.topic-page,
+.courses-layout,
+.project-page,
+.student-page {
+  .bar {
+    margin: 2rem 0 1rem 0;
+  }
+}
+
+.courses-layout {
+  .bar {
+    background-size: 23%;
+    margin-top: 3rem;
+  }
+}
+
 .profile-page .bar {
   margin: 0 1rem;
   height: 1.3rem;
@@ -30,13 +44,16 @@
   background-repeat: no-repeat;
   background-size: 100%;
 }
-.projects-page .bar , .events-page .bar, .project-page .bar {
+
+.projects-page .bar,
+.events-page .bar {
   margin-bottom: 2rem;
   height: 1.3rem;
   width: 7rem;
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
 .card .bar {
   margin-top: 1.5rem;
   height: 2rem;
@@ -48,6 +65,7 @@
 .generic-body-2-col {
   p {
     margin-left: calc(100%/3);
+
     @include breakpoint($medium-only) {
       margin-left: 0;
     }
