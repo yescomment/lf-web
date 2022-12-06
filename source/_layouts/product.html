@@ -30,7 +30,7 @@ seo_image_path: #'/images/media/filename.jpg'
       <h1>{{ page.title}}</h1>
       <div class="product__subtitle">{{ page.subtitle }}</div>
       <div class="product__authors">{{ page.full_author | markdownify }}</div>
-      {{ page.short_description | markdownify }}
+      {{ page.introduction | markdownify }}
     </div>
     <div class="column large-offset-1 large-4 medium-12 small-12">
       <img src="{{ page.header_image.url }}" /> 
@@ -43,7 +43,7 @@ seo_image_path: #'/images/media/filename.jpg'
 
   <section class="page-section section--light-gray no-padding">
     <div class="row expanded">
-      <div class="column large-9 medium-12 small-12 product__left-column">
+      <div class="column large-8 medium-12 small-12 product__left-column">
         {% if page.body %}
           {{ page.body | rich_text_to_html }}
         {% endif %}
