@@ -5,11 +5,11 @@ const FixedNav = {
     const sidePanel = document.querySelector('.slide-panel');
 
     const setPanels = topElement => {
-      sidePanelContainer.classList.add('fixed-panel', 'large-3', 'medium-12', 'small-12');
+      sidePanelContainer.classList.add('fixed-panel', 'large-4', 'medium-12', 'small-12');
 
       if ($window.scrollTop() < topElement) {
         if (document.body.scrollWidth > 1023) {
-          sidePanelContainer.classList.remove('fixed-panel', 'large-3');
+          sidePanelContainer.classList.remove('fixed-panel', 'large-4');
           sidePanel.classList.remove('slide-panel--from-bottom');
           sidePanel.classList.add('slide-panel--from-right');
         } else {

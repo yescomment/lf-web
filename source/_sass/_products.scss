@@ -33,10 +33,7 @@
   .product__subtitle,
   .product__authors {
     margin: 2rem 0;
-  }
 
-  .product__subtitle,
-  .product__authors {
     p {
       font-family: $sans-serif;
       @include all_caps_text;
@@ -48,6 +45,13 @@
         color: $black;
       }
     }
+  }
+
+  .product__subtitle {
+    font-family: $sans-serif;
+    font-size: $h3;
+    font-weight: 200;
+    line-height: 1.2;
   }
 
   .product {
@@ -177,6 +181,7 @@
         display: block;
         color: $black;
         @include all_caps_text;
+        font-family: $sans-serif;
         margin-bottom: 0.5rem;
         font-size: $helper;
       }
