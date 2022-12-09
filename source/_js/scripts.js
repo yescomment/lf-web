@@ -9,6 +9,7 @@ import Utils from './utils';
 import CustomDropdown from './custom-select';
 import Footnotes from './footnotes';
 import ProductFilters from './product-list';
+import TwitterFetcher from './twitter-fetcher';
 
 Modal.init();
 Nav.init();
@@ -43,3 +44,7 @@ if (window.location.pathname === '/engelberg/what-we-do/' || window.location.pat
 if (window.location.pathname.match(/products\/?$/gm)) {
   ProductFilters.init();
 };
+
+if (window.location.pathname === '/') {
+  TwitterFetcher.init();
+}

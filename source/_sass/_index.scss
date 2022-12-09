@@ -67,3 +67,57 @@
     }
   }
 }
+
+.twitter-feed__container {
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+
+    li:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @include breakpoint($medium-only) {
+    margin-bottom: 4rem;
+  }
+}
+
+.user {
+  img {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+    width: 3.1rem;
+  }
+
+  div {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 2px;
+
+    span {
+      display: block;
+      font-family: $sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.tweet {
+  a {
+    text-decoration: none;
+    display: inline;
+    word-wrap: break-word;
+    @include underlined-link;
+  }
+}
+
+.twitter-news-container {
+  padding-bottom: 0;
+
+  .heading-b {
+    margin-bottom: 2rem;
+  }
+}
