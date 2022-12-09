@@ -1,4 +1,5 @@
 {% assign card = include.card %} 
+{% assign full_author = include.full_author %}
 
 <div class="card card--featured">
 
@@ -8,7 +9,6 @@
   </div>
   {% endif %} -->
   <div class="card__meta">
-
     <div class="card__tags-container tags-container">
 
       {% for area in card.law_area %}
@@ -24,14 +24,16 @@
     </div>
  
     <div class="card__authors">
-     
-      {% for sys in card.engelberg_author %}
+      {% if full_author %}
+        <span class="card__author">{{ full_author }}</span>
+      {% else %}
+        {% for sys in card.engelberg_author %}
+          {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
+          <span class="card__author">{{ author.display_name }}</span>
+        {% endfor %}
+      {% endif %}
 
-      {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
-      <span class="card__author">{{ author.display_name  }}</span>
-      {% endfor %}
-   
-<!-- use named people,center authors, or full_authors? -->
+     <!-- use named people,center authors, or full_authors? -->
     </div>
   </div>
   <a href="{{ card.pretty_url | prepend: '/products/' | relative_url }}">
