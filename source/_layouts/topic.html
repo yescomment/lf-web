@@ -17,8 +17,9 @@ top_bar: white
     </div>
     <div class="column large-6 large-offset-1 medium-12 small-12 no-padding">
       {% if page.featured_research %}
-      <h3 class="heading-c">Featured Research</h3>
-      {% include components/card-featured.html card=page.featured_research %} {% endif %}
+        <h3 class="heading-c">Featured Research</h3>
+        {% include components/card-featured.html card=page.featured_research full_author=page.featured_research.full_author %} 
+      {% endif %}
     </div>
   </div>
 
