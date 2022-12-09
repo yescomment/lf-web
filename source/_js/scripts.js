@@ -45,6 +45,6 @@ if (window.location.pathname.match(/products\/?$/gm)) {
   ProductFilters.init();
 };
 
-if (window.location.pathname === '/') {
+if (window.location.pathname === '/' || window.location.pathname === '/engelberg/') {
   TwitterFetcher.init();
 }
