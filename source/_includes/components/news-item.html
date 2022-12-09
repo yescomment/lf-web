@@ -9,7 +9,7 @@
     <span class="news-item__title">{{ item.title }}</span>
   </a>
   {% assign pub_date = item.publication_date | date: "%B %d, %Y" %}
-  {% assign metadata = "" | split: "" %} {% assign metadata = metadata | push: item.publication_type | push: pub_date  | push:
+  {% assign metadata = "" | split: "" %} {% assign metadata = metadata | push: item.publication | push: pub_date  | push:
   item.named_author | compact%}
   <span class="news-item__meta">{{ metadata | join: " | "}}</span>
   <p class="news-item__content">{{ item.short_description }}</p>

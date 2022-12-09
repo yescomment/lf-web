@@ -3,15 +3,18 @@
   &__header {
     display: flex;
   }
+
   &__meta {
     font-family: $sans-serif;
     font-weight: $bold;
     font-size: $h6;
-    margin-left: 1rem; 
+    margin-left: 1rem;
+
     span {
       display: block;
     }
   }
+
   &__avatar {
     img {
       width: 3rem;
@@ -25,7 +28,7 @@
 
 // news item 
 .news-item {
-  
+
   &__title {
     font-family: $sans-serif;
     font-weight: $bold;
@@ -33,12 +36,13 @@
     display: block;
 
   }
+
   &__meta {
     font-family: $sans-serif;
     display: block;
     @include all-caps-text;
+    margin-top: 0.5rem;
   }
-  &__content {
 
-  }
+  &__content {}
 }
