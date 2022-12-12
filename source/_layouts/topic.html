@@ -23,27 +23,33 @@ top_bar: white
     </div>
   </div>
 
-  {% include components/generic-card-layout.html 
-    cards=page.latest_research
-    cards_heading="Our Latest Research on Open Hardware"
-    cards_type="research_cards"
-    cards_link_text="Our Latest Research on Open Hardware"
-    cards_link_to="products"
-  %}
+  {% if page.latest_research %}
+    {% include components/generic-card-layout.html 
+      cards=page.latest_research
+      cards_heading="Our Latest Research on Open Hardware"
+      cards_type="research_cards"
+      cards_link_text="Our Latest Research on Open Hardware"
+      cards_link_to="products"
+    %}
+  {% endif %}
 
-  {% include components/generic-card-layout.html 
-    cards=page.related_projects
-    cards_heading="Engelberg Center Projects Related to Open Hardware"
-    cards_type="project_cards"
-    cards_link_text="Engelberg Center Projects Related to Open Hardware"
-    cards_link_to="projects"
-  %}
+  {% if page.related_projects %}
+    {% include components/generic-card-layout.html 
+      cards=page.related_projects
+      cards_heading="Engelberg Center Projects Related to Open Hardware"
+      cards_type="project_cards"
+      cards_link_text="Engelberg Center Projects Related to Open Hardware"
+      cards_link_to="projects"
+    %}
+  {% endif %}
 
-  {% include components/generic-card-layout.html 
-    cards=page.experts
-    cards_heading="Our Open Hardware Experts"
-    cards_type="people_cards"
-    cards_link_text="Our Open Hardware Experts"
-    cards_link_to="our-team"
-  %}
+  {% if page.experts %}
+    {% include components/generic-card-layout.html 
+      cards=page.experts
+      cards_heading="Our Open Hardware Experts"
+      cards_type="people_cards"
+      cards_link_text="Our Open Hardware Experts"
+      cards_link_to="our-team"
+    %}
+  {% endif %}
 </main>

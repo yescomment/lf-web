@@ -1,4 +1,7 @@
 .topic-page {
+  padding-bottom: 8rem;
+  background-color: $gray-200;
+
   .heading-start {
     font-size: $h3;
     font-family: $sans-serif;
@@ -9,6 +12,15 @@
 
   h2 {
     font-size: $h3;
+  }
+
+  .row {
+    padding-top: 3rem;
+    padding-bottom: 0;
+  }
+
+  .top-section {
+    padding-bottom: 6rem;
   }
 }
 
