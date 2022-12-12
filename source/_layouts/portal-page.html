@@ -23,6 +23,7 @@ top_bar: white
               {% for item in course %}
                 <option value="{{ item.title | slugify | prepend: '/courses/' | relative_url }}" tabindex="0">{{ item.title }}</option>
               {% endfor %}
+              <option value="random-select" tabindex="0">Roll the Dice!</option>
         {% else %}
           {% assign topic = site.data.contentful.onTopic.onTopic %}
           <div id="line-one">Engelberg Center on</div>
@@ -32,6 +33,7 @@ top_bar: white
               {% for item in topic %}
                 <option value="{{ item.title | slugify | prepend: '/topics/' | relative_url }}" tabindex="0">{{ item.title }}</option>
               {% endfor %}
+              <option value="random-select" tabindex="0">Roll the Dice!</option>
           {% endif %}
           </select>
         </div>

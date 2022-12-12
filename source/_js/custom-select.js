@@ -22,12 +22,25 @@ const CustomDropdown = {
           break;
         }
       }
+
       h.click();
 
+      let targetValue = e.target.getAttribute('url-value');
+      const allDropdownItems = document.querySelectorAll('.dropdown-item');
+      const dropdownArray = Array.prototype.slice.call(allDropdownItems);
+
+      function selectRandom(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
+
+      if (targetValue === 'random-select') {
+        targetValue = selectRandom(dropdownArray).getAttribute('url-value');
+      }
+
       if (window.location.host.match(/objectively.github.io\/?$/gm)) {
-        window.location.href = `/engelberg${e.target.getAttribute('url-value')}`;
+        window.location.href = `/engelberg${targetValue}`;
       } else {
-        window.location.href = `${e.target.getAttribute('url-value')}`;
+        window.location.href = `${targetValue}`;
       }
     }
 
@@ -48,7 +61,9 @@ const CustomDropdown = {
         c = document.createElement('div');
         c.innerHTML = setEl.options[j].innerHTML;
         c.setAttribute('url-value', setEl.options[j].value);
-        c.setAttribute('class', 'dropdown-item');
+        if (setEl.options[j].value !== 'random-select') {
+          c.setAttribute('class', 'dropdown-item');
+        }
         c.setAttribute('tabindex', '0');
 
         c.addEventListener('click', e => {
