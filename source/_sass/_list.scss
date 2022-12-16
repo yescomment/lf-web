@@ -76,13 +76,6 @@
       font-family: $sans-serif;
       @include all_caps_text;
       font-size: $helper;
-
-      &:after {
-        @extend .u-material-icons;
-        color: $black;
-        content: 'keyboard_arrow_down';
-        vertical-align: -6px;
-      }
     }
   }
 

@@ -8,7 +8,7 @@ const ProductSearch = {
   sortOrder: 'desc',
   sessionsName: 'productSearchQueries',
   targetListId: 'product-list',
-  dateSortElId: 'date-sort',
+  dateEl: 'product-publication-date',
   options: {
     targetList: undefined, // targetList holds Listjs instance
     allFilters: undefined,
@@ -35,7 +35,7 @@ const ProductSearch = {
   createList() {
     this.targetList = new List(this.targetListId, this.options);
 
-    this.targetList.sort('timestamp', { order: 'desc' });
+    this.targetList.sort(this.dateEl, { order: 'desc' });
 
     /* TODO:
     if (sessionStorage[this.sessionsName]) {
@@ -62,17 +62,44 @@ const ProductSearch = {
     this.matchSearchQueriesToUI();
     */
   },
-  sortByDate() {
-    this.targetList.sort({ order: this.sortOrder });
+  sortByDate(sortOrder) {
+    const dateToggles = document.querySelectorAll('.js-sort');
+    this.searchQueries.sortOrder = sortOrder;
+    this.targetList.sort(this.dateEl, { order: sortOrder });
+
+    // change UI -- can this move to match search queries to UI?
+
+    if (sortOrder === 'desc') {
+      dateToggles.forEach(dateToggle => {
+        dateToggle.classList.add('button__sort--descending');
+        dateToggle.classList.remove('button__sort--ascending');
+      });
+    } else {
+      dateToggles.forEach(dateToggle => {
+        dateToggle.classList.add('button__sort--ascending');
+        dateToggle.classList.remove('button__sort--descending');
+      });
+    }
+    /* TO DO
+    sessionStorage.setItem('productSearchQueries', JSON.stringify(this.searchQueries));
+    */
   },
   handleDateSortClick() {
-    console.log(document.getElementById(this.dateSortElId));
-    document.getElementById(this.dateSortElId).addEventListener('click', this.sortByDate());
+    const dateToggles = document.querySelectorAll('.js-sort');
+    dateToggles.forEach(dateToggle => {
+      dateToggle.addEventListener('click', () => {
+        if (this.searchQueries.sortOrder === 'desc') {
+          this.sortByDate('asc');
+        } else {
+          this.sortByDate('desc');
+        }
+      });
+    });
   },
   init() {
     this.createList();
+    this.sortByDate(this.sortOrder);
     this.handleDateSortClick();
-    console.log(this.targetList);
   }
 };
 
