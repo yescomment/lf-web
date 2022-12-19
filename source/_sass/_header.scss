@@ -48,7 +48,8 @@
 }
 
 .top-bar.top-bar--white {
-  background-color: white;
+  // background-color: white;
+  background-color: transparent;
 }
 
 .top-bar--no-logo {
@@ -129,118 +130,118 @@
   width: 100%;
 }
 
-.main-nav {
-  background-color: $purple-100;
-  color: white;
-  display: none;
-  left: 0;
-  overflow-y: scroll;
-  padding: 4rem 4rem 0rem 4rem;
-  position: absolute;
-  right: 0;
-  top: 0;
+// .main-nav {
+//   background-color: $purple-100;
+//   color: white;
+//   display: none;
+//   left: 0;
+//   overflow-y: scroll;
+//   padding: 4rem 4rem 0rem 4rem;
+//   position: absolute;
+//   right: 0;
+//   top: 0;
 
-  @include breakpoint(screen and (min-width: 1024px) and (max-width: 1200px)) {
-    padding-bottom: 10rem;
-  }
+//   @include breakpoint(screen and (min-width: 1024px) and (max-width: 1200px)) {
+//     padding-bottom: 10rem;
+//   }
 
-  @include breakpoint($medium-only) {
-    padding-bottom: 10rem;
-  }
+//   @include breakpoint($medium-only) {
+//     padding-bottom: 10rem;
+//   }
 
-  @include breakpoint($small-only) {
-    height: 100vh;
-    overflow-y: scroll;
-    padding: 4rem 2rem;
-  }
+//   @include breakpoint($small-only) {
+//     height: 100vh;
+//     overflow-y: scroll;
+//     padding: 4rem 2rem;
+//   }
 
-  a:not(.header-link) {
-    display: block;
-    font-family: $sans-serif;
-    font-size: $helper;
-    padding: 0.3rem 0.5rem;
-    text-align: left;
-    text-decoration: none;
-    color: $white;
+//   a:not(.header-link) {
+//     display: block;
+//     font-family: $sans-serif;
+//     font-size: $helper;
+//     padding: 0.3rem 0.5rem;
+//     text-align: left;
+//     text-decoration: none;
+//     color: $white;
 
-    &:hover {
-      background-color: transparentize(white, 0.9);
-    }
+//     &:hover {
+//       background-color: transparentize(white, 0.9);
+//     }
 
-    @extend .transition;
-  }
+//     @extend .transition;
+//   }
 
-  .header-link {
-    border-bottom: solid 2px white;
-    display: block;
-    font-family: $sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    padding: 0.3rem 0.2rem;
-    text-align: left;
-    text-decoration: none;
+//   .header-link {
+//     border-bottom: solid 2px white;
+//     display: block;
+//     font-family: $sans-serif;
+//     font-size: 1rem;
+//     font-weight: bold;
+//     margin-bottom: 1rem;
+//     padding: 0.3rem 0.2rem;
+//     text-align: left;
+//     text-decoration: none;
 
-    &:hover {
-      background-color: transparentize(white, 0.9);
-    }
+//     &:hover {
+//       background-color: transparentize(white, 0.9);
+//     }
 
-    @extend .transition;
+//     @extend .transition;
 
-    &--no-hover {
-      &:hover {
-        background-color: transparent;
-      }
-    }
-  }
+//     &--no-hover {
+//       &:hover {
+//         background-color: transparent;
+//       }
+//     }
+//   }
 
-  .link-column {
-    margin-bottom: 5rem;
+//   .link-column {
+//     margin-bottom: 5rem;
 
-    @include breakpoint($medium-only) {
-      margin-bottom: 2rem;
-    }
+//     @include breakpoint($medium-only) {
+//       margin-bottom: 2rem;
+//     }
 
-    @include breakpoint($small-only) {
-      margin-bottom: 1rem;
-    }
-  }
+//     @include breakpoint($small-only) {
+//       margin-bottom: 1rem;
+//     }
+//   }
 
-  .home-button {
-    color: $white;
-    left: 0;
-    position: absolute;
-    top: 56px;
+//   .home-button {
+//     color: $white;
+//     left: 0;
+//     position: absolute;
+//     top: 56px;
 
-    @include breakpoint($small-only) {
-      left: 60px;
-      top: 0;
-    }
+//     @include breakpoint($small-only) {
+//       left: 60px;
+//       top: 0;
+//     }
 
-    i {
-      font-size: 30px;
-      padding: 8px 7px;
-    }
-  }
+//     i {
+//       font-size: 30px;
+//       padding: 8px 7px;
+//     }
+//   }
 
-  .close-button {
-    color: $white;
-    left: 0;
-    position: absolute;
-    top: 0;
+//   .close-button {
+//     color: $white;
+//     left: 0;
+//     position: absolute;
+//     top: 0;
 
-    @include breakpoint($small-only) {
-      left: 60px;
-      top: 0;
-      left: 0;
-    }
+//     @include breakpoint($small-only) {
+//       left: 60px;
+//       top: 0;
+//       left: 0;
+//     }
 
-    i {
-      font-size: 30px;
-      padding: 8px 7px;
-    }
-  }
-}
+//     i {
+//       font-size: 30px;
+//       padding: 8px 7px;
+//     }
+//   }
+// }
 
 .nav-logo {
   margin-top: 4rem;
