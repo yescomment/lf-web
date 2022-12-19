@@ -7,7 +7,9 @@ seo_image_path: #'/images/media/filename.jpg'
 top_bar: white
 ---
 {% assign data = site.data.contentful.eventsPage.eventsPage | first %}
+
 <main class="events-page" id="main">
+  {% include components/nav-button.html %}
   <div class="row expanded section--gray top-section" style="background-image: url({{data.header_beam.url}})">
     <div class="column large-5 medium-12 small-12">
       <h1>{{ data.title }}</h1>

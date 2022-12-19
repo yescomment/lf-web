@@ -76,7 +76,7 @@
   .menu-item {
     background-color: $white;
     color: $purple-100;
-    padding: 1rem 0.7rem 41.5px;
+    padding: 1rem 0.7rem 41px;
     font-family: $sans-serif;
     font-weight: bold;
     font-size: 1.3rem;
@@ -106,6 +106,5 @@ main {
 }
 
 .nav-is-active {
-  // left: 350px;
   z-index: 0;
 }
