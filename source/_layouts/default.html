@@ -4,6 +4,7 @@
   <body>
     <a  href="{{ '#main' | prepend: page.url | relative_url }}" class="skip-to-main-content-link">Skip to main content</a>
 
+    {% include nav.html %}
 
     {% if page.layout == "generic" %}
       {% include header.html  top_bar="white" %} 
