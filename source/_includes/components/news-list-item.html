@@ -1,12 +1,12 @@
 {% assign item = include.item %}
 
-<div class="news-list-item">
+<div class="news-list-item markdown-secondary">
   {% if item.publication_type == 'In the News'%}
-    <a class="external-link" href="{{ item.external_url }}">
+    <a class="ink--primary news-list-item__title external-link" href="{{ item.external_url }}">
   {% else %}
-    <a href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
+    <a class="link--primary news-list-item__title" href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
   {% endif %}
-    <span class="news-list-item__title">{{ item.title }}</span>
+    {{ item.title }}
   </a>
   <span class="news-list-item__subtitle">{{ item.subtitle }}</span>
   <span class="news-list-item__publication">{{ item.publication }}</span>

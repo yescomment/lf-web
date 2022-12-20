@@ -2,8 +2,8 @@
 
 <div class="card card--podcast markdown-secondary">
     <h2 class="heading-a">Our Podcasts</h2>
-    <a href="{{ podcast.pretty_url | prepend: '/products/' | relative_url }}">
-      <span class="card__title">{{ podcast.title }}</span>
+    <a class="link--secondary card__title" href="{{ podcast.pretty_url | prepend: '/products/' | relative_url }}">
+      {{ podcast.title }}
     </a>
     <span class="card__subtitle">{{ podcast.subtitle }}</span>
     <div class="card__podcast-wrapper">

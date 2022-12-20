@@ -36,8 +36,8 @@
      <!-- use named people,center authors, or full_authors? -->
     </div>
   </div>
-  <a href="{{ card.pretty_url | prepend: '/products/' | relative_url }}">
-    <span class="card__title">{{card.title}}</span>
+  <a class="link-secondary card__title" href="{{ card.pretty_url | prepend: '/products/' | relative_url }}">
+    {{card.title}}
   </a>
   <span class="card__subtitle">{{card.subtitle}}</span>
   <p class="card__description">{{ card.short_description }}</p>

@@ -67,7 +67,7 @@ top_bar: no-logo
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12">
       <h3 class="heading-b">In the News</h3>
-      <div class="news-feed__container">
+      <div class="news-feed__container markdown-secondary">
         {% for item in data.featured_news %} 
           {% include components/news-item.html 
             item=item
@@ -82,7 +82,7 @@ top_bar: no-logo
     <div class="column large-12 small-12">
       <h3 class="heading-b">Upcoming Events</h3>
     </div>
-    <div class="cards-wrapper">
+    <div class="cards-wrapper markdown-secondary">
       {% for card in data.upcoming_events %}
       <div class="card card--event">
         <div

@@ -17,7 +17,10 @@ top_bar: white
       <h1>{{ page.title }}</h1>
 
       <div class="bar" style="background-image: url({{page.bar_color.url}})"></div>
-      {{ page.introduction | markdownify }}
+
+      <div class="markdown-secondary">
+        {{ page.introduction | markdownify }}
+      </div>
 
       {% if page.button %}
       <div class="button-container">
