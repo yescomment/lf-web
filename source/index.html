@@ -50,7 +50,9 @@ top_bar: no-logo
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12">
       <h3 class="heading-b">{{data.short_description_title}}</h3>
-      {{ data.short_description | markdownify }}
+      <div class="markdown-secondary">
+        {{ data.short_description | markdownify }}
+      </div>
       <a class="link link--arrow inverted" href="{{ data.learn_more_url }}">Learn More</a>
     </div>
   </div>
