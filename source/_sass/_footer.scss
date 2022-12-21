@@ -44,6 +44,10 @@ footer {
       @include breakpoint($between-large) {
         max-width: 75%;
       }
+
+      @include breakpoint($small-only) {
+        max-width: 100%;
+      }
     }
 
     &--nav {
@@ -58,6 +62,110 @@ footer {
         font-weight: bold;
         font-family: $sans-serif;
         margin-bottom: 1.5rem;
+      }
+    }
+
+    .form {
+      @include breakpoint($large) {
+        margin-right: 8rem;
+      }
+
+      @include breakpoint($between-large) {
+        margin-right: 0;
+      }
+
+      @include breakpoint($medium-only) {
+        max-width: 75%;
+      }
+
+      @include breakpoint($small-only) {
+        max-width: 100%;
+      }
+
+      .input-group,
+      label {
+        color: $white;
+        font-family: $sans-serif;
+      }
+
+      .year-label {
+        display: block;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        background-color: $black;
+        color: $white;
+        font-family: $sans-serif;
+        border: 1px solid $white;
+        border-radius: 50px;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+      }
+
+      .text-area {
+        &::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: $white;
+          font-family: $sans-serif;
+          opacity: 1;
+          /* Firefox */
+        }
+
+        &:-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: $white;
+          font-family: $sans-serif;
+        }
+
+        &::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: $white;
+          font-family: $sans-serif;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        white-space: nowrap;
+
+        li {
+          display: inline-block;
+
+          label,
+          input {
+            margin: 0 !important;
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          input {
+            max-width: 1rem;
+          }
+
+          label {
+            padding-right: 4rem;
+            padding-left: 0.5rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .button {
+        color: $black;
+        background-color: $white;
+        width: 100%;
+        margin-top: 1rem;
+        text-transform: none !important;
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+        }
       }
     }
   }
