@@ -14,7 +14,9 @@ top_bar: white
     <div class="column large-5 medium-12 small-12">
       <h1>{{ data.title }}</h1>
       <div class="bar" style="background-image: url({{data.bar_color.url}})"></div>
-      {{ data.introduction | markdownify }}
+      <div class="markdown-secondary">
+        {{ data.introduction | markdownify }}
+      </div>
     </div>
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
       <h3 class="heading-c">Featured Event</h3>

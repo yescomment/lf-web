@@ -144,11 +144,11 @@ button.close-panel {
     color: transparentize($color: $black, $amount: 0.5) !important;
   }
 
-  a {
-    word-wrap: break-word;
-    -ms-word-wrap: break-word;
-    @include underlined-link;
-  }
+  // a {
+  //   word-wrap: break-word;
+  //   -ms-word-wrap: break-word;
+  //   @include underlined-link;
+  // }
 
   &.active-footnote {
 
@@ -158,9 +158,9 @@ button.close-panel {
       padding-top: 2rem;
     }
 
-    a {
-      @include underlined-link;
-    }
+    // a {
+    //   @include underlined-link;
+    // }
   }
 }
 

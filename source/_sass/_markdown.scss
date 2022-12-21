@@ -1,5 +1,7 @@
 .markdown-content {
-
+  img {
+    margin: 1rem 0;
+  }
   h1 {
     font-size: $h2;
     line-height: 1.2;
@@ -21,8 +23,41 @@
     line-height: 1.2;
   }
 
+  // a {
+  //   text-decoration: none;
+  // }
+
+  ul,
+  li {
+    font-family: $serif;
+    font-size: 1.2rem;
+  }
+
   a {
-    text-decoration: none;
+    @include markdown-primary-links;
+  }
+}
+
+.markdown-secondary {
+  h1 {
+    font-size: $h2;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: $h3;
+    font-weight: 200;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: $h4;
+    font-weight: bold;
+    line-height: 1.2;
   }
 
   ul,
@@ -30,11 +65,8 @@
     font-family: $serif;
     font-size: 1.2rem;
   }
-  
+
   a {
-    text-decoration: none;
-    @include underlined-link;
+    @include markdown-primary-links;
   }
-
-
 }

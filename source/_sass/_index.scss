@@ -107,15 +107,6 @@
   }
 }
 
-.tweet {
-  a {
-    text-decoration: none;
-    display: inline;
-    word-wrap: break-word;
-    @include underlined-link;
-  }
-}
-
 .twitter-news-container {
   padding-bottom: 0;
 

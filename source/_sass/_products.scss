@@ -92,10 +92,10 @@
         }
       }
 
-      a {
-        color: $black;
-        @include underlined-link;
-      }
+      // a {
+      //   color: $black;
+      //   @include underlined-link;
+      // }
 
       .figure {
         padding: 2rem 0;

@@ -26,11 +26,11 @@
     font-size: 1.3rem;
     font-weight: bold;
     text-align: left;
-    transition: .1s ease;
+    transition: .4s ease;
     text-decoration: none;
 
-    &:hover {
-      background-color: $purple-100;
+    &:hover, &:focus {
+      color: $yellow-100;
     }
   }
 

@@ -16,7 +16,7 @@ $large: screen and (min-width: 64em);
 @import 'breakpoint';
 @import 'base';
 @import 'styleguide';
-@import 'links';
+
 @import 'button';
 @import 'tags';
 @import 'layout';
@@ -44,6 +44,7 @@ $large: screen and (min-width: 64em);
 @import 'markdown';
 @import 'footer';
 @import 'nav';
+@import 'links';
 
 // div, .row, .column {
 //   @include breakpoint($large) {
