@@ -2,6 +2,7 @@
   h1 {
     font-size: $h2;
   }
+
   .top-section {
     background-repeat: no-repeat;
     background-position: calc(100% + 13rem) -6rem;
@@ -10,22 +11,28 @@
 
 .event-page {
   background-color: $gray-200;
+  padding-bottom: 8rem;
+
   .top-section {
     padding-bottom: 0;
   }
+
   .event__date {
     font-weight: $bold;
     font-family: $sans-serif;
     font-size: $h5;
   }
+
   h1 {
     font-size: $h2;
     margin-top: 0;
   }
+
   .button-container {
     margin: 1rem 0 5rem;
     // padding: 1rem 0;
   }
+
   .event__featured-image-wrapper {
     img {
       height: auto;
@@ -33,9 +40,17 @@
       object-fit: contain;
     }
   }
+
   .event__sidebar-body {
     img {
       margin: 1rem 0;
+    }
+
+    .event-media-desc {
+      font-family: $sans-serif;
+      font-weight: 200;
+      font-style: italic;
+      margin-bottom: 2rem;
     }
   }
 }
