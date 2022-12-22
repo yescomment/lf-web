@@ -1,8 +1,10 @@
 .button {
   white-space: nowrap;
+
   @include breakpoint($small-only) {
     white-space: normal;
   }
+
   line-height: inherit;
   transition-duration: 0.4s;
   font-family: $sans-serif;
@@ -16,6 +18,7 @@
   text-decoration: none;
   background-color: transparent;
   @include all-caps-text;
+
   &:hover,
   &:focus {
     color: $white;
@@ -23,17 +26,25 @@
     background-color: $black;
   }
 }
+
 .button--full {
   width: 100%;
 }
+
 .button--arrow {
+  padding-bottom: 0.65rem;
+  padding-right: 0.65rem;
+
   &:after {
     transition-duration: 0.4s;
     @extend .u-material-icons;
     content: url('../images/icons/arrow_forward_black_24dp.svg');
     vertical-align: bottom;
-    margin-left: 0.5rem;
+    margin-left: 0.4rem;
+    transform: scale(0.8);
+    margin-bottom: -2px;
   }
+
   &:hover {
     &:after {
       filter: invert(100%);
