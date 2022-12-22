@@ -1,9 +1,12 @@
 .profile-page {
   background-color: $gray-200;
+  padding-bottom: 8rem;
+
   h1 {
     font-size: $h2;
     margin: 0;
   }
+
   .decorator {
     margin: 0;
     @include column-padding;
@@ -13,49 +16,68 @@
     margin-top: 2rem;
     font-family: $sans-serif;
     font-weight: $bold;
+
     a {
       display: block;
       font-size: $h6;
       margin: .5rem 0;
     }
+
     .social-buttons__email {
       &:before {
         content: "mail";
         @extend .u-material-icons;
-       margin-right: .5rem;
-        vertical-align: bottom;
+        margin-right: .4rem;
+        vertical-align: middle;
+        transform: scale(0.8);
       }
     }
+
     .social-buttons__twitter {
       &:before {
-        content: "info";
+        content: url('../images/icons/twitter.svg');
         @extend .u-material-icons;
-        margin-right: .5rem;
-        vertical-align: bottom;
+        margin-right: .4rem;
+        vertical-align: middle;
+        height: 26px;
+        width: 26px;
+      }
 
+      &:hover {
+        &:before {
+          transition-duration: 0.4s;
+          opacity: 0.5;
+        }
       }
     }
   }
 }
 
-.about-page, .profile-page {
-    .profile-card {
+.about-page,
+.profile-page {
+  .profile-card {
     text-align: center;
     // padding: 0 3rem;
     padding: 0;
-    @include breakpoint($small-only) {
-    }
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+
     .card__avatar-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
+    h1 {
+      margin: 1.5rem 0 0.6rem;
+      line-height: 1.15;
+    }
+
     .card__avatar {
       // margin: 2rem 0 1rem;
       margin: 0;
-      @include breakpoint($small-only) {
-      }
+
+      @include breakpoint($small-only) {}
+
       img {
         width: 18rem;
         height: 18rem;
@@ -64,10 +86,17 @@
         margin: auto;
       }
     }
+
     .profile__position {
       font-family: $sans-serif;
       font-size: $h4;
       font-weight: $light;
+    }
+  }
+
+  .button-container {
+    a {
+      padding: 0.65rem;
     }
   }
 }
