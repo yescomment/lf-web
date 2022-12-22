@@ -96,10 +96,70 @@ const ProductSearch = {
       });
     });
   },
+  // TEXT INPUT
+  filterBySearchParams(searchParams) {
+    this.targetList.fuzzySearch(searchParams);
+  },
+  handleSearchParams() {
+    document.querySelector('#searchfield').addEventListener('keyup', e => {
+      if (e.key === 'Enter' || e.keyCode === 13) {
+        this.updateActiveSearchQueries();
+      }
+    });
+    document.querySelector('.search-submit').addEventListener('click', e => {
+      e.preventDefault();
+      this.updateActiveSearchQueries();
+      // window.location.href = `/database/?q=${this.searchQueries.searchParams}`;
+    });
+  },
+  updateActiveSearchQueries() {
+    console.log(this.searchQueries);
+    // get dropdowns
+
+    /* TK
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      this.searchQueries[camelCase(dropdown.id)] = dropdown[dropdown.selectedIndex].value;
+    });
+    const selectedOptions = document.querySelectorAll('option:checked');
+    selectedOptions.forEach(filter => {
+      const filterParam = filter.parentElement.id;
+      const filterValue = filter.value;
+      this.searchQueries[filterParam] = filterValue;
+    });
+    */
+    const textSearch = document.querySelector('#searchfield').value;
+    this.searchQueries.searchParams = textSearch;
+    this.filterList();
+    /* TODO
+    sessionStorage.setItem('citationSearchQueries', JSON.stringify(this.searchQueries));
+    */
+  },
+  filterList() {
+    const searchParams = document.querySelector('#searchfield').value || this.searchQueries.searchParams;
+    /* TODO
+    // themes should be an array
+    if (typeof this.searchQueries.citationThemes === 'string') {
+      this.searchQueries.citationThemes = this.searchQueries.citationThemes.split();
+    }
+    //tags should be an array
+    if (typeof this.searchQueries.citationTags === 'string') {
+      this.searchQueries.citationTags = this.searchQueries.citationTags.split();
+    }
+    */
+
+    this.filterBySearchParams(searchParams);
+    /* TODO
+    this.filterByDropdownsAndCheckboxes();
+    this.displayResults();
+    this.displayResultQueries();
+    */
+  },
   init() {
     this.createList();
+    this.setSearchQueryDefaults();
     this.sortByDate(this.sortOrder);
     this.handleDateSortClick();
+    this.handleSearchParams();
   }
 };
 
