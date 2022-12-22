@@ -14,9 +14,13 @@
         <!-- <div class="bar" style="background-image: url({{ card.bar_color.url }})"></div> -->
         <img src="{{card.bar_color.url}}">
       <div class="card__detail">
-        <!-- <a href="{{ card.pretty_url | prepend: '/our-people/' | relative_url }}"> -->
+        {% if card.button_url %}
+          <a href="{{ card.button_url }}">
+            <span class="card__name">{{ card.display_name }}</span>
+          </a>
+        {% else %}
           <span class="card__name">{{ card.display_name }}</span>
-        <!-- </a> -->
+        {% endif %}
         <span class="card__title">{{ card.title }}</span>
         <span class="card__affiliation">Affiliation</span>
       </div>

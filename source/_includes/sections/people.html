@@ -74,15 +74,9 @@
 {% assign advisory_board_cards = people | where: 'type', 'Advisory Board' %}
 
 {% if advisory_board_cards and advisory_board_cards.size != 0 %}
-    {% include components/generic-card-layout.html 
-    cards=advisory_board_cards
-    cards_heading="Advisory Board"
-    cards_type="people_cards"
+    {% include components/minimal-card-layout.html 
+      cards=advisory_board_cards
+      cards_heading="Advisory Board"
+      cards_type="people_cards"
     %}
 {% endif %}
-
-  {% include components/minimal-card-layout.html 
-    cards=faculty_cards
-    cards_heading="Fake Advisory Section"
-    cards_type="people_cards"
-  %}
