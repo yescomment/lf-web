@@ -130,9 +130,11 @@
 
     text-align: center;
     padding: 1rem;
+    padding-bottom: 1.5rem;
 
     .card__name {
       font-size: $h5;
+      padding-bottom: 0.5rem;
     }
 
     .card__title {
@@ -213,12 +215,9 @@
     margin-top: 0;
     justify-content: space-around;
 
-
-
     span {
       display: block;
       margin: 0.5rem;
-
     }
 
     .card__title {
@@ -372,7 +371,8 @@
     margin: 2rem 0;
     // color: $black;
   }
-// delete?
+
+  // delete?
   // a {
   //   text-decoration: none;
   //   margin-top: 1rem;
@@ -413,7 +413,7 @@
 .card-section-heading {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 2.5rem 1rem 1.5rem 1rem;
 
   @include breakpoint($small-only) {
     display: block;
@@ -449,22 +449,24 @@
   }
 }
 
-
-
 .card--minimal {
   text-align: center;
+  padding-top: 2rem;
+
   // used for advisory board section 
   span {
     display: block;
   }
+
   img {
     width: 5.7rem;
-height: auto;
-
-display: inline-block;
-vertical-align: middle;
-margin: 0 auto;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-bottom: 1rem;
   }
+
   .card__detail {
     span {
       font-family: $sans-serif;
@@ -477,6 +479,7 @@ margin: 0 auto;
 
     .card__name {
       font-size: $h5;
+      padding-bottom: 0.5rem;
     }
 
     .card__title {
@@ -484,10 +487,10 @@ margin: 0 auto;
       font-size: $p;
       font-style: italic;
     }
+
     .card__affiliation {
       font-weight: $light;
       font-size: $p;
     }
   }
-
 }
