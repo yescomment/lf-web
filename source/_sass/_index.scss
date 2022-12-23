@@ -2,19 +2,25 @@
   padding-bottom: 6rem;
 
   .top-section {
-    background-image: url('../images/header-beam-right-a.png');
+    background-image: url('../images/test-header-index.png');
     background-repeat: no-repeat;
     background-position-x: 5rem;
     background-size: 95%;
+    @include breakpoint($medium-only) {
+      background-image: none;
+    }
   }
 
   .main-header {
     font-family: $sans-serif;
-
-    .logo-container {
-      background-image: url('../images/circle-logo.svg');
-      background-repeat: no-repeat;
-      height: 15rem;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+      @include  breakpoint($medium-only) {
+        max-width: 50%;
+      }
     }
 
     span {
@@ -39,7 +45,7 @@
   }
 
   .card.card--featured {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 
   .button-container {

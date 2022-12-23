@@ -46,18 +46,18 @@ $large: screen and (min-width: 64em);
 @import 'nav';
 @import 'links';
 
-// div, .row, .column {
-//   @include breakpoint($large) {
-//     outline: red solid 1px;
-//   }
-//   @include breakpoint($between-large) {
-//     outline: pink solid 1px;
-//   }
-//   @include breakpoint($medium-only) {
-//     outline: blue solid 1px;
-//   }
-//   @include breakpoint($small-only) {
-//     outline: green solid 1px;
-//   }
-//   outline: yellow solid 1px;
-// }
+div, .row, .column, .top-section {
+  @include breakpoint($large) {
+    outline: red solid 1px;
+  }
+  @include breakpoint($between-large) {
+    outline: pink solid 1px;
+  }
+  @include breakpoint($medium-only) {
+    outline: blue solid 1px;
+  }
+  @include breakpoint($small-only) {
+    outline: green solid 1px;
+  }
+  outline: yellow solid 1px;
+}
