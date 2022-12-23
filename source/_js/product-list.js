@@ -9,6 +9,7 @@ const ProductSearch = {
   clearFiltersID: 'clear-filters',
   sessionsName: 'productSearchQueries',
   targetListId: 'product-list',
+  listElement: 'product',
   dateEl: 'product-publication-date',
   options: {
     targetList: undefined, // targetList holds Listjs instance
@@ -151,28 +152,69 @@ const ProductSearch = {
     this.filterBySearchParams(searchParams);
     /* TODO
     this.filterByDropdownsAndCheckboxes();
-    this.displayResults();
-    this.displayResultQueries();
     */
+   this.displayResults();
+   this.displayResultQueries();
   },
   clearAllFilters() {
     this.setSearchQueryDefaults();
 
     this.targetList.search();
     this.targetList.filter();
-/* TODO
+    /* TODO
     this.clearFormInputs();
+    */
     this.displayResults();
     this.displayResultQueries();
-
+    /* TODO
     sessionStorage.setItem('citationSearchQueries', JSON.stringify(this.searchQueries));
 */
   },
   handleClearAllFilters() {
     document.getElementById(`clear-filters`).addEventListener('click', () => {
-      console.log('click')
       this.clearAllFilters();
     });
+  },
+  // DISPLAY RESULTS
+  displayResults() {
+    const count = this.targetList.matchingItems.length;
+    const label = count === 1 ? 'result' : 'results';
+    document.getElementById('results-total').innerHTML = `Displaying ${count} ${label} `;
+  },
+  displayResultQueries() {
+    this.resultsItems = [];
+    const { searchParams } = this.searchQueries;
+    if (searchParams !== '') {
+      this.resultsItems.push(searchParams);
+    }
+    console.log('displaying', this.resultsItems)
+
+    /* TO DO
+
+    Array.from(document.querySelectorAll('.checkbox')).forEach(checkbox => {
+      if (checkbox.checked) {
+        this.resultsItems.push(document.querySelector(`label[for=${checkbox.id}]`).innerText);
+      }
+    });
+    Array.from(document.querySelectorAll('.dropdown')).map(item => {
+      if (item.options.selectedIndex !== 0) {
+        this.resultsItems.push(document.querySelector(`option#${item.value}`).innerText);
+      }
+      return this.resultsItems;
+    });
+    */
+    if (this.resultsItems.length > 0) {
+      const updateItems = document.querySelectorAll(`.${this.listElement}`);
+      const resultsMessage = document.querySelector('#results-filter-detail');
+      resultsMessage.classList.add('js-show');
+      if (updateItems.length === 0) {
+        resultsMessage.innerHTML = `No results for: ${this.resultsItems.join('; ')}`;
+      } else {
+        resultsMessage.innerHTML = `for ${this.resultsItems.join('; ')}`;
+      }
+    } else {
+      document.querySelector('#results-filter-detail').classList.remove('js-show');
+    }
   },
   init() {
     this.createList();
