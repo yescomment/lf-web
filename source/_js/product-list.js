@@ -6,6 +6,7 @@ const ProductSearch = {
   searchQueries: {},
   resultsItems: [],
   sortOrder: 'desc',
+  clearFiltersID: 'clear-filters',
   sessionsName: 'productSearchQueries',
   targetListId: 'product-list',
   dateEl: 'product-publication-date',
@@ -154,12 +155,32 @@ const ProductSearch = {
     this.displayResultQueries();
     */
   },
+  clearAllFilters() {
+    this.setSearchQueryDefaults();
+
+    this.targetList.search();
+    this.targetList.filter();
+/* TODO
+    this.clearFormInputs();
+    this.displayResults();
+    this.displayResultQueries();
+
+    sessionStorage.setItem('citationSearchQueries', JSON.stringify(this.searchQueries));
+*/
+  },
+  handleClearAllFilters() {
+    document.getElementById(`clear-filters`).addEventListener('click', () => {
+      console.log('click')
+      this.clearAllFilters();
+    });
+  },
   init() {
     this.createList();
     this.setSearchQueryDefaults();
     this.sortByDate(this.sortOrder);
     this.handleDateSortClick();
     this.handleSearchParams();
+    this.handleClearAllFilters();
   }
 };
 
