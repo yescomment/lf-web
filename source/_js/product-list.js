@@ -187,8 +187,6 @@ const ProductSearch = {
     if (searchParams !== '') {
       this.resultsItems.push(searchParams);
     }
-    console.log('displaying', this.resultsItems)
-
     /* TO DO
 
     Array.from(document.querySelectorAll('.checkbox')).forEach(checkbox => {
