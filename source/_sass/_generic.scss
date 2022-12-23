@@ -1,4 +1,6 @@
 .generic-layout {
+  padding-bottom: 8rem;
+
   h1 {
     font-size: $h2;
   }
@@ -6,8 +8,6 @@
   h2 {
     font-size: $h3;
   }
-
-  padding-bottom: 8rem;
 }
 
 .top-section--generic {
@@ -29,6 +29,18 @@
 .student-page {
   .bar {
     margin: 2rem 0 1rem 0;
+  }
+}
+
+.student-page {
+  .row {
+    padding-bottom: 8rem;
+  }
+
+  .page-section--topic {
+    @include breakpoint($medium-only) {
+      background-size: 85% !important;
+    }
   }
 }
 
