@@ -37,18 +37,14 @@ const ProductSearch = {
   createList() {
     this.targetList = new List(this.targetListId, this.options);
 
-    this.targetList.sort(this.dateEl, { order: 'desc' });
-
-    /* TODO:
     if (sessionStorage[this.sessionsName]) {
       this.matchSearchQueriesToSessions();
     } else {
-      */
-    // this.setSearchQueryDefaults();
-    /*
+      this.setSearchQueryDefaults();
     }
     this.matchSearchQueriesToUI();
-    */
+    /* TODO:
+     */
   },
   setSearchQueryDefaults() {
     this.clearResultsItems();
@@ -63,11 +59,25 @@ const ProductSearch = {
       searchParams: '',
       sortOrder: 'desc'
     };
-    /* TODO
     this.matchSearchQueriesToUI();
-    */
   },
-  sortByDate(sortOrder) {
+  matchSearchQueriesToSessions() {
+    this.searchQueries = {
+      productLawArea: JSON.parse(sessionStorage[this.sessionsName]).productLawArea || ['all'], // checkbox
+      productTopic: JSON.parse(sessionStorage[this.sessionsName]).productTopic || ['all'], // checkbox
+      productTag: JSON.parse(sessionStorage[this.sessionsName]).productTag || ['all'], // checkbox
+      productCenterAuthor: JSON.parse(sessionStorage[this.sessionsName]).productCenterAuthor || 'all', // dropdown
+      productType: JSON.parse(sessionStorage[this.sessionsName]).productType || 'all', // dropdown
+      searchParams: JSON.parse(sessionStorage[this.sessionsName]).searchParams || '',
+      sortOrder: 'desc' // keep desc on refresh
+    };
+  },
+  matchSearchQueriesToUI() {
+    /* need this for url params */
+    // text search 
+    document.querySelector('#searchfield').value = this.searchQueries.searchParams;
+  },
+  sortByDate(sortOrder = 'desc') {
     /* check mobile sort*/
     const dateToggles = document.querySelectorAll('.js-sort');
     this.searchQueries.sortOrder = sortOrder;
@@ -86,9 +96,6 @@ const ProductSearch = {
     }
 
     this.setSessions();
-    /* TO DO
-    sessionStorage.setItem(this.sessionsName, JSON.stringify(this.searchQueries));
-    */
   },
   handleDateSortClick() {
     // done
@@ -107,6 +114,8 @@ const ProductSearch = {
   filterBySearchParams(searchParams) {
     // done
     this.targetList.fuzzySearch(searchParams);
+    this.displayResultsCount();
+    this.setSessions();
   },
   handleSearchParams() {
     // done
@@ -146,6 +155,7 @@ const ProductSearch = {
         this.matchesAllItems(item.values()['product-topic'], this.searchQueries.productTopic) &&
         this.matchesAllItems(item.values()['product-tag'], this.searchQueries.productTag)
     );
+    this.setSessions();
   },
   filterByCheckboxes() {
     /**
@@ -189,9 +199,7 @@ const ProductSearch = {
     this.searchQueries.productTag = checkedProductTags;
 
     this.updateActiveSearchQueries();
-    /* do we need?
-    // this.filterList(this.searchQueries);
-    */
+    this.filterList(this.searchQueries);
     this.setSessions();
   },
   handleDropdownChange() {
@@ -203,7 +211,7 @@ const ProductSearch = {
       });
     });
   },
-  handleCheckboxClick() {
+  handleCheckboxChange() {
     document.querySelectorAll('.checkbox-container').forEach(checkbox =>
       checkbox.addEventListener('change', () => {
         this.filterByCheckboxes();
@@ -264,20 +272,28 @@ const ProductSearch = {
 
     this.filterBySearchParams(searchParams);
     this.filterByDropdownsAndCheckboxes();
-    this.displayResults();
+    this.displayResultsCount();
     this.displayResultQueries();
   },
+  clearFormInputs() {
+    document.querySelector('.search-field').value = '';
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      dropdown.selectedIndex = 0;
+    });
+    document.querySelectorAll('.checkbox:checked').forEach(checkbox => {
+      checkbox.checked = false;
+    });
+  },
   clearAllFilters() {
+    this.clearResultsItems();
     this.setSearchQueryDefaults();
     this.targetList.search();
     this.targetList.filter();
     this.clearFormInputs();
-    this.displayResults();
+    this.sortByDate('desc');
+    this.displayResultsCount();
     this.displayResultQueries();
     this.setSessions();
-    /* TODO
-    sessionStorage.setItem(this.sessionsName, JSON.stringify(this.searchQueries));
-*/
   },
   handleClearAllFilters() {
     // done
@@ -307,12 +323,13 @@ const ProductSearch = {
       }
     });
   },
-  displayResults() {
+  displayResultsCount() {
     const count = this.targetList.matchingItems.length;
     const label = count === 1 ? 'result' : 'results';
     document.getElementById('results-total').innerHTML = `Displaying ${count} ${label} `;
   },
   displayResultQueries() {
+    // populates this.resultsItems
     this.getTextResultsQuery();
     this.getCheckboxResultsQuery();
     this.getDropdownResultsQuery();
@@ -352,54 +369,41 @@ const ProductSearch = {
     }
     return selectedFilters.some(filter => listItemValues.indexOf(filter) !== -1);
   },
-  filterBySessionStorage() {
-    const urlSearchParam = window.location.search.split('=')[0];
-
-    if ((sessionStorage[this.sessionsName] && urlSearchParam === '') || urlSearchParam === '?q') {
-      console.log('by sessions');
-
-      const storage = JSON.parse(sessionStorage[this.sessionsName]);
-      this.searchQueries = storage;
-
-      //  get checkbox values in sessions
-      const productLawAreaCheckboxes = document.querySelectorAll('.checkbox.area-checkbox');
-      const productTopicCheckboxes = document.querySelectorAll('.checkbox.topic-checkbox');
-      const productTagCheckboxes = document.querySelectorAll('.checkbox.tag-checkbox');
-
-      // debugger;
-      productLawAreaCheckboxes.forEach(checkbox => {
-        if (this.searchQueries.productLawArea.indexOf(checkbox.id) !== -1) {
-          checkbox.checked = true;
-        }
-      });
-      productTopicCheckboxes.forEach(checkbox => {
-        if (this.searchQueries.productTopic.indexOf(checkbox.id) !== -1) {
-          checkbox.checked = true;
-        }
-      });
-      productTagCheckboxes.forEach(checkbox => {
-        if (this.searchQueries.productTag.indexOf(checkbox.id) !== -1) {
-          checkbox.checked = true;
-        }
-      });
-      /*
-       */
-      this.displayResultQueries();
+  handleSearchBehavior() {
+    const hasUrlParam = window.location.search;
+    if (hasUrlParam) {
+      this.filterByUrlParams();
+      this.matchSearchQueriesToUI();
     } else {
-      debugger;
-      console.log('by url params');
+      this.matchSearchQueriesToUI();
+      this.filterList();
     }
+  },
+  filterByUrlParams() {
+    // match url query to stringQuery keys - currently only works with one param
+    const searchString = window.location.search
+      // .replace('action', 'resource-advocacy-actions')
+      // .replace('phase', 'resource-lifecycle-phase')
+      .replace('q', 'searchParams');
+    // get array of search queries and params
+    const searchQueries = searchString.split('?');
+    searchQueries.forEach(query => {
+      if (query.split('=')[0]) {
+        this.searchQueries[camelCase(query.split('=')[0])] = query.split('=')[1];
+      }
+    });
+    this.filterList();
+    this.matchSearchQueriesToUI();
   },
   init() {
     this.createList();
-    this.setSearchQueryDefaults();
-    this.sortByDate(this.sortOrder);
-    this.filterBySessionStorage();
+    this.sortByDate();
     this.handleDateSortClick();
     this.handleSearchParams();
     this.handleDropdownChange();
-    this.handleCheckboxClick();
+    this.handleCheckboxChange();
     this.handleClearAllFilters();
+    this.handleSearchBehavior();
   }
 };
 

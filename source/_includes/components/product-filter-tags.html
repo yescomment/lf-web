@@ -3,16 +3,21 @@
 <span class="product-title visually-hiddenx">{{ product.title }}</span>
 <span class="product-subtitle visually-hiddenx">{{ product.subtitle }}</span>
 <span class="product-authors visually-hiddenx">{{ product.full_author }}</span>
-
-<span class="product-description visually-hiddenx">{{ product.short_description }}</span>
+<!-- add tags to description -->
+<span class="product-description visually-hiddenx">
+  {{ product.short_description }} {% for tag in product.law_area %}{{ tag |slugify}}{% endfor%} {% for tag in
+  product.topic %} {{ tag |slugify}} {% endfor%} {% for tag in product.tag %} {{ tag |slugify}} {% endfor%}
+</span>
 <span class="product-law-area visually-hiddenx">all {% for tag in product.law_area %}{{ tag |slugify}}{% endfor%}</span>
 <span class="product-topic visually-hiddenx">all {% for tag in product.topic %} {{ tag |slugify}} {% endfor%}</span>
 <span class="product-tag visually-hiddenx">all {% for tag in product.tag %} {{ tag |slugify}} {% endfor%}</span>
-<span class="product-publication-date visually-hiddenx" data-timestamp="{{ product.publication_date | date: time_tag }}">{{ product.publication_date | date: time_tag}}</span>
+<span
+  class="product-publication-date visually-hiddenx"
+  data-timestamp="{{ product.publication_date | date: time_tag }}"
+>
+  {{ product.publication_date | date: time_tag}}
+</span>
 <span class="product-center-author visually-hiddenx">
-  all 
-  {% for author in product.engelberg_author %}
-  {{ author.display_name | slugify }}
-  {% endfor %}
+  all {% for author in product.engelberg_author %} {{ author.display_name | slugify }} {% endfor %}
 </span>
 <span class="product-type visually-hiddenx">all {{ product.type | downcase }}</span>
