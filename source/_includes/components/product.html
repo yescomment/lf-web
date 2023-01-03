@@ -4,22 +4,18 @@
   <a  class="link--primary product__title" href="{{product.pretty_url | prepend: '/products/' | relative_url }}">
     {{ product.title }}
   </a>
-  <span class="product__subtitle">{{ product.subtitle | markdownify }}</span>
-  <span class="product__authors">{{ product.full_author }}</span>
-  <span class="product__date">{{ product.publication_date | date: "%B %d, %Y"  }}</span>
+  <span class="product__subtitle">{{ product.subtitle }}</span>
+  <span class="product__authors">{{ product.full_author | markdownify }}</span>
+  <span class="product__date">{{ product.publication_date | date: "%B %d, %Y" }}</span>
   <p class="product__description">{{ product.short_description }}</p>
   <div class="tags-container">
-
     {% for tag in product.law_area %}
-      <div class="tag tag--law-area">{{ tag | capitalize }}</div>
-    {% endfor %}
-    {% for tag in product.topic %}
-      <div class="tag tag--topic">{{ tag | capitalize }}</div>
-    {% endfor %}
-    {% for tag in product.tag %}
-      <div class="tag tag--tag">{{ tag | capitalize }}</div>
+    <div class="tag tag--law-area">{{ tag | capitalize }}</div>
+    {% endfor %} {% for tag in product.topic %}
+    <div class="tag tag--topic">{{ tag | capitalize }}</div>
+    {% endfor %} {% for tag in product.tag %}
+    <div class="tag tag--tag">{{ tag | capitalize }}</div>
     {% endfor %}
   </div>
-  
-
+  {% include components/product-filter-tags.html product=product %} 
 </div>

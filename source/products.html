@@ -6,41 +6,48 @@ description:
 seo_image_path: #'/images/media/filename.jpg'
 ---
 
+<!-- assign 'products' -->
 {% assign products = site.data.contentful.product.product %}
-
+<!-- assign 'all_authors' -->
 {% assign all_authors = "" | split: "" %}
-{% assign all_types = "" | split: "" %}
+<!-- assign all_types -->
+{% assign all_types = "" | split: "" %} {% assign all_law_areas = "" | split: "" %}
+<!-- assign 'all_law_areas' -->
 {% assign all_law_areas = "" | split: "" %}
+<!-- assign 'all_topics' -->
 {% assign all_topics = "" | split: "" %}
+<!-- assign 'all_tags' -->
 {% assign all_tags = "" | split: "" %}
 
+<!-- populate assignments-->
 {% for product in products %}
-  {% for author in product.engelberg_author %}
-    {% assign all_authors = all_authors | push: author.display_name %}  
-  {% endfor %}
+<!-- populate 'all_authors' -->
+{% for author in product.engelberg_author %}
+<!-- populate all_authors with display name -->
+{% assign all_authors = all_authors | push: author.display_name %} {% endfor %}
+<!-- populate all_types -->
+{% assign all_types = all_types | push: product.type %}
 
-  {% assign all_types = all_types | push: product.type %}
+<!-- populate all_law_area -->
 
-  {% for law_area in product.law_area %}
-    {% assign all_law_areas = all_law_areas | push: law_area %}  
-  {% endfor %}
+{% for law_area in product.law_area %} {% assign all_law_areas = all_law_areas | push: law_area %} {% endfor %}
 
-  {% for topic in product.topic%}
-    {% assign all_topics = all_topics | push: topic %}  
-  {% endfor %}
+<!-- populate all_topics  -->
+{% for topic in product.topic%} {% assign all_topics = all_topics | push: topic %} {% endfor %}
 
-  {% for tag in product.tag %}
-    {% assign all_tags = all_tags | push: tag %}  
-  {% endfor %}
+<!-- populate all_tags -->
+{% for tag in product.tag %} {% assign all_tags = all_tags | push: tag %} {% endfor %} {% endfor %}
 
-{% endfor %}
-
+<!-- remove duplicates and sort  -->
 {% assign all_authors = all_authors | uniq | compact | sort %}
+<!-- ** -->
 {% assign all_types = all_types | uniq | compact | sort %}
+<!-- **  -->
 {% assign all_law_areas = all_law_areas | uniq | compact | sort %}
+<!-- ** -->
 {% assign all_topics = all_topics | uniq | compact | sort %}
+<!-- ** -->
 {% assign all_tags = all_tags | uniq | compact | sort %}
-
 
 <!-- LAYOUT 9: Lists  -->
 <main id="main" class="product-list-page">
@@ -54,7 +61,7 @@ seo_image_path: #'/images/media/filename.jpg'
             <div class="decorator"></div>
           </div>
           <span class="search-title">Search and filters</span>
-          <button class="clear-filters">Clear all</button>
+          <button id="clear-filters" class="clear-filters">Clear all</button>
           <div id="search-container">
             <div class="search-component">
               <label class="visually-hidden" for="searchfield">Search</label>
@@ -72,16 +79,16 @@ seo_image_path: #'/images/media/filename.jpg'
 
           <div class="dropdown-container">
             <div class="dropdown-component">
-              {% include components/dropdown.html content=all_authors component_id="product_authors"
-              component_name="product_authors" component_default="All Center Authors"
+              {% include components/dropdown.html content=all_authors component_id="product-center-author"
+              component_name="product-center-author" component_default="All Center Authors"
               component_label_class="visually-hidden" %}
             </div>
           </div>
 
           <div class="dropdown-container">
             <div class="dropdown-component">
-              {% include components/dropdown.html content=all_types component_id="product_types"
-              component_name="product_types" component_default="Type" component_label_class="visually-hidden" %}
+              {% include components/dropdown.html content=all_types component_id="product-type"
+              component_name="product-type" component_default="All Types" component_label_class="visually-hidden" %}
             </div>
           </div>
 
@@ -89,40 +96,24 @@ seo_image_path: #'/images/media/filename.jpg'
             <!-- checkbox  -->
             <span class="checkbox-heading">Area of Law</span>
 
-            {% for area in all_law_areas %} 
-              {% include components/checkbox.html 
-                class_name="area-checkbox" 
-              content=area 
-              %} 
-            {% endfor %}
+            {% for area in all_law_areas %} {% include components/checkbox.html class_name="area-checkbox" content=area
+            %} {% endfor %}
           </div>
           <div class="checkbox-container">
             <!-- checkbox  -->
             <span class="checkbox-heading">Topics</span>
-            
-        
-            {% for topic in all_topics %}
-              {% include components/checkbox.html 
-                class_name="topic-checkbox" 
-                content=topic
-              %} 
-            {% endfor %}
-            </div>
 
-
+            {% for topic in all_topics %} {% include components/checkbox.html class_name="topic-checkbox" content=topic
+            %} {% endfor %}
+          </div>
 
           <div class="checkbox-container">
             <!-- checkbox  -->
-            <span class="checkbox-heading">Type</span>
+            <span class="checkbox-heading">Tags</span>
 
-            {% for type in all_types %} 
-              {% include components/checkbox.html 
-                class_name="type-checkbox" 
-                content=type
-              %} 
+            {% for tag in all_tags %} {% include components/checkbox.html class_name="tag-checkbox" content=tag %}
             {% endfor %}
           </div>
-
         </div>
       </aside>
       <div class="column large-offset-1 large-7 no-padding">
@@ -130,8 +121,9 @@ seo_image_path: #'/images/media/filename.jpg'
         {% include components/list-results.html %}
         <div class="date-toggle-container">
           <button
+            id="date-sort"
             type="button"
-            class="button__date-sort button__sort--descending js-sort sort {{ class_names }}"
+            class="button__date-sort js-sort sort {{ class_names }}"
             data-sort="timestamp"
           >
             Date
@@ -139,11 +131,7 @@ seo_image_path: #'/images/media/filename.jpg'
         </div>
 
         <div class="list">
-          {% for product in products  %} 
-            {% include components/product.html product=product %} 
-
-            {% include components/product-filter-tags.html product=product %}
-          {% endfor %}
+          {% for product in products %} {% include components/product.html product=product %} {% endfor %}
         </div>
       </div>
     </div>

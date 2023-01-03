@@ -1,4 +1,4 @@
-.product-list-page {
+.product-list-page, .news-list-page {
   h1 {
     font-size: $h2;
     margin: 2rem 0 0 0;
@@ -76,13 +76,6 @@
       font-family: $sans-serif;
       @include all_caps_text;
       font-size: $helper;
-
-      &:after {
-        @extend .u-material-icons;
-        color: $black;
-        content: 'keyboard_arrow_down';
-        vertical-align: -6px;
-      }
     }
   }
 

@@ -2,7 +2,7 @@
 
 <div class="news-list-item markdown-secondary">
   {% if item.publication_type == 'In the News'%}
-    <a class="ink--primary news-list-item__title external-link" href="{{ item.external_url }}">
+    <a class="link--primary news-list-item__title external-link" href="{{ item.external_url }}">
   {% else %}
     <a class="link--primary news-list-item__title" href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
   {% endif %}
@@ -25,6 +25,5 @@
       <div class="tag tag--tag">{{ tag | capitalize }}</div>
     {% endfor %}
   </div>
-  
-
+    {% include components/news-filter-tags.html item=news_item %}
 </div>

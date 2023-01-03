@@ -10,6 +10,7 @@ import CustomDropdown from './custom-select';
 import Footnotes from './footnotes';
 import ProductFilters from './product-list';
 import TwitterFetcher from './twitter-fetcher';
+import NewsFilters from './news-filter';
 
 Modal.init();
 Nav.init();
@@ -43,7 +44,11 @@ if (window.location.pathname === '/engelberg/what-we-do/' || window.location.pat
 
 if (window.location.pathname.match(/products\/?$/gm)) {
   ProductFilters.init();
-};
+}
+
+if (window.location.pathname.match(/news\/?$/gm)) {
+  NewsFilters.init();
+}
 
 if (window.location.pathname === '/' || window.location.pathname === '/engelberg/') {
   TwitterFetcher.init();

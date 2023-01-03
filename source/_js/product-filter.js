@@ -2,7 +2,7 @@ const List = require('list.js');
 const camelCase = require('lodash.camelcase');
 
 /* eslint-disable comma-dangle */
-const ProductSearch = {
+const ProductFilter = {
   searchQueries: {},
   sortOrder: 'desc',
   clearFiltersID: 'clear-filters',
@@ -407,4 +407,4 @@ const ProductSearch = {
   }
 };
 
-module.exports = ProductSearch;
+module.exports = ProductFilter;

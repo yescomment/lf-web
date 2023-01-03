@@ -25,6 +25,25 @@
     border-color: $white;
     background-color: $black;
   }
+  &--close:after {
+    @extend .u-material-icons;
+    content: 'close';
+    display: inline-block;
+  }
+  &__sort {
+    &--ascending:after {
+      @extend .u-material-icons;
+      content: 'keyboard_arrow_up';
+      display: inline-block;
+      vertical-align: -6px;
+    }
+    &--descending:after {
+      @extend .u-material-icons;
+      content: 'keyboard_arrow_down';
+      display: inline-block;
+      vertical-align: -6px;
+    }
+  }
 }
 
 .button--full {
