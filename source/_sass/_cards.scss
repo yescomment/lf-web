@@ -281,6 +281,14 @@
   height: 31.5rem;
   @include uninverted-section;
 
+  @include breakpoint($between-large) {
+    height: 35.5rem;
+  }
+
+  @include breakpoint($medium-only) {
+    height: 31.5rem;
+  }
+
   h3 {
     margin-bottom: 1rem;
   }
