@@ -1,4 +1,5 @@
-.product-list-page, .news-list-page {
+.product-list-page,
+.news-list-page {
   h1 {
     font-size: $h2;
     margin: 2rem 0 0 0;
@@ -11,6 +12,17 @@
   }
 
   .filter-container {
+    // new
+    @include breakpoint($large) {
+      width: 28%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+    }
+    overflow-y: scroll;
+    height: auto;
+
     z-index: 1;
 
     @include breakpoint($large) {
@@ -42,7 +54,8 @@
       }
 
       &:hover {
-        &:after {}
+        &:after {
+        }
       }
     }
   }
@@ -50,7 +63,30 @@
   .dropdown-container {
     margin: 1rem 0;
   }
+  .list-container {
+    @include breakpoint($large) {
+      position: absolute;
+      top: 0;
+      left: 28%;
+      right: 0;
+      bottom: 0;
+      height: 100vh;
+    }
+    @include breakpoint($large) {
+      padding: 0 7.5rem;
+    }
 
+    @include breakpoint($between-large) {
+    }
+
+    @include breakpoint($medium-only) {
+    }
+
+    @include breakpoint($small-only) {
+    }
+
+    overflow-y: scroll;
+  }
   .results-container {
     font-style: italic;
   }
@@ -68,7 +104,6 @@
     }
   }
 
-
   .date-toggle-container {
     text-align: right;
 
@@ -84,7 +119,6 @@
   }
 
   .list-row {
-
     // padding-top: 3rem;
     aside {
       background-color: $gray-50;
