@@ -15,7 +15,12 @@
     {% endif %}
 
       {{content}} 
-    {% include footer.html %}
+
+      {% unless page.no_footer %}
+   
+ 
+      {% include footer.html %}
+      {% endunless %}
   
 
     <div id="overlay" class="js-overlay"></div>

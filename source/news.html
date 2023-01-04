@@ -4,29 +4,16 @@ top_bar: white
 title: Engelberg Center News
 description:
 seo_image_path: #'/images/media/filename.jpg'
+no_footer: true
 ---
-{% assign news = site.data.contentful.news.news %} 
 
-{% assign all_authors = "" | split: "" %} 
-{% assign all_publications = "" | split: "" %} 
-{% assign all_types = "" | split: "" %} 
-
-
-{% for item in news %} 
-
-  {% for author in item.engelberg_author %} 
-    {% assign all_authors = all_authors | push: author.display_name %} 
-  {% endfor %}  
-
-  {% assign all_publications = all_publications | push: item.publication %}
-
-  {% assign all_types = all_types | push: item.publication_type %}
-
-{% endfor %}
-
-{% assign all_authors = all_authors | uniq | compact | sort %} 
-{% assign all_publications = all_publications | uniq | compact | sort %} 
-{% assign all_types = all_types | uniq | compact | sort %} 
+{% assign news = site.data.contentful.news.news %} {% assign all_authors = "" | split: "" %} {% assign all_publications
+= "" | split: "" %} {% assign all_types = "" | split: "" %} {% for item in news %} {% for author in
+item.engelberg_author %} {% assign all_authors = all_authors | push: author.display_name %} {% endfor %} {% assign
+all_publications = all_publications | push: item.publication %} {% assign all_types = all_types | push:
+item.publication_type %} {% endfor %} {% assign all_authors = all_authors | uniq | compact | sort %} {% assign
+all_publications = all_publications | uniq | compact | sort %} {% assign all_types = all_types | uniq | compact | sort
+%}
 
 <!-- LAYOUT 9: Lists  -->
 <main id="main" class="news-list-page">
@@ -36,9 +23,9 @@ seo_image_path: #'/images/media/filename.jpg'
       <aside class="list-aside filter-container">
         <div class="column large-offset-2">
           <h1>{{ page.title }}</h1>
-   
-            <div class="bar"></div>
-   
+
+          <div class="bar"></div>
+
           <span class="search-title">Filters</span>
           <button id="clear-filters" class="clear-filters">Clear all</button>
 
@@ -53,7 +40,8 @@ seo_image_path: #'/images/media/filename.jpg'
           <div class="dropdown-container">
             <div class="dropdown-component">
               {% include components/dropdown.html content=all_publications component_id="news-item-publication"
-              component_name="news-item-publication" component_default="Publication" component_label_class="visually-hidden" %}
+              component_name="news-item-publication" component_default="Publication"
+              component_label_class="visually-hidden" %}
             </div>
           </div>
 
@@ -65,7 +53,7 @@ seo_image_path: #'/images/media/filename.jpg'
           </div>
         </div>
       </aside>
-      <div class="column large-offset-1 large-7 no-padding">
+      <div class="column list-container">
         <h2>Results</h2>
         {% include components/list-results.html %}
         <div class="date-toggle-container">
