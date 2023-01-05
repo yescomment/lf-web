@@ -27,7 +27,7 @@ top_bar: no-logo
         {% endcomment %}
       </div>
       <div class="button-container">
-        <a class="button button--arrow" href="{{ '/about' | relative_url }}">About the Engelberg Center</a>
+        <a class="button button--arrow" href="{{ '/our-mission' | relative_url }}">About the Engelberg Center</a>
       </div>
     </div>
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
@@ -62,11 +62,13 @@ top_bar: no-logo
   <!-- Layout 2 -->
   <div class="row expanded twitter-news-container">
     <div class="column large-4 medium-12 small-12">
-      <h3 class="heading-b">Twitter</h3>
+      <h3 class="heading-b">From Twitter</h3>
+      <a class="link link--arrow" href="https://twitter.com/nyuengelberg">Follow us on Twitter</a>
       <div class="twitter-feed__container" id="twitter-container"></div>
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12">
       <h3 class="heading-b">In the News</h3>
+      <a class="link link--arrow" href="{{ '/news' | relative_url }}">All Engelberg Center News</a>
       <div class="news-feed__container markdown-secondary">
         {% for item in data.featured_news %} 
           {% include components/news-item.html 
