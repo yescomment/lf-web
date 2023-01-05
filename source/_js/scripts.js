@@ -11,6 +11,7 @@ import Footnotes from './footnotes';
 import ProductFilters from './product-list';
 import TwitterFetcher from './twitter-fetcher';
 import NewsFilters from './news-filter';
+import EventsFilter from './events-filter';
 
 Modal.init();
 Nav.init();
@@ -50,6 +51,9 @@ if (window.location.pathname.match(/news\/?$/gm)) {
   NewsFilters.init();
 }
 
+if (window.location.pathname.match(/events\/?$/gm)) {
+  EventsFilter.init();
+}
 if (window.location.pathname === '/' || window.location.pathname === '/engelberg/') {
   TwitterFetcher.init();
 }
