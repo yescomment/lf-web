@@ -6,6 +6,7 @@
     background-repeat: no-repeat;
     background-position-x: 5rem;
     background-size: 95%;
+    padding-bottom: 5rem;
 
     @include breakpoint($medium-only) {
       background-image: none;
@@ -57,8 +58,7 @@
 
   .button-container {
     display: flex;
-    margin: 1.5rem 0;
-
+    margin: 1.7rem 0;
 
     @include breakpoint($medium-only) {
       margin-bottom: 3rem;
@@ -83,7 +83,7 @@
     }
 
     @include breakpoint($large) {
-      margin-top: -7rem;
+      margin-top: -8rem;
     }
 
     @include breakpoint($medium-only) {
@@ -149,6 +149,15 @@
   padding-bottom: 0;
 
   .heading-b {
-    margin-bottom: 2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .link--arrow {
+    display: block;
+    margin-bottom: 2.2rem;
+  }
+
+  span[data-scribe="element:verified_badge"] {
+    display: none !important;
   }
 }

@@ -1,16 +1,18 @@
 {% assign podcast = include.podcast %}
 
-<div class="card card--podcast markdown-secondary">
+<div class="card card--podcast">
     <h2 class="heading-a">Our Podcasts</h2>
+    <div class="card__podcast-wrapper">
+      <div
+        class="card__podcast-image"
+        style="background-image: url('{{podcast.header_image.url}}')">
+      </div>
+    </div>
     <a class="link--secondary card__title" href="{{ podcast.pretty_url | prepend: '/products/' | relative_url }}">
       {{ podcast.title }}
     </a>
     <span class="card__subtitle">{{ podcast.subtitle }}</span>
     <div class="card__podcast-wrapper">
-      <div
-        class="card__podcast-image"
-        style="background-image: url('{{podcast.header_image.url}}')"
-      ></div>
       <div class="card__podcast-detail">
         <span class="card__podcast-title">{{ podcast.episode_title }}</span>
         <span class="card__podcast-episode">{{ podcast.episode }}</span>
@@ -18,4 +20,5 @@
       </div>
     </div>
     <p class="card__description">{{ podcast.short_description }}</p>
+    <a class="link link--arrow" href="{{ podcast.pretty_url | prepend: '/products/' | relative_url }}">Listen now</a>
   </div>
