@@ -62,6 +62,21 @@ footer {
         font-weight: bold;
         font-family: $sans-serif;
         margin-bottom: 1.5rem;
+
+        &:hover {
+          color: $yellow-100;
+        }
+      }
+    }
+
+    .large-offset-1 {
+      @include breakpoint($between-large) {
+        margin-left: 1rem;
+        margin-right: 3rem;
+      }
+
+      @include breakpoint($medium-only) {
+        margin-left: 0;
       }
     }
 
@@ -188,10 +203,11 @@ footer {
     font-size: $p;
   }
 
-  // a {
-  //   @include underlined-link;
-  //   text-decoration: none;
-  // }
+  a {
+    &:hover {
+      color: $white;
+    }
+  }
 
   &--top-text {
     font-weight: bold;
