@@ -1,0 +1,9 @@
+{% assign event = include.event %}
+
+<span class="event-start-date visually-hidden" data-timestamp="{{ event.event_start | date: time_tag }}">
+  {{ event.event_start | date: time_tag}}
+</span>
+
+<span class="event-year visually-hidden">
+  {{ event.event_start | date: "%Y" | prepend: 'year-' }}
+</span>

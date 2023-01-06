@@ -50,7 +50,6 @@ const NewsFilters = {
       newsItemType: JSON.parse(sessionStorage[this.sessionsName]).newsItemType || 'all', // dropdown
       sortOrder: 'desc' // keep desc on refresh
     };
-    console.log(this.searchQueries);
   },
   sortByDate(sortOrder = 'desc') {
     /* check mobile sort*/

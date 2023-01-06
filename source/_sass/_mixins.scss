@@ -135,3 +135,8 @@
 .skip-to-main-content-link:focus {
   transform: translateY(0%);
 }
+
+.not-visible {
+  outline: orange solid 2px;
+  display: none !important;
+}
