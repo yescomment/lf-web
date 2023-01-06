@@ -26,7 +26,8 @@
 .topic-page,
 .courses-layout,
 .project-page,
-.student-page {
+.student-page,
+.event-page {
   .bar {
     margin: 2rem 0 1rem 0;
   }
@@ -51,14 +52,18 @@
   }
 }
 
-.announcement-page .bar {
+.announcement-page .bar,
+.event-page .bar {
   margin: 4rem 0;
-
   height: 1.3rem;
   width: 7rem;
   background-repeat: no-repeat;
   background-size: 100%;
+}
 
+.event-page .bar {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
 .profile-page .bar {
