@@ -21,9 +21,11 @@ seo_image_path: #'/images/media/filename.jpg'
       <div class="event__featured-image-wrapper">
         <img src="{{page.event_image.url}}" alt="{{page.event_image.description}}" />
       </div>
+      {% if page.button_url and page.button_text %}
       <div class="button-container">
         <a href="{{page.button_url}}" class="button button--full">{{page.button_text}}</a>
       </div>
+      {% endif %}
     </div>
     <div class="decorator decorator--left-align"></div>
   </div>
