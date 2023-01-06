@@ -1,12 +1,19 @@
 .generic-layout {
-  padding-bottom: 8rem;
-
   h1 {
     font-size: $h2;
   }
 
   h2 {
     font-size: $h3;
+  }
+
+  .cards-wrapper {
+    padding-bottom: 8rem;
+  }
+
+  .card-section-heading {
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -92,11 +99,22 @@
 }
 
 .generic-body-2-col {
-  p {
+
+  p,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-left: calc(100%/3);
 
     @include breakpoint($medium-only) {
       margin-left: 0;
     }
+  }
+}
+
+.page-section--generic {
+  @include breakpoint($medium-only) {
+    padding-top: 4rem;
   }
 }
