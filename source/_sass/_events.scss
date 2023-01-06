@@ -29,7 +29,7 @@
   }
 
   .button-container {
-    margin: 1rem 0 5rem;
+    margin: 1.5rem 0 5rem;
     // padding: 1rem 0;
   }
 
@@ -51,6 +51,16 @@
       font-weight: 200;
       font-style: italic;
       margin-bottom: 2rem;
+    }
+  }
+
+  .main-content {
+    &:first-child {
+      margin-top: -1rem;
+    }
+
+    iframe {
+      margin-top: 1rem;
     }
   }
 }
