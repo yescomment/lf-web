@@ -64,10 +64,11 @@
 {% assign alumni_cards = people | where: 'type', 'Engelberg Center Community Alumni' | sort: "last_name" %}
 
 {% if alumni_cards and alumni_cards.size != 0 %}
-    {% include components/generic-card-layout.html 
-    cards=alumni_cards
-    cards_heading="Engelberg Center Community Alumni"
-    cards_type="people_cards"
+    {% include components/minimal-card-layout.html 
+      cards=alumni_cards
+      cards_heading="Engelberg Center Community Alumni"
+      cards_type="people_cards"
+      cards_alumni=true
     %}
 {% endif %}
 

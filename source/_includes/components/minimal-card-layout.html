@@ -3,6 +3,7 @@
 {% assign cards_type = include.cards_type %}
 {% assign cards_link_to = include.cards_link_to %}
 {% assign cards_link_text = include.cards_link_text %}
+{% assign cards_alumni = include.cards_alumni %}
 
 <div class="row expanded row--thin">
   <div class="column large-12 small-12 card-section-heading">
@@ -16,6 +17,10 @@
       <div class="card__detail">
         {% if card.button_url %}
           <a href="{{ card.button_url }}">
+            <span class="card__name">{{ card.display_name }}</span>
+          </a>
+        {% else if cards_alumni and !card.button_url %}
+          <a href="{{ card.pretty_url | prepend: '/our-people/' | relative_url }}">
             <span class="card__name">{{ card.display_name }}</span>
           </a>
         {% else %}
