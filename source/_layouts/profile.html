@@ -21,7 +21,7 @@ seo_image_path: #'/images/media/filename.jpg'
         <h1>{{ page.display_name }}</h1>
         <div class="profile__position">{{ page.title }}</div>
       </div>
-      {% if page.button_url and page.button_url.size != 0 %}
+      {% if page.button_url and page.button_text %}
       <div class="button-container">
         <a href="{{ page.button_url }}" class="button button--full">{{ page.button_text }}</a>
       </div>
