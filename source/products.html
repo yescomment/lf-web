@@ -25,7 +25,7 @@ no_footer: true
 <!-- populate 'all_authors' -->
 {% for author in product.engelberg_author %}
 <!-- populate all_authors with display name -->
-{% assign all_authors = all_authors | push: author.display_name %} {% endfor %}
+{% assign all_authors = all_authors | push: author %} {% endfor %}
 <!-- populate all_types -->
 {% assign all_types = all_types | push: product.type %}
 
@@ -40,7 +40,7 @@ no_footer: true
 {% for tag in product.tag %} {% assign all_tags = all_tags | push: tag %} {% endfor %} {% endfor %}
 
 <!-- remove duplicates and sort  -->
-{% assign all_authors = all_authors | uniq | compact | sort %}
+{% assign all_authors = all_authors| compact | sort: "last_name" | map: "display_name" | uniq %}
 <!-- ** -->
 {% assign all_types = all_types | uniq | compact | sort %}
 <!-- **  -->
