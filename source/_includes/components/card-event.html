@@ -1,23 +1,24 @@
 {% assign card = include.card %} {% assign event_type = include.event_type %}
 
 <div class="event card card--event card--event-long {% if event_type == 'upcoming' %} event--upcoming {% else %} event--past {% endif %}" data-event-start="{{ card.event_start | date: '%Y-%m-%d' }}">
-  
-  <div class="card__image" style="background-image: url({{ card.event_image.url}})"></div>
-
-  <div class="card__detail">
-    <span class="card__date">{{ card.event_start | date: "%B %d, %Y" }}</span>
-    {% if card.external_url and card.external_url.size != 0%}
-    <a class="external-link" href="{{card.external_url}}">
+  {% if card.external_url and card.external_url.size != 0%}
+  <a class="external-link card-link-wrapper" href="{{card.external_url}}">
+  {% else %}
+  <a class="card-link-wrapper" href="{{card.pretty_url | prepend: '/events/' | relative_url }}">
+  {% endif %}
+    <div class="card__image" style="background-image: url({{ card.event_image.url}})"></div>
+    <div class="card__detail">
+      <span class="card__date">{{ card.event_start | date: "%B %d, %Y" }}</span>
+      {% if card.external_url and card.external_url.size != 0%}
+      <div class="external-link">
+        <span class="card__title">{{ card.title }}</span>
+      </div>
+      {% else %}
       <span class="card__title">{{ card.title }}</span>
-    </a>
-    {% else %}
-    <a href="{{card.pretty_url | prepend: '/events/' | relative_url }}">
-      <span class="card__title">{{ card.title }}</span>
-    </a>
-    {% endif %}
-
-    <span class="card__description ">{{ card.short_description }}</span>
-    <span class="card__type">{{ card.event_type }}</span>
-  </div>
+      {% endif %}
+      <span class="card__description ">{{ card.short_description }}</span>
+      <span class="card__type">{{ card.event_type }}</span>
+    </div>
+  </a>
   {% include components/event-filter-tags.html event=card %}
 </div>

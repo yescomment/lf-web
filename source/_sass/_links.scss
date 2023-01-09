@@ -51,13 +51,22 @@ a.link--secondary {
 }
 
 
-a.external-link {
+a.external-link,
+div.external-link {
   &::after {
     @extend .u-material-icons;
     content: 'open_in_new';
     font-size: 1.1rem;
     vertical-align: middle;
     margin-left: 4px;
+  }
+}
+
+.card--event {
+  a.external-link {
+    &::after {
+      content: '';
+    }
   }
 }
 
