@@ -12,6 +12,8 @@ ruby RUBY_VERSION
 gem "jekyll", "~> 3.9.0"
 gem 'html-proofer', "~> 3.4.0"
 gem 'kramdown-parser-gfm'
+gem 'byebug'
+# gem "fastimage"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.0"
 

@@ -78,6 +78,13 @@
   @include underlined-link;
 }
 
+@mixin figcaption-styling {
+  font-family: $sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
 .u-material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

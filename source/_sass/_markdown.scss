@@ -36,8 +36,12 @@
   a {
     @include markdown-primary-links;
   }
+
 }
 
+figcaption.markdown-caption {
+  @include figcaption-styling;
+}
 .markdown-secondary {
   h1 {
     font-size: $h2;
