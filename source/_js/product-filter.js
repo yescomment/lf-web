@@ -36,9 +36,10 @@ const ProductFilter = {
   },
   createList() {
     this.targetList = new List(this.targetListId, this.options);
-
     if (sessionStorage[this.sessionsName]) {
+      console.log(this.searchQueries, 1);
       this.matchSearchQueriesToSessions();
+      console.log(this.searchQueries, 2);
     } else {
       this.setSearchQueryDefaults();
     }
@@ -74,8 +75,37 @@ const ProductFilter = {
   },
   matchSearchQueriesToUI() {
     /* need this for url params */
-    // text search 
+    // text search
     document.querySelector('#searchfield').value = this.searchQueries.searchParams;
+    // dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+      this.searchQueries[camelCase(dropdown.id)] = dropdown.selectedOptions[0].value;
+      const selectedIndex = dropdown.selectedOptions[0].index;
+      if (selectedIndex !== -1) {
+        dropdown.selectedIndex = selectedIndex;
+      }
+    });
+    // match checkbox UI to searchQueries
+    // Checkbox filter tag ids: 'product-law-area', 'product-topic', 'product-tag'
+
+    this.searchQueries.productLawArea.forEach(action => {
+      if (action !== 'all') {
+        document.querySelector(`input[type=checkbox][value=${action}]`).checked = true;
+      }
+    });
+
+    this.searchQueries.productTopic.forEach(action => {
+      if (action !== 'all') {
+        document.querySelector(`input[type=checkbox][value=${action}]`).checked = true;
+      }
+    });
+
+    this.searchQueries.productTag.forEach(action => {
+      if (action !== 'all') {
+        document.querySelector(`input[type=checkbox][value=${action}]`).checked = true;
+      }
+    });
   },
   sortByDate(sortOrder = 'desc') {
     /* check mobile sort*/
