@@ -25,8 +25,7 @@ seo_image_path: #'/images/media/filename.jpg'
 
 permalink: pretty
 # Build settings
-markdown: MyCustomProcessor
-# markdown: kramdown
+markdown: kramdown
 # gfm_quirks: 
 #   - paragraph_end
 plugins:
