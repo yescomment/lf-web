@@ -76,6 +76,13 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
   end
 end
 
+class EmbeddedAssetRenderer < RichTextRenderer::BaseNodeRenderer
+  def render(node)
+    entry = node['data']['target']
+    "<img id=#{entry['title']} class=\"figure__image\" src=#{entry['url']} alt=\"#{entry['description'].gsub(/"/,"'")}\" />"
+  end
+end
+
 class SilentNullRenderer < RichTextRenderer::BaseNodeRenderer
   def render(node)
     ""
@@ -105,6 +112,7 @@ module Jekyll
         nil => SilentNullRenderer, 
         'embedded-entry-inline' => EmbeddedInlineEntryRenderer, 
         'embedded-entry-block' => EmbeddedEntryRenderer,
+        'embedded-asset-block' => EmbeddedAssetRenderer,
         'heading-2' => HeadingRenderer,
         'heading-3' => HeadingRenderer,
         'heading-4' => HeadingRenderer,
