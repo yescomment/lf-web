@@ -2,6 +2,10 @@
   img {
     margin: 1rem 0;
   }
+  // target markdown captions
+  img + em {
+    @include figcaption-styling;
+  }
   h1 {
     font-size: $h2;
     line-height: 1.2;
@@ -36,13 +40,12 @@
   a {
     @include markdown-primary-links;
   }
-
 }
 
-figcaption.markdown-caption {
-  @include figcaption-styling;
-}
 .markdown-secondary {
+  img + em {
+    @include figcaption-styling;
+  }
   h1 {
     font-size: $h2;
     line-height: 1.2;
