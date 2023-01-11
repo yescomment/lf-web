@@ -106,7 +106,6 @@ const EventsFilter = {
           if (camelCase(select.id) === key) {
             select.childNodes.forEach(option => {
               if (option.id === value) {
-                console.log(this.searchQueries);
                 option.selected = true;
               }
             });

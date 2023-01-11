@@ -153,10 +153,12 @@ const NewsFilters = {
     this.sortByDate('desc');
     this.displayResultsCount();
     this.displayResultQueries();
-    this.setSessions();
+    this.clearSessions();
+  },
+  clearSessions() {
+    sessionStorage.removeItem(this.sessionsName);
   },
   handleClearAllFilters() {
-    // done
     document.getElementById(`clear-filters`).addEventListener('click', () => {
       this.clearAllFilters();
     });

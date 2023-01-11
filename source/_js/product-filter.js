@@ -37,9 +37,7 @@ const ProductFilter = {
   createList() {
     this.targetList = new List(this.targetListId, this.options);
     if (sessionStorage[this.sessionsName]) {
-      console.log(this.searchQueries, 1);
       this.matchSearchQueriesToSessions();
-      console.log(this.searchQueries, 2);
     } else {
       this.setSearchQueryDefaults();
     }
@@ -72,7 +70,6 @@ const ProductFilter = {
       searchParams: JSON.parse(sessionStorage[this.sessionsName]).searchParams || '',
       sortOrder: 'desc' // keep desc on refresh
     };
-    console.log(this.searchQueries);
   },
   matchSearchQueriesToUI() {
     /* need this for url params */
@@ -86,7 +83,6 @@ const ProductFilter = {
 
       if (selectedIndex !== -1) {
         dropdown.selectedIndex = selectedIndex;
-        console.log(dropdown, selectedIndex);
       }
     });
     // match checkbox UI to searchQueries
@@ -326,7 +322,10 @@ const ProductFilter = {
     this.sortByDate('desc');
     this.displayResultsCount();
     this.displayResultQueries();
-    this.setSessions();
+    this.clearSessions();
+  },
+  clearSessions() {
+    sessionStorage.removeItem(this.sessionsName);
   },
   handleClearAllFilters() {
     // done
@@ -429,7 +428,7 @@ const ProductFilter = {
     this.matchSearchQueriesToUI();
   },
   filterBySessionStorage() {
-    // matches dropdowns to sessions 
+    // matches dropdowns to sessions
     if (sessionStorage[this.sessionsName]) {
       const storage = JSON.parse(sessionStorage[this.sessionsName]);
       this.searchQueries = storage;
