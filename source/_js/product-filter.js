@@ -429,6 +429,7 @@ const ProductFilter = {
     this.matchSearchQueriesToUI();
   },
   filterBySessionStorage() {
+    // matches dropdowns to sessions 
     if (sessionStorage[this.sessionsName]) {
       const storage = JSON.parse(sessionStorage[this.sessionsName]);
       this.searchQueries = storage;
