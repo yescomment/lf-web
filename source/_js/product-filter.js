@@ -72,6 +72,7 @@ const ProductFilter = {
       searchParams: JSON.parse(sessionStorage[this.sessionsName]).searchParams || '',
       sortOrder: 'desc' // keep desc on refresh
     };
+    console.log(this.searchQueries);
   },
   matchSearchQueriesToUI() {
     /* need this for url params */
@@ -82,8 +83,10 @@ const ProductFilter = {
     dropdowns.forEach(dropdown => {
       this.searchQueries[camelCase(dropdown.id)] = dropdown.selectedOptions[0].value;
       const selectedIndex = dropdown.selectedOptions[0].index;
+
       if (selectedIndex !== -1) {
         dropdown.selectedIndex = selectedIndex;
+        console.log(dropdown, selectedIndex);
       }
     });
     // match checkbox UI to searchQueries
@@ -425,8 +428,29 @@ const ProductFilter = {
     this.filterList();
     this.matchSearchQueriesToUI();
   },
+  filterBySessionStorage() {
+    if (sessionStorage[this.sessionsName]) {
+      const storage = JSON.parse(sessionStorage[this.sessionsName]);
+      this.searchQueries = storage;
+
+      // select dropdown value in sessionStorage
+      for (let [key, value] of Object.entries(this.searchQueries)) {
+        document.querySelectorAll('.dropdown').forEach(select => {
+          if (camelCase(select.id) === key) {
+            select.childNodes.forEach(option => {
+              if (option.id === value) {
+                option.selected = true;
+              }
+            });
+          }
+        });
+      }
+      this.displayResultQueries();
+    }
+  },
   init() {
     this.createList();
+    this.filterBySessionStorage();
     this.sortByDate();
     this.handleDateSortClick();
     this.handleSearchParams();

@@ -20,4 +20,4 @@
 <span class="product-center-author visually-hiddenx">
   all {% for author in product.engelberg_author %} {{ author.display_name | slugify }} {% endfor %}
 </span>
-<span class="product-type visually-hiddenx">all {{ product.type | downcase }}</span>
+<span class="product-type visually-hiddenx">all {{ product.type | slugify | downcase }}</span>
