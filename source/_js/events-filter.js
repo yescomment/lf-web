@@ -16,12 +16,16 @@ const EventsFilter = {
   // SETUP
   createList() {
     this.eventList = new List('event-list', this.options);
-    this.sortByDate(this.sortOrder);
-    this.setSearchQueryDefaults();
+    if (sessionStorage[this.sessionsName]) {
+      this.matchSearchQueriesToSessions();
+    } else {
+      this.setSearchQueryDefaults();
+    }
   },
   setSearchQueryDefaults() {
     this.searchQueries = {
-      eventYear: 'all'
+      eventYear: 'all',
+      sortOrder: 'desc'
     };
   },
   sortByDate(sortOrder) {
@@ -41,12 +45,22 @@ const EventsFilter = {
       });
     });
   },
+  matchSearchQueriesToSessions() {
+    this.searchQueries = {
+      eventYear: JSON.parse(sessionStorage[this.sessionsName]).eventYear || 'all', // dropdown
+      sortOrder: 'desc' // keep desc on refresh
+    };
+  },
+  setSessions() {
+    sessionStorage.setItem(this.sessionsName, JSON.stringify(this.searchQueries));
+  },
   updateActiveSearchQueries() {
     // get dropdowns
     document.querySelectorAll('.dropdown').forEach(dropdown => {
       this.searchQueries[camelCase(dropdown.id)] = dropdown[dropdown.selectedIndex].value;
     });
     this.filterList();
+    this.setSessions();
   },
   // // MAIN FUNCTIONS
   filterList() {
@@ -80,11 +94,37 @@ const EventsFilter = {
       dropdown.selectedIndex = 0;
     });
   },
+  filterBySessionStorage() {
+    // matches dropdowns to sessions
+    if (sessionStorage[this.sessionsName]) {
+      const storage = JSON.parse(sessionStorage[this.sessionsName]);
+      this.searchQueries = storage;
+
+      // select dropdown value in sessionStorage
+      for (let [key, value] of Object.entries(this.searchQueries)) {
+        document.querySelectorAll('.dropdown').forEach(select => {
+          if (camelCase(select.id) === key) {
+            select.childNodes.forEach(option => {
+              if (option.id === value) {
+                console.log(this.searchQueries);
+                option.selected = true;
+              }
+            });
+          }
+        });
+      }
+    }
+  },
+  handleSearchBehavior() {
+    this.filterList();
+  },
   init() {
     this.setVisibilityByDate();
     this.createList();
     this.handleDropdownParams();
     this.clearFormInputs();
+    this.filterBySessionStorage();
+    this.handleSearchBehavior();
   }
 };
 
