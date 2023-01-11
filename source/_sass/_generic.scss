@@ -1,4 +1,7 @@
 .generic-layout {
+  padding-bottom: 10rem;
+  background-color: $gray-200;
+
   h1 {
     font-size: $h2;
   }
@@ -12,8 +15,11 @@
   }
 
   .card-section-heading {
-    margin-top: 0;
-    padding-top: 0;
+    padding-top: 6rem;
+  }
+
+  .cards-wrapper {
+    padding-bottom: 0rem;
   }
 }
 
@@ -115,6 +121,8 @@
 }
 
 .page-section--generic {
+  padding-bottom: 0;
+
   @include breakpoint($medium-only) {
     padding-top: 4rem;
   }
