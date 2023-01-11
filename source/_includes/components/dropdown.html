@@ -12,7 +12,7 @@
     {% assign option_id = item | slugify | prepend: '-' |prepend: include.component_prefix %}
     <option id="{{ option_id }}" value="{{ option_id }}">{{ item  }}</option>
   {% else %}
-    <option id="{{ item | slugify }}" value="{{ item | slugify }}">{{ item  }}</option>
+    <option id="{{ item | slugify }}" value="{{ item | slugify }}">{{ item }}</option>
   {% endif %}
   {% endfor %}
 </select>
