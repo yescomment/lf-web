@@ -153,10 +153,12 @@ const NewsFilters = {
     this.sortByDate('desc');
     this.displayResultsCount();
     this.displayResultQueries();
-    this.setSessions();
+    this.clearSessions();
+  },
+  clearSessions() {
+    sessionStorage.removeItem(this.sessionsName);
   },
   handleClearAllFilters() {
-    // done
     document.getElementById(`clear-filters`).addEventListener('click', () => {
       this.clearAllFilters();
     });
@@ -203,8 +205,30 @@ const NewsFilters = {
   handleSearchBehavior() {
     this.filterList();
   },
+  filterBySessionStorage() {
+    // matches dropdowns to sessions
+    if (sessionStorage[this.sessionsName]) {
+      const storage = JSON.parse(sessionStorage[this.sessionsName]);
+      this.searchQueries = storage;
+
+      // select dropdown value in sessionStorage
+      for (let [key, value] of Object.entries(this.searchQueries)) {
+        document.querySelectorAll('.dropdown').forEach(select => {
+          if (camelCase(select.id) === key) {
+            select.childNodes.forEach(option => {
+              if (option.id === value) {
+                option.selected = true;
+              }
+            });
+          }
+        });
+      }
+      this.displayResultQueries();
+    }
+  },
   init() {
     this.createList();
+    this.filterBySessionStorage();
     this.sortByDate();
     this.handleDateSortClick();
     this.handleDropdownChange();

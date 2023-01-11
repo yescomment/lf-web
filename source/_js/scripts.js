@@ -8,7 +8,7 @@ import Search from './search';
 import Utils from './utils';
 import CustomDropdown from './custom-select';
 import Footnotes from './footnotes';
-import ProductFilters from './product-list';
+import ProductFilter from './product-filter';
 import TwitterFetcher from './twitter-fetcher';
 import NewsFilters from './news-filter';
 import EventsFilter from './events-filter';
@@ -44,7 +44,7 @@ if (window.location.pathname === '/engelberg/what-we-do/' || window.location.pat
 }
 
 if (window.location.pathname.match(/products\/?$/gm)) {
-  ProductFilters.init();
+  ProductFilter.init();
 }
 
 if (window.location.pathname.match(/news\/?$/gm)) {

@@ -36,7 +36,6 @@ const ProductFilter = {
   },
   createList() {
     this.targetList = new List(this.targetListId, this.options);
-
     if (sessionStorage[this.sessionsName]) {
       this.matchSearchQueriesToSessions();
     } else {
@@ -74,8 +73,38 @@ const ProductFilter = {
   },
   matchSearchQueriesToUI() {
     /* need this for url params */
-    // text search 
+    // text search
     document.querySelector('#searchfield').value = this.searchQueries.searchParams;
+    // dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+      this.searchQueries[camelCase(dropdown.id)] = dropdown.selectedOptions[0].value;
+      const selectedIndex = dropdown.selectedOptions[0].index;
+
+      if (selectedIndex !== -1) {
+        dropdown.selectedIndex = selectedIndex;
+      }
+    });
+    // match checkbox UI to searchQueries
+    // Checkbox filter tag ids: 'product-law-area', 'product-topic', 'product-tag'
+
+    this.searchQueries.productLawArea.forEach(action => {
+      if (action !== 'all') {
+        document.querySelector(`input[type=checkbox][value=${action}]`).checked = true;
+      }
+    });
+
+    this.searchQueries.productTopic.forEach(action => {
+      if (action !== 'all') {
+        document.querySelector(`input[type=checkbox][value=${action}]`).checked = true;
+      }
+    });
+
+    this.searchQueries.productTag.forEach(action => {
+      if (action !== 'all') {
+        document.querySelector(`input[type=checkbox][value=${action}]`).checked = true;
+      }
+    });
   },
   sortByDate(sortOrder = 'desc') {
     /* check mobile sort*/
@@ -293,7 +322,10 @@ const ProductFilter = {
     this.sortByDate('desc');
     this.displayResultsCount();
     this.displayResultQueries();
-    this.setSessions();
+    this.clearSessions();
+  },
+  clearSessions() {
+    sessionStorage.removeItem(this.sessionsName);
   },
   handleClearAllFilters() {
     // done
@@ -395,8 +427,30 @@ const ProductFilter = {
     this.filterList();
     this.matchSearchQueriesToUI();
   },
+  filterBySessionStorage() {
+    // matches dropdowns to sessions
+    if (sessionStorage[this.sessionsName]) {
+      const storage = JSON.parse(sessionStorage[this.sessionsName]);
+      this.searchQueries = storage;
+
+      // select dropdown value in sessionStorage
+      for (let [key, value] of Object.entries(this.searchQueries)) {
+        document.querySelectorAll('.dropdown').forEach(select => {
+          if (camelCase(select.id) === key) {
+            select.childNodes.forEach(option => {
+              if (option.id === value) {
+                option.selected = true;
+              }
+            });
+          }
+        });
+      }
+      this.displayResultQueries();
+    }
+  },
   init() {
     this.createList();
+    this.filterBySessionStorage();
     this.sortByDate();
     this.handleDateSortClick();
     this.handleSearchParams();
