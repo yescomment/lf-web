@@ -1,21 +1,20 @@
 {% assign news_item = include.item %}
 
+<span class="news-item-title visually-hidden">{{ news_item.title }}</span>
 
-<span class="news-item-title visually-hiddenx">{{ news_item.title }}</span>
-
-<span class="news-item-short-description visually-hiddenx">{{ news_item.short_description }}</span>
-
-<span class="news-item-publication visually-hiddenx">all {{ news_item.publication | slugify }}</span>
+<span class="news-item-short-description visually-hidden">{{ news_item.short_description }}</span>
+<!-- has component_prefix pub -->
+<span class="news-item-publication visually-hidden">all {{ news_item.publication | slugify | prepend: 'pub-' }}</span>
 
 <span
-  class="news-item-publication-date visually-hiddenx"
+  class="news-item-publication-date visually-hidden"
   data-timestamp="{{ news_item.publication_date | date: time_tag }}"
 >
   {{ news_item.publication_date | date: time_tag}}
 </span>
 
-<span class="news-item-center-author visually-hiddenx">
+<span class="news-item-center-author visually-hidden">
   all {% for author in news_item.engelberg_author %} {{ author.display_name | slugify }} {% endfor %}
 </span>
 
-<span class="news-item-type visually-hiddenx">all {{ news_item.publication_type | slugify }}</span>
+<span class="news-item-type visually-hidden">all {{ news_item.publication_type | slugify }}</span>
