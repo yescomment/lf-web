@@ -21,7 +21,7 @@ baseurl: "/engelberg" # the subpath of your site, e.g. /blog
 url: "https://objectively.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
 github_username:
-seo_image_path: #'/images/media/filename.jpg'
+seo_image_path: '/images/og-image.png'
 
 permalink: pretty
 # Build settings
@@ -201,10 +201,14 @@ page_gen:
     template: 'project'
     name: 'pretty_url'
     dir: 'projects'
+    customSeoImage: 'seo_image'
+    customSeoDescription: 'seo_description'
   - data: 'data.contentful.product.product'
     template: 'product'
     name: 'pretty_url'
     dir: 'products'
+    customSeoImage: 'seo_image'
+    customSeoDescription: 'seo_description'
   - data: 'data.contentful.people.people'
     template: 'profile'
     name: 'pretty_url'
@@ -217,6 +221,8 @@ page_gen:
     template: 'event'
     name: 'pretty_url'
     dir: 'events'
+    customSeoImage: 'seo_image'
+    customSeoDescription: 'seo_description'
   - data: 'data.contentful.portalPage.portalPage'
     template: 'portal-page'
     name: 'pretty_url'
@@ -225,6 +231,8 @@ page_gen:
     template: 'topic'
     name: 'title'
     dir: 'on'
+    customSeoImage: 'seo_image'
+    customSeoDescription: 'seo_description'
   - data: 'data.contentful.course.course'
     template: 'course'
     name: 'title'
