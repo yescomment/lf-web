@@ -33,7 +33,7 @@ top_bar: no-logo
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
       <h2 class="heading-c">Featured Research</h2>
 
-      {% include components/card-featured.html card=data.featured_research %}
+      {% include components/card-featured.html card=data.featured_research path="/products/" %}
 
       <div class="button-container button-container--right">
         <a class="button button--arrow" href="{{ '/products' | relative_url  }}">All Engelberg Center Research</a>
