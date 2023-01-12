@@ -79,7 +79,7 @@ end
 class EmbeddedAssetRenderer < RichTextRenderer::BaseNodeRenderer
   def render(node)
     entry = node['data']['target']
-    "<img id=#{entry['title']} class=\"figure__image\" src=#{entry['url']} alt=\"#{entry['description'].gsub(/"/,"'")}\" />"
+    "<img id=#{entry['title']} class=\"figure__image\" src=#{entry['url']} alt=\"#{entry['description']}\" />"
   end
 end
 
