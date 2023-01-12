@@ -224,7 +224,7 @@ page_gen:
   - data: 'data.contentful.onTopic.onTopic'
     template: 'topic'
     name: 'title'
-    dir: 'topics'
+    dir: 'on'
   - data: 'data.contentful.course.course'
     template: 'course'
     name: 'title'
