@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://objectively.github.io/engelberg/styleguide/01-typography/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/02-colors/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/03-buttons-and-links/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/04-layouts/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/05-tags/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/06-cards/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/07-elements/</loc>
-</url>
-<url>
 <loc>https://objectively.github.io/engelberg/events/</loc>
-</url>
-<url>
-<loc>https://objectively.github.io/engelberg/styleguide/</loc>
 </url>
 <url>
 <loc>https://objectively.github.io/engelberg/</loc>
