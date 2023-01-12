@@ -4,6 +4,7 @@
   grid-gap: 1rem;
   width: 100%;
   padding: 0 1rem;
+  min-height: 8rem;
 
   @include breakpoint($large) {
     grid-template-columns: repeat(4, 1fr);
@@ -23,6 +24,8 @@
 
   .card-link-wrapper {
     text-decoration: none;
+    height: 100%;
+    text-decoration: none;
   }
 }
 
@@ -40,31 +43,6 @@
 }
 
 /* END GLOBAL Card Styles */
-
-.card--event,
-.card--research,
-.card--project,
-.card--people {
-  // width: 100%;
-
-  @include breakpoint($large) {
-    // max-width: calc(25% - 16px);
-  }
-
-  @include breakpoint($between-large) {
-    // max-width: calc(33% - 16px);
-  }
-
-  @include breakpoint($medium-only) {
-    // max-width: calc(50% - 16px);
-    // margin: 8px;
-  }
-
-  @include breakpoint($small-only) {
-    // max-width: 100%;
-    // margin: 8px;
-  }
-}
 
 /* SHARED CARD STATES */
 .card--event,
@@ -88,7 +66,6 @@
     }
   }
 }
-
 
 /* END SHARED CARD STATES */
 
@@ -135,7 +112,9 @@
     text-align: center;
     padding: 1rem;
     padding-bottom: 1.5rem;
-
+    span {
+      margin: 0;
+    }
     .card__name {
       font-size: $h5;
       padding-bottom: 0.5rem;
@@ -152,12 +131,8 @@
 
 /* EVENT CARDS with image, date, title, and event type */
 
-
 .card--event {
   display: flex;
-  min-height: 22rem; // event and research cards have different heights
-
-  // height: inherit;
   &.card--event-long {
     height: inherit;
   }
@@ -171,34 +146,10 @@
   }
 
   .card__detail {
-    flex: 1 0 auto;
-
-    span {
-      font-family: $sans-serif;
-      font-weight: 700;
-      display: block;
-      padding: 8px 0;
-    }
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
-
-    .card__date,
-    .card__type {
-      text-transform: uppercase;
-      font-size: $helper;
-    }
-
-    .card__title {
-      font-size: $h5;
-    }
-
-    .card__description {
-      flex: 1 0 auto;
-      font-weight: $light;
-    }
+    // flex: 1 0 auto;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
   }
 }
 
@@ -215,15 +166,10 @@
   }
 
   .card__detail {
-    // line-height: 22px;
     overflow: hidden;
     margin-top: 0;
     justify-content: space-around;
-
-    span {
-      display: block;
-      margin: 0.5rem;
-    }
+    padding: 0 !important;
 
     .card__title {
       font-weight: 700;
@@ -242,12 +188,10 @@
     }
   }
 }
-
 /* END RESEARCH CARDS */
 
 /* PROJECT CARDS with image, title, description */
 .card--project {
-  //   // height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -259,39 +203,147 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+}
+/* END PROJECT CARDS */
 
-  .card__detail {
-    padding: 2rem;
-    overflow: hidden;
+// CARD SECTION LAYOUTS
 
-    span {
-      font-family: $sans-serif;
-      font-weight: 700;
-      display: block;
-      font-size: $p;
-    }
+.card-section-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 1rem 1.5rem 1rem;
 
-    .card__description {
-      font-weight: 300;
+  @include breakpoint($small-only) {
+    display: block;
+  }
+
+  a {
+    margin-top: 0.5rem;
+  }
+}
+
+// card layouts
+.card-section-heading--thick {
+  margin: 3rem 0 2rem;
+}
+
+// PAGE SPECIFIC CARD LAYOUTS
+.generic-layout {
+  .card {
+    background-color: $white;
+
+    &:hover {
+      background-color: $purple-100;
+      color: $white;
+
+      .card__icon {
+        visibility: hidden;
+      }
+
+      .card__image {
+        filter: grayscale(70%);
+      }
     }
   }
 }
 
-/* END PROJECT CARDS */
+.card--minimal {
+  // used for advisory board section
+  text-align: center;
+  padding-top: 2rem;
+
+  span {
+    display: block;
+  }
+
+  img {
+    width: 5.7rem;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  .card__detail {
+    span {
+      font-family: $sans-serif;
+      font-weight: 700;
+      display: block;
+    }
+
+    text-align: center;
+    padding: 1rem;
+
+    .card__name {
+      font-size: $h5;
+      padding-bottom: 0.5rem;
+    }
+
+    .card__title {
+      font-weight: 300;
+      font-size: $p;
+      font-style: italic;
+    }
+
+    .card__affiliation {
+      font-weight: $light;
+      font-size: $p;
+    }
+  }
+}
+
+.card {
+  // global card styles
+  .card__detail {
+    padding: 1rem 2rem;
+    overflow: hidden;
+    font-weight: $light;
+  }
+  .card__title {
+    margin: 8px 0;
+    font-size: $p;
+  }
+
+  .card__description {
+    font-size: $p;
+    font-weight: 300;
+  }
+
+  .card__author,
+  .card__type {
+    font-size: $helper;
+    text-transform: uppercase;
+  }
+
+  span,
+  .card__author > p {
+    font-family: $sans-serif;
+    font-weight: 700;
+    display: block;
+    margin: 1rem 0;
+    font-size: $p;
+  }
+  .card__date {
+    text-transform: uppercase;
+    font-family: $helper !important;
+    font-size: $helper;
+  }
+}
 
 // PODCAST CARDS
 .card--podcast {
   padding: 1rem 2.5rem 1rem;
   display: block;
-  height: 30.5rem;
+  min-height: 30.5rem;
   @include uninverted-section;
 
   @include breakpoint($between-large) {
-    height: 35.5rem;
+    min-height: 35.5rem;
   }
 
   @include breakpoint($medium-only) {
-    height: 31.5rem;
+    min-height: 31.5rem;
   }
 
   h3 {
@@ -425,93 +477,4 @@
     margin-top: 4rem;
   }
 }
-
 // END FEATURED CARDS
-
-
-// CARD SECTION LAYOUTS 
-
-.card-section-heading {
-  display: flex;
-  justify-content: space-between;
-  padding: 2.5rem 1rem 1.5rem 1rem;
-
-  @include breakpoint($small-only) {
-    display: block;
-  }
-
-  a {
-    margin-top: 0.5rem;
-  }
-}
-
-// card layouts
-.card-section-heading--thick {
-  margin: 3rem 0 2rem;
-}
-
-// PAGE SPECIFIC CARD LAYOUTS 
-.generic-layout {
-  .card {
-    background-color: $white;
-
-    &:hover {
-      background-color: $purple-100;
-      color: $white;
-
-      .card__icon {
-        visibility: hidden;
-      }
-
-      .card__image {
-        filter: grayscale(70%);
-      }
-    }
-  }
-}
-
-.card--minimal {
-  text-align: center;
-  padding-top: 2rem;
-
-  // used for advisory board section 
-  span {
-    display: block;
-  }
-
-  img {
-    width: 5.7rem;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
-
-  .card__detail {
-    span {
-      font-family: $sans-serif;
-      font-weight: 700;
-      display: block;
-    }
-
-    text-align: center;
-    padding: 1rem;
-
-    .card__name {
-      font-size: $h5;
-      padding-bottom: 0.5rem;
-    }
-
-    .card__title {
-      font-weight: 300;
-      font-size: $p;
-      font-style: italic;
-    }
-
-    .card__affiliation {
-      font-weight: $light;
-      font-size: $p;
-    }
-  }
-}

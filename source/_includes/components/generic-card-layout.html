@@ -23,10 +23,10 @@
         <div class="card__detail">
           <span class="card__title">{{ card.title }}</span>
           <span class="card__subtitle">{{ card.subtitle }}</span>
-          <span class="card__author">{{ card.full_author }}</span>
+          <div class="card__author">{{ card.full_author |markdownify }}</div>
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
     {% endfor %}
   </div>
   {% endif %}
