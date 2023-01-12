@@ -23,7 +23,9 @@
         <div class="card__detail">
           <span class="card__title">{{ card.title }}</span>
           <span class="card__subtitle">{{ card.subtitle }}</span>
-          <div class="card__author">{{ card.full_author |markdownify }}</div>
+          {% assign author = card.full_author %}
+          {% assign subline_split = author | split: "](" | first | replace: "[", "" %}
+          <div class="card__author">{{ subline_split }}</div>
         </div>
       </div>
     </a>
