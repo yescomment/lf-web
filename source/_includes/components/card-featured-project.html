@@ -20,7 +20,7 @@
     </div>
     {% endcomment %}
     <div class="card__authors">
-      <span class="card__author">{{ card.named_people }}</span>    
+      <span class="card__author">{{ card.named_people | markdownify }}</span>
     </div>
   </div>
   <a class="link-secondary" href="{{ card.pretty_url | prepend: '/projects/' | relative_url }}">

@@ -304,7 +304,6 @@
 }
 
 .card {
-
   // global card styles
   .card__detail {
     padding: 1rem 2rem;
@@ -329,7 +328,7 @@
   }
 
   span,
-  .card__author>p {
+  .card__author > p {
     font-family: $sans-serif;
     font-weight: 700;
     display: block;
@@ -445,6 +444,14 @@
       display: flex;
       flex-direction: column;
       @include all_caps_text;
+      .card__author {
+        margin: 0;
+      }
+      .card__author p {
+        margin: 0;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
     }
   }
 
