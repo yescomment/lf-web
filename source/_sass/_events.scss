@@ -8,6 +8,9 @@
   .top-section {
     background-repeat: no-repeat;
     background-position: calc(100% + 13rem) -6rem;
+    @include breakpoint($medium-only) {
+      background-image: none !important;
+    }
   }
 }
 

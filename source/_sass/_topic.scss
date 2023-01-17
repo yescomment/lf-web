@@ -29,6 +29,9 @@
   background-repeat: no-repeat;
   background-position: calc(100% + 5rem) -4rem;
   background-size: cover;
+  @include breakpoint($medium-only) {
+    background-image: none !important;
+  }
 }
 
 .topics-dropdown-container {
