@@ -9,12 +9,11 @@ top_bar: white
   {% include components/nav-button.html %}
   <!-- Layout 1 -->
   <div class="row expanded top-section section--gray">
-    <div class="column large-5 medium-12 small-12">
+    <div class="column large-5 medium-12 small-12 markdown-secondary">
 
       <h1>{{ data.title }}</h1>
       <div class="bar" style="background-image: url({{data.bar_color.url}})"></div>
-
-      <p>{{ data.introduction }}</p>
+      {{ data.introduction | markdownify }}
     </div>
     <div class="column large-6 large-offset-1 medium-12 small-12">
 
