@@ -1,5 +1,5 @@
 .projects-page {
-  // missing in contentful 
+  // missing in contentful
   padding-bottom: 6rem;
 
   .top-section {
@@ -11,6 +11,9 @@
     background-position-x: 5rem;
     background-size: 95%;
     background-repeat: no-repeat;
+    @include breakpoint($medium-only) {
+      background-image: none !important;
+    }
   }
 
   .decorator {
