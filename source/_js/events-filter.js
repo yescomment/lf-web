@@ -80,6 +80,7 @@ const EventsFilter = {
         event.classList.remove('not-visible');
       }
     });
+    this.handleNoUpcomingEvents();
     pastEvents.forEach(event => {
       const eventDate = new Date(event.getAttribute('data-event-start'));
       if (eventDate.getTime() > currentDate.getTime()) {
@@ -89,6 +90,14 @@ const EventsFilter = {
       }
     });
   },
+  handleNoUpcomingEvents() {
+    let allEvents = document.querySelectorAll('.cards-wrapper--upcoming > .event');
+    let hiddenEvents = document.querySelectorAll('.cards-wrapper--upcoming > .event.not-visible');
+    if (allEvents.length === hiddenEvents.length) {
+      document.querySelector('.cards-wrapper--upcoming').innerHTML = `<p>No Upcoming Events</p>`;
+    }
+  },
+
   clearFormInputs() {
     document.querySelectorAll('.dropdown').forEach(dropdown => {
       dropdown.selectedIndex = 0;
