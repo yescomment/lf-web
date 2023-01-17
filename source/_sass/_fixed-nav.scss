@@ -67,7 +67,10 @@
     overflow-y: scroll;
     transition: transform 0.3s 0.3s;
     z-index: 1;
-    padding-bottom: 2rem;
+
+    .row {
+      padding-bottom: 8em;
+    }
 
     @include breakpoint($medium) {
       padding: 0 1rem 2rem 0;
