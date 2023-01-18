@@ -53,7 +53,9 @@ top_bar: gray
         {% endif %}
       </div>
       <div class="column product__slide-panel">
-        <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
+        {% if page.button_url %}
+          <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
+        {% endif %}
         {% if page.engelberg_author %}
           <h3>Engelberg Center Authors</h3>
           {% for item in page.engelberg_author %}
