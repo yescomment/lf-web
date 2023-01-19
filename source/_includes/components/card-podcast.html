@@ -8,7 +8,7 @@
         style="background-image: url('{{podcast.header_image.url}}')">
       </div>
     </div>
-    <a class="link--secondary card__title" href="{{ podcast.pretty_url | prepend: '/products/' | relative_url }}">
+    <a class="link--secondary card__title" href="{{ podcast.pretty_url | prepend: '/outputs/' | relative_url }}">
       {{ podcast.title }}
     </a>
     <span class="card__subtitle">{{ podcast.subtitle }}</span>
@@ -20,5 +20,5 @@
       </div>
     </div>
     <p class="card__description">{{ podcast.short_description }}</p>
-    <a class="link link--arrow" href="{{ podcast.pretty_url | prepend: '/products/' | relative_url }}">Listen now</a>
+    <a class="link link--arrow" href="{{ podcast.pretty_url | prepend: '/outputs/' | relative_url }}">Listen now</a>
   </div>

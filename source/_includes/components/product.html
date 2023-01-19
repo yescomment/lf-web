@@ -1,7 +1,7 @@
 {% assign product = include.product %}
 
 <div class="product markdown-secondary">
-  <a  class="link--primary product__title" href="{{product.pretty_url | prepend: '/products/' | relative_url }}">
+  <a  class="link--primary product__title" href="{{product.pretty_url | prepend: '/outputs/' | relative_url }}">
     {{ product.title }}
   </a>
   <span class="product__subtitle">{{ product.subtitle }}</span>
