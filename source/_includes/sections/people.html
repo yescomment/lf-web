@@ -10,6 +10,16 @@
   %}
 {% endif %}
 
+{% assign affiliated_faculty = people | where: 'type', 'Affiliated Faculty' | sort: "last_name"  %}
+
+{% if affiliated_faculty and affiliated_faculty.size != 0 %}
+  {% include components/generic-card-layout.html 
+    cards=affiliated_faculty
+    cards_heading="Affiliated Faculty"
+    cards_type="people_cards"
+  %}
+{% endif %}
+
 {% assign staff_cards = people | where: 'type', 'Staff' | sort: "last_name"  %}
 
 {% if staff_cards and staff_cards.size != 0 %}
@@ -19,7 +29,6 @@
     cards_type="people_cards"
   %}
 {% endif %}
-
 
 {% assign fellows_cards = people | where: 'type', 'Fellows' | sort: "last_name" %}
 
@@ -61,6 +70,16 @@
     %}
 {% endif %}
 
+{% assign advisory_board_cards = people | where: 'type', 'Advisory Board' | sort: "last_name" %}
+
+{% if advisory_board_cards and advisory_board_cards.size != 0 %}
+    {% include components/minimal-card-layout.html 
+      cards=advisory_board_cards
+      cards_heading="Advisory Board"
+      cards_type="people_cards"
+    %}
+{% endif %}
+
 {% assign alumni_cards = people | where: 'type', 'Engelberg Center Community Alumni' | sort: "last_name" %}
 
 {% if alumni_cards and alumni_cards.size != 0 %}
@@ -69,15 +88,5 @@
       cards_heading="Engelberg Center Community Alumni"
       cards_type="people_cards"
       cards_alumni=true
-    %}
-{% endif %}
-
-{% assign advisory_board_cards = people | where: 'type', 'Advisory Board' | sort: "last_name" %}
-
-{% if advisory_board_cards and advisory_board_cards.size != 0 %}
-    {% include components/minimal-card-layout.html 
-      cards=advisory_board_cards
-      cards_heading="Advisory Board"
-      cards_type="people_cards"
     %}
 {% endif %}
