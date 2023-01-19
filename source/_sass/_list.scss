@@ -12,6 +12,7 @@
   }
 
   .filter-container {
+
     // new
     @include breakpoint($large) {
       width: 28%;
@@ -20,6 +21,7 @@
       bottom: 0;
       height: 100vh;
     }
+
     overflow-y: scroll;
     height: auto;
 
@@ -43,6 +45,7 @@
       font-weight: $bold;
       font-family: $sans-serif;
       font-size: $h5;
+      padding-top: 0.4rem;
 
       &:after {
         transition-duration: 0.4s;
@@ -54,8 +57,7 @@
       }
 
       &:hover {
-        &:after {
-        }
+        &:after {}
       }
     }
   }
@@ -63,6 +65,7 @@
   .dropdown-container {
     margin: 1rem 0;
   }
+
   .list-container {
     @include breakpoint($large) {
       position: absolute;
@@ -72,23 +75,26 @@
       bottom: 0;
       height: 100vh;
     }
+
     @include breakpoint($large) {
       padding: 0 7.5rem;
     }
 
-    @include breakpoint($between-large) {
-    }
+    @include breakpoint($between-large) {}
 
-    @include breakpoint($medium-only) {
-    }
+    @include breakpoint($medium-only) {}
 
-    @include breakpoint($small-only) {
-    }
+    @include breakpoint($small-only) {}
 
     overflow-y: scroll;
   }
+
   .results-container {
     font-style: italic;
+
+    p {
+      margin-top: 0.5rem;
+    }
   }
 
   #results-total,
@@ -119,6 +125,7 @@
   }
 
   .list-row {
+
     // padding-top: 3rem;
     aside {
       background-color: $gray-50;
@@ -176,5 +183,18 @@
     &__description {
       font-family: $serif;
     }
+  }
+}
+
+
+.product-list-page {
+  .intro {
+    margin-top: 6rem;
+  }
+
+  h2 {
+    margin-top: 0;
+    padding-top: 1.5rem;
+    margin-bottom: 0;
   }
 }

@@ -20,7 +20,7 @@ Overlay.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
-if (window.location.pathname.includes('/products/')) {
+if (window.location.pathname.includes('/outputs/')) {
   if (document.querySelector('.product-page')) {
     Footnotes.init();
     FixedNav.init();
@@ -43,7 +43,7 @@ if (window.location.pathname === '/engelberg/what-we-do/' || window.location.pat
   CustomDropdown.init();
 }
 
-if (window.location.pathname.match(/products\/?$/gm)) {
+if (window.location.pathname.match(/outputs\/?$/gm)) {
   ProductFilter.init();
 }
 

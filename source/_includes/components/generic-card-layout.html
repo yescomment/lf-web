@@ -18,7 +18,7 @@
   <div class="cards-wrapper">
     {% for card in cards%}
     <div class="card card--research">
-      <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'products/' | relative_url }}">
+      <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'outputs/' | relative_url }}">
         <div class="card__icon" style="background-image: url({{ card.card_icon.url }})"></div>
         <div class="card__detail">
           <span class="card__title">{{ card.title }}</span>

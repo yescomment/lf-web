@@ -206,7 +206,7 @@ page_gen:
   - data: 'data.contentful.product.product'
     template: 'product'
     name: 'pretty_url'
-    dir: 'products'
+    dir: 'outputs'
     customSeoImage: 'seo_image'
     customSeoDescription: 'seo_description'
   - data: 'data.contentful.people.people'
