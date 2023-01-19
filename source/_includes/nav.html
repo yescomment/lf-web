@@ -1,15 +1,22 @@
-<nav class="main-nav">
-  <a href="https://www.law.nyu.edu/"><img src="{{ '/images/nyu-logo.svg' | relative_url }}" alt="New York University logo"></a>
-  <button class="material-icons close-nav">chevron_left</button>
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/our-mission' | relative_url }}">Our Mission</a>
-  <a href="{{ '/our-people' | relative_url }}">Our People</a>
-  <a href="{{ '/what-we-do' | relative_url }}">What We Do</a>
-  <a href="{{ '/for-students' | relative_url }}">For Students</a>
-  <a href="{{ '/events' | relative_url }}">Events</a>
-  <a href="{{ '/products' | relative_url }}">Products</a>
-  <a href="{{ '/news' | relative_url }}">News</a>
-  <a href="{{ '/projects' | relative_url }}">Projects</a>
-  <a href="{{ '/getting-involved' | relative_url }}">Getting Involved</a>
-</nav>
+<nav class="main-nav" tabindex="-1">
+  <div class="main-nav__top-row">
+    <div class="top-row--right">
+      <button class="material-icons close-nav">chevron_left</button>
+      <button class="home-icon" href="/" aria-label="home"><span class="material-icons">home</span></button>
 
+    </div>
+    <a class="nav-top-logo top-row--left" href="https://www.law.nyu.edu/">
+      <img src="{{ '/images/nyu-logo.svg' | relative_url }}" alt="New York University logo" />
+    </a>
+  </div>
+  <a class="link" href="{{ '/' | relative_url }}">Home</a>
+  <a class="link" href="{{ '/our-mission' | relative_url }}">Our Mission</a>
+  <a class="link" href="{{ '/our-people' | relative_url }}">Our People</a>
+  <a class="link" href="{{ '/what-we-do' | relative_url }}">What We Do</a>
+  <a class="link" href="{{ '/for-students' | relative_url }}">For Students</a>
+  <a class="link" href="{{ '/events' | relative_url }}">Events</a>
+  <a class="link" href="{{ '/products' | relative_url }}">Products</a>
+  <a class="link" href="{{ '/news' | relative_url }}">News</a>
+  <a class="link" href="{{ '/projects' | relative_url }}">Projects</a>
+  <a class="link" href="{{ '/getting-involved' | relative_url }}">Getting Involved</a>
+</nav>
