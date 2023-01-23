@@ -115,10 +115,19 @@ const FixedNav = {
   populateSectionLinks() {
     const headers = document.querySelectorAll('.heading');
     const sectionLinkColumn = document.querySelector('.section-link-column');
+    const valueArray = [];
+    let counter = 0;
 
     headers.forEach(header => {
       if (header.tagName === 'H2' || header.tagName === 'H3' || header.tagName === 'H4') {
         const link = document.createElement('a');
+        if (!valueArray.includes(header.innerHTML)) {
+          valueArray.push(header.innerHTML);
+        } else {
+          counter++;
+          header.id = header.id + counter;
+        }
+
         link.value = header.innerHTML;
         link.text = header.innerHTML;
         link.setAttribute('data-section', header.id);
