@@ -40,10 +40,14 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
     entry = node['data']['target']
     case entry['sys']['content_type_id']
       when 'figure'
+        @@figures = Psych.load_file('./source/_data/contentful/figure.yaml', permitted_classes: [DateTime, Time])
+        @@figures['figure'].map! {|figure| { image_id: figure['image']['sys']['id'], url: figure['image']['url'], description: figure['image']['description']} }
+
+        image = @@figures['figure'].find { |fig| fig[:image_id] == entry['image']['sys']['id'] }
         title = entry['title'] || ''
         caption = entry['caption'] || ''
-        image_url = entry['image']['url'] || 'No image available'
-        image_description = entry["caption"] || 'No caption available'
+        image_url = image[:url] || 'No image available'
+        image_description = image[:description] || entry['caption']
         figure_id = entry['sys']['id']
         create_figure_html(figure_id, title, image_url, image_description, caption)
       when 'table'
