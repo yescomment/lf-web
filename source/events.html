@@ -30,7 +30,7 @@ top_bar: white
       <h2>Upcoming Events</h2>
     </div>
     <div class="cards-wrapper cards-wrapper--upcoming">
-      {% assign events_sort_asc = site.data.contentful.event.event | sort_by: "event_start" | reverse %}
+      {% assign events_sort_asc = site.data.contentful.event.event | sort: "event_start" %}
       {% for card in events_sort_asc %} {% include components/card-event.html card=card
       event_type="upcoming" %} {% endfor %}
     </div>
@@ -51,7 +51,7 @@ top_bar: white
       </div>
     </div>
     <div class="cards-wrapper  cards-wrapper--past list">
-      {% assign events_sort_desc = site.data.contentful.event.event | sort_by: "event_start" %}
+      {% assign events_sort_desc = site.data.contentful.event.event | sort: "event_start" | reverse %}
       {% for card in events_sort_desc %} {% include components/card-event.html card=card
       event_type="past" %} {% endfor %}
     </div>
