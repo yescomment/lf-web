@@ -6,7 +6,14 @@
   {% if page.top_bar == 'gray' %}top-bar--gray{% endif %}
   {% if include.top_bar == 'white' %}top-bar--white{% endif %}
   {% if page.mobile_list %}top-bar--mobile-list{% endif %}"
-  >
+>
+
+  <button class="open-nav">
+    <span class="menu-button__decorator material-icons">more_vert</span>
+    <span class="menu-button__text">menu</span>
+  </button>
+
+  {% include nav.html %}
 
   <div class="top-bar__logo-container">
     <a href="{{ '/' | relative_url }}"><img class="logo" alt="logo" src="{{'/images/ec-icon-color.svg' | relative_url}}" /></a>
