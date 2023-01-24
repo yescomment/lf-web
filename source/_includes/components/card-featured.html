@@ -45,9 +45,15 @@
      <!-- use named people,center authors, or full_authors? -->
     </div>
   </div>
+  {% if card.external_url and card.external_url.size != 0%}
+      <a class="link-secondary card__title" href="{{ card.external_url }}">
+        {{card.title}}
+      </a>
+  {% else %}
   <a class="link-secondary card__title" href="{{ card.pretty_url | prepend: path | relative_url }}">
     {{card.title}}
   </a>
+  {% endif %}
   <span class="card__subtitle">{{card.subtitle}}</span>
   <p class="card__description">{{ card.short_description }}</p>
   <div class="card__action">
