@@ -6,7 +6,6 @@
   button {
     border-radius: 0;
     height: 3.5rem;
-
   }
   padding-top: 96px;
   background-color: $purple-100 !important;
@@ -21,19 +20,18 @@
   z-index: 100 !important;
 
   a.nav-top-logo {
-
     position: absolute;
     top: 0;
     left: 0;
     width: 10.5rem;
     height: 3.5rem;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
     img {
       position: inherit;
       height: 100%;
       width: 8.5rem;
       max-width: 8.5rem;
-      padding: .5rem;
+      padding: 0.5rem;
     }
   }
 
@@ -95,6 +93,8 @@
     vertical-align: bottom;
     border-radius: 0;
     background-color: $purple-100;
+    height: 100%;
+    padding-top: 4px;
   }
 
   .menu-button__text {
