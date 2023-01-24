@@ -1,8 +1,11 @@
 {% assign card = include.card %} 
 {% assign full_author = include.full_author %}
 {% assign path = include.path %}
+{% assign card_action = include.card_action %}
 
 <div class="card card--featured">
+
+
 
   <!-- {% if card.publication_date %}
   <div class="card__date-container">
@@ -10,6 +13,11 @@
   </div>
   {% endif %} -->
   <div class="card__meta">
+      {% if card.event_start %}
+    <div class="card__date-container">
+    {{ card.event_start | date: "%B %d, %Y" }}
+    </div>
+  {% endif %}
     <div class="card__tags-container tags-container">
 
       {% for area in card.law_area %}
@@ -43,6 +51,14 @@
   <span class="card__subtitle">{{card.subtitle}}</span>
   <p class="card__description">{{ card.short_description }}</p>
   <div class="card__action">
-    <a href="{{ card.pretty_url | prepend: path | relative_url }}" class="link link--arrow">{{ 'Read More' }}</a>
+    {% if card.external_url and card.external_url.size != 0%}
+      <a href="{{ card.external_url }}" class="link link--arrow">
+        {% if card_action%}{{card_action}}{% else %}{{ 'Read More' }}{% endif%}
+      </a>
+    {% else %}
+      <a href="{{ card.pretty_url | prepend: path | relative_url }}" class="link link--arrow">
+        {% if card_action%}{{card_action}}{% else %}{{ 'Read More' }}{% endif%}
+      </a>
+      {% endif %}
   </div>
 </div>
