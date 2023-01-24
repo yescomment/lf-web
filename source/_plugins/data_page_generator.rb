@@ -50,12 +50,18 @@ module Jekyll
       else
         self.data['title'] = data[name]
       end
+
+
       if customSeoImage && data[customSeoImage]
         self.data['seo_image_path'] = 'https:' + data[customSeoImage]['url']
       end
 
       if customSeoDescription
         self.data['description'] = data[customSeoDescription]
+      end
+
+      if self.data['title'] == '404'
+        self.data['permalink'] = '404.html'
       end
     
       # add all the information defined in _data for the current record to the
