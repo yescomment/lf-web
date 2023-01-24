@@ -9,7 +9,6 @@ a.link--secondary {
   &:hover,
   &:focus {
     color: rgba($black, 0.5);
-
   }
 }
 
@@ -50,15 +49,17 @@ a.link--secondary {
   }
 }
 
-
 a.external-link,
 div.external-link {
-  &::after {
+  .title {
+    display: inline;
+    margin: initial;
+    margin-right: 4px;
+  }
+  .material-icons {
     @extend .u-material-icons;
-    content: 'open_in_new';
     font-size: 1.1rem;
-    vertical-align: middle;
-    margin-left: 4px;
+    vertical-align: -2px;
   }
 }
 
@@ -70,15 +71,10 @@ div.external-link {
   }
 }
 
-
-
 a.link--primary {
-
   @include markdown-primary-links;
-
 }
 
-
-.tweet>a {
+.tweet > a {
   @include markdown-primary-links;
 }

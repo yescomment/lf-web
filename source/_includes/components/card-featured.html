@@ -51,6 +51,14 @@
   <span class="card__subtitle">{{card.subtitle}}</span>
   <p class="card__description">{{ card.short_description }}</p>
   <div class="card__action">
-    <a href="{{ card.pretty_url | prepend: path | relative_url }}" class="link link--arrow">{% if card_action%}{{card_action}}{% else %}{{ 'Read More' }}{% endif%}</a>
+    {% if card.external_url and card.external_url.size != 0%}
+      <a href="{{ card.external_url }}" class="link link--arrow">
+        {% if card_action%}{{card_action}}{% else %}{{ 'Read More' }}{% endif%}
+      </a>
+    {% else %}
+      <a href="{{ card.pretty_url | prepend: path | relative_url }}" class="link link--arrow">
+        {% if card_action%}{{card_action}}{% else %}{{ 'Read More' }}{% endif%}
+      </a>
+      {% endif %}
   </div>
 </div>

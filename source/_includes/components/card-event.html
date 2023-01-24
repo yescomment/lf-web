@@ -11,7 +11,7 @@
       <span class="card__date">{{ card.event_start | date: "%B %d, %Y" }}</span>
       {% if card.external_url and card.external_url.size != 0%}
       <div class="external-link">
-        <span class="card__title">{{ card.title }}</span>
+        <div class="card__title"><span class="title">{{ card.title }}</span><span class="material-icons">open_in_new</span></div>
       </div>
       {% else %}
       <span class="card__title">{{ card.title }}</span>
