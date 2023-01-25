@@ -58,11 +58,11 @@
   background-color: transparent;
 }
 
-.top-bar--no-logo>.top-bar__logo-container {
+.top-bar--no-logo > .top-bar__logo-container {
   display: none;
 }
 
-.top-bar--white>.top-bar__logo-container {
+.top-bar--white > .top-bar__logo-container {
   display: flex;
 }
 
@@ -70,6 +70,9 @@
   display: flex;
   justify-content: center;
   height: 3.5rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
 
   img {
     height: 3rem;
