@@ -18,4 +18,8 @@
   <div class="top-bar__logo-container">
     <a href="{{ '/' | relative_url }}"><img class="logo" alt="logo" src="{{'/images/ec-icon-color.svg' | relative_url}}" /></a>
   </div>
+{% assign filter_type = page.title | slugify | append: "-filter" %}
+  <button class="top-bar__button--right top-bar__button js-toggle-filters {{filter_type}}">
+    <span class="filter-decorator"></span>
+  </button>
 </header>

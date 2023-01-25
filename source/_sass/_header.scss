@@ -161,3 +161,34 @@
 .js-active-menu {
   display: block;
 }
+
+.top-bar__button--right.js-toggle-filters {
+  @include breakpoint($large) {
+    display: none;
+  }
+
+  border-radius: 0;
+  .filter-decorator {
+    &::before {
+      @extend .u-material-icons;
+      content: 'tune';
+      font-size: 2rem;
+      color: $white;
+    }
+  }
+  .filter-decorator.js-active {
+    &::before {
+      @extend .u-material-icons;
+      content: 'close';
+      font-size: 2rem;
+      color: $white;
+    }
+  }
+
+  background-color: $yellow-100;
+  height: 3.5rem;
+  width: 3rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

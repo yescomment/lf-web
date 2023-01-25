@@ -46,7 +46,7 @@ no_footer: true
 {% assign all_law_areas = all_law_areas | uniq | compact | sort %}
 <!-- ** -->
 {% assign all_topics = all_topics | uniq | compact | sort %}
-<!-- ** -->
+
 {% assign all_tags = all_tags | uniq | compact | sort %}
 
 <!-- LAYOUT 9: Lists  -->
@@ -57,9 +57,8 @@ no_footer: true
       <aside class="list-aside filter-container">
         <div class="column large-offset-2">
           <h1>{{ page.title }}</h1>
-          <div class="heading-decorator">
-            <div class="decorator"></div>
-          </div>
+          {% include components/mobile-list-results.html  class_name="outputs-filter" %}
+          <div class="bar"></div>
           <span class="search-title">Search and filters</span>
           <button id="clear-filters" class="clear-filters">Clear all</button>
           <div id="search-container">
