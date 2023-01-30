@@ -175,7 +175,14 @@ const NewsFilters = {
   displayResultsCount() {
     const count = this.targetList.matchingItems.length;
     const label = count === 1 ? 'result' : 'results';
+    // main results message
     document.getElementById('results-total').innerHTML = `Displaying ${count} ${label} `;
+    // mobile results message
+    if (count === 0) {
+      document.getElementById('mobile-results-total').innerHTML = ` ${count} ${label}`;
+    } else {
+      document.getElementById('mobile-results-total').innerHTML = `See ${count} ${label}`;
+    }
   },
   displayResultQueries() {
     // populates this.resultsItems
@@ -226,6 +233,23 @@ const NewsFilters = {
       this.displayResultQueries();
     }
   },
+  handleMobileFilter() {
+    const filterButtons = document.querySelectorAll('.engelberg-center-news-filter.js-toggle-filters');
+
+    const filterDecorator = document.querySelector('.filter-decorator');
+    const filterContainer = document.querySelector('.list-aside');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (filterContainer.classList.contains('js-active')) {
+          filterContainer.classList.remove('js-active');
+          filterDecorator.classList.remove('js-active');
+        } else {
+          filterContainer.classList.add('js-active');
+          filterDecorator.classList.add('js-active');
+        }
+      });
+    });
+  },
   init() {
     this.createList();
     this.filterBySessionStorage();
@@ -234,6 +258,7 @@ const NewsFilters = {
     this.handleDropdownChange();
     this.handleClearAllFilters();
     this.handleSearchBehavior();
+    this.handleMobileFilter();
   }
 };
 

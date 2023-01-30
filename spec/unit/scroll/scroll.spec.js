@@ -11,7 +11,7 @@ let Scroll = require('../../../source/_js/scroll.js');
 
 const isElAtTop = el => {
   let location = $(el).offset().top - $(window).scrollTop();
-  console.log($(el).offset().top);
+  
   return Math.floor(location);
 };
 describe('Scroll', function() {

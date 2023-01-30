@@ -4,6 +4,7 @@ top_bar: white
 title: Engelberg Center News
 description: News and announcements from the Engelberg Center.
 no_footer: true
+list_page: true
 ---
 
 {% assign news = site.data.contentful.news.news %} 
@@ -31,6 +32,8 @@ no_footer: true
       <aside class="list-aside filter-container">
         <div class="column large-offset-2">
           <h1>{{ page.title }}</h1>
+
+          {% include components/mobile-list-results.html class_name="engelberg-center-news-filter" %}
 
           <div class="bar"></div>
 
