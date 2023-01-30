@@ -18,7 +18,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      height: 100vh;
+      // height: 100vh;
     }
 
     overflow-y: scroll;
@@ -75,12 +75,12 @@
       left: 28%;
       right: 0;
       bottom: 0;
-      height: 100vh;
     }
     @include breakpoint($large) {
       padding: 0 7.5rem;
     }
     overflow-y: scroll;
+    position: fixed;
   }
 
   .results-container {
@@ -136,7 +136,7 @@
         transition: none;
         width: 25rem;
         padding-right: 1rem;
-        position: initial;
+        position: absolute;
         display: block;
         margin-left: 0;
         height: 100vh;
@@ -150,7 +150,7 @@
         margin-left: 0;
       }
       padding-top: 3rem;
-      height: 100vh;
+      // height: 100vh;
       overflow-y: scroll;
       .mobile-results-container {
         @include breakpoint($large) {
