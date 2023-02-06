@@ -70,7 +70,6 @@
       .product-code,
       img,
       p {
-
         @include breakpoint($large) {
           padding-left: 6rem;
           padding-right: 7rem;
@@ -174,7 +173,7 @@
             width: 100%;
           }
         }
-  
+
         .product__authors {
           display: block;
         }
@@ -187,6 +186,10 @@
         font-family: $sans-serif;
         margin-bottom: 0.5rem;
         font-size: $helper;
+        &:hover,
+        &:focus {
+          color: rgba($black, 0.5);
+        }
       }
     }
   }
@@ -215,7 +218,7 @@
   }
 
   .box {
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     padding-top: 3rem;
     padding-bottom: 4rem;
     margin-top: 4rem;
