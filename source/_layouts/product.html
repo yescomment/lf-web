@@ -34,7 +34,9 @@ top_bar: gray
         <div class="product__subtitle">{{ page.subtitle }}</div>
       {% endif %}
       <div class="product__authors">{{ page.full_author | markdownify }}</div>
-      {{ page.introduction | markdownify }}
+      <div class="product__introduction markdown-secondary">
+        {{ page.introduction | markdownify }}
+      </div>
     </div>
     <div class="column large-offset-1 large-4 medium-12 small-12">
       <img src="{{ page.header_image.url }}" /> 
