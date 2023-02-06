@@ -79,3 +79,21 @@ a.link--primary {
 .tweet > a {
   @include markdown-primary-links;
 }
+
+a.external-link {
+  &:after {
+    content: 'open_in_new';
+    @extend .u-material-icons;
+    font-size: 1.1rem;
+    vertical-align: -2px;
+    margin: 0;
+  }
+}
+
+.card--featured {
+  a.external-link {
+    &:after {
+      font-size: 1.5rem;
+    }
+  }
+}

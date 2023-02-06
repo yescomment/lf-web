@@ -46,7 +46,7 @@
     </div>
   </div>
   {% if card.external_url and card.external_url.size != 0%}
-      <a class="link-secondary card__title" href="{{ card.external_url }}">
+      <a class="link-secondary card__title external-link" href="{{ card.external_url }}">
         {{card.title}}
       </a>
   {% else %}
