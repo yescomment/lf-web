@@ -165,16 +165,19 @@
     }
 
     &__slide-panel {
-      padding-top: 6rem;
-      padding-right: 6rem;
-
-      .button {
-        display: block;
-        width: 100%;
-      }
-
-      .product__authors {
-        display: block;
+      .product-links {
+        padding: 6rem 0;
+        .button {
+          display: block;
+          width: 85%;
+          @include breakpoint($small-only) {
+            width: 100%;
+          }
+        }
+  
+        .product__authors {
+          display: block;
+        }
       }
 
       .author {

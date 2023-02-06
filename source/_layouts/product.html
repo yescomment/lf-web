@@ -55,15 +55,17 @@ top_bar: gray
         {% endif %}
       </div>
       <div class="column product__slide-panel">
-        {% if page.button_url %}
-          <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
-        {% endif %}
-        {% if page.engelberg_author %}
-          <h3>Engelberg Center Authors</h3>
-          {% for item in page.engelberg_author %}
-            <a href="{{ item.pretty_url | slugify | prepend: '/our-people/' | relative_url }}" class="author">{{ item.display_name }}</a>
-          {% endfor %}
-        {% endif %}
+        <div class="product-links">
+          {% if page.button_url %}
+            <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
+          {% endif %}
+          {% if page.engelberg_author %}
+            <h3>Engelberg Center Authors</h3>
+            {% for item in page.engelberg_author %}
+              <a class="link--primary" href="{{ item.pretty_url | slugify | prepend: '/our-people/' | relative_url }}" class="author">{{ item.display_name }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
 
         <div id="1" class="slide-panel slide-panel--from-right row">
           <div tabindex="0" class="slide-panel__container slide-panel__container--footnote column">
