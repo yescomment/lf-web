@@ -24,10 +24,11 @@ module UITemplate
     </div>"
   end
 
-  def create_table(title, body)
+  def create_table(title, body, caption)
     "<div class=\"table\">
       <p class=\"table__title\">#{title}</p>
       <div class=\"table__body\">#{markdownify_yaml(body)}</div>
+      <div class=\"table__caption\">#{markdownify_yaml(caption)}</div>
     </div>"
   end
 

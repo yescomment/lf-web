@@ -53,7 +53,8 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
       when 'table'
         title = entry['title']
         body = entry['body']
-        create_table(title, body)
+        caption = entry['caption']
+        create_table(title, body, caption)
       when 'pullQuote'
         content = entry['pull_quote'] || ''
         attribution = entry['attribution'] || ''
