@@ -57,4 +57,12 @@ module UITemplate
   def create_iframe_html(body, caption)
     "<div class=\"product-code iframe\">#{body}</div>"
   end
+
+  def create_code_html(title, body, caption)
+    "<div class=\"code\">
+      <p class=\"code__title\">#{title}</p>
+      <div class=\"product-code iframe\">#{body}</div>
+      <div class=\"code__caption\">#{markdownify_yaml(caption)}</div>
+    </div>"
+  end
 end
