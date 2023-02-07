@@ -75,6 +75,11 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
         body = entry['embed_code'] || ''
         caption = entry['caption'] || ''
         create_iframe_html(body, caption)
+      when 'codeContent'
+        title = entry['title']
+        body = entry['code'] || ''
+        caption = entry['caption'] || ''
+        create_code_html(title, body, caption)
       else
         puts "Can't render embedded entry"
     end

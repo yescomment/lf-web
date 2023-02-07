@@ -97,7 +97,8 @@
         @include underlined-link;
       }
 
-      .figure {
+      .figure,
+      .code {
         padding: 2rem 0;
 
         &__image {
@@ -166,9 +167,11 @@
     &__slide-panel {
       .product-links {
         padding: 6rem 0;
+
         .button {
           display: block;
           width: 85%;
+
           @include breakpoint($small-only) {
             width: 100%;
           }
@@ -186,6 +189,7 @@
         font-family: $sans-serif;
         margin-bottom: 0.5rem;
         font-size: $helper;
+
         &:hover,
         &:focus {
           color: rgba($black, 0.5);
