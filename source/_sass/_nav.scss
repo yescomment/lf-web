@@ -16,7 +16,7 @@
   left: 0;
   transform: translateX(-350px);
   transition: transform 0.2s;
-  overflow: scroll;
+  overflow-y: auto;
   z-index: 100 !important;
 
   a.nav-top-logo {
