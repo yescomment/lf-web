@@ -200,7 +200,7 @@
 /* END RESEARCH CARDS */
 
 /* PROJECT CARDS with image, title, description */
-.card--project {
+.card--project, .card--book {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -216,6 +216,16 @@
 
 /* END PROJECT CARDS */
 
+// book cards
+.card--book {
+  .card__image {
+    // height: 25rem;
+    // min-height: 25rem;
+    background-size: cover;
+    background-position: top center;
+    padding-top: 150%;
+  }
+}
 // CARD SECTION LAYOUTS
 
 .card-section-heading {

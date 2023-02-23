@@ -33,6 +33,15 @@ top_bar: white
 
   {% if page.pretty_url == 'our-people' %}
     {% include sections/people.html people=site.data.contentful.people.people %}
+  {% elsif page.pretty_url == 'what-were-reading' %}
+    {% include components/generic-text-layout.html heading=section.heading 
+    content=page.body 
+    %}
+    {% include components/generic-card-layout.html 
+      cards=page.books
+      cards_heading=page.pinned_title
+      cards_type="book_cards"
+    %}
   {% else %}
    
     {% include components/generic-text-layout.html heading=section.heading 
