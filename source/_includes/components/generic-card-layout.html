@@ -135,14 +135,14 @@
   <div class="cards-wrapper">
     {% for card in cards %}
     <div class="card card--book">
-      <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'projects/' | relative_url }}">
+      <a class="card-link-wrapper" href="{{ card.external_url }}">
         <div
           class="card__image"
-          style="background-image: url({{card.book_image}})"
+          style="background-image: url({{card.cover_image.url}})"
         ></div>
         <div class="card__detail">
-          <span class="card__title">{{ card.book_title }}</span>
-          <span class="card__description">{{ card.book_author }}</span>
+          <span class="card__title external-link">{{ card.title }}</span>
+          <span class="card__description">{{ card.author }}</span>
         </div>
       </a>
     </div>
