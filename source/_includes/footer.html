@@ -2,7 +2,7 @@
   <div class="row expanded footer">
     <div class="column large-5 small-12">
       <img class="footer--logo" src="{{ '/images/ec-logo.svg' | relative_url }}" alt="Engelberg Center logo">
-      <p class="footer--about">The Engelberg Center on Innovation Law & Policy at NYU School of Law provides a unique environment where scholars can examine the key drivers of innovation as well as the law and policy that best support innovation.</p>
+      <div class="footer--about">{{ site.data.contentful.index.index[0].footer_blurb | markdownify }}</div>
     </div>
     <div class="column large-4 large-offset-1 small-12">
       <span class="footer--section-title">Join Our Mailing List</span>
@@ -28,11 +28,9 @@
   <div class="row expanded">
     <div class="column large-10 small-12">
       <span class="copyright--top-text">Engelberg Center on Innovation Law & Policy</span>
-      <span class="copyright--bottom-text">
-        <span>139 MacDougal Street Room 408, New York, NY 10012</span>
-        <span class="copyright--bottom-text__number"><a href="mailto:engelberg.center@nyu.edu" class="link--primary">engelberg.center@nyu.edu</a></span> 
-        <span><a href="https://twitter.com/nyuengelberg" class="link--primary">@nyuengelberg</a></span>
-      </span>
+      <div class="copyright--bottom-text">
+        {{ site.data.contentful.index.index[0].footer_contact | markdownify }}
+      </div>
     </div>
     <div class="column large-2 small-12">
       <a href="https://www.law.nyu.edu/"><img class="footer--logo" src="{{ '/images/nyu-logo.svg' | relative_url }}" alt="New York University logo"></a>
