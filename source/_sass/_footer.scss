@@ -216,20 +216,20 @@ footer {
   }
 
   &--bottom-text {
-    display: block !important;
-
-    &__number {
-      padding-right: 10px;
-      padding-left: 10px;
-
-      &::before {
-        content: "|";
-        padding-right: 10px;
+    table {
+      color: $white;
+      font-family: $serif;
+      font-size: $p;
+      a {
+        @include markdown-primary-links;
       }
-
-      &::after {
-        content: "|";
-        padding-left: 10px;
+      tr  {
+        td:not(:first-of-type) {
+          &:before {
+            content: '|';
+            margin: 10px;
+          }
+        }
       }
     }
   }
