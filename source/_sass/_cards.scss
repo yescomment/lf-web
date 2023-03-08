@@ -199,6 +199,15 @@
 
 /* END RESEARCH CARDS */
 
+/* PROJECT NEWS CARDS */
+.card--project-news {
+ .card__icon {
+    height: 1rem;
+    background-repeat: no-repeat;
+  }
+}
+/* END PROJECT NEWS CARDS */
+
 /* PROJECT CARDS with image, title, description */
 .card--project, .card--book {
   display: flex;

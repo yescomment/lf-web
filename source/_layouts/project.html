@@ -13,7 +13,7 @@ seo_image_path: #'/images/media/filename.jpg'
   <div class="column large-4 medium-12 small-12">
     <div class="project__type">{{ "Engelberg Center Project"}}</div>
     <h1>{{ page.title }}</h1>
-    <div class="project__authors">{{ page.named_people  }}</div>
+    <div class="project__authors">{{ page.named_people }}</div>
     <div class="button-container">
       <a href="{{ page.button_url }}" class="button button--full">{{page.button_text}}</a>
     </div>
@@ -33,5 +33,13 @@ seo_image_path: #'/images/media/filename.jpg'
     cards_link_to="outputs"
     cards_link_text="All Research"
   %}
-
+  {% if page.related_news and page.related_news.size != 0 %}
+    {% include components/generic-card-layout.html 
+      cards=page.related_news
+      cards_type="project-news_cards"
+      cards_heading="News Related to this Project"
+      cards_link_to="news"
+      cards_link_text="All News"
+    %}
+  {% endif %}
 </main>
