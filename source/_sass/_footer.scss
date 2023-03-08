@@ -216,6 +216,26 @@ footer {
   }
 
   &--bottom-text {
+    p {
+      margin: 0;
+      color: $white;
+      font-family: $serif;
+      font-size: $p;
+      @include breakpoint($large) {
+        display: inline-block;
+      }
+      a {
+        @include markdown-primary-links;
+      }
+    }
+    p:not(:first-of-type) {
+      @include breakpoint($large) {
+        &:before {
+          content: '|';
+          margin: 10px;
+        }
+      }
+    }
     table {
       color: $white;
       font-family: $serif;
