@@ -1,7 +1,4 @@
 .generic-layout {
-  .top-section--generic {
-    padding-top: 7rem;
-  }
   padding-bottom: 10rem;
   background-color: $gray-200;
 
@@ -27,6 +24,7 @@
 }
 
 .top-section--generic {
+  padding-top: 7rem;
   background-repeat: no-repeat;
   background-size: 95%;
   background-position-x: calc(-25%);
@@ -131,5 +129,8 @@
 
   @include breakpoint($medium-only) {
     padding-top: 4rem;
+  }
+  .card-section-heading {
+    margin-top: 1rem;
   }
 }

@@ -33,12 +33,13 @@ seo_image_path: #'/images/media/filename.jpg'
     cards_link_to="outputs"
     cards_link_text="All Research"
   %}
-
-  {% include components/generic-card-layout.html 
-    cards=site.data.contentful.news.news
-    cards_type="project-news_cards"
-    cards_heading="News Related to this Project"
-    cards_link_to="news"
-    cards_link_text="All News"
-  %}
+  {% if page.related_news and page.related_news.size != 0 %}
+    {% include components/generic-card-layout.html 
+      cards=page.related_news
+      cards_type="project-news_cards"
+      cards_heading="News Related to this Project"
+      cards_link_to="news"
+      cards_link_text="All News"
+    %}
+  {% endif %}
 </main>
