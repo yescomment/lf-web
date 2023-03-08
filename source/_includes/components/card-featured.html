@@ -55,7 +55,9 @@
   </a>
   {% endif %}
   <span class="card__subtitle">{{card.subtitle}}</span>
-  <p class="card__description">{{ card.short_description }}</p>
+    <div class="card__description markdown-secondary">
+      {{ card.short_description | markdownify }}
+    </div>
   <div class="card__action">
     {% if card.external_url and card.external_url.size != 0%}
       <a href="{{ card.external_url }}" class="link link--arrow">
