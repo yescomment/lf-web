@@ -80,7 +80,7 @@ a.link--primary {
   @include markdown-primary-links;
 }
 
-a.external-link {
+a.external-link, span.external-link {
   &:after {
     content: 'open_in_new';
     @extend .u-material-icons;
