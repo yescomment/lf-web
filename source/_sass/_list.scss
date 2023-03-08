@@ -208,6 +208,11 @@
     &__description {
       font-family: $serif;
     }
+    &__meta {
+      span {
+        padding: 4px 0;
+      }
+    }
   }
 }
 
