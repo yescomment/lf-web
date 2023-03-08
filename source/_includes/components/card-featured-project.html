@@ -29,7 +29,9 @@
   {% if card.subtitle %}
   <span class="card__subtitle">{{card.subtitle}}</span>
   {% endif %}
-  <p class="card__description">{{ card.short_description }}</p>
+  <div class="card__description markdown-secondary">
+    {{ card.short_description | markdownify}}
+  </div>
   <div class="card__action">
     <a href="{{ card.pretty_url | prepend: '/projects/' | relative_url }}" class="link link--arrow">
       {{ 'Read More' }}
