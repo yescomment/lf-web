@@ -29,6 +29,7 @@
   background-size: 95%;
   background-position-x: calc(-25%);
   background-position-y: calc(25%);
+
   @include breakpoint($medium-only) {
     background-image: none !important;
   }
@@ -110,12 +111,15 @@
 }
 
 .generic-body-2-col {
+
   p,
   figure,
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  ol,
+  ul {
     margin-left: calc(100% / 3);
 
     @include breakpoint($medium-only) {
@@ -130,6 +134,7 @@
   @include breakpoint($medium-only) {
     padding-top: 4rem;
   }
+
   .card-section-heading {
     margin-top: 1rem;
   }

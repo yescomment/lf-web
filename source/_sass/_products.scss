@@ -283,6 +283,10 @@
   .row {
     padding: 0 !important;
   }
+
+  a {
+    @include markdown-primary-links;
+  }
 }
 
 .no-padding {
