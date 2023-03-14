@@ -48,7 +48,8 @@
 .card--event,
 .card--research,
 .card--project,
-.card--people {
+.card--people,
+.card--book {
   &:hover {
     background-color: $purple-100;
     color: $white;
@@ -201,15 +202,17 @@
 
 /* PROJECT NEWS CARDS */
 .card--project-news {
- .card__icon {
+  .card__icon {
     height: 1rem;
     background-repeat: no-repeat;
   }
 }
+
 /* END PROJECT NEWS CARDS */
 
 /* PROJECT CARDS with image, title, description */
-.card--project, .card--book {
+.card--project,
+.card--book {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -228,12 +231,14 @@
 // book cards
 .card--book {
   margin: 2rem 0;
+
   .card__image {
     background-size: cover;
     background-position: top center;
     padding-top: 150%;
   }
 }
+
 // CARD SECTION LAYOUTS
 
 .card-section-heading {
@@ -322,6 +327,7 @@
 }
 
 .card {
+
   // global card styles
   .card__detail {
     padding: 1rem 2rem;
@@ -346,7 +352,7 @@
   }
 
   span,
-  .card__author > p {
+  .card__author>p {
     font-family: $sans-serif;
     font-weight: 700;
     display: block;
@@ -430,6 +436,7 @@
 // FEATURED CARDS
 .card--featured {
   padding: 2rem;
+
   .card__meta {
     display: flex;
     justify-content: space-between;
@@ -461,9 +468,11 @@
       display: flex;
       flex-direction: column;
       @include all_caps_text;
+
       .card__author {
         margin: 0;
       }
+
       .card__author p {
         margin: 0;
         font-size: 1rem;
