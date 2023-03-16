@@ -1,0 +1,9 @@
+---
+layout: default
+title: Engelberg Center on Innovation Law & Policy
+description: The Engelberg Center on Innovation Law & Policy at NYU School of Law examines the key drivers of innovation as well as the law and policy that best support innovation.
+top_bar: no-logo
+---
+
+{% assign paper = site.data.contentful.product.product | where: "sys.id", "1xszGim2thVBhv6OWBj2pN" | first %}
+{{ paper.markdown_test_field | markdownify }}

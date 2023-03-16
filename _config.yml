@@ -66,6 +66,7 @@ contentful:
     - product:
         space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
         access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        environment: test
         base_path: ./source
         destination: /contentful
         all_entries: true

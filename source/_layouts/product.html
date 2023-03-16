@@ -50,8 +50,9 @@ top_bar: gray
   <section class="page-section section--light-gray no-padding">
     <div class="row expanded">
       <div class="column large-8 medium-12 small-12 product__left-column">
-        {% if page.body %}
-          {{ page.body | rich_text_to_html }}
+
+        {% if page.markdown_test_field %}
+        {{ page.markdown_test_field | markdownify }}
         {% endif %}
       </div>
       <div class="column product__slide-panel">
@@ -73,9 +74,9 @@ top_bar: gray
               <button type="button" class="close-panel"><i class="material-icons">close</i></button>
             </div>
             <div class="slide-panel__content">
-              {% if page.body %}
+              <!-- {% if page.body %}
                 {{ page.body | extract_footnotes_from_rich_text }}
-              {% endif %}
+              {% endif %} -->
             </div>
           </div>
         </div>

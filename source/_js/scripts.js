@@ -12,6 +12,7 @@ import ProductFilter from './product-filter';
 // import TwitterFetcher from './twitter-fetcher';
 import NewsFilters from './news-filter';
 import EventsFilter from './events-filter';
+import FootnotesTest from './footnotes-test'
 
 Modal.init();
 Nav.init();
@@ -22,7 +23,8 @@ Utils.markdownLinksNewPage();
 
 if (window.location.pathname.includes('/outputs/')) {
   if (document.querySelector('.product-page')) {
-    Footnotes.init();
+    // Footnotes.init();
+    FootnotesTest.init();
     FixedNav.init();
     SlidePanel.init();
 
