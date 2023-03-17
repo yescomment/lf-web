@@ -1,5 +1,5 @@
 // test
-.product-page.footnotes {display: none;}
+// .product-page.footnotes {display: none;}
 
 .slide-panel,
 .mobile-slide-nav {
@@ -131,6 +131,7 @@ button.close-panel {
 }
 
 .footnote-container {
+  a[role="doc-backlink"] { display: none; }
   margin: 1rem 0 2rem 0;
 
   @include breakpoint($medium) {

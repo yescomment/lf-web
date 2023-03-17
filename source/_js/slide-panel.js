@@ -7,8 +7,14 @@ const SlidePanel = {
 
     Array.prototype.slice.call(footnotes).forEach(footnote => {
       footnote.addEventListener('click', () => {
-        SlidePanel.currentFootnote = footnote.id;
-        SlidePanel.scrollToFootnoteInsidePanel(footnote.id);
+        let panelFootnoteId = footnote.id.replace('ref','');
+        // debugger
+
+        // "fnref:1"
+        // fn:3
+
+        SlidePanel.currentFootnote = panelFootnoteId
+        SlidePanel.scrollToFootnoteInsidePanel(panelFootnoteId);
         slidePanel.classList.add('slide-panel--is-visible');
         overlay.classList.add('js-active');
       });
