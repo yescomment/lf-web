@@ -113,7 +113,7 @@ const FixedNav = {
     });
   },
   populateSectionLinks() {
-    const headers = document.querySelectorAll('.heading');
+    const headers = document.querySelectorAll('.product_body > h1, h2, h3, h4, h5, h6'); 
     const sectionLinkColumn = document.querySelector('.section-link-column');
     const valueArray = [];
     let counter = 0;

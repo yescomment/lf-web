@@ -1,5 +1,3 @@
-const { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } = require('node-html-markdown');
-
 const FootnotesTest = {
   formatFootnote(footnote) {
 

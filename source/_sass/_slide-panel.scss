@@ -1,5 +1,10 @@
-// test
-// .product-page.footnotes {display: none;}
+.product_body {
+  // hide generated footnotes section
+  h3#notes, hr:last-of-type {
+    display: none;
+  }
+
+}
 
 .slide-panel,
 .mobile-slide-nav {
@@ -80,18 +85,15 @@
   right: 0rem;
   transform: translate3d(100%, 0, 0);
 
-  @media all and (-ms-high-contrast: none),
-  (-ms-high-contrast: active) {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     /* IE10+ CSS styles go here */
     width: 25%;
   }
-
 }
 
 .slide-panel--from-left .mobile-slide-nav__container {
   left: 0;
   transform: translate3d(-100%, 0, 0);
-
 }
 
 .slide-panel--from-bottom .slide-panel__container {
@@ -131,7 +133,9 @@ button.close-panel {
 }
 
 .footnote-container {
-  a[role="doc-backlink"] { display: none; }
+  a[role='doc-backlink'] {
+    display: none;
+  }
   margin: 1rem 0 2rem 0;
 
   @include breakpoint($medium) {
@@ -155,7 +159,6 @@ button.close-panel {
   // }
 
   &.active-footnote {
-
     p,
     a {
       color: $black !important;
