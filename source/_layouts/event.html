@@ -38,7 +38,7 @@ seo_image_path: #'/images/media/filename.jpg'
     <div class="column large-offset-1 large-4 medium-12 small-12 event__sidebar-body no-padding markdown-content">
       {% for item in page.event_media %}
         <figure>
-          {% assign alt_desc = item.description | replace: '"', '' %}
+          {% assign alt_desc = item.description | replace: '"', '' | replace: "'", '' %}
           <img src="{{ item.url }}" alt="{{ alt_desc }}">
           <figcaption class="event-media-desc">{{ item.description }}</figcaption>
         </figure>
