@@ -74,7 +74,7 @@ const EventsFilter = {
 
     upcomingEvents.forEach(event => {
       const eventDate = new Date(event.getAttribute('data-event-start'));
-      if (eventDate.getTime() < currentDate.getTime()) {
+      if (eventDate.getTime() + 1 * 24 * 60 * 60 * 1000 < currentDate.getTime()) {
         event.classList.add('not-visible');
       } else {
         event.classList.remove('not-visible');
@@ -83,7 +83,7 @@ const EventsFilter = {
     this.handleNoUpcomingEvents();
     pastEvents.forEach(event => {
       const eventDate = new Date(event.getAttribute('data-event-start'));
-      if (eventDate.getTime() > currentDate.getTime()) {
+      if (eventDate.getTime() + 1 * 24 * 60 * 60 * 1000 > currentDate.getTime()) {
         event.classList.add('not-visible');
       } else {
         event.classList.remove('not-visible');
