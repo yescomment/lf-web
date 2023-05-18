@@ -33,8 +33,8 @@
     </div>
  
     <div class="card__authors">
-      {% if full_author %}
-        <span class="card__author">{{ full_author | markdownify }}</span>
+      {% if card.full_author %}
+        <span class="card__author">{{ card.full_author | markdownify }}</span>
       {% else %}
         {% for sys in card.engelberg_author %}
           {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
