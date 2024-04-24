@@ -1,7 +1,26 @@
 require_relative './markdownify_yaml.rb'
+# require 'byebug'
 
 module UITemplate
+  # byebug
   include MarkdownifyYAML
+
+  def create_chart_body(chart_title, chart_type, chart_markdown)
+    case chart_type
+      when 'Pie'
+        "<div class=\"d3-chart d3-pie-chart\" id=\"#{Jekyll::Utils.slugify(chart_title, :mode => nil)}\">
+          #{markdownify_yaml(chart_markdown)}
+        </div>
+        "
+      when 'Stacked Vertical Bar'
+        "<div class=\"d3-chart d3-bar-chart\" id=\"#{Jekyll::Utils.slugify(chart_title, :mode => nil)}\">
+          #{markdownify_yaml(chart_markdown)}
+        </div>
+        "
+      else
+        puts "The chart type #{type} is not yet supported"
+      end
+  end
   
   def create_footnote_html(footnote_id)
     "<sup tabindex=3 class=\"footnote\" id=#{footnote_id}></sup>"

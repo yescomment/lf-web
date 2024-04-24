@@ -67,6 +67,7 @@ contentful:
         space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
         access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
         base_path: ./source
+        environment: test
         destination: /contentful
         all_entries: true
         cda_query:
@@ -74,6 +75,18 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
+    - chart:
+        space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
+        access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        environment: test
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: chart
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false          
     - project:
         space: ENV_ENGELBERG_CONTENTFUL_SPACE_ID
         access_token: ENV_ENGELBERG_CONTENTFUL_ACCESS_TOKEN

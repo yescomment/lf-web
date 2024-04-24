@@ -1,6 +1,6 @@
 require 'rich_text_renderer'
 require_relative './ui_template.rb'
-
+require 'byebug'
 class EmbeddedInlineEntryRenderer < RichTextRenderer::BaseNodeRenderer
   include UITemplate
 
@@ -80,6 +80,11 @@ class EmbeddedEntryRenderer < RichTextRenderer::BaseNodeRenderer
         body = entry['code'] || ''
         caption = entry['caption'] || ''
         create_code_html(title, body, caption)
+      when 'chart'
+        chart_title = entry['title']
+        chart_type = entry['chart_type']
+        chart_markdown = entry['markdown_table']
+        create_chart_body(chart_title, chart_type, chart_markdown)
       else
         puts "Can't render embedded entry"
     end

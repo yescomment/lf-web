@@ -12,6 +12,7 @@ import ProductFilter from './product-filter';
 // import TwitterFetcher from './twitter-fetcher';
 import NewsFilters from './news-filter';
 import EventsFilter from './events-filter';
+import Chart from './chart';
 
 Modal.init();
 Nav.init();
@@ -57,3 +58,5 @@ if (window.location.pathname.match(/events\/?$/gm)) {
 // if (window.location.pathname === '/' || window.location.pathname === '/engelberg/') {
 //   TwitterFetcher.init();
 // }
+
+Chart.init()
