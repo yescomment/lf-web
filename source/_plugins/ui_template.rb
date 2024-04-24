@@ -1,8 +1,6 @@
 require_relative './markdownify_yaml.rb'
-# require 'byebug'
 
 module UITemplate
-  # byebug
   include MarkdownifyYAML
 
   def create_chart_body(chart_title, chart_type, chart_markdown)
@@ -18,7 +16,7 @@ module UITemplate
         </div>
         "
       else
-        puts "The chart type #{type} is not yet supported"
+        puts "The chart type #{chart_type} is not yet supported"
       end
   end
   
