@@ -159,10 +159,10 @@ const Chart = {
     const headers = Object.keys(data[0]);
 
     // begin vars
-    let chartAttrs = this.getPieChartAttributes();
+    const chartAttrs = this.getPieChartAttributes();
 
     // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-    let radius = Math.min(chartAttrs.width, chartAttrs.height) / 2 - chartAttrs.margin;
+    const radius = Math.min(chartAttrs.width, chartAttrs.height) / 2 - chartAttrs.margin;
 
     // Compute the position of each group on the pie
     const pie = d3.pie().value(d => {
@@ -201,7 +201,36 @@ const Chart = {
       .join('path')
       .attr('fill', (d, i) => chartAttrs.color(i))
       .attr('d', arc)
-      .attr('title', d => d[headers[0]]);
+      .attr('title', d => d[headers[0]])
+      .attr('data-item', d => d.index)
+      .on('mouseover', (e, d) => {
+        const decendents = Array.prototype.slice.call(e.target.parentNode.children);
+        decendents.forEach(child => {
+          if (parseInt(child.getAttribute('data-item')) !== d.index) {
+            d3.select(child)
+              .transition()
+              .attr('opacity', '.4');
+          }
+        });
+        document.querySelectorAll(`.pie-legend-item--${chart.id}`).forEach(item => {
+          if (parseInt(item.getAttribute('data-item')) !== d.index) {
+            item.style.opacity = '.4';
+          }
+        });
+      })
+      .on('mouseout', (e, d) => {
+        const decendents = Array.prototype.slice.call(e.target.parentNode.children);
+        decendents.forEach(child => {
+          d3.select(child)
+            .transition()
+            .attr('opacity', '1');
+        });
+        document.querySelectorAll(`.pie-legend-item--${chart.id}`).forEach(item => {
+          if (parseInt(item.getAttribute('data-item')) !== d.index) {
+            item.style.opacity = '1';
+          }
+        });
+      });
 
     svg
       .append('g')
@@ -212,12 +241,22 @@ const Chart = {
       .attr('opacity', '.3')
       .attr('stroke-width', '1px')
       .attr('fill', 'none')
+      .attr('data-item', d => d.index)
+      .attr('class', `pie-legend-item--${chart.id}`)
       .attr('points', d => {
         const pos = arcLabel.centroid(d);
         const pieCenter = arc.centroid(d);
         pos[0] = chartAttrs.labelRadius * 1.3 * (midAngle(d) < Math.PI ? 1 : -1);
         // return [pieCenter, arcLabel.centroid(d), pos];
         return [arcLabel.centroid(d), pos];
+      })
+      .on('mouseover', (e, d) => {
+        highlightLegendItems(d.index);
+        highlightPaths(d.index);
+      })
+      .on('mouseout', (e, d) => {
+        removeLegendHighlight();
+        removePathHighlight();
       });
 
     svg
@@ -228,6 +267,8 @@ const Chart = {
       .selectAll('text')
       .data(pie)
       .join('text')
+      .attr('class', `pie-legend-item--${chart.id}`)
+      .attr('data-item', d => d.index)
       .attr('transform', d => {
         const pos = arcLabel.centroid(d);
         pos[0] = chartAttrs.labelRadius * 1 * (midAngle(d) < Math.PI ? 0.89 : -1.3);
@@ -237,6 +278,14 @@ const Chart = {
       .attr('dy', '-5')
       .text(d => {
         return d.data[headers[0]];
+      })
+      .on('mouseover', (e, d) => {
+        highlightLegendItems(d.index);
+        highlightPaths(d.index);
+      })
+      .on('mouseout', (e, d) => {
+        removeLegendHighlight();
+        removePathHighlight();
       });
 
     svg
@@ -265,7 +314,17 @@ const Chart = {
       .append('text')
       .text(d => d.data.number_of_cases)
       .attr('transform', d => `translate(${arcLabel.centroid(d)})`)
-      .style('font-size', 20);
+      .attr('class', `pie-legend-item--${chart.id}`)
+      .attr('data-item', d => d.index)
+      .style('font-size', 20)
+      .on('mouseover', (e, d) => {
+        highlightLegendItems(d.index);
+        highlightPaths(d.index);
+      })
+      .on('mouseout', (e, d) => {
+        removeLegendHighlight();
+        removePathHighlight();
+      });
 
     // Percentage
     svg
@@ -283,7 +342,17 @@ const Chart = {
       })
       .attr('text-anchor', d => (arc(d) < Math.PI ? 'start' : 'end'))
       .text(d => `${Math.round((d.endAngle - d.startAngle) / (2 * Math.PI) * 100 * 10) / 10}%`)
-      .attr('dy', '15');
+      .attr('class', `pie-legend-item--${chart.id}`)
+      .attr('data-item', d => d.index)
+      .attr('dy', '15')
+      .on('mouseover', (e, d) => {
+        highlightLegendItems(d.index);
+        highlightPaths(d.index);
+      })
+      .on('mouseout', (e, d) => {
+        removeLegendHighlight();
+        removePathHighlight();
+      });
 
     // Circle dot
     svg
@@ -298,6 +367,47 @@ const Chart = {
         const pos = arcLabel.centroid(d);
         return `translate(${pos})`;
       });
+
+    let legendItems = document.getElementsByClassName(`pie-legend-item--${chart.id}`);
+    let legendItemsArray = Array.prototype.slice.call(legendItems);
+
+    const highlightLegendItems = chartData => {
+      legendItemsArray.forEach(item => {
+        if (parseInt(item.getAttribute('data-item')) !== chartData) {
+          item.style.opacity = '.4';
+        }
+      });
+    };
+
+    const highlightPaths = chartData => {
+      d3.select(`#${chart.id}-chart`)
+        .selectAll('path')
+        .each(function (d, i) {
+          if (d.index !== chartData) {
+            d3.select(this)
+              .transition()
+              .attr('opacity', '.4');
+          }
+        });
+    };
+
+    const removePathHighlight = () => {
+      d3.select(`#${chart.id}-chart`)
+        .selectAll('path')
+        .each(function (d, i) {
+          d3.select(this)
+            .transition()
+            .attr('opacity', '1');
+        });
+    };
+
+    const removeLegendHighlight = () => {
+      legendItemsArray.forEach(item => {
+        legendItemsArray.forEach(item => {
+          item.style.opacity = '1';
+        });
+      });
+    };
   },
   /* pie chart methods start */
   getPieChartAttributes() {
