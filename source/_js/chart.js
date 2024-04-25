@@ -70,6 +70,7 @@ const Chart = {
     this.appendChartContainer(chart);
 
     let chartAttrs = this.getBarChartAttributes();
+
     // create svg and append under the table
 
     let svg = d3
@@ -77,6 +78,7 @@ const Chart = {
       .append('svg')
       .attr('width', chartAttrs.width + chartAttrs.margin.left + chartAttrs.margin.right)
       .attr('height', chartAttrs.height + chartAttrs.margin.top + chartAttrs.margin.bottom)
+      .attr('viewBox', '-20 180 900 260')
       .append('g')
       .attr('transform', 'translate(' + chartAttrs.margin.left + ',' + chartAttrs.margin.top + ')');
 
@@ -146,10 +148,20 @@ const Chart = {
       .attr('width', x.bandwidth());
   },
   getBarChartAttributes() {
+    const defaultWidth = 800;
+    const defaultHeight = 600;
+
+    const margin = {
+      top: 10,
+      right: 10,
+      bottom: 20,
+      left: 40
+    };
+
     return {
-      margin: { top: 10, right: 10, bottom: 20, left: 40 },
-      width: 928,
-      height: 500
+      margin,
+      width: defaultWidth,
+      height: defaultHeight
     };
   },
   createPieChart(chart) {
@@ -416,7 +428,7 @@ const Chart = {
       height: 450,
       innerRadius: 0,
       outerRadius: 200,
-      labelRadius: 300,
+      labelRadius: 290,
       color: d3
         .scaleOrdinal()
         .domain([0, 6])
@@ -432,9 +444,9 @@ const Chart = {
     chartLocation.insertAdjacentElement('beforebegin', visualizationContainer);
   },
   /* pie chart methods end */
-  createChart(chart) {
-    let jsonData = this.htmlTableToJson(chart);
-  },
+  // createChart(chart) {
+  //   let jsonData = this.htmlTableToJson(chart);
+  // },
   init() {
     this.gatherTables();
   }
