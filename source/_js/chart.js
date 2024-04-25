@@ -79,6 +79,7 @@ const Chart = {
       .attr('width', chartAttrs.width + chartAttrs.margin.left + chartAttrs.margin.right)
       .attr('height', chartAttrs.height + chartAttrs.margin.top + chartAttrs.margin.bottom)
       .attr('viewBox', '-20 180 900 260')
+      .attr('class', 'barchart-svg')
       .append('g')
       .attr('transform', 'translate(' + chartAttrs.margin.left + ',' + chartAttrs.margin.top + ')');
 
