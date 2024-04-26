@@ -1,6 +1,6 @@
 const MdChart = {
   addToggle() {
-    const tables = document.querySelectorAll('.table__body');
+    const tables = document.querySelectorAll('.table__body--chart');
     const htmlButtonString = `<button class="markdown-table-toggle"><i class="material-icons">expand_more</i>Show chart data</button>`;
     tables.forEach(item => {
       item.insertAdjacentHTML('beforebegin', htmlButtonString);
