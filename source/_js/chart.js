@@ -63,7 +63,7 @@ const Chart = {
     let headers = data.columns;
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
-    let groups = d3.map(data, function (data) {
+    let groups = d3.map(data, function(data) {
       return data[headers[0]]; //requires the x axis to be the first column
     });
 
@@ -127,23 +127,23 @@ const Chart = {
       .data(stackedData)
       .enter()
       .append('g')
-      .attr('fill', function (d) {
+      .attr('fill', function(d) {
         return color(d);
       })
       .selectAll('rect')
       // enter a second time = loop subgroup per subgroup to add all rectangles
-      .data(function (d) {
+      .data(function(d) {
         return d;
       })
       .enter()
       .append('rect')
-      .attr('x', function (d) {
+      .attr('x', function(d) {
         return x(d.data[headers[0]]);
       })
-      .attr('y', function (d) {
+      .attr('y', function(d) {
         return y(d[1]);
       })
-      .attr('height', function (d) {
+      .attr('height', function(d) {
         return y(d[0]) - y(d[1]);
       })
       .attr('width', x.bandwidth());
@@ -168,9 +168,18 @@ const Chart = {
   createPieChart(chart) {
     this.appendChartContainer(chart);
 
-    const data = this.htmlTableToJson(chart);
-    const headers = Object.keys(data[0]);
+    let csvData = this.htmlTableToCsv(chart);
 
+    let data = Object.assign(d3.csvParse(csvData, d3.autoType));
+
+    let headers = data.columns;
+
+
+
+
+    const color = d3.scaleOrdinal()
+      .domain(headers)
+      .range(d3.schemeTableau10);
     // begin vars
     const chartAttrs = this.getPieChartAttributes();
 
@@ -212,7 +221,9 @@ const Chart = {
       .selectAll('path')
       .data(pie)
       .join('path')
-      .attr('fill', (d, i) => chartAttrs.color(i))
+      .attr('fill', (d, i) => {
+        return color(i);
+      })
       .attr('d', arc)
       .attr('title', d => d[headers[0]])
       .attr('data-item', d => d.index)
@@ -354,7 +365,7 @@ const Chart = {
         return `translate(${pos})`;
       })
       .attr('text-anchor', d => (arc(d) < Math.PI ? 'start' : 'end'))
-      .text(d => `${Math.round((d.endAngle - d.startAngle) / (2 * Math.PI) * 100 * 10) / 10}%`)
+      .text(d => `${Math.round(((d.endAngle - d.startAngle) / (2 * Math.PI)) * 100 * 10) / 10}%`)
       .attr('class', `pie-legend-item--${chart.id}`)
       .attr('data-item', d => d.index)
       .attr('dy', '15')
@@ -395,7 +406,7 @@ const Chart = {
     const highlightPaths = chartData => {
       d3.select(`#${chart.id}-chart`)
         .selectAll('path')
-        .each(function (d, i) {
+        .each(function(d, i) {
           if (d.index !== chartData) {
             d3.select(this)
               .transition()
@@ -407,7 +418,7 @@ const Chart = {
     const removePathHighlight = () => {
       d3.select(`#${chart.id}-chart`)
         .selectAll('path')
-        .each(function (d, i) {
+        .each(function(d, i) {
           d3.select(this)
             .transition()
             .attr('opacity', '1');
@@ -429,11 +440,7 @@ const Chart = {
       height: 450,
       innerRadius: 0,
       outerRadius: 200,
-      labelRadius: 290,
-      color: d3
-        .scaleOrdinal()
-        .domain([0, 6])
-        .range(['#F1892D', '#0EAC51', '#0077C0', '#7E349D', '#DA3C78', '#E74C3C'])
+      labelRadius: 290
     };
   },
   appendChartContainer(chart) {
