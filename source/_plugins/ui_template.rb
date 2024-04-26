@@ -6,13 +6,13 @@ module UITemplate
   def create_chart_body(chart_title, chart_type, chart_markdown)
     case chart_type
       when 'Pie'
-        "<div class=\"d3-chart d3-pie-chart\" id=\"#{Jekyll::Utils.slugify(chart_title, :mode => nil)}\">
-          #{markdownify_yaml(chart_markdown)}
+        "<div class=\"d3-chart d3-pie-chart table\" id=\"#{Jekyll::Utils.slugify(chart_title, :mode => nil)}\">
+          <div class=\"table__body\">#{markdownify_yaml(chart_markdown)}</div>
         </div>
         "
       when 'Stacked Vertical Bar'
-        "<div class=\"d3-chart d3-bar-chart\" id=\"#{Jekyll::Utils.slugify(chart_title, :mode => nil)}\">
-          #{markdownify_yaml(chart_markdown)}
+        "<div class=\"d3-chart d3-bar-chart table\" id=\"#{Jekyll::Utils.slugify(chart_title, :mode => nil)}\">
+          <div class=\"table__body\">#{markdownify_yaml(chart_markdown)}</div>
         </div>
         "
       else

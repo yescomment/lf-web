@@ -13,6 +13,7 @@ import ProductFilter from './product-filter';
 import NewsFilters from './news-filter';
 import EventsFilter from './events-filter';
 import Chart from './chart';
+import MdChart from './md-chart';
 
 Modal.init();
 Nav.init();
@@ -59,4 +60,5 @@ if (window.location.pathname.match(/events\/?$/gm)) {
 //   TwitterFetcher.init();
 // }
 
-Chart.init()
+Chart.init();
+MdChart.init();
