@@ -153,7 +153,6 @@ const Chart = {
 
     // append legend container
     let legendContainer = this.appendLegendContainer(chart);
-    console.log(legendContainer, subgroups);
 
     subgroups.forEach(group => {
       let buttonEl = document.createElement('button');
@@ -163,50 +162,6 @@ const Chart = {
       buttonEl.style.backgroundColor = color(group)
       legendContainer.insertAdjacentElement('beforeend', buttonEl);
     });
-
-    // let legendSvg = d3
-    //   .select(`#${chart.id}-legend`)
-    //   .append('svg')
-    //   .attr('width', chartAttrs.width + chartAttrs.margin.left + chartAttrs.margin.right)
-    //   .attr('height', chartAttrs.height + chartAttrs.margin.top + chartAttrs.margin.bottom)
-    //   .attr('viewBox', '-20 180 900 260');
-    // // create legend
-    // var size = 20;
-    // legendSvg
-    //   .selectAll('mydots')
-    //   .data(subgroups)
-    //   .enter()
-    //   .append('rect')
-    //   .attr('x', 100)
-    //   .attr('y', function(d, i) {
-    //     return 100 + i * (size + 5);
-    //   }) // 100 is where the first dot appears. 25 is the distance between dots
-    //   .attr('width', size)
-    //   .attr('height', size)
-    //   .style('fill', function(d, i) {
-    //     console.log(d, 'dots fill');
-    //     return color(d);
-    //   });
-
-    // // Add one dot in the legend for each name.
-    // legendSvg
-    //   .selectAll('mylabels')
-    //   .data(subgroups)
-    //   .enter()
-    //   .append('text')
-    //   .attr('x', 100 + size * 1.2)
-    //   .attr('y', function(d, i) {
-    //     return 100 + i * (size + 5) + size / 2;
-    //   }) // 100 is where the first dot appears. 25 is the distance between dots
-    //   .style('fill', function(d, i) {
-    //     console.log(d, 'legend fill');
-    //     return color(d);
-    //   })
-    //   .text(function(d) {
-    //     return d;
-    //   })
-    //   .attr('text-anchor', 'left')
-    //   .style('alignment-baseline', 'middle');
   },
   getBarChartAttributes() {
     const defaultWidth = 800;
@@ -282,6 +237,7 @@ const Chart = {
       .data(pie)
       .join('path')
       .attr('fill', (d, i) => {
+        console.log(i)
         return color(i);
       })
       .attr('d', arc)
@@ -496,43 +452,16 @@ const Chart = {
     // generate legend
     const legendKeys = data.map(d => d[Object.keys(d)[0]]);
 
-    // Add one dot in the legend for each name.
+    let legendContainer = this.appendLegendContainer(chart);
 
-    var size = 20;
-
-    svg
-      .selectAll('mydots')
-      .data(legendKeys)
-      .enter()
-      .append('rect')
-      .attr('x', 100)
-      .attr('y', function(d, i) {
-        return 100 + i * (size + 5);
-      }) // 100 is where the first dot appears. 25 is the distance between dots
-      .attr('width', size)
-      .attr('height', size)
-      .style('fill', function(d, i) {
-        return color(i);
-      });
-
-    // Add one dot in the legend for each name.
-    svg
-      .selectAll('mylabels')
-      .data(legendKeys)
-      .enter()
-      .append('text')
-      .attr('x', 100 + size * 1.2)
-      .attr('y', function(d, i) {
-        return 100 + i * (size + 5) + size / 2;
-      }) // 100 is where the first dot appears. 25 is the distance between dots
-      .style('fill', function(d) {
-        return color(d);
-      })
-      .text(function(d) {
-        return d;
-      })
-      .attr('text-anchor', 'left')
-      .style('alignment-baseline', 'middle');
+    legendKeys.forEach((key,i) => {
+      let buttonEl = document.createElement('button');
+      buttonEl.setAttribute('id', `${kebabCase(key)}-button`);
+      buttonEl.setAttribute('class', 'legend-button');
+      buttonEl.innerText = key;
+      buttonEl.style.backgroundColor = color(i)
+      legendContainer.insertAdjacentElement('beforeend', buttonEl);
+    });
   },
   /* pie chart methods start */
   getPieChartAttributes() {
