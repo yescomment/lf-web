@@ -21,3 +21,19 @@ svg {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+.legend {
+  outline: red solid 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 4rem;
+}
+.legend-button {
+  min-height: 2rem;
+  padding: 4px;
+  height: auto;
+  width: auto;
+  margin: 4px;
+  outline: red solid 1px;
+}
