@@ -474,7 +474,7 @@ const Chart = {
     };
   },
   appendLegendContainer(chart) {
-    let chartLocation = document.getElementById(chart.id);
+    let chartLocation = document.getElementById(`${chart.id}-chart`);
     let legendContainer = document.createElement('div');
     legendContainer.setAttribute('id', `${chart.id}-legend`);
     legendContainer.setAttribute('class', 'legend');
