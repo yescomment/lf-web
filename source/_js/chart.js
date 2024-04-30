@@ -472,8 +472,9 @@ const Chart = {
       legendContainer.insertAdjacentElement('beforeend', buttonEl);
     });
 
-    // Legend button click
-    const legendButtons = document.querySelectorAll('.legend-button');
+    // Highlight legend button on path mouseover
+    let legendButtons = document.getElementById(`${chart.id}-legend`).children;
+    legendButtons = Array.prototype.slice.call(legendButtons);
 
     const highlightLegendButton = chartData => {
       legendButtons.forEach(button => {
@@ -489,10 +490,11 @@ const Chart = {
       });
     };
 
-    // Legend button mouseover
+    // Highlight path on legend mouseover
     legendButtons.forEach(button => {
       button.addEventListener('mouseover', e => {
-        let buttonData = e.target.getAttribute('data-item');
+        const buttonData = e.target.getAttribute('data-item');
+        highlightLegendButton(buttonData);
 
         d3.select(`#${chart.id}-chart`)
           .selectAll('path')
@@ -505,7 +507,8 @@ const Chart = {
           });
       });
 
-      button.addEventListener('mouseout', e => {
+      button.addEventListener('mouseout', () => {
+        removeLegendButtonHighlight();
         d3.select(`#${chart.id}-chart`)
           .selectAll('path')
           .each(function (d, i) {
@@ -542,10 +545,6 @@ const Chart = {
     visualizationContainer.setAttribute('class', 'visualization');
     chartLocation.insertAdjacentElement('beforebegin', visualizationContainer);
   },
-  /* pie chart methods end */
-  // createChart(chart) {
-  //   let jsonData = this.htmlTableToJson(chart);
-  // },
   init() {
     this.gatherTables();
   }
