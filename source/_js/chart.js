@@ -64,7 +64,7 @@ const Chart = {
     let headers = data.columns;
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
-    let groups = d3.map(data, function(data) {
+    let groups = d3.map(data, function (data) {
       return data[headers[0]]; //requires the x axis to be the first column
     });
 
@@ -128,25 +128,25 @@ const Chart = {
       .data(stackedData)
       .enter()
       .append('g')
-      .attr('fill', function(d) {
+      .attr('fill', function (d) {
         console.log(d);
         // console.log(d)
         return color(d.key);
       })
       .selectAll('rect')
       // enter a second time = loop subgroup per subgroup to add all rectangles
-      .data(function(d) {
+      .data(function (d) {
         return d;
       })
       .enter()
       .append('rect')
-      .attr('x', function(d) {
+      .attr('x', function (d) {
         return x(d.data[headers[0]]);
       })
-      .attr('y', function(d) {
+      .attr('y', function (d) {
         return y(d[1]);
       })
-      .attr('height', function(d) {
+      .attr('height', function (d) {
         return y(d[0]) - y(d[1]);
       })
       .attr('width', x.bandwidth());
@@ -249,14 +249,15 @@ const Chart = {
           if (parseInt(child.getAttribute('data-item')) !== d.index) {
             d3.select(child)
               .transition()
-              .attr('opacity', '.4');
+              .attr('opacity', '0.25');
           }
         });
         document.querySelectorAll(`.pie-legend-item--${chart.id}`).forEach(item => {
           if (parseInt(item.getAttribute('data-item')) !== d.index) {
-            item.style.opacity = '.4';
+            item.style.opacity = '0.25';
           }
         });
+        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
       })
       .on('mouseout', (e, d) => {
         const decendents = Array.prototype.slice.call(e.target.parentNode.children);
@@ -270,6 +271,7 @@ const Chart = {
             item.style.opacity = '1';
           }
         });
+        removeLegendButtonHighlight();
       });
 
     svg
@@ -293,10 +295,12 @@ const Chart = {
       .on('mouseover', (e, d) => {
         highlightLegendItems(d.index);
         highlightPaths(d.index);
+        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
       })
-      .on('mouseout', (e, d) => {
+      .on('mouseout', () => {
         removeLegendHighlight();
         removePathHighlight();
+        removeLegendButtonHighlight();
       });
 
     svg
@@ -322,10 +326,12 @@ const Chart = {
       .on('mouseover', (e, d) => {
         highlightLegendItems(d.index);
         highlightPaths(d.index);
+        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
       })
-      .on('mouseout', (e, d) => {
+      .on('mouseout', () => {
         removeLegendHighlight();
         removePathHighlight();
+        removeLegendButtonHighlight();
       });
 
     svg
@@ -360,10 +366,12 @@ const Chart = {
       .on('mouseover', (e, d) => {
         highlightLegendItems(d.index);
         highlightPaths(d.index);
+        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
       })
-      .on('mouseout', (e, d) => {
+      .on('mouseout', () => {
         removeLegendHighlight();
         removePathHighlight();
+        removeLegendButtonHighlight();
       });
 
     // Percentage
@@ -388,10 +396,12 @@ const Chart = {
       .on('mouseover', (e, d) => {
         highlightLegendItems(d.index);
         highlightPaths(d.index);
+        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
       })
-      .on('mouseout', (e, d) => {
+      .on('mouseout', () => {
         removeLegendHighlight();
         removePathHighlight();
+        removeLegendButtonHighlight();
       });
 
     // Circle dot
@@ -414,7 +424,7 @@ const Chart = {
     const highlightLegendItems = chartData => {
       legendItemsArray.forEach(item => {
         if (parseInt(item.getAttribute('data-item')) !== chartData) {
-          item.style.opacity = '.4';
+          item.style.opacity = '0.25';
         }
       });
     };
@@ -422,11 +432,11 @@ const Chart = {
     const highlightPaths = chartData => {
       d3.select(`#${chart.id}-chart`)
         .selectAll('path')
-        .each(function(d, i) {
+        .each(function (d, i) {
           if (d.index !== chartData) {
             d3.select(this)
               .transition()
-              .attr('opacity', '.4');
+              .attr('opacity', '0.25');
           }
         });
     };
@@ -434,7 +444,7 @@ const Chart = {
     const removePathHighlight = () => {
       d3.select(`#${chart.id}-chart`)
         .selectAll('path')
-        .each(function(d, i) {
+        .each(function (d, i) {
           d3.select(this)
             .transition()
             .attr('opacity', '1');
@@ -443,9 +453,7 @@ const Chart = {
 
     const removeLegendHighlight = () => {
       legendItemsArray.forEach(item => {
-        legendItemsArray.forEach(item => {
-          item.style.opacity = '1';
-        });
+        item.style.opacity = '1';
       });
     };
 
@@ -454,13 +462,58 @@ const Chart = {
 
     let legendContainer = this.appendLegendContainer(chart);
 
-    legendKeys.forEach((key,i) => {
+    legendKeys.forEach((key, i) => {
       let buttonEl = document.createElement('button');
       buttonEl.setAttribute('id', `${kebabCase(key)}-button`);
       buttonEl.setAttribute('class', 'legend-button');
       buttonEl.innerText = key;
-      buttonEl.style.backgroundColor = color(i)
+      buttonEl.setAttribute('data-item', kebabCase(key));
+      buttonEl.style.backgroundColor = color(i);
       legendContainer.insertAdjacentElement('beforeend', buttonEl);
+    });
+
+    // Legend button click
+    const legendButtons = document.querySelectorAll('.legend-button');
+
+    const highlightLegendButton = chartData => {
+      legendButtons.forEach(button => {
+        if (button.getAttribute('data-item') !== chartData) {
+          button.style.opacity = '0.25';
+        }
+      });
+    };
+
+    const removeLegendButtonHighlight = () => {
+      legendButtons.forEach(button => {
+        button.style.opacity = '1';
+      });
+    };
+
+    // Legend button mouseover
+    legendButtons.forEach(button => {
+      button.addEventListener('mouseover', e => {
+        let buttonData = e.target.getAttribute('data-item');
+
+        d3.select(`#${chart.id}-chart`)
+          .selectAll('path')
+          .each(function (d, i) {
+            if (kebabCase(d.data[Object.keys(d.data)[0]]) !== buttonData) {
+              d3.select(this)
+                .transition()
+                .attr('opacity', '0.25');
+            }
+          });
+      });
+
+      button.addEventListener('mouseout', e => {
+        d3.select(`#${chart.id}-chart`)
+          .selectAll('path')
+          .each(function (d, i) {
+            d3.select(this)
+              .transition()
+              .attr('opacity', '1');
+          });
+      });
     });
   },
   /* pie chart methods start */
