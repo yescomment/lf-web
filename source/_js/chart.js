@@ -307,16 +307,20 @@ const Chart = {
     svg
       .append('g')
       .attr('font-family', 'sans-serif')
-      .attr('font-size', 12)
+      .attr('font-size', 17)
       .attr('text-anchor', 'middle')
       .attr('fill', '#000')
       .selectAll('text')
       .data(pie)
       .join('text')
-      .attr('transform', d => {
-        const pieCenter = arc.centroid(d);
-        return `translate(${pieCenter})`;
-      })
+      .attr('class', `pie-legend-item--${chart.id}`)
+      .attr('data-item', d => d.index)
+      .attr('data-title', d => kebabCase(d.data[Object.keys(d.data)[0]]))
+      .attr('transform', d => `translate(${arcLabel.centroid(d)})`)
+      // .attr('transform', d => {
+      //   const pieCenter = arc.centroid(d);
+      //   return `translate(${pieCenter})`;
+      // })
       .text(d => {
         return d[headers[1]];
       });
@@ -333,7 +337,7 @@ const Chart = {
       .attr('class', `pie-legend-item--${chart.id}`)
       .attr('data-item', d => d.index)
       .attr('data-title', d => kebabCase(d.data[Object.keys(d.data)[0]]))
-      .style('font-size', 20)
+      .style('font-size', 18)
       .on('mouseover', (e, d) => {
         addAllHighlights(d);
       })
