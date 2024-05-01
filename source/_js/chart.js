@@ -244,34 +244,10 @@ const Chart = {
       .attr('title', d => d[headers[0]])
       .attr('data-item', d => d.index)
       .on('mouseover', (e, d) => {
-        const decendents = Array.prototype.slice.call(e.target.parentNode.children);
-        decendents.forEach(child => {
-          if (parseInt(child.getAttribute('data-item')) !== d.index) {
-            d3.select(child)
-              .transition()
-              .attr('opacity', '0.25');
-          }
-        });
-        document.querySelectorAll(`.pie-legend-item--${chart.id}`).forEach(item => {
-          if (parseInt(item.getAttribute('data-item')) !== d.index) {
-            item.style.opacity = '0.25';
-          }
-        });
-        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
+        addAllHighlights(d);
       })
-      .on('mouseout', (e, d) => {
-        const decendents = Array.prototype.slice.call(e.target.parentNode.children);
-        decendents.forEach(child => {
-          d3.select(child)
-            .transition()
-            .attr('opacity', '1');
-        });
-        document.querySelectorAll(`.pie-legend-item--${chart.id}`).forEach(item => {
-          if (parseInt(item.getAttribute('data-item')) !== d.index) {
-            item.style.opacity = '1';
-          }
-        });
-        removeLegendButtonHighlight();
+      .on('mouseout', () => {
+        removeAllHighlights();
       });
 
     svg
@@ -284,6 +260,7 @@ const Chart = {
       .attr('stroke-width', '1px')
       .attr('fill', 'none')
       .attr('data-item', d => d.index)
+      .attr('data-title', d => kebabCase(d.data[Object.keys(d.data)[0]]))
       .attr('class', `pie-legend-item--${chart.id}`)
       .attr('points', d => {
         const pos = arcLabel.centroid(d);
@@ -293,14 +270,10 @@ const Chart = {
         return [arcLabel.centroid(d), pos];
       })
       .on('mouseover', (e, d) => {
-        highlightLegendItems(d.index);
-        highlightPaths(d.index);
-        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
+        addAllHighlights(d);
       })
       .on('mouseout', () => {
-        removeLegendHighlight();
-        removePathHighlight();
-        removeLegendButtonHighlight();
+        removeAllHighlights();
       });
 
     svg
@@ -313,6 +286,7 @@ const Chart = {
       .join('text')
       .attr('class', `pie-legend-item--${chart.id}`)
       .attr('data-item', d => d.index)
+      .attr('data-title', d => kebabCase(d.data[Object.keys(d.data)[0]]))
       .attr('transform', d => {
         const pos = arcLabel.centroid(d);
         pos[0] = chartAttrs.labelRadius * 1 * (midAngle(d) < Math.PI ? 0.89 : -1.3);
@@ -324,14 +298,10 @@ const Chart = {
         return d.data[headers[0]];
       })
       .on('mouseover', (e, d) => {
-        highlightLegendItems(d.index);
-        highlightPaths(d.index);
-        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
+        addAllHighlights(d);
       })
       .on('mouseout', () => {
-        removeLegendHighlight();
-        removePathHighlight();
-        removeLegendButtonHighlight();
+        removeAllHighlights();
       });
 
     svg
@@ -362,16 +332,13 @@ const Chart = {
       .attr('transform', d => `translate(${arcLabel.centroid(d)})`)
       .attr('class', `pie-legend-item--${chart.id}`)
       .attr('data-item', d => d.index)
+      .attr('data-title', d => kebabCase(d.data[Object.keys(d.data)[0]]))
       .style('font-size', 20)
       .on('mouseover', (e, d) => {
-        highlightLegendItems(d.index);
-        highlightPaths(d.index);
-        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
+        addAllHighlights(d);
       })
       .on('mouseout', () => {
-        removeLegendHighlight();
-        removePathHighlight();
-        removeLegendButtonHighlight();
+        removeAllHighlights();
       });
 
     // Percentage
@@ -392,16 +359,13 @@ const Chart = {
       .text(d => `${Math.round(((d.endAngle - d.startAngle) / (2 * Math.PI)) * 100 * 10) / 10}%`)
       .attr('class', `pie-legend-item--${chart.id}`)
       .attr('data-item', d => d.index)
+      .attr('data-title', d => kebabCase(d.data[Object.keys(d.data)[0]]))
       .attr('dy', '15')
       .on('mouseover', (e, d) => {
-        highlightLegendItems(d.index);
-        highlightPaths(d.index);
-        highlightLegendButton(kebabCase(d.data[Object.keys(d.data)[0]]));
+        addAllHighlights(d);
       })
       .on('mouseout', () => {
-        removeLegendHighlight();
-        removePathHighlight();
-        removeLegendButtonHighlight();
+        removeAllHighlights();
       });
 
     // Circle dot
@@ -410,16 +374,17 @@ const Chart = {
       .data(pie)
       .enter()
       .append('circle')
-      .style('stroke', 'gray')
-      .style('fill', 'gray')
+      .attr('stroke', '#aaa')
+      .style('fill', '#aaa')
+      .attr('data-item', d => d.index)
       .attr('r', 2)
       .attr('transform', d => {
         const pos = arcLabel.centroid(d);
         return `translate(${pos})`;
       });
 
-    let legendItems = document.getElementsByClassName(`pie-legend-item--${chart.id}`);
-    let legendItemsArray = Array.prototype.slice.call(legendItems);
+    const legendItems = document.getElementsByClassName(`pie-legend-item--${chart.id}`);
+    const legendItemsArray = Array.prototype.slice.call(legendItems);
 
     const highlightLegendItems = chartData => {
       legendItemsArray.forEach(item => {
@@ -505,10 +470,17 @@ const Chart = {
                 .attr('opacity', '0.25');
             }
           });
+
+        legendItemsArray.forEach(item => {
+          if (item.getAttribute('data-title') !== buttonData) {
+            item.style.opacity = '0.25';
+          }
+        });
       });
 
       button.addEventListener('mouseout', () => {
         removeLegendButtonHighlight();
+        removeLegendHighlight();
         d3.select(`#${chart.id}-chart`)
           .selectAll('path')
           .each(function (d, i) {
@@ -518,6 +490,18 @@ const Chart = {
           });
       });
     });
+
+    const addAllHighlights = chartData => {
+      highlightLegendItems(chartData.index);
+      highlightPaths(chartData.index);
+      highlightLegendButton(kebabCase(chartData.data[Object.keys(chartData.data)[0]]));
+    };
+
+    const removeAllHighlights = () => {
+      removeLegendHighlight();
+      removePathHighlight();
+      removeLegendButtonHighlight();
+    };
   },
   /* pie chart methods start */
   getPieChartAttributes() {
