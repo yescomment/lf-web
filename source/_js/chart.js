@@ -129,6 +129,7 @@ const Chart = {
       .enter()
       .append('g')
       .attr('data-item', d => d.index)
+      .attr('data-item-group', d => d.key)
       .attr('fill', d => color(d.key))
       .on('mouseover', (e, d) => {
         highlightPaths(e.target);
@@ -143,8 +144,6 @@ const Chart = {
       .data(d => d)
       .enter()
       .append('rect')
-      .attr('data-item-group', d => d.data[headers[0]])
-      .attr('data-item-type', d => console.log("fdsfds", d))
       .attr('x', function (d) {
         return x(d.data[headers[0]]);
       })
@@ -213,10 +212,21 @@ const Chart = {
       button.addEventListener('mouseover', e => {
         const buttonData = e.target.id;
         highlightLegendButton(buttonData);
+
+        d3.select(`#${chart.id}-chart`)
+          .selectAll('rect')
+          .each(function (d, i) {
+            if (kebabCase(this.parentNode.getAttribute('data-item-group')) !== buttonData) {
+              d3.select(this)
+                .transition()
+                .attr('opacity', '0.25');
+            }
+          });
       });
 
       button.addEventListener('mouseout', () => {
         removeLegendButtonHighlight();
+        removePathHighlight();
       });
     });
   },
