@@ -128,18 +128,23 @@ const Chart = {
       .data(stackedData)
       .enter()
       .append('g')
-      .attr('fill', function (d) {
-        console.log(d);
-        // console.log(d)
-        return color(d.key);
+      .attr('data-item', d => d.index)
+      .attr('fill', d => color(d.key))
+      .on('mouseover', (e, d) => {
+        highlightPaths(e.target);
+        highlightLegendButton(d.key);
+      })
+      .on('mouseout', () => {
+        removeLegendButtonHighlight();
+        removePathHighlight();
       })
       .selectAll('rect')
       // enter a second time = loop subgroup per subgroup to add all rectangles
-      .data(function (d) {
-        return d;
-      })
+      .data(d => d)
       .enter()
       .append('rect')
+      .attr('data-item-group', d => d.data[headers[0]])
+      .attr('data-item-type', d => console.log("fdsfds", d))
       .attr('x', function (d) {
         return x(d.data[headers[0]]);
       })
@@ -156,11 +161,63 @@ const Chart = {
 
     subgroups.forEach(group => {
       let buttonEl = document.createElement('button');
-      buttonEl.setAttribute('id', `${kebabCase(group)}-button`);
+      buttonEl.setAttribute('id', `${kebabCase(group)}`);
       buttonEl.setAttribute('class', 'legend-button');
       buttonEl.innerText = group;
       buttonEl.style.backgroundColor = color(group)
       legendContainer.insertAdjacentElement('beforeend', buttonEl);
+    });
+
+    const highlightPaths = chartData => {
+      d3.select(`#${chart.id}-chart`)
+        .selectAll('rect')
+        .each(function (d, i) {
+          if (this !== chartData) {
+            d3.select(this)
+              .transition()
+              .attr('opacity', '0.25');
+          }
+        });
+    };
+
+    const removePathHighlight = () => {
+      d3.select(`#${chart.id}-chart`)
+        .selectAll('rect')
+        .each(function () {
+          d3.select(this)
+            .transition()
+            .attr('opacity', '1');
+        });
+    };
+
+    // Highlight legend button on path mouseover
+    let legendButtons = document.getElementById(`${chart.id}-legend`).children;
+    legendButtons = Array.prototype.slice.call(legendButtons);
+
+    const highlightLegendButton = chartData => {
+      legendButtons.forEach(button => {
+        if (button.id !== kebabCase(chartData)) {
+          button.style.opacity = '0.25';
+        }
+      });
+    };
+
+    const removeLegendButtonHighlight = () => {
+      legendButtons.forEach(button => {
+        button.style.opacity = '1';
+      });
+    };
+
+    // Highlight path on legend mouseover
+    legendButtons.forEach(button => {
+      button.addEventListener('mouseover', e => {
+        const buttonData = e.target.id;
+        highlightLegendButton(buttonData);
+      });
+
+      button.addEventListener('mouseout', () => {
+        removeLegendButtonHighlight();
+      });
     });
   },
   getBarChartAttributes() {
