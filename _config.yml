@@ -162,17 +162,6 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
-    - onTopic:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: onTopic
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
     - course:
         space: ENV_CONTENTFUL_SPACE_ID
         access_token: ENV_CONTENTFUL_ACCESS_TOKEN
@@ -242,16 +231,6 @@ page_gen:
     template: 'event'
     name: 'pretty_url'
     dir: 'events'
-    customSeoImage: 'seo_image'
-    customSeoDescription: 'seo_description'
-  - data: 'data.contentful.portalPage.portalPage'
-    template: 'portal-page'
-    name: 'pretty_url'
-    dir: '/'
-  - data: 'data.contentful.onTopic.onTopic'
-    template: 'topic'
-    name: 'title'
-    dir: 'on'
     customSeoImage: 'seo_image'
     customSeoDescription: 'seo_description'
   - data: 'data.contentful.course.course'
