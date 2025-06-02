@@ -35,11 +35,8 @@ if (window.location.pathname.includes('/outputs/')) {
   }
 }
 
-if (window.location.pathname === '/what-we-do/' || window.location.pathname === '/for-students/') {
-  CustomDropdown.init();
-}
-
-if (window.location.pathname === '/engelberg/what-we-do/' || window.location.pathname === '/engelberg/for-students/') {
+if (window.location.pathname.match(/initiatives\/?$/gm)) {
+  console.log('working');
   CustomDropdown.init();
 }
 

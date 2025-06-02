@@ -1,0 +1,35 @@
+---
+layout: default
+description: Library Futures initiatves
+top_bar: white
+---
+
+<main id="main" class="student-page">
+  {% include components/nav-button.html %}
+  <div class="row expanded page-section--topic top-section section--gray" style="background-image: url({{ page.header_beam.url }})">
+    <div class="column large-5 medium-12 small-12">
+      <h1>{{ page.title }}</h1>
+      <div class="bar" style="background-image: url({{ page.bar_color.url }})"></div>
+      <div class="markdown-secondary">
+        {{ page.long_description | markdownify }}
+      </div>
+    </div>
+    <div class="column large-6 large-offset-1 medium-12 small-12">
+      <div class="topics-dropdown-container">
+          {% assign initiatves = site.data.contentful.initiative.initiative | sort: "initiative_name" %}
+          <div id="line-one">Engelberg Center on</div>
+          <p>{{initiatves}}</p>
+          <div class="custom-select" tabindex="0">
+            <select tabindex="0" class="select-test">
+              <option value="" class="current-page-selection" tabindex="0">Select a topic</option>
+              {% for item in initiatves %}
+                <option value="{{ item.link_to_page.pretty_url | slugify | relative_url }}" tabindex="0">{{ item.initiative_name }}</option>
+              {% endfor %}
+              <option value="random-select" tabindex="0">Roll the Dice!</option>
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
