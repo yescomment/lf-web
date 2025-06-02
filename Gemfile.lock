@@ -117,6 +117,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    webrick (1.9.1)
     yell (2.2.2)
 
 PLATFORMS
@@ -133,6 +134,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   kramdown-parser-gfm
+  webrick (~> 1.9)
 
 RUBY VERSION
    ruby 3.1.2p20
