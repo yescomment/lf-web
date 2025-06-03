@@ -63,28 +63,6 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
-    - product:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: product
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
-    - project:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: project
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
     - genericPage:
         space: ENV_CONTENTFUL_SPACE_ID
         access_token: ENV_CONTENTFUL_ACCESS_TOKEN
@@ -93,17 +71,6 @@ contentful:
         all_entries: true
         cda_query:
           content_type: genericPage
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
-    - portalPage:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: portalPage
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
@@ -115,28 +82,6 @@ contentful:
         all_entries: true
         cda_query:
           content_type: people
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
-    - genericPage:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: genericPage
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
-    - projectsPage:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: projectsPage
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
@@ -162,17 +107,6 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
-    - news:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: news
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
     - figure:
         space: ENV_CONTENTFUL_SPACE_ID
         access_token: ENV_CONTENTFUL_ACCESS_TOKEN
@@ -181,17 +115,6 @@ contentful:
         all_entries: true
         cda_query:
           content_type: figure
-        client_options:
-          max_include_resolution_depth: 2
-          reuse_entries: false
-    - communityBooks:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        base_path: ./source
-        destination: /contentful
-        all_entries: true
-        cda_query:
-          content_type: communityBooks
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
