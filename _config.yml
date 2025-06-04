@@ -152,12 +152,6 @@ contentful:
           max_include_resolution_depth: 2
           reuse_entries: false
 page_gen:
-  - data: 'data.contentful.project.project'
-    template: 'project'
-    name: 'pretty_url'
-    dir: 'projects'
-    customSeoImage: 'seo_image'
-    customSeoDescription: 'seo_description'
   - data: 'data.contentful.product.product'
     template: 'publication'
     name: 'pretty_url'
