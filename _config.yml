@@ -74,6 +74,17 @@ contentful:
         client_options:
           max_include_resolution_depth: 2
           reuse_entries: false
+    - product:
+        space: ENV_CONTENTFUL_SPACE_ID
+        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
+        base_path: ./source
+        destination: /contentful
+        all_entries: true
+        cda_query:
+          content_type: product
+        client_options:
+          max_include_resolution_depth: 2
+          reuse_entries: false
     - people:
         space: ENV_CONTENTFUL_SPACE_ID
         access_token: ENV_CONTENTFUL_ACCESS_TOKEN
@@ -148,9 +159,9 @@ page_gen:
     customSeoImage: 'seo_image'
     customSeoDescription: 'seo_description'
   - data: 'data.contentful.product.product'
-    template: 'product'
+    template: 'publication'
     name: 'pretty_url'
-    dir: 'outputs'
+    dir: 'publications'
     customSeoImage: 'seo_image'
     customSeoDescription: 'seo_description'
   - data: 'data.contentful.people.people'
