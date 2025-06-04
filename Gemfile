@@ -9,7 +9,7 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.9.0"
+gem 'jekyll', '~> 4.4', '>= 4.4.1'
 gem 'html-proofer', "~> 3.4.0"
 gem 'kramdown-parser-gfm'
 gem 'byebug'
