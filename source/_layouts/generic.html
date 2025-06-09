@@ -31,7 +31,7 @@ top_bar: white
   </div>
 
 
-  {% if page.pretty_url == 'our-people' %}
+  {% if page.pretty_url == 'who-we-are' %}
     {% include sections/people.html people=site.data.contentful.people.people %}
   {% elsif page.pretty_url == 'what-were-reading' %}
     {% assign books = site.data.contentful.communityBooks.communityBooks | sort: 'title'%}
