@@ -4,8 +4,53 @@
 {% assign cards_link_to = include.cards_link_to %}
 {% assign cards_link_text = include.cards_link_text %}
 
-{% if cards_type == 'research_cards' %}
-<!-- RESEARCH CARD with icon, title, subtitle, author -->
+{% if cards_type == 'lf_cards' %}
+
+<div class="row expanded page-section--generic row--thin section--light-gray">
+  {% if cards %}
+  <div class="column large-12 small-12 card-section-heading">
+    <h2>{{ cards_heading }}</h2>
+    {% if cards_link_to and cards.link_to.size != 0 %}
+    <a class="link link--arrow" href="{{ cards_link_to | relative_url }}">{{cards_link_text}}</a>
+    {% endif %}
+  </div>
+  <div class="cards-wrapper">
+    {% for card in cards %}
+      {% if card.sys.content_type_id == 'news' %}
+      <!-- news = blog post -->
+        <div class="card card--lfcard">
+          <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'post/' | relative_url }}">
+            {% assign featuredImage = card.column_images | first %}
+            <div class="card__icon" style="background-image: url({{ featuredImage.url }})"></div>
+            <div class="card__detail">
+              <span class="card__title">{{ card.title }}</span>
+              <span class="card__subtitle">{{ card.shortDescription }}</span>
+              {% assign author = card.full_author %}
+              {% assign subline_split = author | split: "](" | first | replace: "[", "" %}
+              <div class="card__author">{{ subline_split }}</div>
+            </div>
+          </a>
+        </div>
+      {% else %}
+        <div class="card card--research">
+          <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'post/' | relative_url }}">
+            <div class="card__icon" style="background-image: url({{ card.seoImage.url }})"></div>
+            <div class="card__detail">
+              <span class="card__title">{{ card.title }}</span>
+              <span class="card__subtitle">{{ card.shortDescription }}</span>
+              {% assign author = card.full_author %}
+              {% assign subline_split = author | split: "](" | first | replace: "[", "" %}
+              <div class="card__author">{{ subline_split }}</div>
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+{% elsif cards_type == 'research_cards' %}
 
 <div class="row expanded page-section--generic row--thin section--light-gray">
   {% if cards %}
@@ -33,7 +78,7 @@
   </div>
   {% endif %}
 </div>
-<!-- END RESEARCH CARD -->
+
 {% elsif cards_type == "project-news_cards" %}
 
   <div class="row expanded page-section--generic row--thin section--light-gray">
@@ -52,8 +97,6 @@
       {% else %}
         <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: '/news/' | relative_url }}">
       {% endif %}
-        
-
           <div class="card__icon" style="background-image: url({{ card.bar_color.url }})"></div>
           <div class="card__detail">
             {% if card.publication_type == 'In the News'%}

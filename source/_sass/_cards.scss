@@ -42,9 +42,52 @@
   transition-duration: 0.4s;
 }
 
+.card--lfcard {
+  // TODO: goal is to replace all below specific card styles
+  // but need to wait until removed from all templates
+  position: relative;
+  min-height: 25rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .card__icon {
+    aspect-ratio: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .card__detail {
+    overflow: hidden;
+    margin-top: 0;
+    justify-content: space-around;
+    padding: 0 !important;
+    bottom: 2rem;
+    right: 2rem;
+    left: 2rem;
+
+    .card__title {
+      font-weight: 700;
+      font-size: $p;
+    }
+
+    .card__subtitle {
+      font-weight: 300;
+      font-size: $p;
+    }
+
+    .card__author {
+      @include all_caps_text;
+      font-weight: 700;
+      font-size: $helper !important;
+    }
+  }
+}
+
 /* END GLOBAL Card Styles */
 
 /* SHARED CARD STATES */
+.card--lfcard,
 .card--event,
 .card--research,
 .card--project,
@@ -56,14 +99,6 @@
 
     a {
       color: $white;
-    }
-
-    .card__icon {
-      visibility: hidden;
-    }
-
-    .card__image {
-      filter: grayscale(70%);
     }
   }
 }
@@ -258,26 +293,6 @@
 // card layouts
 .card-section-heading--thick {
   margin: 3rem 0 2rem;
-}
-
-// PAGE SPECIFIC CARD LAYOUTS
-.generic-layout {
-  .card {
-    background-color: $white;
-
-    &:hover {
-      background-color: $purple-100;
-      color: $white;
-
-      .card__icon {
-        visibility: hidden;
-      }
-
-      .card__image {
-        filter: grayscale(70%);
-      }
-    }
-  }
 }
 
 .card--minimal {
