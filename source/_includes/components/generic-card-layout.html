@@ -27,8 +27,8 @@
           {% assign subline_split = author | split: "](" | first | replace: "[", "" %}
           <div class="card__author">{{ subline_split }}</div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
     {% endfor %}
   </div>
   {% endif %}
