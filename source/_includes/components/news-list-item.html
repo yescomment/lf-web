@@ -4,7 +4,7 @@
   {% if item.publication_type == 'In the News'%}
     <a class="link--primary news-list-item__title external-link" href="{{ item.external_url }}">
   {% else %}
-    <a class="link--primary news-list-item__title" href="{{ item.pretty_url | prepend: '/news/' | relative_url }}">
+    <a class="link--primary news-list-item__title" href="{{ item.pretty_url | prepend: '/post/' | relative_url }}">
   {% endif %}
     {{ item.title }}
   </a>

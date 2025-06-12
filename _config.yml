@@ -175,4 +175,4 @@ page_gen:
   - data: 'data.contentful.news.news'
     template: 'announcement'
     name: 'pretty_url'
-    dir: 'blog'
+    dir: 'post'
