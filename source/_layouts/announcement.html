@@ -13,7 +13,15 @@ seo_image_path: #'/images/media/filename.jpg'
     <div class="column large-4 medium-12 small-12">
       <div class="project__type">{{ page.publication_date | date: "%B %d, %Y" }}</div>
       <h1>{{ page.title }}</h1>
-      <div class="project__authors">{{ page.named_author }}</div>
+      <div class="project__authors">
+        {% for author in page.authors %}
+          <div>
+            <a href="{{ author.pretty_url | prepend: '/people/' | relative_url }}" class="link link--arrow">
+              {{author.display_name}}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
       <div class="bar" style="background-image: url({{ page.bar_color.url}})"></div>
       <div class="sidebar">
         {% for image in page.column_images %}
