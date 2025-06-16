@@ -42,6 +42,11 @@
   a {
     @include markdown-primary-links;
   }
+
+  .button {
+    display: block;
+    margin-inline: auto;
+  }
 }
 
 .markdown-secondary {
