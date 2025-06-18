@@ -147,6 +147,7 @@ gulp.task('build:scripts:watch', gulp.series('build:scripts:dev'), done => {
 gulp.task('serve', done => {
   browserSync.init({
     server: '_site',
+    port: process.env.PORT || 3000,
     ghostMode: false,
     logFileChanges: true,
     open: false
