@@ -1,16 +1,8 @@
 {% assign people = include.people %}
 
-{% assign faculty_cards = people | where: 'type', 'Faculty Co-Directors' | sort: "last_name" %}
-
-{% if faculty_cards and faculty_cards.size != 0%}
-  {% include components/generic-card-layout.html 
-    cards=faculty_cards
-    cards_heading="Faculty Co-Directors"
-    cards_type="people_cards"
-  %}
-{% endif %}
-
 {% assign staff_cards = people | where: 'type', 'Staff' | sort: "last_name"  %}
+
+
 
 {% if staff_cards and staff_cards.size != 0 %}
   {% include components/generic-card-layout.html 
@@ -30,11 +22,11 @@
     %}
 {% endif %}
 
-{% assign program_fellows_cards = people | where: 'type', 'Student Fellow' | sort: "last_name" %}
+{% assign student_fellows_cards = people | where: 'type', 'Student Fellow' | sort: "last_name" %}
 
-{% if program_fellows_cards and program_fellows_cards.size != 0 %}
+{% if student_fellows_cards and student_fellows_cards.size != 0 %}
     {% include components/generic-card-layout.html 
-    cards=program_fellows_cards
+    cards=student_fellows_cards
     cards_heading="Student Fellows"
     cards_type="people_cards"
     %}
@@ -60,11 +52,11 @@
     %}
 {% endif %}
 
-{% assign alumni_cards = people | where: 'type', 'Engelberg Center Staff' | sort: "last_name" %}
+{% assign engelberg_staff_cards = people | where: 'type', 'Engelberg Center Staff' | sort: "last_name" %}
 
-{% if alumni_cards and alumni_cards.size != 0 %}
+{% if engelberg_staff_cards and engelberg_staff_cards.size != 0 %}
     {% include components/minimal-card-layout.html 
-      cards=alumni_cards
+      cards=engelberg_staff_cards
       cards_heading="Engelberg Center Staff"
       cards_type="people_cards"
       cards_alumni=true
