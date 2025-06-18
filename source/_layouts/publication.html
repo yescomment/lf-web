@@ -60,7 +60,7 @@ top_bar: gray
             <a href="{{ page.button_url }}" class="button">{{ page.button_text }}</a>
           {% endif %}
           {% if page.authors %}
-            <h3>Engelberg Center Authors</h3>
+            <h3>Authors</h3>
             {% for item in page.authors %}
               <a href="{{ item.pretty_url | slugify | prepend: '/people/' | relative_url }}" class="author link link--secondary">{{ item.display_name }}</a>
             {% endfor %}
