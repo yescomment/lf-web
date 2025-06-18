@@ -1,6 +1,10 @@
 {% assign people = include.people %}
 
-{% assign staff_cards = people | where: 'type', 'Staff' | sort_natural: "last_name"  %}
+{% assign staff_tier1 = people | where: 'type', 'Staff' | where: 'title', 'Executive Director' | sort_natural: "last_name" %}
+{% assign staff_tier2 = people | where: 'type', 'Staff' | where: 'title', 'Director of Programs' | sort_natural: "last_name" %}
+{% assign staff_all = people | where: 'type', 'Staff' | reject: 'title', 'Executive Director' | reject: 'title', 'Director of Programs' | sort_natural: "last_name"  %}
+
+{% assign staff_cards = staff_tier1 | concat: staff_tier2 | concat: staff_all | uniq  %}
 
 {% if staff_cards and staff_cards.size != 0 %}
   {% include components/generic-card-layout.html 
