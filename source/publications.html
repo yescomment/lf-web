@@ -84,36 +84,6 @@ list_page: true
               component_label_class="visually-hidden" %}
             </div>
           </div>
-
-          <div class="dropdown-container">
-            <div class="dropdown-component">
-              {% include components/dropdown.html content=all_types component_id="product-type"
-              component_name="product-type" component_default="All Types" component_label_class="visually-hidden" %}
-            </div>
-          </div>
-
-          <div class="checkbox-container">
-            <!-- checkbox  -->
-            <span class="checkbox-heading">Area of Law</span>
-
-            {% for area in all_law_areas %} {% include components/checkbox.html class_name="area-checkbox" content=area
-            %} {% endfor %}
-          </div>
-          <div class="checkbox-container">
-            <!-- checkbox  -->
-            <span class="checkbox-heading">Topics</span>
-
-            {% for topic in all_topics %} {% include components/checkbox.html class_name="topic-checkbox" content=topic
-            %} {% endfor %}
-          </div>
-
-          <div class="checkbox-container">
-            <!-- checkbox  -->
-            <span class="checkbox-heading">Tags</span>
-
-            {% for tag in all_tags %} {% include components/checkbox.html class_name="tag-checkbox" content=tag %}
-            {% endfor %}
-          </div>
         </div>
       </aside>
       <div class="column list-container">
@@ -132,7 +102,9 @@ list_page: true
         </div>
 
         <div class="list">
-          {% for product in products %} {% include components/product.html product=product %} {% endfor %}
+          {% for product in products %}
+            {% include components/product.html product=product %}
+          {% endfor %}
         </div>
       </div>
     </div>
