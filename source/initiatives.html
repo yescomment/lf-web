@@ -15,6 +15,7 @@ top_bar: white
       </div>
     </div>
     <div class="column large-6 large-offset-1 medium-12 small-12">
+      {% if site.data.contentful.event.event %}
       <div class="topics-dropdown-container">
           {% assign initiatves = site.data.contentful.initiative.initiative | sort: "initiative_name" %}
           <div id="line-one">Library Futures is behind</div>
@@ -29,6 +30,7 @@ top_bar: white
           </select>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </main>
