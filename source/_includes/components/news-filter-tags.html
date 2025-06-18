@@ -14,7 +14,7 @@
 </span>
 
 <span class="news-item-center-author visually-hidden">
-  all {% for author in news_item.engelberg_author %} {{ author.display_name | slugify }} {% endfor %}
+  all {% for author in news_item.authors %} {{ author.display_name | slugify }} {% endfor %}
 </span>
 
 <span class="news-item-type visually-hidden">all {{ news_item.publication_type | slugify }}</span>

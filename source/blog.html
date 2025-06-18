@@ -13,7 +13,7 @@ list_page: true
 {% assign all_types = "" | split: "" %} 
 
 {% for item in news %} 
-  {% for author in item.engelberg_author %} 
+  {% for author in item.authors %} 
     {% assign all_authors = all_authors | push: author %} 
   {% endfor %} 
   {% assign all_publications = all_publications | push: item.publication %} 

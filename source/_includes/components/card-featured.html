@@ -36,7 +36,7 @@
       {% if card.full_author %}
         <span class="card__author">{{ card.full_author | markdownify }}</span>
       {% else %}
-        {% for sys in card.engelberg_author %}
+        {% for sys in card.authors %}
           {% assign author = site.data.contentful.people.people | where: 'sys.id', sys.id | first %}
           <span class="card__author">{{ author.display_name }}</span>
         {% endfor %}
