@@ -20,7 +20,7 @@ Overlay.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
-if (window.location.pathname.includes('/publications/')) {
+if (window.location.pathname.includes('/publications\/?')) {
   if (document.querySelector('.product-page')) {
     Footnotes.init();
     FixedNav.init();
