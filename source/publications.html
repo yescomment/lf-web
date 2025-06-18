@@ -23,7 +23,7 @@ list_page: true
 <!-- populate assignments-->
 {% for product in products %}
 <!-- populate 'all_authors' -->
-{% for author in product.engelberg_author %}
+{% for author in product.authors %}
 <!-- populate all_authors with display name -->
 {% assign all_authors = all_authors | push: author %} {% endfor %}
 <!-- populate all_types -->

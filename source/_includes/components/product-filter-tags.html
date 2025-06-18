@@ -18,6 +18,6 @@
   {{ product.publication_date | date: time_tag}}
 </span>
 <span class="product-center-author visually-hidden">
-  all {% for author in product.engelberg_author %} {{ author.display_name | slugify }} {% endfor %}
+  all {% for author in product.authors %} {{ author.display_name | slugify }} {% endfor %}
 </span>
 <span class="product-type visually-hidden">all {{ product.type | slugify | downcase }}</span>
