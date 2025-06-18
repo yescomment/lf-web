@@ -1,5 +1,5 @@
 {
 	"buildCommand": "bundle exec jekyll contentful && gulp build",
-	"devCommand": "gulp",
+	"devCommand": "bundle exec jekyll contentful && gulp",
 	"installCommand": "bundle install && npm install"
 }
