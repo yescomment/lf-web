@@ -152,6 +152,7 @@ contentful:
           max_include_resolution_depth: 2
           reuse_entries: false
 page_gen:
+  # PRODUCT in Contentful is PUBLICATION (cannot rename content types)
   - data: 'data.contentful.product.product'
     template: 'publication'
     name: 'pretty_url'
