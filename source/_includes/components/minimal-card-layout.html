@@ -20,7 +20,7 @@
             <span class="card__name">{{ card.display_name }}</span>
           </a>
         {% else if cards_alumni and !card.button_url %}
-          <a href="{{ card.pretty_url | prepend: '/our-people/' | relative_url }}">
+          <a href="{{ card.pretty_url | prepend: '/people/' | relative_url }}">
             <span class="card__name">{{ card.display_name }}</span>
           </a>
         {% else %}
