@@ -1,8 +1,6 @@
 {% assign people = include.people %}
 
-{% assign staff_cards = people | where: 'type', 'Staff' | sort: "last_name"  %}
-
-
+{% assign staff_cards = people | where: 'type', 'Staff' | sort_natural: "last_name"  %}
 
 {% if staff_cards and staff_cards.size != 0 %}
   {% include components/generic-card-layout.html 
@@ -12,7 +10,7 @@
   %}
 {% endif %}
 
-{% assign fellows_cards = people | where: 'type', 'Fellow' | sort: "last_name" %}
+{% assign fellows_cards = people | where: 'type', 'Fellow' | sort_natural: "last_name" %}
 
 {% if fellows_cards and fellows_cards.size != 0 %}
     {% include components/generic-card-layout.html 
@@ -22,7 +20,7 @@
     %}
 {% endif %}
 
-{% assign student_fellows_cards = people | where: 'type', 'Student Fellow' | sort: "last_name" %}
+{% assign student_fellows_cards = people | where: 'type', 'Student Fellow' | sort_natural: "last_name" %}
 
 {% if student_fellows_cards and student_fellows_cards.size != 0 %}
     {% include components/generic-card-layout.html 
@@ -32,7 +30,7 @@
     %}
 {% endif %}
 
-{% assign advisory_board_cards = people | where: 'type', 'Advisory Board' | sort: "last_name" %}
+{% assign advisory_board_cards = people | where: 'type', 'Advisory Board' | sort_natural: "last_name" %}
 
 {% if advisory_board_cards and advisory_board_cards.size != 0 %}
     {% include components/minimal-card-layout.html 
@@ -42,7 +40,7 @@
     %}
 {% endif %}
 
-{% assign advisory_board_cards = people | where: 'type', 'Intern' | sort: "last_name" %}
+{% assign advisory_board_cards = people | where: 'type', 'Intern' | sort_natural: "last_name" %}
 
 {% if advisory_board_cards and advisory_board_cards.size != 0 %}
     {% include components/minimal-card-layout.html 
@@ -52,7 +50,7 @@
     %}
 {% endif %}
 
-{% assign engelberg_staff_cards = people | where: 'type', 'Engelberg Center Staff' | sort: "last_name" %}
+{% assign engelberg_staff_cards = people | where: 'type', 'Engelberg Center Staff' | sort_natural: "last_name" %}
 
 {% if engelberg_staff_cards and engelberg_staff_cards.size != 0 %}
     {% include components/minimal-card-layout.html 
