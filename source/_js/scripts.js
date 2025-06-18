@@ -20,7 +20,7 @@ Overlay.init();
 Search.init();
 Utils.markdownLinksNewPage();
 
-if (window.location.pathname.includes('/outputs/')) {
+if (window.location.pathname.includes('/publications/')) {
   if (document.querySelector('.product-page')) {
     Footnotes.init();
     FixedNav.init();
@@ -36,15 +36,14 @@ if (window.location.pathname.includes('/outputs/')) {
 }
 
 if (window.location.pathname.match(/initiatives\/?$/gm)) {
-  console.log('working');
   CustomDropdown.init();
 }
 
-if (window.location.pathname.match(/outputs\/?$/gm)) {
+if (window.location.pathname.match(/publications\/?$/gm)) {
   ProductFilter.init();
 }
 
-if (window.location.pathname.match(/news\/?$/gm)) {
+if (window.location.pathname.match(/blog\/?$/gm)) {
   NewsFilters.init();
 }
 
