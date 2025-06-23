@@ -97,7 +97,7 @@
       {% else %}
         <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: '/news/' | relative_url }}">
       {% endif %}
-          <div class="card__icon" style="background-image: url({{ card.bar_color.url }})"></div>
+          <div class="bar" style="background-image: url('/images/bar-p.svg')"></div>
           <div class="card__detail">
             {% if card.publication_type == 'In the News'%}
               <span class="card__title external-link">{{ card.title }}</span>
@@ -133,7 +133,7 @@
               alt="{{card.display_name}} Image"
             />
           </div>
-          <div class="bar" style="background-image: url({{ card.bar_color.url }})"></div>
+          <div class="bar" style="background-image: url('/images/bar-p.svg')"></div>
         </div>
         <div class="card__detail">
           <span class="card__name">{{ card.display_name }}</span>

@@ -30,6 +30,13 @@
   background-position-x: calc(-25%);
   background-position-y: calc(25%);
 
+  .background-image-container {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
   @include breakpoint($medium-only) {
     background-image: none !important;
   }

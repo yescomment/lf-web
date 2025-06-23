@@ -12,8 +12,7 @@
   <div class="cards-wrapper">
     {% for card in cards %}
     <div class="card--minimal">
-        <!-- <div class="bar" style="background-image: url({{ card.bar_color.url }})"></div> -->
-        <img src="{{card.bar_color.url}}">
+      <img src="/iamges/bar-p.svg">
       <div class="card__detail">
         {% if card.button_url %}
           <a href="{{ card.button_url }}">
