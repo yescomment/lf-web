@@ -11,7 +11,8 @@ top_bar: white
   {% include components/nav-button.html %}
   <div class="row expanded top-section--generic section--gray" style="background-image: url({{ page.header_beam.url}})">
     <div class="column large-4 medium-12 small-12">
-      <div class="background-image-container"></div>
+      <div class="background-image-container" style="background-image: url('https:{{ page.featured_image.url}}')">
+      </div>
     </div>
     <div class="column large-6 large-offset-1 medium-12 small-12">
       <h1>{{ page.title }}</h1>
