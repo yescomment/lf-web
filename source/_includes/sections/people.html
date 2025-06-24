@@ -1,5 +1,6 @@
 {% assign people = include.people %}
 
+{% comment Manually sort ED first, then DoP, then everyone else by last name endcomment %}
 {% assign staff_tier1 = people | where: 'type', 'Staff' | where: 'title', 'Executive Director' | sort_natural: "last_name" %}
 {% assign staff_tier2 = people | where: 'type', 'Staff' | where: 'title', 'Director of Programs' | sort_natural: "last_name" %}
 {% assign staff_all = people | where: 'type', 'Staff' | reject: 'title', 'Executive Director' | reject: 'title', 'Director of Programs' | sort_natural: "last_name"  %}
@@ -7,7 +8,7 @@
 {% assign staff_cards = staff_tier1 | concat: staff_tier2 | concat: staff_all | uniq  %}
 
 {% if staff_cards and staff_cards.size != 0 %}
-  {% include components/generic-card-layout.html 
+  {% include components/generic-card-layout.html
     cards=staff_cards
     cards_heading="Staff"
     cards_type="people_cards"
@@ -17,7 +18,7 @@
 {% assign fellows_cards = people | where: 'type', 'Fellow' | sort_natural: "last_name" %}
 
 {% if fellows_cards and fellows_cards.size != 0 %}
-    {% include components/generic-card-layout.html 
+    {% include components/generic-card-layout.html
     cards=fellows_cards
     cards_heading="Fellows"
     cards_type="people_cards"
@@ -27,7 +28,7 @@
 {% assign student_fellows_cards = people | where: 'type', 'Student Fellow' | sort_natural: "last_name" %}
 
 {% if student_fellows_cards and student_fellows_cards.size != 0 %}
-    {% include components/generic-card-layout.html 
+    {% include components/generic-card-layout.html
     cards=student_fellows_cards
     cards_heading="Student Fellows"
     cards_type="people_cards"
@@ -37,7 +38,7 @@
 {% assign advisory_board_cards = people | where: 'type', 'Advisory Board' | sort_natural: "last_name" %}
 
 {% if advisory_board_cards and advisory_board_cards.size != 0 %}
-    {% include components/minimal-card-layout.html 
+    {% include components/generic-card-layout.html
       cards=advisory_board_cards
       cards_heading="Advisory Board"
       cards_type="people_cards"
@@ -47,7 +48,7 @@
 {% assign advisory_board_cards = people | where: 'type', 'Intern' | sort_natural: "last_name" %}
 
 {% if advisory_board_cards and advisory_board_cards.size != 0 %}
-    {% include components/minimal-card-layout.html 
+    {% include components/generic-card-layout.html
       cards=advisory_board_cards
       cards_heading="Interns"
       cards_type="people_cards"
@@ -57,7 +58,7 @@
 {% assign engelberg_staff_cards = people | where: 'type', 'Engelberg Center Staff' | sort_natural: "last_name" %}
 
 {% if engelberg_staff_cards and engelberg_staff_cards.size != 0 %}
-    {% include components/minimal-card-layout.html 
+    {% include components/generic-card-layout.html
       cards=engelberg_staff_cards
       cards_heading="Engelberg Center Staff"
       cards_type="people_cards"
