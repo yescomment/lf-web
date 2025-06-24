@@ -1,15 +1,22 @@
 {% seo %}
 
-{%if page.seo_image_path or site.seo_image_path %}
-  {% if page.seo_image_path %}
+{%if page.featured_image or page.seo_image_path or site.seo_image_path %}
+  {% if page.featured_image %}
+    <meta property="og:image" content="https:{{ page.featured_image.url}}" />
+    <meta name="twitter:image" content="https:{{ page.featured_image.url}}">
+    <meta property="og:image:width" content="{{ page.featured_image.details.image.width }}">
+    <meta property="og:image:height" content="{{ page.featured_image.details.image.height }}">
+  {% elsif page.seo_image_path %}
     <meta property="og:image" content="{{ page.seo_image_path | absolute_url }}" />
     <meta name="twitter:image" content="{{ page.seo_image_path | absolute_url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
   {% else %}
     <meta property="og:image" content="{{ site.seo_image_path | absolute_url }}" />
     <meta name="twitter:image" content="{{ site.seo_image_path | absolute_url }}">
-  {% endif %}
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+  {% endif %}
 {% endif %}
 
 <meta name="twitter:card" content="summary_large_image">
