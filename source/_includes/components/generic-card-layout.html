@@ -17,30 +17,53 @@
   <div class="cards-wrapper">
     {% for card in cards %}
       {% if card.sys.content_type_id == 'news' %}
-      <!-- news = blog post -->
+        {% comment %} news = blog post {% endcomment %}
         <div class="card card--lfcard">
           <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'post/' | relative_url }}">
             {% assign featuredImage = card.column_images | first %}
             <div class="card__icon" style="background-image: url({{ featuredImage.url }})"></div>
             <div class="card__detail">
               <span class="card__title">{{ card.title }}</span>
-              <span class="card__subtitle">{{ card.shortDescription }}</span>
+              <span class="card__subtitle">{{ card.short_description }}</span>
               {% assign author = card.full_author %}
               {% assign subline_split = author | split: "](" | first | replace: "[", "" %}
               <div class="card__author">{{ subline_split }}</div>
             </div>
           </a>
         </div>
-      {% else %}
-        <div class="card card--research">
-          <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'post/' | relative_url }}">
-            <div class="card__icon" style="background-image: url({{ card.seoImage.url }})"></div>
+      {% elsif card.sys.content_type_id == 'product' %}
+        {% comment %} product = publication {% endcomment %}
+        <div class="card card--lfcard">
+          <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'publications/' | relative_url }}">
+            <div class="card__icon" style="background-image: url({{ card.cover_image.url }})"></div>
             <div class="card__detail">
               <span class="card__title">{{ card.title }}</span>
-              <span class="card__subtitle">{{ card.shortDescription }}</span>
+              <span class="card__subtitle">{{ card.short_description }}</span>
               {% assign author = card.full_author %}
               {% assign subline_split = author | split: "](" | first | replace: "[", "" %}
               <div class="card__author">{{ subline_split }}</div>
+            </div>
+          </a>
+        </div>
+      {% elsif card.sys.content_type_id == 'event' %}
+        {% comment %} product = publication {% endcomment %}
+        <div class="card card--lfcard">
+          <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'events/' | relative_url }}">
+            <div class="card__icon" style="background-image: url({{ card.featured_image.url }})"></div>
+            <div class="card__detail">
+              <span class="card__title">{{ card.title }}</span>
+              <span class="card__subtitle">{{ card.short_description }}</span>
+              <div class="card__date">{{ card.event_start | date: "%B %d, %Y" }}</div>
+            </div>
+          </a>
+        </div>
+      {% elsif card.sys.content_type_id == 'people' %}
+        <div class="card card--lfcard">
+          <a class="card-link-wrapper" href="{{ card.pretty_url | prepend: 'people/' | relative_url }}">
+            <div class="card__icon" style="background-image: url({{ card.photo.url }})"></div>
+            <div class="card__detail">
+              <span class="card__title">{{ card.display_name }}</span>
+              <span class="card__subtitle">{{ card.title }}</span>
             </div>
           </a>
         </div>
