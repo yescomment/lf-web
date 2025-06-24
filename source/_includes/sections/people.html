@@ -1,6 +1,6 @@
 {% assign people = include.people %}
 
-{% comment Manually sort ED first, then DoP, then everyone else by last name endcomment %}
+{% comment %} Manually sort ED first, then DoP, then everyone else by last name {% endcomment %}
 {% assign staff_tier1 = people | where: 'type', 'Staff' | where: 'title', 'Executive Director' | sort_natural: "last_name" %}
 {% assign staff_tier2 = people | where: 'type', 'Staff' | where: 'title', 'Director of Programs' | sort_natural: "last_name" %}
 {% assign staff_all = people | where: 'type', 'Staff' | reject: 'title', 'Executive Director' | reject: 'title', 'Director of Programs' | sort_natural: "last_name"  %}
