@@ -33,8 +33,10 @@
   .background-image-container {
     height: 100%;
     width: 100%;
-    background-size: cover;
-    background-position: center center;
+    max-aspect-ratio: 1;
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
 
   @include breakpoint($medium-only) {
