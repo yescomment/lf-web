@@ -1,11 +1,10 @@
 ---
 layout: default
-title: Engelberg Center on Innovation Law & Policy
-description: The Engelberg Center on Innovation Law & Policy at NYU School of Law examines the key drivers of innovation as well as the law and policy that best support innovation.
 top_bar: no-logo
 ---
 
-{% assign data = site.data.contentful.index.index | first %}
+{% assign latest_blog_post = site.data.contentful.news.news | sort: "publication_date" | reverse | first %}
+{% assign latest_publication = site.data.contentful.product.product | sort: "publication_date" | reverse | first %}
 
 <main role="main" id="main" class="index">
   <!-- main content starts here -->
@@ -16,40 +15,35 @@ top_bar: no-logo
       <h1 class="visually-hidden">Library Futures</h1>
       <div class="main-header" aria-hidden="true">
         <img id="main-logo" src="{{ '/images/lf-vertical-lockup-color.svg' | relative_url }}" />
-        {% comment %}
-        <div class="logo-container"></div>
-        <span class="main-header-one">Library Futures</span>
-        <span class="main-header-three">at the Engelberg Center on Innovation Law & Policy at NYU Law</span>
-        {% endcomment %}
       </div>
+      <p>We mobilize a community of experts to encourage the adoption of technologies that uplift libraries in the digital age, promoting new possibilities for preservation of and unfettered access to information.</p>
+      <p>Library Futures is a project of <a href="https://www.nyuengelberg.org">The Engelberg Center on Innovation Law & Policy at NYU Law</a>.</p>
       <div class="button-container">
-        <a class="button button--arrow" href="{{ '/our-mission' | relative_url }}">About the Engelberg Center</a>
+        <a class="button button--arrow" href="{{ '/our-work' | relative_url }}">What we do</a>
       </div>
     </div>
     <div class="column large-6 large-offset-1 no-padding medium-12 small-12">
-      <h2 class="heading-c">Featured Research</h2>
+      <h2 class="heading-c">The latest</h2>
 
-      {% include components/card-featured.html card=data.featured_research path="/outputs/" %}
+      {% include components/card-featured.html card=latest_blog_post path="/post/" %}
 
       <div class="button-container button-container--right">
-        <a class="button button--arrow" href="{{ '/outputs' | relative_url  }}">All Engelberg Center Research</a>
+        <a class="button button--arrow" href="{{ '/blog' | relative_url  }}">All posts</a>
       </div>
     </div>
   </div>
   <!-- END FEATURED PROJECT CARD  -->
 
-  <!-- PODCAST CARD with header, title, episode image, episode description, player -->
-  <!-- Layout 2 -->
   <div class="row expanded inverted-section">
     <div class="column large-4 medium-12 small-12 no-padding">
-      {% include components/card-podcast.html podcast=data.featured_podcast %}
+      {% include components/card-publication.html publication=latest_publication %}
     </div>
     <div class="column large-7 large-offset-1 medium-12 small-12">
-      <h3 class="heading-b">{{data.short_description_title}}</h3>
-      <div class="markdown-secondary">
-        {{ data.short_description | markdownify }}
-      </div>
-      <a class="link link--arrow inverted" href="{{ data.learn_more_url }}">Learn More</a>
+      <p><a class="link link--arrow inverted" href="/publications">See all publications</a></p>
+      <h3 class="heading-b">Or, see what else we do:</h3>
+      <p><a class="link link--arrow inverted" href="https://cats.libraryfutures.net">CATS: a twice-monthly newsletter about copyright and technology</a></p>
+      <p><a class="link link--arrow inverted" href="https://www.controlleddigitallending.org">Controlled Digital Lending: loan print books to digital patrons</a></p>
+      <p><a class="link link--arrow inverted" href="https://ebooksforus.com">E-books for Us: comics on the real cost of library e-books</a></p>
     </div>
   </div>
 
@@ -77,10 +71,10 @@ top_bar: no-logo
     <div class="column large-7 large-offset-1 medium-12 small-12">
     {% endcomment %}
       <div class="column">
-      <h3 class="heading-b">In the News</h3>
-      <a class="link link--arrow" href="{{ '/news' | relative_url }}">All Engelberg Center News</a>
+      <h3 class="heading-b">More from our Blog</h3>
+      <a class="link link--arrow" href="{{ '/blog' | relative_url }}">All Posts</a>
       <div class="news-feed__container markdown-secondary">
-        {% for item in data.featured_news %} {% include components/news-item.html item=item %} {% endfor %}
+        {% for item in site.data.contentful.news.news | sort: "publication_date" | reverse limit:10 %} {% include components/news-item.html item=item %} {% endfor %}
       </div>
     </div>
   </div>

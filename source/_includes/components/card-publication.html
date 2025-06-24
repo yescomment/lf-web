@@ -1,0 +1,24 @@
+{% assign publication = include.publication %}
+
+<div class="card card--podcast">
+    <h2 class="heading-a">Latest Publication</h2>
+    <div class="card__podcast-wrapper">
+      <div
+        class="card__podcast-image"
+        style="background-image: url('{{publication.cover_image.url}}')">
+      </div>
+    </div>
+    <a class="link--secondary card__title" href="{{ podcast.pretty_url | prepend: '/publications/' | relative_url }}">
+      {{ publication.title }}
+    </a>
+    <span class="card__subtitle">{{ publication.subtitle }}</span>
+    <div class="card__podcast-wrapper">
+      <div class="card__podcast-detail">
+        <!-- <span class="card__podcast-title">{{ podcast.episode_title }}</span> -->
+        <!-- <span class="card__podcast-episode">{{ podcast.episode }}</span> -->
+        <div class="card__podcast-player"></div>
+      </div>
+    </div>
+    <p class="card__description">{{ publication.short_description }}</p>
+    <a class="link link--arrow" href="{{ podcast.pretty_url | prepend: '/publications/' | relative_url }}">Read now</a>
+  </div>
