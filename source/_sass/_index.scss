@@ -59,6 +59,7 @@
   .button-container {
     display: flex;
     margin: 1.7rem 0;
+    gap: 0.5em;
 
     @include breakpoint($medium-only) {
       margin-bottom: 3rem;
