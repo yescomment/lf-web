@@ -91,7 +91,7 @@ top_bar: no-logo
       <h3 class="heading-b">More from our Blog</h3>
       <a class="link link--arrow" href="{{ '/blog' | relative_url }}">All Posts</a>
       <div class="news-feed__container markdown-secondary">
-        {% for item in site.data.contentful.news.news | sort: "publication_date" | reverse limit:10 %} {% include components/news-item.html item=item %} {% endfor %}
+        {% for item in site.data.contentful.news.news | sort: "publication_date" | reverse limit:10 %} {% include components/blog-item.html item=item %} {% endfor %}
       </div>
     </div>
   </div>
