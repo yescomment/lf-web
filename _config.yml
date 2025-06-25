@@ -29,6 +29,7 @@ markdown: kramdown
 #   - paragraph_end
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 
 exclude:
   - Gemfile
