@@ -61,6 +61,7 @@ contentful:
         cda_query:
           content_type: index
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - genericPage:
@@ -72,6 +73,7 @@ contentful:
         cda_query:
           content_type: genericPage
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - product:
@@ -83,6 +85,7 @@ contentful:
         cda_query:
           content_type: product
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - people:
@@ -94,6 +97,7 @@ contentful:
         cda_query:
           content_type: people
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - eventsPage:
@@ -105,6 +109,7 @@ contentful:
         cda_query:
           content_type: eventsPage
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - event:
@@ -116,6 +121,7 @@ contentful:
         cda_query:
           content_type: event
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - news:
@@ -127,6 +133,7 @@ contentful:
         cda_query:
           content_type: news
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - figure:
@@ -138,6 +145,7 @@ contentful:
         cda_query:
           content_type: figure
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
     - initiative:
@@ -149,6 +157,7 @@ contentful:
         cda_query:
           content_type: initiative
         client_options:
+          api_url: ENV_CONTENTFUL_API_HOSTNAME
           max_include_resolution_depth: 2
           reuse_entries: false
 page_gen:
