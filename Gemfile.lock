@@ -26,11 +26,15 @@ GEM
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
     ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
     forwardable-extended (2.6.0)
     google-protobuf (4.31.1-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
     html-proofer (3.4.0)
@@ -106,6 +110,8 @@ GEM
     multi_json (1.15.0)
     nokogiri (1.18.8-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-gnu)
+      racc (~> 1.4)
     parallel (1.27.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -120,6 +126,8 @@ GEM
     rouge (4.5.2)
     safe_yaml (1.0.5)
     sass-embedded (1.89.1-arm64-darwin)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.1-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
@@ -136,6 +144,7 @@ PLATFORMS
   arm64-darwin-20
   arm64-darwin-21
   arm64-darwin-24
+  x86_64-linux-gnu
 
 DEPENDENCIES
   byebug
@@ -150,7 +159,7 @@ DEPENDENCIES
   webrick (~> 1.9)
 
 RUBY VERSION
-   ruby 3.3.7p123
+   ruby 3.2.3p157
 
 BUNDLED WITH
    2.3.5

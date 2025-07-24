@@ -9,3 +9,6 @@ source/assets
 .vscode/
 source/_data/contentful
 .vercel
+.next
+.env.local
+.env.*.local
