@@ -1,1 +1,18 @@
-self.__BUILD_MANIFEST={polyfillFiles:["static/chunks/polyfills-42372ed130431b0a.js"],devFiles:[],ampDevFiles:[],lowPriorityFiles:[],rootMainFiles:[],pages:{"/":["static/chunks/webpack-f3f098f39bb6fb17.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-19bb5948fc47a74b.js","static/chunks/pages/index-9fc17c74adfd0894.js"],"/[slug]":["static/chunks/webpack-f3f098f39bb6fb17.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-19bb5948fc47a74b.js","static/chunks/129-f305bcfeff0c72cc.js","static/chunks/pages/[slug]-0b35fa0befea2b74.js"],"/_app":["static/chunks/webpack-f3f098f39bb6fb17.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-19bb5948fc47a74b.js","static/chunks/pages/_app-58725743367df942.js"],"/_error":["static/chunks/webpack-f3f098f39bb6fb17.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-19bb5948fc47a74b.js","static/chunks/pages/_error-040e4977a8a65860.js"],"/posts/[slug]":["static/chunks/webpack-f3f098f39bb6fb17.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-19bb5948fc47a74b.js","static/chunks/129-f305bcfeff0c72cc.js","static/chunks/pages/posts/[slug]-b17bf9024c0da633.js"],"/publications/[slug]":["static/chunks/webpack-f3f098f39bb6fb17.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-19bb5948fc47a74b.js","static/chunks/129-f305bcfeff0c72cc.js","static/chunks/pages/publications/[slug]-b18731c45d9b6864.js"]},ampFirstPages:[]},self.__BUILD_MANIFEST.lowPriorityFiles=["/static/"+process.env.__NEXT_BUILD_ID+"/_buildManifest.js",,"/static/"+process.env.__NEXT_BUILD_ID+"/_ssgManifest.js"];
+self.__BUILD_MANIFEST = {
+  "polyfillFiles": [
+    "static/chunks/polyfills.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/_app": []
+  },
+  "ampFirstPages": []
+};
+self.__BUILD_MANIFEST.lowPriorityFiles = [
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+,"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js",
+
+];
