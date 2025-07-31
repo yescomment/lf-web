@@ -1,7 +1,5 @@
 # Used by `staging` branch, per JEKYLL_CONFIG_FILE in Vercel build script
 
-title: TEST Futures
-
 contentful:
   spaces:
     - index:
