@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vc build:*)",
+      "Bash(bundle --version)",
+      "Bash(ruby --version)",
+      "Bash(bundle exec which:*)",
+      "Bash(bundle exec:*)",
+      "Bash(vc)"
+    ],
+    "deny": []
+  }
+}
