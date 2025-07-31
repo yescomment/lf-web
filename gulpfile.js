@@ -80,7 +80,8 @@ gulp.task('build:scripts:prod', () =>
  build dev
 ========================================= */
 
-gulp.task('build:jekyll', shell.task('bundle exec jekyll build --incremental --config ' + (process.env.JEKYLL_CONFIG_FILENAME || '_config.yml')));
+gulp.task('build:jekyll', shell.task('bundle exec jekyll build --incremental --config '
+  + (process.env.JEKYLL_CONFIG_FILENAME ? `${process.env.JEKYLL_CONFIG_FILENAME},_config.yml` : '_config.yml')));
 
 gulp.task('build:jekyll:dev', gulp.series('build:jekyll', 'build:html'));
 
@@ -91,7 +92,8 @@ gulp.task('build:dev', gulp.series(gulp.series('build:scripts:dev', 'build:style
 ========================================= */
 gulp.task('jekyll:clean', shell.task(['bundle exec jekyll clean']));
 
-gulp.task('build:jekyll:prod', shell.task('bundle exec jekyll build --config ' + (process.env.JEKYLL_CONFIG_FILENAME || '_config.yml')));
+gulp.task('build:jekyll:prod', shell.task('bundle exec jekyll build --config '
+  + (process.env.JEKYLL_CONFIG_FILENAME ? `${process.env.JEKYLL_CONFIG_FILENAME},_config.yml` : '_config.yml')));
 
 gulp.task(
   'build:prod',
