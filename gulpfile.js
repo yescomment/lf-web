@@ -92,8 +92,10 @@ gulp.task('build:dev', gulp.series(gulp.series('build:scripts:dev', 'build:style
 ========================================= */
 gulp.task('jekyll:clean', shell.task(['bundle exec jekyll clean']));
 
-gulp.task('build:jekyll:prod', shell.task('bundle exec jekyll build --config '
-  + (process.env.JEKYLL_CONFIG_FILENAME ? `_config.yml,${process.env.JEKYLL_CONFIG_FILENAME},` : '_config.yml')));
+gulp.task('build:jekyll:prod', shell.task([
+  `console.log('JEKYLL_CONFIG_FILENAME: ${process.env.JEKYLL_CONFIG_FILENAME}')`
+  `bundle exec jekyll build --config ${process.env.JEKYLL_CONFIG_FILENAME}`
+]));
 
 gulp.task(
   'build:prod',
