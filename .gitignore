@@ -9,3 +9,11 @@ source/assets
 .vscode/
 source/_data/contentful
 .vercel
+
+# Next.js build artifacts
+.next/
+out/
+
+# Environment variables
+.env.local
+.env.*.local

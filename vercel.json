@@ -1,5 +1,13 @@
 {
-	"buildCommand": "bundle exec jekyll contentful && gulp build",
-	"devCommand": "bundle exec jekyll contentful && gulp",
-	"installCommand": "bundle install && npm install"
+	"buildCommand": "npm run build",
+	"devCommand": "npm run dev",
+	"installCommand": "npm install",
+	"framework": "nextjs",
+	"env": {
+		"CONTENTFUL_SPACE_ID": "@contentful_space_id",
+		"CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token",
+		"CONTENTFUL_PREVIEW_ACCESS_TOKEN": "@contentful_preview_access_token",
+		"PREVIEW_SECRET": "@preview_secret",
+		"REVALIDATE_SECRET": "@revalidate_secret"
+	}
 }
